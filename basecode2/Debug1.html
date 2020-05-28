@@ -325,15 +325,31 @@ table#DP01 th {
  var XAxis =  -2;
  var XAxisPrevious =  -2;
  var XClear = 0;
- var YAxis0 = 0;
- var YAxisPrevious0 = 0;
- var YAxis1 = 0;
- var YAxisPrevious1 = 0;
+ var YAxis = [10,20,30,40,50,60];
+ var YAxisPrevious = [0,0,0,0,0,0];
  var canWidth = 0;
  var canHeight = 0;
  var Flipped;
  var colors = ["red",   "green",   "blue",   "yellow",   "orange", "black"];
+ var ChartForCount;
+ var WatchVarableRowIndex = 0;
+ var WatchVariableColIndex = 0;
+ var WatchVariableNames = [
+					["Empty", "Empty", "Empty", "Empty", "Empty"],
+					["Empty", "Empty", "Empty", "Empty", "Empty"],
+					["Empty", "Empty", "Empty", "Empty", "Empty"],
+					["Empty", "Empty", "Empty", "Empty", "Empty"],
+					["Empty", "Empty", "Empty", "Empty", "Empty"]
+				  ];
+ var WatchVariableData = [
+							[0, 0, 0, 0, 0],
+							[0, 0, 0, 0, 0],
+							[0, 0, 0, 0, 0],
+							[0, 0, 0, 0, 0],
+							[0, 0, 0, 0, 0]
+   						 ];		
 
+						 
 
  var counttmr = 0;
  ctx.moveTo(0,0);
@@ -342,7 +358,7 @@ table#DP01 th {
  canWidth = ctx.canvas.width;
  canHeight = ctx.canvas.height;
  
- ctx.beginPath();
+ //ctx.beginPath();
       
    
 function sendData(ButtonPressed) {
@@ -388,11 +404,13 @@ function getData() {
 
   canWidth = Math.round(window.innerWidth* 0.85);
   canHeight = Math.round(window.innerHeight* 0.3);
-  if((canHeight != ctx.canvas.height) && (canWidth != ctx.canvas.width))
+  if((canHeight != ctx.canvas.height) || (canWidth != ctx.canvas.width))
   {
 	ctx.canvas.width = canWidth;
 	ctx.canvas.height = canHeight;
 	XAxis = 0;
+	 
+  
     
   }
   
@@ -403,7 +421,7 @@ function getData() {
   ctx.lineTo((XAxis+4),(canHeight + 1));
   ctx.stroke();
   
-  ctx.beginPath();
+  
  
   
   XAxisPrevious = XAxis;
@@ -412,42 +430,34 @@ function getData() {
   if(XAxis > canWidth)
   {
     XAxis = -2;
-   
+	XAxisPrevious = -2;
+   YAxis[0] = YAxis[0] + 5;
+	 YAxis[1] = YAxis[1] + 5;
+	 YAxis[2] = YAxis[2] + 5;
+	 YAxis[3] = YAxis[3] + 5;
+	 YAxis[4] = YAxis[4] + 5;
+	 YAxis[5] = YAxis[5] + 5;
+	 ctx.moveTo(0,YAxisPrevious[0]);
+	 ctx.moveTo(1,YAxisPrevious[1]);
+	 ctx.moveTo(2,YAxisPrevious[2]);
+	 ctx.moveTo(3,YAxisPrevious[3]);
+	 ctx.moveTo(4,YAxisPrevious[4]);
+	 ctx.moveTo(5,YAxisPrevious[5]);
   }
   
   
+  for (ChartForCount=0;ChartForCount<6;ChartForCount++)
+  {
+	  ctx.beginPath();
+	  ctx.moveTo(XAxisPrevious,YAxisPrevious[ChartForCount]);
+	  ctx.strokeStyle = colors[ChartForCount%colors.length];
+	  ctx.lineWidth = 2;  
+	  ctx.lineTo(XAxis,YAxis[ChartForCount]);
+	  YAxisPrevious[ChartForCount] = YAxis[ChartForCount];
+	  ctx.stroke();
+  }
   
-  ctx.moveTo(XAxisPrevious,YAxisPrevious0);
-  ctx.lineWidth = "2";
-  ctx.strokeStyle = "#red";
-  ctx.lineTo(XAxis,YAxis0);
-  YAxisPrevious0 = YAxis0;
-  ctx.stroke(); 
-  
-  
-  YAxis1 = 270;
-  ctx.moveTo(XAxisPrevious,YAxisPrevious1);
-  ctx.lineWidth = "2";
-  ctx.strokeStyle = "green";
-  ctx.lineTo(XAxis,YAxis1);
-  YAxisPrevious1 = YAxis1;
-  ctx.stroke(); 
-  
-  YAxis2 = 70;
-  ctx.moveTo(XAxisPrevious,YAxisPrevious2);
-  ctx.lineWidth = "2";
-  ctx.strokeStyle = "blue";
-  ctx.lineTo(XAxis,YAxis2);
-  YAxisPrevious2 = YAxis2;
-  ctx.stroke(); 
-  
-   YAxis2 = 70;
-  ctx.moveTo(XAxisPrevious,YAxisPrevious2);
-  ctx.lineWidth = "2";
-  ctx.strokeStyle = "blue";
-  ctx.lineTo(XAxis,YAxis2);
-  YAxisPrevious2 = YAxis2;
-  ctx.stroke(); 
+   
  
   }
 
