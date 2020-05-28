@@ -322,16 +322,17 @@ table#DP01 th {
   
  var c = document.getElementById("myCanvas");
  var ctx = c.getContext("2d");
- var XAxis =  0;
+ var XAxis =  -2;
+ var XAxisPrevious =  -2;
  var XClear = 0;
- var YAxis = 0;
- var YAxisPrevious = 0;
+ var YAxis0 = 0;
+ var YAxisPrevious0 = 0;
+ var YAxis1 = 0;
+ var YAxisPrevious1 = 0;
  var canWidth = 0;
  var canHeight = 0;
- var lineColour = "red";
- var lineColourChanged = 0;
  var Flipped;
- 
+ var colors = ["red",   "green",   "blue",   "yellow",   "orange", "black"];
 
 
  var counttmr = 0;
@@ -346,21 +347,6 @@ table#DP01 th {
    
 function sendData(ButtonPressed) {
   var xhttp = new XMLHttpRequest();
-  
-  if(ButtonPressed == 5)
-  {
-  if(lineColour == "red")
-  {
-    lineColour = "green";
-    lineColourChanged = 1;
-  }
-  else
-  {
-    lineColour = "red";
-    lineColourChanged = 1;
-  }
-  }
- 
   
   xhttp.open("GET", "setPressedButton?StateButton="+ButtonPressed, true);
   xhttp.send();
@@ -407,39 +393,60 @@ function getData() {
 	ctx.canvas.width = canWidth;
 	ctx.canvas.height = canHeight;
 	XAxis = 0;
-    ctx.moveTo(0,YAxis);
+    
   }
   
   ctx.beginPath();
   ctx.lineWidth = "5";
   ctx.strokeStyle = "white";
   ctx.moveTo((XAxis+4),0);
-  ctx.lineTo((XAxis+4),200);
+  ctx.lineTo((XAxis+4),(canHeight + 1));
   ctx.stroke();
-  if(lineColourChanged == 1)
-  {
-    ctx.fillStyle = lineColour;
-  lineColourChanged = 0;
-  ctx.fillRect((XAxis-9),(YAxis-5),10,10); 
-  }
+  
   ctx.beginPath();
  
-  ctx.moveTo(XAxis,YAxisPrevious);
+  
+  XAxisPrevious = XAxis;
   XAxis = XAxis + 1;
   
   if(XAxis > canWidth)
   {
-    XAxis = 0;
-    
-    ctx.moveTo(0,YAxis);
- 
+    XAxis = -2;
+   
   }
   
   
+  
+  ctx.moveTo(XAxisPrevious,YAxisPrevious0);
   ctx.lineWidth = "2";
-  ctx.strokeStyle = lineColour;
-  ctx.lineTo(XAxis,YAxis);
-  YAxisPrevious = YAxis;
+  ctx.strokeStyle = "#red";
+  ctx.lineTo(XAxis,YAxis0);
+  YAxisPrevious0 = YAxis0;
+  ctx.stroke(); 
+  
+  
+  YAxis1 = 270;
+  ctx.moveTo(XAxisPrevious,YAxisPrevious1);
+  ctx.lineWidth = "2";
+  ctx.strokeStyle = "green";
+  ctx.lineTo(XAxis,YAxis1);
+  YAxisPrevious1 = YAxis1;
+  ctx.stroke(); 
+  
+  YAxis2 = 70;
+  ctx.moveTo(XAxisPrevious,YAxisPrevious2);
+  ctx.lineWidth = "2";
+  ctx.strokeStyle = "blue";
+  ctx.lineTo(XAxis,YAxis2);
+  YAxisPrevious2 = YAxis2;
+  ctx.stroke(); 
+  
+   YAxis2 = 70;
+  ctx.moveTo(XAxisPrevious,YAxisPrevious2);
+  ctx.lineWidth = "2";
+  ctx.strokeStyle = "blue";
+  ctx.lineTo(XAxis,YAxis2);
+  YAxisPrevious2 = YAxis2;
   ctx.stroke(); 
  
   }
