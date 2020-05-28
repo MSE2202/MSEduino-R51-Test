@@ -114,11 +114,7 @@ body{
   height:70%;
 }
 
-.Table2 {
-  position:relative;
- 
-  
-}
+
 table, th, td {
   border: 1px solid black;
   border-collapse: collapse;
@@ -159,15 +155,6 @@ table#DP01 th {
 }
 
 
-
-.Graph{
-  position:absolute;
-  top:70%;
-  left:10%;
-  font: 200% Arial, Helvetica, sans-serif;
-  font-weight: bold;
-  
-}
 
 
 </style>
@@ -272,9 +259,9 @@ table#DP01 th {
 				<td name = Watch44" id="Watch44" style= "word-wrap:break-word;">00</td>
 			</tr>
 		</table>	
-	</label>		
+		
     <br>
-	<label class = "Table2">
+	
 		<table id="DP02">
 			<tr>
 				<th  style= "text-align: center; background-color: red; color: white;">   Watch Chart 0</th>
@@ -300,6 +287,10 @@ table#DP01 th {
 			</tr>
 			
 		</table>	
+		<br>
+		<canvas id="myCanvas"  onclick="sendData(5)" style="border:1px solid #d3d3d3;">
+        Your browser does not support the HTML5 canvas tag.
+		</canvas>
 	</label>		
   </div>
 
@@ -314,14 +305,14 @@ table#DP01 th {
        
     </label>  
   </div>
-	-->
+	
   <div>
   <label class = "Graph">
   <canvas id="myCanvas" width= "10" height="50" onclick="sendData(5)" style="border:1px solid #d3d3d3;">
     Your browser does not support the HTML5 canvas tag.</canvas>
    </label>
    </div>
-   
+   -->
 </div>
 
 <script>
@@ -338,15 +329,18 @@ table#DP01 th {
  var lineColourChanged = 0;
  var Flipped;
  
+
+
  var counttmr = 0;
  ctx.moveTo(0,0);
- ctx.canvas.width  = window.innerWidth*0.9;
- ctx.canvas.height = window.innerHeight*0.25;
+ ctx.canvas.width = window.innerWidth* 0.85;
+ ctx.canvas.height = window.innerHeight* 0.3;
  canWidth = ctx.canvas.width;
  canHeight = ctx.canvas.height;
+ 
  ctx.beginPath();
-  
-  
+      
+   
 function sendData(ButtonPressed) {
   var xhttp = new XMLHttpRequest();
   
@@ -403,8 +397,16 @@ function getData() {
   xhttp.open("GET", "readSensorData", true);
   xhttp.send();
 
+  canWidth = Math.round(window.innerWidth* 0.85);
+  canHeight = Math.round(window.innerHeight* 0.3);
+  if((canHeight != ctx.canvas.height) && (canWidth != ctx.canvas.width))
+  {
+	ctx.canvas.width = canWidth;
+	ctx.canvas.height = canHeight;
+	XAxis = 0;
+    ctx.moveTo(0,YAxis);
+  }
   
- 
   ctx.beginPath();
   ctx.lineWidth = "5";
   ctx.strokeStyle = "white";
