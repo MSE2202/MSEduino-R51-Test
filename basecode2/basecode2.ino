@@ -71,9 +71,10 @@ unsigned long ulCurrentMicros;
 void setup() {
   Serial.begin(115200);
   pinMode(INDICATORLED, OUTPUT);
+  
+  WSVR_BreakPointInit();
 
-
-  setupWEbServer();
+  WSVR_setupWEbServer();
 
 
  
@@ -102,13 +103,8 @@ void loop()
 
     }
 */
-    if (ucWorkingButtonState != 9)
-    {
-      //Serial.print(F("move it "));
-      
-      ucWorkingButtonState = 9;
-    }
-    loopWEBServerButtonresponce();
+    
+    WSVR_ButtonResponce();
 
 
 

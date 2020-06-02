@@ -111,6 +111,8 @@ body{
  background: green;   
 }
 
+
+
 .DebugOff:after {
      margin: 0;
     position: absolute;
@@ -169,6 +171,7 @@ body{
 #Continuous:checked + .Continuous{
  background: green;   
 }
+
 
 .Continuous:after {
     margin: 0;
@@ -417,19 +420,19 @@ table#DP01 th {
  var ctx = c.getContext("2d");
  var XAxis =  -2;
  var XAxisPrevious =  -2;
- var XClear = 0;
  var YAxis = [0,0,0,0,0,0];
  var YAxisPrevious = [0,0,0,0,0,0];
  var canWidth = 0;
  var canHeight = 0;
- var Flipped;
- var colors = ["red",   "green",   "blue",   "yellow",   "orange", "black"];
  var ChartForCount;
  var WVN = document.getElementsByName("WatchName")
  var WVNC = document.getElementsByName("WatchNameChart")
  var WatchVarableRowIndex = 0;
  var WatchVariableColIndex = 0;
- var ids = ["0", "1", "2", "3", "4"];
+ var WatchNamesIndexer = 0;
+ var DebugOnOff = false;
+ var HaltContin = false; 
+ var colors = ["red",   "green",   "blue",   "yellow",   "orange", "black"];
  var WatchVariableNames = [
           ["Empty", "Empty", "Empty", "Empty", "Empty"],
           ["Empty", "Empty", "Empty", "Empty", "Empty"],
@@ -455,15 +458,20 @@ var WatchVariableNamesChart = ["Empty", "Empty", "Empty", "Empty", "Empty", "Emp
  canHeight = ctx.canvas.height;
  
  //ctx.beginPath();
- for (WatchVarableRowIndex=0;WatchVarableRowIndex<5;WatchVarableRowIndex++)  
+
+ for(WatchVarableRowIndex=0;WatchVarableRowIndex<5;WatchVarableRowIndex++)  
  {
    for (WatchVariableColIndex=0;WatchVariableColIndex<5;WatchVariableColIndex++)  
    { 
-    //if( WVN.id = 'WVN-' + ids[i] + ','+ ids[WatchVarableRowIndex])
-  WVN[WatchVarableRowIndex + (5* WatchVariableColIndex)].innerHTML = WatchVariableNames[WatchVariableColIndex][WatchVarableRowIndex];
+     
+     WVN[WatchVarableRowIndex + (5* WatchVariableColIndex)].innerHTML = WatchVariableNames[WatchVariableColIndex][WatchVarableRowIndex];
    }
   
  } 
+ WatchVariableColIndex = 6;
+ getNames();
+ 
+ 
  
  for (WatchVarableRowIndex=0;WatchVarableRowIndex<6;WatchVarableRowIndex++)  
  {
@@ -471,23 +479,11 @@ var WatchVariableNamesChart = ["Empty", "Empty", "Empty", "Empty", "Empty", "Emp
   WVNC[WatchVarableRowIndex].innerHTML = WatchVariableNamesChart[WatchVarableRowIndex];
  
  }   
-   
-function sendData(ButtonPressed) {
-  var xhttp = new XMLHttpRequest();
-  
-  xhttp.open("GET", "setPressedButton?StateButton="+ButtonPressed, true);
-  xhttp.send();
-}
 
- 
-setInterval(function() {
-  // Call a function repetatively with 2 Second interval
-  getData();
-}, 250); //250mSeconds update rate
- 
-function getData() {
+function getNames() 
+{
   var xhttp = new XMLHttpRequest();
-  var WorkingSensorData;
+  var vWorkingName;
  
  
  counttmr = counttmr + 1;
@@ -497,20 +493,154 @@ function getData() {
      //document.documentElement.style.setProperty('--main-bg-color', 'blue');
    }
 
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-     WorkingSensorData = (this.responseText).split(";     ");
+  xhttp.onreadystatechange = function() 
+  {
+    if (this.readyState == 4 && this.status == 200)
+    {
+     vWorkingName = (this.responseText).split(";     ");
+     
+     for (WatchNamesIndexer=0;WatchNamesIndexer<vWorkingName.lenght;WatchNamesIndexer++)  
+     {
+       if(vWorkingSensorData[WatchNamesIndexer] == "BNP1")
+       {
+        WatchVariableColIndex = 6;
+        WatchVarableRowIndex = 0;
+       }
+       if(vWorkingData[WatchNamesIndexer] == "BNP2")
+       {
+         WatchVariableColIndex = 6;
+         WatchVarableRowIndex = 1;
+       }
+       if(vWorkingData[WatchNamesIndexer] == "BNP3")
+       {
+         WatchVariableColIndex = 6;
+         WatchVarableRowIndex = 2;
+       }
+       if(vWorkingData[WatchNamesIndexer] == "BNP4")
+       {
+         WatchVariableColIndex = 6;
+         WatchVarableRowIndex = 3;
+       }
+       if(vWorkingData[WatchNamesIndexer] == "BNP5")
+       {
+         WatchVariableColIndex = 6;
+         WatchVarableRowIndex = 4;
+       }
+       if(vWorkingData[WatchNamesIndexer] == "BNP5")
+       {
+         WatchVariableColIndex = 6;
+         WatchVarableRowIndex = 5;
+       }
+       if(WatchVarableRowIndex != 6)
+       {
+         if(WatchVariableColIndex == 6)
+         {
+           WatchVariableColIndex = 0;
+         }
+         else
+         {
+           WVN[WatchVarableRowIndex + (5* WatchVariableColIndex)].innerHTML = vWorkingName[WatchVariableColIndex][WatchVarableRowIndex];
+           WatchVariableColIndex = WatchVariableColIndex + 1;
+         }
+       }
+       
+        
+     }
+  
+    }
+  };
+
+
+  xhttp.open("GET", "readData", true);
+  xhttp.send();
+ }
+   
+function sendData(ButtonPressed) {
+  var xhttp = new XMLHttpRequest();
+  var Sendit = false;
+   
+  switch(ButtonPressed)
+  {
+    case 0:
+    {
+      if (DebugOnOff == true)
+      {
+        Sendit = true;
+        DebugOnOff = false;
+      }
+      break;
+    }
+    case 1:
+    {
+      if (DebugOnOff == false)
+      {
+        Sendit = true;
+        DebugOnOff = true;
+      }
+      break;
+    }
+    case 2:
+    {
+      if (HaltContin == true)
+      {
+        Sendit = true;
+        HaltContin = false;
+      }
+      break;
+    }
+    case 3:
+    {
+      if (HaltContin == false)
+      {
+        Sendit = true;
+        HaltContin = true;
+      }
+      break;
+    }
     
-      YAxis  = parseInt(WorkingSensorData[0],10);
+  }
+  if (Sendit)
+  {
+    xhttp.open("GET", "setPressedButton?StateButton="+ButtonPressed, true);
+    xhttp.send();
+  }
+}
+
+ 
+setInterval(function() {
+  // Call a function repetatively with 2 Second interval
+  getData();
+}, 250); //250mSeconds update rate
+ 
+function getData() 
+{
+  var xhttp = new XMLHttpRequest();
+  var vWorkingData;
+ 
+ 
+ counttmr = counttmr + 1;
+  if(counttmr >= 100)
+  { 
+     counttmr = 0;  
+     //document.documentElement.style.setProperty('--main-bg-color', 'blue');
+   }
+
+  xhttp.onreadystatechange = function() 
+  {
+    if (this.readyState == 4 && this.status == 200)
+    {
+     vWorkingDatagSensorData = (this.responseText).split(";     ");
+    
+      YAxis  = parseInt(vWorkingData[0],10);
       
-      document.getElementById("GravityMeas").innerHTML = WorkingSensorData[0];
-      document.getElementById("DistanceMeas").innerHTML = WorkingSensorData[1];
+    //  document.getElementById("GravityMeas").innerHTML = WorkingSensorData[0];
+     // document.getElementById("DistanceMeas").innerHTML = WorkingSensorData[1];
         
     }
   };
 
 
-  xhttp.open("GET", "readSensorData", true);
+  xhttp.open("GET", "readData", true);
   xhttp.send();
 
   canWidth = Math.round(window.innerWidth* 0.85);
@@ -576,21 +706,21 @@ function getData() {
 )=====";
 
 
-
-  unsigned char ucButtonState = 9;
-  unsigned char ucWorkingButtonState;
-  
-  unsigned int uiDistance;
-  double dWS_PIDInput;
-  String buttonState = "0";
-  
+  boolean bWSVR_DebugOfOff = false;
+  boolean bWSVR_HaltContinuous = false;
+  unsigned char ucrWSVR_ButtonState = 9;
  
-  String DistanceMeas = "0";
-  
-  String SensorData;
+  String strWSVR_ButtonState = "0";
 
+//________________________________________________________________________
+  //unsigned char ucWSVR_NumberOfBreakPointsVariables[5][5]
+  //unsigned char ucWSVR_NumberOfChartVariables = 0;
+  //unsigned char ucWSVR_NumberOfBreakPoints = 0;
+ // unsigned char ucWSVR_NumberOfBreakPoints = 0;
+  String strWSVR_VariableNames;
+  String strWSVR_VariableData;
 
-void setupWEbServer(void)
+void WSVR_setupWEbServer(void)
 {
   
   Serial.print(F("Configuring access point..."));
@@ -627,47 +757,47 @@ void setupWEbServer(void)
        // Serial.printf("GET[%s]: %s\n", p->name().c_str(), p->value().c_str());
 
      String t_state = p->value().c_str();//server->arg("StateButton"); //Refer  xhttp.open("GET", "setButton?StateButton="+buttonPressed, true);
-     buttonState = p->value().c_str();
+     strWSVR_ButtonState = p->value().c_str();
      
-     ucButtonState = buttonState.toInt();
+     ucrWSVR_ButtonState = strWSVR_ButtonState.toInt();
     
      
-    request->send(200, "text/plain", buttonState); //Send web page
+    request->send(200, "text/plain", strWSVR_ButtonState); //Send web page
    
   });
 
-    server.on("/readSensorData", HTTP_GET, [](AsyncWebServerRequest *request)
+   server.on("/readData", HTTP_GET, [](AsyncWebServerRequest *request)
     {
-     
-      SensorData = String(dWS_PIDInput) + ";     " + String(uiDistance);
-     
-   
-    request->send(200, "text/plain", SensorData); //Send ADC value only to client ajax request
+         request->send(200, "text/plain", strWSVR_VariableData); //Send ADC value only to client ajax request
    
     });
+
+   server.on("/loadDataNames", HTTP_GET, [](AsyncWebServerRequest *request)
+    {
+     
+      request->send(200, "text/plain", strWSVR_VariableNames); //Send ADC value only to client ajax request
+   
+    }); 
     
  
   server.begin();
   Serial.println(F("HTTP server started"));
-  //digitalWrite(INDICATORLED, HIGH);
+  
 
   Serial.println(F(""));
 }
 
-void loopWEBServerButtonresponce(void)
+void WSVR_ButtonResponce(void)
 {
-
-   
-
-    switch(ucButtonState)
+    switch(ucrWSVR_ButtonState)
     {
       case 0:
       default:
       {
      
        Serial.println("DebugOff");
-       ucWorkingButtonState = 0;
-       ucButtonState = 9;
+       bWSVR_DebugOfOff = false;
+       ucrWSVR_ButtonState = 9;
       
        
         break;
@@ -676,8 +806,8 @@ void loopWEBServerButtonresponce(void)
       {
       
        Serial.println("DebugOn");
-        ucButtonState = 9;
-        ucWorkingButtonState = 1;
+        ucrWSVR_ButtonState = 9;
+        bWSVR_DebugOfOff = true;
         
         break;
       }
@@ -685,31 +815,23 @@ void loopWEBServerButtonresponce(void)
       {
         
        Serial.println("Halt");
-        ucButtonState = 9;
-        ucWorkingButtonState = 2;
+        ucrWSVR_ButtonState = 9;
+        bWSVR_HaltContinuous = false;
         break;
       }
       case 3:
       {
       
        Serial.println("Continuous");
-       ucButtonState = 9;
-       ucWorkingButtonState = 3;
+       ucrWSVR_ButtonState = 9;
+       bWSVR_HaltContinuous = true;
         break;
       }
-      case 4:
-      {
-       
     
-       // Serial.println("Reverse");
-        ucButtonState = 9;
-        ucWorkingButtonState = 4;
-        break;
-      }
       case 5:  //toggle servo
       {
         
-        ucButtonState = 9;
+        ucrWSVR_ButtonState = 9;
        
        
         break;
@@ -717,9 +839,31 @@ void loopWEBServerButtonresponce(void)
       case 9:
       {
         
-        ucButtonState = 9;
+        ucrWSVR_ButtonState = 9;
         break;
       }
     }
 
+}
+
+void WSVR_BreakPointInit()
+{
+ // ucWSVR_NumberOfBreakPointsVariables[0] = 2;
+ // ucWSVR_NumberOfBreakPointsVariables[1] = 0;
+  //ucWSVR_NumberOfBreakPointsVariables[2] = 0;
+  //ucWSVR_NumberOfBreakPointsVariables[3] = 0;
+ // ucWSVR_NumberOfBreakPointsVariables[4] = 0;
+ // ucWSVR_NumberOfBreakPointsVariables[5] = 0;
+ // ucWSVR_NumberOfChartVariables = 2;
+ 
+  strWSVR_VariableNames = String("BPN1") + ";" + String("ulPreviousMicros") + ";" + String("ulCurrentMicros");
+     
+  
+}
+
+void WSVR_BreakPoint(unsigned char ucBPindex)
+{
+
+    strWSVR_VariableData = String("BP1") + ";" + (ulPreviousMicros) + ";     " + String(ulCurrentMicros);
+  
 }
