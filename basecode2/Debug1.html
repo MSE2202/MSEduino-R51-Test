@@ -45,22 +45,22 @@ body{
 }
 
 
-.Debug{
+.DebugOn{
   position:absolute;
   
   top:1%;
   left:10%;
   height:5%;
-  width:40%;
+  width:20%;
   background:red;
   text-align: center;
 }
 
-#Debug:checked + .Debug{
+#DebugOn:checked + .DebugOn{
  background: green;   
 }
 
-.Debug:after {
+.DebugOn:after {
      margin: 0;
     position: absolute;
     top: 50%;
@@ -70,26 +70,55 @@ body{
     font: Arial, Helvetica, sans-serif;
 	font-size: 1vmax;
     font-weight: bold;
-    content: 'Debug';
+    content: 'Debug - On';
     color: white;
-    
-   
 }
-.Stop{
+
+.DebugOff{
   position:absolute;
   
   top:1%;
-  left:55%;
+  left:31%;
   height:5%;
-  width:40%;
+  width:20%;
+  background:red;
+  text-align: center;
+}
+
+#DebugOff:checked + .DebugOff{
+ background: green;   
+}
+
+.DebugOff:after {
+     margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    font: Arial, Helvetica, sans-serif;
+	font-size: 1vmax;
+    font-weight: bold;
+    content: 'Debug - Off';
+    color: white;
+}
+
+
+.Halt{
+  position:absolute;
+  
+  top:1%;
+  left:54%;
+  height:5%;
+  width:20%;
   background:red;
 }
 
-#Stop:checked + .Stop{
- background: orange;   
+#Halt:checked + .Halt{
+ background: green;   
 }
 
-.Stop:after {
+.Halt:after {
     margin: 0;
     position: absolute;
     top: 50%;
@@ -100,11 +129,40 @@ body{
     font: Arial, Helvetica, sans-serif;
 	font-size: 1vmax;
     font-weight: bold;
-    content: 'Stop';
+    content: 'Halt Mode';
     color: white;
       
 }
 
+.Continuous{
+  position:absolute;
+  
+  top:1%;
+  left:75%;
+  height:5%;
+  width:20%;
+  background:red;
+}
+
+#Continuous:checked + .Continuous{
+ background: green;   
+}
+
+.Continuous:after {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    
+    font: Arial, Helvetica, sans-serif;
+	font-size: 1vmax;
+    font-weight: bold;
+    content: 'Continuous Mode';
+    color: white;
+      
+}
 
 
 .Table1 {
@@ -162,16 +220,29 @@ table#DP01 th {
 <body>
  
 
-<div class="form">
+ <div class="form">
   <div>
-    <input type="radio" onclick="sendData(1)" id="Debug" value="1" name="radio" checked="checked"/>
-    <label class="Debug" for="Debug"></label>
+    <input type="radio" onclick="sendData(1)" id="DebugOn" value="1" name="DebugOnOff" checked />
+    <label class="DebugOn" for="DebugOn"></label>
 	
   </div>
   <div>
-    <input type="radio" onclick="sendData(0)" id="Stop" value="4" name="radio" checked="checked"/>
-    <label class="Stop" for="Stop"></label>
+    <input type="radio" onclick="sendData(0)" id="DebugOff" value="0" name="DebugOnOff" checked />
+    <label class="DebugOff" for="DebugOff"></label>
   </div>
+
+  <div>
+    <input type="radio" onclick="sendData(2)" id="Halt" value="2" name="HaltContinuous" checked/>
+    <label class="Halt" for="Halt"></label>
+	
+  </div>
+  <div>
+    <input type="radio" onclick="sendData(3)" id="Continuous" value="3" name="HaltContinuous" unchecked />
+    <label class="Continuous" for="Continuous"></label>
+  </div>
+ <div>
+  
+  
 
   <div>
 	<label class = "Table1">
@@ -198,65 +269,65 @@ table#DP01 th {
 			</tr>
 			<tr>
 				<td name = WatchName style= "word-wrap:break-word;"> Watch 0,0</td>
-				<td name = Watch00"  style= "word-wrap:break-word;">00</td>
-				<td name = WatchName  style= "word-wrap:break-word;"> Watch 0,1</td>
-				<td name = Watch00"  style= "word-wrap:break-word;">00</td>
-				<td name = WatchName  style= "word-wrap:break-word;"> Watch 0,2</td>
-				<td name = Watch00" style= "word-wrap:break-word;">00</td>
+				<td name = WatchData style= "word-wrap:break-word;">00</td>
+				<td name = WatchName style= "word-wrap:break-word;"> Watch 0,1</td>
+				<td name = WatchData style= "word-wrap:break-word;">00</td>
+				<td name = WatchName style= "word-wrap:break-word;"> Watch 0,2</td>
+				<td name = WatchData style= "word-wrap:break-word;">00</td>
 				<td name = WatchName style= "word-wrap:break-word;"> Watch 0,3</td>
-				<td name = Watch00" style= "word-wrap:break-word;">00</td>
+				<td name = WatchData style= "word-wrap:break-word;">00</td>
 				<td name = WatchName style= "word-wrap:break-word;"> Watch 0,4</td>
-				<td name = Watch00" style= "word-wrap:break-word;">00</td>
+				<td name = WatchData style= "word-wrap:break-word;">00</td>
 				
 				
 			</tr>
 			<tr>
 				<td name = WatchName style= "word-wrap:break-word;">" Watch 1,0"</td>
-				<td name = Watch10" id="Watch10" style= "word-wrap:break-word;">00</td>
+				<td name = WatchData style= "word-wrap:break-word;">00</td>
 				<td name = WatchName style= "word-wrap:break-word;">" Watch 1,1"</td>
-				<td name = Watch11" id="Watch11" style= "word-wrap:break-word;">00</td>
+				<td name = WatchData style= "word-wrap:break-word;">00</td>
 				<td name = WatchName style= "word-wrap:break-word;">" Watch 1,2"</td>
-				<td name = Watch12" id="Watch12" style= "word-wrap:break-word;">00</td>
+				<td name = WatchData style= "word-wrap:break-word;">00</td>
 				<td name = WatchName style= "word-wrap:break-word;">" Watch 1,3"</td>
-				<td name = Watch13" id="Watch13" style= "word-wrap:break-word;">00</td>
+				<td name = WatchData style= "word-wrap:break-word;">00</td>
 				<td name = WatchName style= "word-wrap:break-word;">" Watch 1,4"</td>
-				<td name = Watch14" id="Watch14" style= "word-wrap:break-word;">00</td>
+				<td name = WatchData style= "word-wrap:break-word;">00</td>
 			</tr>
 			<tr>
 				<td name = WatchName style= "word-wrap:break-word;">" Watch 2,0"</td>
-				<td name = Watch20" id="Watch20" style= "word-wrap:break-word;">00</td>
+				<td name = WatchData style= "word-wrap:break-word;">00</td>
 				<td name = WatchName style= "word-wrap:break-word;">" Watch 2,1"</td>
-				<td name = Watch21" id="Watch21" style= "word-wrap:break-word;">00</td>
+				<td name = WatchData style= "word-wrap:break-word;">00</td>
 				<td name = WatchName style= "word-wrap:break-word;">" Watch 2,2"</td>
-				<td name = Watch22" id="Watch22" style= "word-wrap:break-word;">00</td>
+				<td name = WatchData style= "word-wrap:break-word;">00</td>
 				<td name = WatchName style= "word-wrap:break-word;">" Watch 2,3"</td>
-				<td name = Watch23" id="Watch23" style= "word-wrap:break-word;">00</td>
+				<td name = WatchData style= "word-wrap:break-word;">00</td>
 				<td name = WatchName style= "word-wrap:break-word;">" Watch 2,4"</td>
-				<td name = Watch24" id="Watch24" style= "word-wrap:break-word;">00</td>
+				<td name = WatchData style= "word-wrap:break-word;">00</td>
 			</tr>
 			<tr>
 				<td name = WatchName style= "word-wrap:break-word;">" Watch 3,0"</td>
-				<td name = Watch30" id="Watch30" style= "word-wrap:break-word;">00</td>
+				<td name = WatchData style= "word-wrap:break-word;">00</td>
 				<td name = WatchName style= "word-wrap:break-word;">" Watch 3,1"</td>
-				<td name = Watch31" id="Watch31" style= "word-wrap:break-word;">00</td>
+				<td name = WatchData style= "word-wrap:break-word;">00</td>
 				<td name = WatchName style= "word-wrap:break-word;">" Watch 3,2"</td>
-				<td name = Watch32" id="Watch32" style= "word-wrap:break-word;">00</td>
+				<td name = WatchData style= "word-wrap:break-word;">00</td>
 				<td name = WatchName style= "word-wrap:break-word;">" Watch 3,3"</td>
-				<td name = Watch33" id="Watch33" style= "word-wrap:break-word;">00</td>
+				<td name = WatchData style= "word-wrap:break-word;">00</td>
 				<td name = WatchName style= "word-wrap:break-word;">" Watch 3,4"</td>
-				<td name = Watch34" id="Watch34" style= "word-wrap:break-word;">00</td>
+				<td name = WatchData style= "word-wrap:break-word;">00</td>
 			</tr>
 			<tr>
 				<td name = WatchName style= "word-wrap:break-word;">" Watch 4,0"</td>
-				<td name = Watch40" id="Watch40" style= "word-wrap:break-word;">00</td>
+				<td name = WatchData style= "word-wrap:break-word;">00</td>
 				<td name = WatchName style= "word-wrap:break-word;">" Watch 4,1"</td>
-				<td name = Watch41" id="Watch41" style= "word-wrap:break-word;">00</td>
+				<td name = WatchData style= "word-wrap:break-word;">00</td>
 				<td name = WatchName style= "word-wrap:break-word;">" Watch 4,2"</td>
-				<td name = Watch42" id="Watch42" style= "word-wrap:break-word;">00</td>
+				<td name = WatchData style= "word-wrap:break-word;">00</td>
 				<td name = WatchName style= "word-wrap:break-word;">" Watch 4,3"</td>
-				<td name = Watch43" id="Watch43" style= "word-wrap:break-word;">00</td>
+				<td name = WatchData style= "word-wrap:break-word;">00</td>
 				<td name = WatchName style= "word-wrap:break-word;">" Watch 4,4"</td>
-				<td name = Watch44" id="Watch44" style= "word-wrap:break-word;">00</td>
+				<td name = WatchData style= "word-wrap:break-word;">00</td>
 			</tr>
 		</table>	
 		
@@ -272,21 +343,21 @@ table#DP01 th {
 				<th  style= "text-align: center; background-color: black; color: white;">   Watch Chart 5</th>
 			</tr>
 			<tr>
-				<td name = WatchNameC0" "id="WatchNameC0" style= "word-wrap:break-word;"> Watch Name C0</td> 
-				<td name = WatchNameC1" "id="WatchNameC1" style= "word-wrap:break-word;"> Watch Name C1</td> 
-				<td name = WatchNameC2" "id="WatchNameC2" style= "word-wrap:break-word;"> Watch Name C2</td> 
-				<td name = WatchNameC3" "id="WatchNameC3" style= "word-wrap:break-word;"> Watch Name C3</td> 
-				<td name = WatchNameC4" "id="WatchNameC4" style= "word-wrap:break-word;"> Watch Name C4</td>
-				<td name = WatchNameC5" "id="WatchNameC5" style= "word-wrap:break-word;"> Watch Name C5</td> 				
+				<td name = WatchNameChart style= "word-wrap:break-word;"> Watch Name C0</td> 
+				<td name = WatchNameChart style= "word-wrap:break-word;"> Watch Name C1</td> 
+				<td name = WatchNameChart style= "word-wrap:break-word;"> Watch Name C2</td> 
+				<td name = WatchNameChart style= "word-wrap:break-word;"> Watch Name C3</td> 
+				<td name = WatchNameChart style= "word-wrap:break-word;"> Watch Name C4</td>
+				<td name = WatchNameChart style= "word-wrap:break-word;"> Watch Name C5</td> 				
 								
 			</tr>
 			<tr>
-				<td name = WatchC0" id="WatchC0" style= "word-wrap:break-word;">00</td>
-				<td name = WatchC1" id="WatchC1" style= "word-wrap:break-word;">00</td>
-				<td name = WatchC2" id="WatchC2" style= "word-wrap:break-word;">00</td>
-				<td name = WatchC3" id="WatchC3" style= "word-wrap:break-word;">00</td>
-				<td name = WatchC4" id="WatchC4" style= "word-wrap:break-word;">00</td>
-				<td name = WatchC5" id="WatchC5" style= "word-wrap:break-word;">00</td>
+				<td name = WatchChartData" id="WatchC0" style= "word-wrap:break-word;">00</td>
+				<td name = WatchChartData" id="WatchC1" style= "word-wrap:break-word;">00</td>
+				<td name = WatchChartData" id="WatchC2" style= "word-wrap:break-word;">00</td>
+				<td name = WatchChartData" id="WatchC3" style= "word-wrap:break-word;">00</td>
+				<td name = WatchChartData" id="WatchC4" style= "word-wrap:break-word;">00</td>
+				<td name = WatchChartData" id="WatchC5" style= "word-wrap:break-word;">00</td>
 			</tr>
 			
 		</table>	
@@ -333,15 +404,16 @@ table#DP01 th {
  var colors = ["red",   "green",   "blue",   "yellow",   "orange", "black"];
  var ChartForCount;
  var WVN = document.getElementsByName("WatchName")
+ var WVNC = document.getElementsByName("WatchNameChart")
  var WatchVarableRowIndex = 0;
  var WatchVariableColIndex = 0;
  var ids = ["0", "1", "2", "3", "4"];
  var WatchVariableNames = [
-					["Empty0", "Empty1", "Empty2", "Empty3", "Empty4"],
-					["Empty5", "Empty6", "Empty7", "Empty8", "Empty9"],
-					["Empty10", "Empty11", "Empty12", "Empty13", "Empty14"],
-					["Empty15", "Empty16", "Empty17", "Empty18", "Empty19"],
-					["Empty20", "Empty21", "Empty22", "Empty23", "Empty24"]
+					["Empty", "Empty", "Empty", "Empty", "Empty"],
+					["Empty", "Empty", "Empty", "Empty", "Empty"],
+					["Empty", "Empty", "Empty", "Empty", "Empty"],
+					["Empty", "Empty", "Empty", "Empty", "Empty"],
+					["Empty", "Empty", "Empty", "Empty", "Empty"]
 				  ];
  var WatchVariableData = [
 							[0, 0, 0, 0, 0],
@@ -351,7 +423,7 @@ table#DP01 th {
 							[0, 0, 0, 0, 0]
    						 ];		
 
-						 
+var WatchVariableNamesChart = ["Empty", "Empty", "Empty", "Empty", "Empty", "Empty"];						 
 
  var counttmr = 0;
  ctx.moveTo(0,0);
@@ -369,7 +441,14 @@ table#DP01 th {
 	WVN[WatchVarableRowIndex + (5* WatchVariableColIndex)].innerHTML = WatchVariableNames[WatchVariableColIndex][WatchVarableRowIndex];
    }
 	
- }    
+ } 
+ 
+ for (WatchVarableRowIndex=0;WatchVarableRowIndex<6;WatchVarableRowIndex++)  
+ {
+      
+	WVNC[WatchVarableRowIndex].innerHTML = WatchVariableNamesChart[WatchVarableRowIndex];
+ 
+ }   
    
 function sendData(ButtonPressed) {
   var xhttp = new XMLHttpRequest();
