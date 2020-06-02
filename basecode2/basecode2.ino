@@ -91,7 +91,7 @@ void loop()
   
     uiCommunticationTimer = uiCommunticationTimer + 1;
     bToggleBit = bToggleBit + 1;
-    if (bToggleBit & 1)
+   /* if (bToggleBit & 1)
     {
       digitalWrite(INDICATORLED, HIGH);
 
@@ -101,7 +101,7 @@ void loop()
       digitalWrite(INDICATORLED, LOW);
 
     }
-
+*/
     if (ucWorkingButtonState != 9)
     {
       //Serial.print(F("move it "));

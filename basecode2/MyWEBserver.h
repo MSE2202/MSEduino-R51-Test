@@ -25,7 +25,7 @@ const char MAIN_page[] PROGMEM = R"=====(
 
  <head>
   <meta charset="utf-8">
-  <title>RaB1 Wifi server R9a</title>
+  <title>Wifi Debug R1</title>
   <link rel="shortcut icon" href="#"/>
  </head>
 
@@ -45,7 +45,7 @@ html {
 body{ 
     width: 80%;
     margin: 0 auto;
-    font: 100% Arial, Helvetica, sans-serif;
+    <!---font: 100% Arial, Helvetica, sans-serif;--->
     padding: 1em 1em;
     background: white;
     
@@ -66,125 +66,166 @@ body{
   background:white;
 }
 
-.Forward{
+
+.DebugOn{
   position:absolute;
   
   top:1%;
   left:10%;
-  height:20%;
-  width:80%;
-  background: var(--main-bg-color,black);
+  height:5%;
+  width:20%;
+  background:red;
+  text-align: center;
 }
 
-#Forward:checked + .Forward{
+#DebugOn:checked + .DebugOn{
  background: green;   
 }
 
-.Forward:after {
-    font: 380% Arial, Helvetica, sans-serif;
-  font-weight: bold;
-    content: 'Forward';
-  color: white;
-  position: relative;
-    top: 25%;
-    left: 35%;
+.DebugOn:after {
+     margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    font: Arial, Helvetica, sans-serif;
+  font-size: 1vmax;
+    font-weight: bold;
+    content: 'Debug - On';
+    color: white;
 }
 
-.Left{
+.DebugOff{
   position:absolute;
   
-  top:22%;
-  left:10%;
-  height:20%;
-  width:39%;
-  background:var(--main-bg-color,black);
+  top:1%;
+  left:31%;
+  height:5%;
+  width:20%;
+  background:red;
+  text-align: center;
 }
 
-#Left:checked + .Left{
+#DebugOff:checked + .DebugOff{
  background: green;   
 }
 
-.Left:after {
-    font: 380% Arial, Helvetica, sans-serif;
-  font-weight: bold;
-    content: 'Left';
-  color: white;
-  position: relative;
-    top: 25%;
-    left: 35%;
+.DebugOff:after {
+     margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    font: Arial, Helvetica, sans-serif;
+  font-size: 1vmax;
+    font-weight: bold;
+    content: 'Debug - Off';
+    color: white;
 }
 
-.Right{
+
+.Halt{
   position:absolute;
   
-  top:22%;
-  right:10%;
-  height:20%;
-  width:39%;
-  background:var(--main-bg-color,black);
-}
-
-#Right:checked + .Right{
- background: green;   
-}
-
-.Right:after {
-    font: 380% Arial, Helvetica, sans-serif;
-  font-weight: bold;
-    content: 'Right';
-  color: white;
-  position: relative;
-    top: 25%;
-    left: 30%;
-}
-
-.Reverse{
-  position:absolute;
-  
-  top:43%;
-  left:10%;
-  height:20%;
-  width:80%;
-  background:var(--main-bg-color,black);
-}
-
-#Reverse:checked + .Reverse{
- background: green;   
-}
-
-.Reverse:after {
-    font: 380% Arial, Helvetica, sans-serif;
-  font-weight: bold;
-    content: 'Reverse';
-  color: white;
-  position: relative;
-    top: 25%;
-    left: 35%;
-}
-
-.Stop{
-  position:absolute;
-  
-  top:64%;
-  left:10%;
-  height:20%;
-  width:80%;
+  top:1%;
+  left:54%;
+  height:5%;
+  width:20%;
   background:red;
 }
 
-#Stop:checked + .Stop{
- background: orange;   
+#Halt:checked + .Halt{
+ background: green;   
 }
 
-.Stop:after {
-    font: 380% Arial, Helvetica, sans-serif;
-  font-weight: bold;
-    content: 'Stop';
-  color: white;
-  position: relative;
-    top: 25%;
-    left: 40%;
+.Halt:after {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    
+    font: Arial, Helvetica, sans-serif;
+  font-size: 1vmax;
+    font-weight: bold;
+    content: 'Halt Mode';
+    color: white;
+      
 }
+
+.Continuous{
+  position:absolute;
+  
+  top:1%;
+  left:75%;
+  height:5%;
+  width:20%;
+  background:red;
+}
+
+#Continuous:checked + .Continuous{
+ background: green;   
+}
+
+.Continuous:after {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    
+    font: Arial, Helvetica, sans-serif;
+  font-size: 1vmax;
+    font-weight: bold;
+    content: 'Continuous Mode';
+    color: white;
+      
+}
+
+
+.Table1 {
+  position:absolute;
+  top:8%;
+  left:10%;
+  height:70%;
+}
+
+
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  width:95%;
+  font: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 1vmax;
+  
+  table-layout: fixed;
+}
+th, td {
+  padding: 15px;
+  text-align: left;
+  
+}
+table#DP01 tr:nth-child(even) {
+  background-color: #eee;
+}
+table#DP01 tr:nth-child(odd) {
+ background-color: #fff;
+}
+table#DP01 th {
+  background-color: #eeb;
+  color: black;
+}
+
+
+.
+
+
+
 .Datum{
   position:absolute;
   top:84%;
@@ -193,14 +234,7 @@ body{
   font-weight: bold;
 }
 
-.Graph{
-  position:absolute;
-  top:90%;
-  left:10%;
-  font: 200% Arial, Helvetica, sans-serif;
-  font-weight: bold;
-  
-}
+
 
 
 </style>
@@ -208,88 +242,238 @@ body{
 <body>
  
 
-<div class="form">
+ <div class="form">
   <div>
-    <input type="radio" onclick="sendData(1)"  id="Forward" value="1" name="radio" />
-    <label class="Forward" for="Forward"></label>
+    <input type="radio" onclick="sendData(1)" id="DebugOn" value="1" name="DebugOnOff" checked />
+    <label class="DebugOn" for="DebugOn"></label>
+  
   </div>
   <div>
-    <input type="radio" onclick="sendData(2)" id="Left" value="2" name="radio" />
-    <label class="Left" for="Left"></label>
-  </div>
-  <div>
-    <input type="radio" onclick="sendData(3)" id="Right" value="3" name="radio" />
-    <label class="Right" for="Right"></label>
-  </div>
-    <div>
-    <input type="radio" onclick="sendData(4)" id="Reverse" value="3" name="radio" />
-    <label class="Reverse" for="Reverse"></label>
-  </div>
-  <div>
-    <input type="radio" onclick="sendData(0)" id="Stop" value="4" name="radio" checked="checked"/>
-    <label class="Stop" for="Stop"></label>
+    <input type="radio" onclick="sendData(0)" id="DebugOff" value="0" name="DebugOnOff" checked />
+    <label class="DebugOff" for="DebugOff"></label>
   </div>
 
+  <div>
+    <input type="radio" onclick="sendData(2)" id="Halt" value="2" name="HaltContinuous" checked/>
+    <label class="Halt" for="Halt"></label>
+  
+  </div>
+  <div>
+    <input type="radio" onclick="sendData(3)" id="Continuous" value="3" name="HaltContinuous" unchecked />
+    <label class="Continuous" for="Continuous"></label>
+  </div>
+ <div>
+  
+  
 
   <div>
-    <label class = "Datum">
-     <!--  Gravity Distance <br> <span id="SensorData">--         --          --        --</span> -->
+  <label class = "Table1">
+    <table id="DP01">
+      <tr>
+        <th colspan="2" style= "text-align: center;">   Debug Point 1</th>
+        <th colspan="2" style= "text-align: center;">   Debug Point 2</th>
+        <th colspan="2" style= "text-align: center;">   Debug Point 3</th>
+        <th colspan="2" style= "text-align: center;">   Debug Point 4</th>
+        <th colspan="2" style= "text-align: center;">   Debug Point 5</th>
+      </tr>
+      <tr>
+        <td>Var Name</td> 
+        <td>Data</td> 
+        <td>Var Name</td> 
+        <td>Data</td> 
+        <td>Var Name</td> 
+        <td>Data</td> 
+        <td>Var Name</td> 
+        <td>Data</td> 
+        <td>Var Name</td> 
+        <td>Data</td> 
+        
+      </tr>
+      <tr>
+        <td name = WatchName style= "word-wrap:break-word;"> Watch 0,0</td>
+        <td name = WatchData style= "word-wrap:break-word;">00</td>
+        <td name = WatchName style= "word-wrap:break-word;"> Watch 0,1</td>
+        <td name = WatchData style= "word-wrap:break-word;">00</td>
+        <td name = WatchName style= "word-wrap:break-word;"> Watch 0,2</td>
+        <td name = WatchData style= "word-wrap:break-word;">00</td>
+        <td name = WatchName style= "word-wrap:break-word;"> Watch 0,3</td>
+        <td name = WatchData style= "word-wrap:break-word;">00</td>
+        <td name = WatchName style= "word-wrap:break-word;"> Watch 0,4</td>
+        <td name = WatchData style= "word-wrap:break-word;">00</td>
+        
+        
+      </tr>
+      <tr>
+        <td name = WatchName style= "word-wrap:break-word;">" Watch 1,0"</td>
+        <td name = WatchData style= "word-wrap:break-word;">00</td>
+        <td name = WatchName style= "word-wrap:break-word;">" Watch 1,1"</td>
+        <td name = WatchData style= "word-wrap:break-word;">00</td>
+        <td name = WatchName style= "word-wrap:break-word;">" Watch 1,2"</td>
+        <td name = WatchData style= "word-wrap:break-word;">00</td>
+        <td name = WatchName style= "word-wrap:break-word;">" Watch 1,3"</td>
+        <td name = WatchData style= "word-wrap:break-word;">00</td>
+        <td name = WatchName style= "word-wrap:break-word;">" Watch 1,4"</td>
+        <td name = WatchData style= "word-wrap:break-word;">00</td>
+      </tr>
+      <tr>
+        <td name = WatchName style= "word-wrap:break-word;">" Watch 2,0"</td>
+        <td name = WatchData style= "word-wrap:break-word;">00</td>
+        <td name = WatchName style= "word-wrap:break-word;">" Watch 2,1"</td>
+        <td name = WatchData style= "word-wrap:break-word;">00</td>
+        <td name = WatchName style= "word-wrap:break-word;">" Watch 2,2"</td>
+        <td name = WatchData style= "word-wrap:break-word;">00</td>
+        <td name = WatchName style= "word-wrap:break-word;">" Watch 2,3"</td>
+        <td name = WatchData style= "word-wrap:break-word;">00</td>
+        <td name = WatchName style= "word-wrap:break-word;">" Watch 2,4"</td>
+        <td name = WatchData style= "word-wrap:break-word;">00</td>
+      </tr>
+      <tr>
+        <td name = WatchName style= "word-wrap:break-word;">" Watch 3,0"</td>
+        <td name = WatchData style= "word-wrap:break-word;">00</td>
+        <td name = WatchName style= "word-wrap:break-word;">" Watch 3,1"</td>
+        <td name = WatchData style= "word-wrap:break-word;">00</td>
+        <td name = WatchName style= "word-wrap:break-word;">" Watch 3,2"</td>
+        <td name = WatchData style= "word-wrap:break-word;">00</td>
+        <td name = WatchName style= "word-wrap:break-word;">" Watch 3,3"</td>
+        <td name = WatchData style= "word-wrap:break-word;">00</td>
+        <td name = WatchName style= "word-wrap:break-word;">" Watch 3,4"</td>
+        <td name = WatchData style= "word-wrap:break-word;">00</td>
+      </tr>
+      <tr>
+        <td name = WatchName style= "word-wrap:break-word;">" Watch 4,0"</td>
+        <td name = WatchData style= "word-wrap:break-word;">00</td>
+        <td name = WatchName style= "word-wrap:break-word;">" Watch 4,1"</td>
+        <td name = WatchData style= "word-wrap:break-word;">00</td>
+        <td name = WatchName style= "word-wrap:break-word;">" Watch 4,2"</td>
+        <td name = WatchData style= "word-wrap:break-word;">00</td>
+        <td name = WatchName style= "word-wrap:break-word;">" Watch 4,3"</td>
+        <td name = WatchData style= "word-wrap:break-word;">00</td>
+        <td name = WatchName style= "word-wrap:break-word;">" Watch 4,4"</td>
+        <td name = WatchData style= "word-wrap:break-word;">00</td>
+      </tr>
+    </table>  
+    
+    <br>
+  
+    <table id="DP02">
+      <tr>
+        <th  style= "text-align: center; background-color: red; color: white;">   Watch Chart 0</th>
+        <th  style= "text-align: center; background-color: green; color: black;">   Watch Chart 1</th>
+        <th  style= "text-align: center; background-color: blue; color: white;">   Watch Chart 2</th>
+        <th  style= "text-align: center; background-color: yellow; color: black;">   Watch Chart 3</th>
+        <th  style= "text-align: center; background-color: orange; color: black;">   Watch Chart 4</th>
+        <th  style= "text-align: center; background-color: black; color: white;">   Watch Chart 5</th>
+      </tr>
+      <tr>
+        <td name = WatchNameChart style= "word-wrap:break-word;"> Watch Name C0</td> 
+        <td name = WatchNameChart style= "word-wrap:break-word;"> Watch Name C1</td> 
+        <td name = WatchNameChart style= "word-wrap:break-word;"> Watch Name C2</td> 
+        <td name = WatchNameChart style= "word-wrap:break-word;"> Watch Name C3</td> 
+        <td name = WatchNameChart style= "word-wrap:break-word;"> Watch Name C4</td>
+        <td name = WatchNameChart style= "word-wrap:break-word;"> Watch Name C5</td>        
+                
+      </tr>
+      <tr>
+        <td name = WatchChartData" id="WatchC0" style= "word-wrap:break-word;">00</td>
+        <td name = WatchChartData" id="WatchC1" style= "word-wrap:break-word;">00</td>
+        <td name = WatchChartData" id="WatchC2" style= "word-wrap:break-word;">00</td>
+        <td name = WatchChartData" id="WatchC3" style= "word-wrap:break-word;">00</td>
+        <td name = WatchChartData" id="WatchC4" style= "word-wrap:break-word;">00</td>
+        <td name = WatchChartData" id="WatchC5" style= "word-wrap:break-word;">00</td>
+      </tr>
+      
+    </table>  
+    <br>
+    <canvas id="myCanvas"  onclick="sendData(5)" style="border:1px solid #d3d3d3;">
+        Your browser does not support the HTML5 canvas tag.
+    </canvas>
+  </label>    
+  </div>
+
+  <!--
+
+  <div>
+      <label class = "Datum">
+     <!--  Gravity Distance <br> <span id="SensorData">--         --          --        --</span> 
       
       SensorData - Gravity: <span id="GravityMeas">0</span>
       Distance - : <span id="DistanceMeas">0</span>
        
     </label>  
   </div>
-
+  
   <div>
   <label class = "Graph">
   <canvas id="myCanvas" width= "10" height="50" onclick="sendData(5)" style="border:1px solid #d3d3d3;">
     Your browser does not support the HTML5 canvas tag.</canvas>
    </label>
    </div>
-   
+   -->
 </div>
 
 <script>
   
  var c = document.getElementById("myCanvas");
  var ctx = c.getContext("2d");
- var XAxis =  0;
+ var XAxis =  -2;
+ var XAxisPrevious =  -2;
  var XClear = 0;
- var YAxis = 0;
- var YAxisPrevious = 0;
+ var YAxis = [0,0,0,0,0,0];
+ var YAxisPrevious = [0,0,0,0,0,0];
  var canWidth = 0;
  var canHeight = 0;
- var lineColour = "red";
- var lineColourChanged = 0;
  var Flipped;
- 
+ var colors = ["red",   "green",   "blue",   "yellow",   "orange", "black"];
+ var ChartForCount;
+ var WVN = document.getElementsByName("WatchName")
+ var WVNC = document.getElementsByName("WatchNameChart")
+ var WatchVarableRowIndex = 0;
+ var WatchVariableColIndex = 0;
+ var ids = ["0", "1", "2", "3", "4"];
+ var WatchVariableNames = [
+          ["Empty", "Empty", "Empty", "Empty", "Empty"],
+          ["Empty", "Empty", "Empty", "Empty", "Empty"],
+          ["Empty", "Empty", "Empty", "Empty", "Empty"],
+          ["Empty", "Empty", "Empty", "Empty", "Empty"],
+          ["Empty", "Empty", "Empty", "Empty", "Empty"]
+          ];
+ var WatchVariableData = [
+              [0, 0, 0, 0, 0],
+              [0, 0, 0, 0, 0],
+              [0, 0, 0, 0, 0],
+              [0, 0, 0, 0, 0],
+              [0, 0, 0, 0, 0]
+               ];   
+
+var WatchVariableNamesChart = ["Empty", "Empty", "Empty", "Empty", "Empty", "Empty"];            
+
  var counttmr = 0;
  ctx.moveTo(0,0);
- ctx.canvas.width  = window.innerWidth*0.8;
- ctx.canvas.height = window.innerHeight*0.08;
+ ctx.canvas.width = window.innerWidth* 0.85;
+ ctx.canvas.height = window.innerHeight* 0.3;
  canWidth = ctx.canvas.width;
  canHeight = ctx.canvas.height;
- ctx.beginPath();
+ 
+ //ctx.beginPath();
+ for (WatchVarableRowIndex=0;WatchVarableRowIndex<5;WatchVarableRowIndex++)  
+ {
+   for (WatchVariableColIndex=0;WatchVariableColIndex<5;WatchVariableColIndex++)  
+   { 
+    //if( WVN.id = 'WVN-' + ids[i] + ','+ ids[WatchVarableRowIndex])
+  WVN[WatchVarableRowIndex + (5* WatchVariableColIndex)].innerHTML = WatchVariableNames[WatchVariableColIndex][WatchVarableRowIndex];
+   }
   
-  
+ } 
+ 
+ for (WatchVarableRowIndex=0;WatchVarableRowIndex<6;WatchVarableRowIndex++)  
+ {
+      
+  WVNC[WatchVarableRowIndex].innerHTML = WatchVariableNamesChart[WatchVarableRowIndex];
+ 
+ }   
+   
 function sendData(ButtonPressed) {
   var xhttp = new XMLHttpRequest();
-  
-  if(ButtonPressed == 5)
-  {
-  if(lineColour == "red")
-  {
-    lineColour = "green";
-    lineColourChanged = 1;
-  }
-  else
-  {
-    lineColour = "red";
-    lineColourChanged = 1;
-  }
-  }
- 
   
   xhttp.open("GET", "setPressedButton?StateButton="+ButtonPressed, true);
   xhttp.send();
@@ -329,54 +513,71 @@ function getData() {
   xhttp.open("GET", "readSensorData", true);
   xhttp.send();
 
+  canWidth = Math.round(window.innerWidth* 0.85);
+  canHeight = Math.round(window.innerHeight* 0.3);
+  if((canHeight != ctx.canvas.height) || (canWidth != ctx.canvas.width))
+  {
+  ctx.canvas.width = canWidth;
+  ctx.canvas.height = canHeight;
+  XAxis = 0;
+   
   
- 
+    
+  }
+  
   ctx.beginPath();
   ctx.lineWidth = "5";
   ctx.strokeStyle = "white";
   ctx.moveTo((XAxis+4),0);
-  ctx.lineTo((XAxis+4),200);
+  ctx.lineTo((XAxis+4),(canHeight + 1));
   ctx.stroke();
-  if(lineColourChanged == 1)
-  {
-    ctx.fillStyle = lineColour;
-  lineColourChanged = 0;
-  ctx.fillRect((XAxis-9),(YAxis-5),10,10); 
-  }
-  ctx.beginPath();
+  
+  
  
-  ctx.moveTo(XAxis,YAxisPrevious);
+  
+  XAxisPrevious = XAxis;
   XAxis = XAxis + 1;
   
   if(XAxis > canWidth)
   {
-    XAxis = 0;
-    
-    ctx.moveTo(0,YAxis);
- 
+    XAxis = -2;
+    XAxisPrevious = -2;
+  
+   ctx.moveTo(0,YAxisPrevious[0]);
+   ctx.moveTo(1,YAxisPrevious[1]);
+   ctx.moveTo(2,YAxisPrevious[2]);
+   ctx.moveTo(3,YAxisPrevious[3]);
+   ctx.moveTo(4,YAxisPrevious[4]);
+   ctx.moveTo(5,YAxisPrevious[5]);
   }
   
   
-  ctx.lineWidth = "2";
-  ctx.strokeStyle = lineColour;
-  ctx.lineTo(XAxis,YAxis);
-  YAxisPrevious = YAxis;
-  ctx.stroke(); 
+  for (ChartForCount=0;ChartForCount<6;ChartForCount++)
+  {
+    ctx.beginPath();
+    ctx.moveTo(XAxisPrevious,YAxisPrevious[ChartForCount]);
+    ctx.strokeStyle = colors[ChartForCount%colors.length];
+    ctx.lineWidth = 2;  
+    ctx.lineTo(XAxis,YAxis[ChartForCount]);
+    YAxisPrevious[ChartForCount] = YAxis[ChartForCount];
+    ctx.stroke();
+  }
+  
+   
  
   }
 
 </script>
 </body>
 </html>
-</script>
-</body>
-</html>
+
+
 
 )=====";
 
 
 
-  unsigned char ucButtonState;
+  unsigned char ucButtonState = 9;
   unsigned char ucWorkingButtonState;
   
   unsigned int uiDistance;
@@ -391,18 +592,18 @@ function getData() {
 
 void setupWEbServer(void)
 {
-
-  
   
   Serial.print(F("Configuring access point..."));
 
 	
   Serial.print(F("Connecting to "));
   Serial.println(ssid);
-
+  
+  WiFi.persistent(false);
   WiFi.softAP(ssid, password);
+   delay(2000);
   WiFi.softAPConfig(local_ip, gateway, subnet);
-  delay(100);
+  delay(1000);
   
   
   IPAddress myIP = WiFi.softAPIP();
@@ -448,7 +649,7 @@ void setupWEbServer(void)
  
   server.begin();
   Serial.println(F("HTTP server started"));
-
+  //digitalWrite(INDICATORLED, HIGH);
 
   Serial.println(F(""));
 }
@@ -464,7 +665,7 @@ void loopWEBServerButtonresponce(void)
       default:
       {
      
-       //Serial.println("Stop");
+       Serial.println("DebugOff");
        ucWorkingButtonState = 0;
        ucButtonState = 9;
       
@@ -474,7 +675,7 @@ void loopWEBServerButtonresponce(void)
       case 1:
       {
       
-      // Serial.println("Forward");
+       Serial.println("DebugOn");
         ucButtonState = 9;
         ucWorkingButtonState = 1;
         
@@ -483,7 +684,7 @@ void loopWEBServerButtonresponce(void)
       case 2:
       {
         
-       //Serial.println("Left");
+       Serial.println("Halt");
         ucButtonState = 9;
         ucWorkingButtonState = 2;
         break;
@@ -491,7 +692,7 @@ void loopWEBServerButtonresponce(void)
       case 3:
       {
       
-       //Serial.println("Right");
+       Serial.println("Continuous");
        ucButtonState = 9;
        ucWorkingButtonState = 3;
         break;

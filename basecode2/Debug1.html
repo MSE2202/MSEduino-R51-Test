@@ -396,7 +396,7 @@ table#DP01 th {
  var XAxis =  -2;
  var XAxisPrevious =  -2;
  var XClear = 0;
- var YAxis = [10,20,30,40,50,60];
+ var YAxis = [0,0,0,0,0,0];
  var YAxisPrevious = [0,0,0,0,0,0];
  var canWidth = 0;
  var canHeight = 0;
@@ -451,7 +451,7 @@ var WatchVariableNamesChart = ["Empty", "Empty", "Empty", "Empty", "Empty", "Emp
  }   
    
 function sendData(ButtonPressed) {
-  var xhttp = new XMLHttpRequest();
+  var xhttp = new XMLHttpRequHaltest();
   
   xhttp.open("GET", "setPressedButton?StateButton="+ButtonPressed, true);
   xhttp.send();
@@ -520,12 +520,7 @@ function getData() {
   {
     XAxis = -2;
 	XAxisPrevious = -2;
-   YAxis[0] = YAxis[0] + 5;
-	 YAxis[1] = YAxis[1] + 5;
-	 YAxis[2] = YAxis[2] + 5;
-	 YAxis[3] = YAxis[3] + 5;
-	 YAxis[4] = YAxis[4] + 5;
-	 YAxis[5] = YAxis[5] + 5;
+   
 	 ctx.moveTo(0,YAxisPrevious[0]);
 	 ctx.moveTo(1,YAxisPrevious[1]);
 	 ctx.moveTo(2,YAxisPrevious[2]);
