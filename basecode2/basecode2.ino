@@ -59,6 +59,7 @@
 
 void loopWEBServerButtonresponce(void);
 
+unsigned int uiCountUp;
 
 char bToggleBit;
 const int ciMainTimer =  1000;//200;
@@ -105,8 +106,24 @@ void loop()
 */
     
     WSVR_ButtonResponce();
-    WSVR_BreakPoint(1);
+   
 
+    uiCountUp = uiCountUp + 1;
+    if(uiCountUp > 1500)
+    {
+      uiCountUp  =0;
+      if (bToggleBit & 1)
+      {
+        digitalWrite(INDICATORLED, HIGH);
+  
+      }
+      else
+      {
+        digitalWrite(INDICATORLED, LOW);
+         WSVR_BreakPoint(1);
+  
+      }
+    }
 
 
   }

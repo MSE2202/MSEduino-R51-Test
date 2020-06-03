@@ -487,73 +487,67 @@ function getNames()
   var xhttp = new XMLHttpRequest();
   var vWorkingName;
  
- 
- counttmr = counttmr + 1;
-  if(counttmr >= 100)
-  { 
-     counttmr = 0;  
-     //document.documentElement.style.setProperty('--main-bg-color', 'blue');
-   }
-
   xhttp.onreadystatechange = function() 
   {
     if (this.readyState == 4 && this.status == 200)
     {
-     vWorkingName = (this.responseText).split(";     ");
-     
-     for (WatchIndexer=0;WatchIndexer<vWorkingName.lenght;WatchIndexer++)  
+     vWorkingName = (this.responseText).split(";");
+     if(vWorkingName.length > 1)
      {
-       if(vWorkingName[WatchIndexer] == "BNP1")
+       for (WatchIndexer=0;WatchIndexer<vWorkingName.length;WatchIndexer++)  
        {
-        WatchVariableColIndex = 6;
-        WatchVarableRowIndex = 0;
-       }
-       if(vWorkingName[WatchIndexer] == "BNP2")
-       {
-         WatchVariableColIndex = 6;
-         WatchVarableRowIndex = 1;
-       }
-       if(vWorkingName[WatchIndexer] == "BNP3")
-       {
-         WatchVariableColIndex = 6;
-         WatchVarableRowIndex = 2;
-       }
-       if(vWorkingName[WatchIndexer] == "BNP4")
-       {
-         WatchVariableColIndex = 6;
-         WatchVarableRowIndex = 3;
-       }
-       if(vWorkingName[WatchIndexer] == "BNP5")
-       {
-         WatchVariableColIndex = 6;
-         WatchVarableRowIndex = 4;
-       }
-       if(vWorkingName[WatchIndexer] == "BNP5")
-       {
-         WatchVariableColIndex = 6;
-         WatchVarableRowIndex = 5;
-       }
-       if(WatchVarableRowIndex != 6)
-       {
-         if(WatchVariableColIndex == 6)
+         if(vWorkingName[WatchIndexer] == "BPN1")
          {
-           WatchVariableColIndex = 0;
+          WatchVariableColIndex = 7;
+          WatchVarableRowIndex = 0;
          }
-         else
+         if(vWorkingName[WatchIndexer] == "BPN2")
          {
-           WVN[WatchVarableRowIndex + (5* WatchVariableColIndex)].innerHTML = vWorkingName[WatchVariableColIndex][WatchVarableRowIndex];
-           WatchVariableColIndex = WatchVariableColIndex + 1;
+           WatchVariableColIndex = 7;
+           WatchVarableRowIndex = 1;
          }
+         if(vWorkingName[WatchIndexer] == "BPN3")
+         {
+           WatchVariableColIndex = 7;
+           WatchVarableRowIndex = 2;
+         }
+         if(vWorkingName[WatchIndexer] == "BPN4")
+         {
+           WatchVariableColIndex = 7;
+           WatchVarableRowIndex = 3;
+         }
+         if(vWorkingName[WatchIndexer] == "BPN5")
+         {
+           WatchVariableColIndex = 7;
+           WatchVarableRowIndex = 4;
+         }
+         if(vWorkingName[WatchIndexer] == "NN")
+         {
+           WatchVariableColIndex = 6;
+           
+         }
+         if(WatchVariableColIndex < 7)
+         {
+           if(WatchVariableColIndex == 6)
+           {
+             WatchVariableColIndex = 0;
+           }
+           else
+           {
+             WVN[WatchVarableRowIndex + (5* WatchVariableColIndex)].innerHTML = vWorkingName[WatchIndexer];
+             WatchVariableColIndex = WatchVariableColIndex + 1;
+           }
+         }
+         
+          
        }
-       
-        
      }
   
     }
   };
 
 
-  xhttp.open("GET", "readData", true);
+  xhttp.open("GET", "loadDataNames", true);
   xhttp.send();
  }
    
@@ -604,7 +598,10 @@ function sendData(ButtonPressed) {
       if (WatchColumHaltedAt >= 5)
       {
         Sendit = true;
-         WVH[WatchColumHaltedAt].background-color: #eeb;
+        if(WatchColumHaltedAt < 5)
+        {
+          WVH[WatchColumHaltedAt].style.backgroundColor = "yellow";
+        }
         WatchColumHaltedAt = 6;
       }
       break;
@@ -641,59 +638,66 @@ function getData()
   {
     if (this.readyState == 4 && this.status == 200)
     {
-     vWorkingData = (this.responseText).split(";     ");
-    
-      YAxis  = parseInt(vWorkingData[0],10);
-     for (WatchIndexer=0;WatchIndexer<vWorkingName.lenght;WatchIndexer++)  
+     vWorkingData = (this.responseText).split(";");
+
+    if(vWorkingData.length > 2)
      {
-       if(vWorkingData[WatchIndexer] == "BP1")
+     /// YAxis  = parseInt(vWorkingData[0],10);
+       for (WatchIndexer=0;WatchIndexer<vWorkingData.length;WatchIndexer++)  
        {
-        WatchVariableColIndex = 6;
-        WatchVarableRowIndex = 0;
-       }
-       if(vWorkingData[WatchIndexer] == "BP2")
-       {
-         WatchVariableColIndex = 6;
-         WatchVarableRowIndex = 1;
-       }
-       if(vWorkingData[WatchIndexer] == "BP3")
-       {
-         WatchVariableColIndex = 6;
-         WatchVarableRowIndex = 2;
-       }
-       if(vWorkingData[WatchIndexer] == "BP4")
-       {
-         WatchVariableColIndex = 6;
-         WatchVarableRowIndex = 3;
-       }
-       if(vWorkingData[WatchIndexer] == "BP5")
-       {
-         WatchVariableColIndex = 6;
-         WatchVarableRowIndex = 4;
-       }
-       if(vWorkingData[WatchIndexer] == "HH")
-       {
-         WatchVariableColIndex = 6;
-         WVH[WatchVarableRowIndex].background-color: #200; //eeb;
-         WatchColumHaltedAt = WatchVarableRowIndex;
-       }
-     
-       if(WatchVarableRowIndex != 6)
-       {
-         if(WatchVariableColIndex == 6)
+         if(vWorkingData[WatchIndexer] == "BP1")
          {
-           WatchVariableColIndex = 0;
+          WatchVariableColIndex = 6;
+          WatchVarableRowIndex = 0;
          }
-         else
+         if(vWorkingData[WatchIndexer] == "BP2")
          {
-           WVNC[WatchVarableRowIndex + (5* WatchVariableColIndex)].innerHTML = vWorkingData[WatchVariableColIndex][WatchVarableRowIndex];
-           WatchVariableColIndex = WatchVariableColIndex + 1;
+           WatchVariableColIndex = 6;
+           WatchVarableRowIndex = 1;
          }
-       }
+         if(vWorkingData[WatchIndexer] == "BP3")
+         {
+           WatchVariableColIndex = 6;
+           WatchVarableRowIndex = 2;
+         }
+         if(vWorkingData[WatchIndexer] == "BP4")
+         {
+           WatchVariableColIndex = 6;
+           WatchVarableRowIndex = 3;
+         }
+         if(vWorkingData[WatchIndexer] == "BP5")
+         {
+           WatchVariableColIndex = 6;
+           WatchVarableRowIndex = 4;
+         }
+         if(vWorkingData[WatchIndexer] == "HH")
+         {
+           WatchVariableColIndex = 6;
+           if(WatchVarableRowIndex < 5)
+           {
+             WVH[WatchVarableRowIndex].style.backgroundColor = "red";
+           }
+           
+           WatchColumHaltedAt = WatchVarableRowIndex;
+         }
        
-        
-     }
-        
+         if(WatchVarableRowIndex != 6)
+         {
+           if(WatchVariableColIndex == 6)
+           {
+             WatchVariableColIndex = 0;
+           }
+           else
+           {
+             WVNC[WatchVarableRowIndex + (5* WatchVariableColIndex)].innerHTML = vWorkingData[WatchVariableColIndex][WatchVarableRowIndex];
+             WatchVariableColIndex = WatchVariableColIndex + 1;
+           }
+         }
+         
+          
+       }
+
+     }   
     }
   };
 
@@ -925,7 +929,7 @@ void WSVR_BreakPointInit()
  // ucWSVR_NumberOfBreakPointsVariables[5] = 0;
  // ucWSVR_NumberOfChartVariables = 2;
  
-  strWSVR_VariableNames = String("BPN1") + ";" + String("ulPreviousMicros") + ";" + String("ulCurrentMicros");
+  strWSVR_VariableNames = String("BPN1") + ";" + String("NN") + ";" + String("ulPreviousMicros") + ";" + String("ulCurrentMicros");
      
   
 }
