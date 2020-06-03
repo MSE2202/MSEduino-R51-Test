@@ -271,13 +271,13 @@ table#DP01 th {
 
   <div>
   <label class = "Table1">
-    <table id="DP01">
+    <table id="DP01" onclick="sendData(4)" >
       <tr>
-        <th colspan="2" style= "text-align: center;">   Debug Point 1</th>
-        <th colspan="2" style= "text-align: center;">   Debug Point 2</th>
-        <th colspan="2" style= "text-align: center;">   Debug Point 3</th>
-        <th colspan="2" style= "text-align: center;">   Debug Point 4</th>
-        <th colspan="2" style= "text-align: center;">   Debug Point 5</th>
+        <th name = WatchHeader colspan="2" style= "text-align: center;">   Debug Point 1</th>
+        <th name = WatchHeader colspan="2" style= "text-align: center;">   Debug Point 2</th>
+        <th name = WatchHeader colspan="2" style= "text-align: center;">   Debug Point 3</th>
+        <th name = WatchHeader colspan="2" style= "text-align: center;">   Debug Point 4</th>
+        <th name = WatchHeader colspan="2" style= "text-align: center;">   Debug Point 5</th>
       </tr>
       <tr>
         <td>Var Name</td> 
@@ -427,9 +427,11 @@ table#DP01 th {
  var ChartForCount;
  var WVN = document.getElementsByName("WatchName")
  var WVNC = document.getElementsByName("WatchNameChart")
+ var WVH = document.getElementsByName("WatchHeader")
  var WatchVarableRowIndex = 0;
  var WatchVariableColIndex = 0;
- var WatchNamesIndexer = 0;
+ var WatchColumHaltedAt = 6;
+ var WatchIndexer = 0;
  var DebugOnOff = false;
  var HaltContin = false; 
  var colors = ["red",   "green",   "blue",   "yellow",   "orange", "black"];
@@ -499,34 +501,34 @@ function getNames()
     {
      vWorkingName = (this.responseText).split(";     ");
      
-     for (WatchNamesIndexer=0;WatchNamesIndexer<vWorkingName.lenght;WatchNamesIndexer++)  
+     for (WatchIndexer=0;WatchIndexer<vWorkingName.lenght;WatchIndexer++)  
      {
-       if(vWorkingSensorData[WatchNamesIndexer] == "BNP1")
+       if(vWorkingName[WatchIndexer] == "BNP1")
        {
         WatchVariableColIndex = 6;
         WatchVarableRowIndex = 0;
        }
-       if(vWorkingData[WatchNamesIndexer] == "BNP2")
+       if(vWorkingName[WatchIndexer] == "BNP2")
        {
          WatchVariableColIndex = 6;
          WatchVarableRowIndex = 1;
        }
-       if(vWorkingData[WatchNamesIndexer] == "BNP3")
+       if(vWorkingName[WatchIndexer] == "BNP3")
        {
          WatchVariableColIndex = 6;
          WatchVarableRowIndex = 2;
        }
-       if(vWorkingData[WatchNamesIndexer] == "BNP4")
+       if(vWorkingName[WatchIndexer] == "BNP4")
        {
          WatchVariableColIndex = 6;
          WatchVarableRowIndex = 3;
        }
-       if(vWorkingData[WatchNamesIndexer] == "BNP5")
+       if(vWorkingName[WatchIndexer] == "BNP5")
        {
          WatchVariableColIndex = 6;
          WatchVarableRowIndex = 4;
        }
-       if(vWorkingData[WatchNamesIndexer] == "BNP5")
+       if(vWorkingName[WatchIndexer] == "BNP5")
        {
          WatchVariableColIndex = 6;
          WatchVarableRowIndex = 5;
@@ -597,7 +599,16 @@ function sendData(ButtonPressed) {
       }
       break;
     }
-    
+    case 4:
+    {
+      if (WatchColumHaltedAt >= 5)
+      {
+        Sendit = true;
+         WVH[WatchColumHaltedAt].background-color: #eeb;
+        WatchColumHaltedAt = 6;
+      }
+      break;
+    }
   }
   if (Sendit)
   {
@@ -618,6 +629,7 @@ function getData()
   var vWorkingData;
  
  
+ 
  counttmr = counttmr + 1;
   if(counttmr >= 100)
   { 
@@ -629,12 +641,58 @@ function getData()
   {
     if (this.readyState == 4 && this.status == 200)
     {
-     vWorkingDatagSensorData = (this.responseText).split(";     ");
+     vWorkingData = (this.responseText).split(";     ");
     
       YAxis  = parseInt(vWorkingData[0],10);
-      
-    //  document.getElementById("GravityMeas").innerHTML = WorkingSensorData[0];
-     // document.getElementById("DistanceMeas").innerHTML = WorkingSensorData[1];
+     for (WatchIndexer=0;WatchIndexer<vWorkingName.lenght;WatchIndexer++)  
+     {
+       if(vWorkingData[WatchIndexer] == "BP1")
+       {
+        WatchVariableColIndex = 6;
+        WatchVarableRowIndex = 0;
+       }
+       if(vWorkingData[WatchIndexer] == "BP2")
+       {
+         WatchVariableColIndex = 6;
+         WatchVarableRowIndex = 1;
+       }
+       if(vWorkingData[WatchIndexer] == "BP3")
+       {
+         WatchVariableColIndex = 6;
+         WatchVarableRowIndex = 2;
+       }
+       if(vWorkingData[WatchIndexer] == "BP4")
+       {
+         WatchVariableColIndex = 6;
+         WatchVarableRowIndex = 3;
+       }
+       if(vWorkingData[WatchIndexer] == "BP5")
+       {
+         WatchVariableColIndex = 6;
+         WatchVarableRowIndex = 4;
+       }
+       if(vWorkingData[WatchIndexer] == "HH")
+       {
+         WatchVariableColIndex = 6;
+         WVH[WatchVarableRowIndex].background-color: #200; //eeb;
+         WatchColumHaltedAt = WatchVarableRowIndex;
+       }
+     
+       if(WatchVarableRowIndex != 6)
+       {
+         if(WatchVariableColIndex == 6)
+         {
+           WatchVariableColIndex = 0;
+         }
+         else
+         {
+           WVNC[WatchVarableRowIndex + (5* WatchVariableColIndex)].innerHTML = vWorkingData[WatchVariableColIndex][WatchVarableRowIndex];
+           WatchVariableColIndex = WatchVariableColIndex + 1;
+         }
+       }
+       
+        
+     }
         
     }
   };
@@ -708,6 +766,9 @@ function getData()
 
   boolean bWSVR_DebugOfOff = false;
   boolean bWSVR_HaltContinuous = false;
+  boolean bWSVR_Halted = false;
+  
+  
   unsigned char ucrWSVR_ButtonState = 9;
  
   String strWSVR_ButtonState = "0";
@@ -816,7 +877,7 @@ void WSVR_ButtonResponce(void)
         
        Serial.println("Halt");
         ucrWSVR_ButtonState = 9;
-        bWSVR_HaltContinuous = false;
+        bWSVR_HaltContinuous = 0;
         break;
       }
       case 3:
@@ -824,10 +885,18 @@ void WSVR_ButtonResponce(void)
       
        Serial.println("Continuous");
        ucrWSVR_ButtonState = 9;
-       bWSVR_HaltContinuous = true;
+       bWSVR_HaltContinuous = 2;
         break;
       }
-    
+
+      case 4:  //contin form BP halted
+      {
+        bWSVR_Halted = false;
+        ucrWSVR_ButtonState = 9;
+       
+       
+        break;
+      }
       case 5:  //toggle servo
       {
         
@@ -863,7 +932,25 @@ void WSVR_BreakPointInit()
 
 void WSVR_BreakPoint(unsigned char ucBPindex)
 {
+  extern unsigned long ulPreviousMicros;
+  extern unsigned long ulCurrentMicros;
 
-    strWSVR_VariableData = String("BP1") + ";" + (ulPreviousMicros) + ";     " + String(ulCurrentMicros);
+  if(bWSVR_DebugOfOff)
+  {
+    
+    if(bWSVR_HaltContinuous == 0)
+    {
+     bWSVR_Halted = true;
+     while(bWSVR_Halted)
+     {
+       strWSVR_VariableData = String("BP1") + ";" + "HH" + ";" +String(ulPreviousMicros) + ";" + String(ulCurrentMicros);
+       WSVR_ButtonResponce();
+     }
+    }
+    else
+    {
+      strWSVR_VariableData = String("BP1") + ";" + " " + ";" +String(ulPreviousMicros) + ";" + String(ulCurrentMicros);
+    }
+   }
   
 }

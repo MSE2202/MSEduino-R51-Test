@@ -105,7 +105,7 @@ void loop()
 */
     
     WSVR_ButtonResponce();
-
+    WSVR_BreakPoint(1);
 
 
 
