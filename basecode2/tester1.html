@@ -1,25 +1,3 @@
-
-
-
-//#include <WiFi.h>
-#include <ESPAsyncWebServer.h>
-
-
-bool btWS_Fellover = true;
-
-// Replace with your network credentials
-const char *ssid = "BaseC2";
-const char *password = "12345678";  //must be 8 characters long
-
-
-IPAddress local_ip(192,168,128,1);
-IPAddress gateway(192,168,1,1);
-IPAddress subnet(255,255,255,0);
-
-AsyncWebServer server(80);
-
- 
-const char MAIN_page[] PROGMEM = R"=====(
 <!DOCTYPE html>
 <html>
 
@@ -220,7 +198,7 @@ table#DP01 tr:nth-child(odd) {
  background-color: #fff;
 }
 table#DP01 th {
-  background-color: grey;
+  background-color: gray;
   color: white;
 }
 
@@ -402,10 +380,6 @@ table#DP01 th {
  var XAxisPrevious =  -2;
  var YAxis = [0,0,0,0,0,0];
  var YAxisPrevious = [0,0,0,0,0,0];
- var ChartLowerLimits = [0,0,0,0,0,0];
- var ChartUpperLimits = [0,0,0,0,0,0];
- var ChartVariableIndex;
- var UpperLowerLimit;
  var canWidth = 0;
  var canHeight = 0;
  var ChartForCount;
@@ -507,7 +481,7 @@ function getNames()
            WatchVariableColIndex = 7;
            WatchVarableRowIndex = 4;
          }
-         if(vWorkingName[WatchIndexer] == "BPCN")
+         if(vWorkingName[WatchIndexer] == "BPC")
          {
            WatchVariableColIndex = 7;
            WatchVarableRowIndex = 7;
@@ -516,102 +490,6 @@ function getNames()
          {
            WatchVariableColIndex = 6;
            
-         }
-         if(WatchVariableColIndex >= 10)
-         {
-          if(UpperLowerLimit == 0)
-          {
-            ChartLowerLimits[ChartVariableIndex] = vWorkingName[WatchIndexer];
-          }
-          else
-          {
-            ChartUpperLimits[ChartVariableIndex] = vWorkingName[WatchIndexer];
-          }
-            WatchVariableColIndex = 7;
-         }
-         if(vWorkingName[WatchIndexer] == "LL1")
-         {
-           WatchVariableColIndex = 10;
-           WatchVarableRowIndex = 7;
-           ChartVariableIndex = 0;
-           UpperLowerLimit = 0;
-         }
-         if(vWorkingName[WatchIndexer] == "UU1")
-         {
-           WatchVariableColIndex = 10;
-           WatchVarableRowIndex = 7;
-           ChartVariableIndex = 0;
-           UpperLowerLimit = 1;
-         }
-         if(vWorkingName[WatchIndexer] == "LL2")
-         {
-           WatchVariableColIndex = 10;
-           WatchVarableRowIndex = 7;
-           ChartVariableIndex = 1;
-           UpperLowerLimit = 0;
-         }
-         if(vWorkingName[WatchIndexer] == "UU2")
-         {
-           WatchVariableColIndex = 10;
-           WatchVarableRowIndex = 7;
-           ChartVariableIndex = 1;
-           UpperLowerLimit = 1;
-         }
-         if(vWorkingName[WatchIndexer] == "LL3")
-         {
-           WatchVariableColIndex = 10;
-           WatchVarableRowIndex = 7;
-           ChartVariableIndex = 2;
-           UpperLowerLimit = 0;
-         }
-         if(vWorkingName[WatchIndexer] == "UU3")
-         {
-           WatchVariableColIndex = 10;
-           WatchVarableRowIndex = 7;
-           ChartVariableIndex = 2;
-           UpperLowerLimit = 1;
-         }
-         if(vWorkingName[WatchIndexer] == "LL4")
-         {
-           WatchVariableColIndex = 10;
-           WatchVarableRowIndex = 7;
-           ChartVariableIndex = 3;
-           UpperLowerLimit = 0;
-         }
-         if(vWorkingName[WatchIndexer] == "UU4")
-         {
-           WatchVariableColIndex = 10;
-           WatchVarableRowIndex = 7;
-           ChartVariableIndex = 3;
-           UpperLowerLimit = 1;
-         }
-         if(vWorkingName[WatchIndexer] == "LL5")
-         {
-           WatchVariableColIndex = 10;
-           WatchVarableRowIndex = 7;
-           ChartVariableIndex = 4;
-           UpperLowerLimit = 0;
-         }
-         if(vWorkingName[WatchIndexer] == "UU5")
-         {
-           WatchVariableColIndex = 10;
-           WatchVarableRowIndex = 7;
-           ChartVariableIndex = 4;
-           UpperLowerLimit = 1;
-         }
-         if(vWorkingName[WatchIndexer] == "LL6")
-         {
-           WatchVariableColIndex = 10;
-           WatchVarableRowIndex = 7;
-           ChartVariableIndex = 5;
-           UpperLowerLimit = 0;
-         }
-         if(vWorkingName[WatchIndexer] == "UU6")
-         {
-           WatchVariableColIndex = 10;
-           WatchVarableRowIndex = 7;
-           ChartVariableIndex = 5;
-           UpperLowerLimit = 1;
          }
          if(WatchVariableColIndex < 7)
          {
@@ -693,7 +571,7 @@ function sendData(ButtonPressed) {
         Sendit = true;
         if(WatchColumHaltedAt < 5)
         {
-          WVH[WatchColumHaltedAt].style.backgroundColor = "grey";
+          WVH[WatchColumHaltedAt].style.backgroundColor = "light yellow";
         }
         WatchColumHaltedAt = 6;
       }
@@ -767,10 +645,6 @@ function getData()
            }
            
          }
-          if(vWorkingData[WatchIndexer] == "XX")
-         {
-           WatchVariableColIndex = 6;
-         }
          if(vWorkingData[WatchIndexer] == "CC")
          {
            WatchVariableColIndex = 6;
@@ -787,15 +661,12 @@ function getData()
             if(WatchVarableRowIndex == 7)
             {
               WVDC[WatchVariableColIndex].innerHTML = vWorkingData[WatchIndexer];
-              ConvertFromString = parseInt(vWorkingData[WatchIndexer],10);
-              YAxis[WatchVariableColIndex] = canHeight -  (ConvertFromString * canHeight)/(ChartUpperLimits[WatchVariableColIndex] - ChartLowerLimits[WatchVariableColIndex]);
             }
             else
             {
              WVD[WatchVarableRowIndex + (5* WatchVariableColIndex)].innerHTML = vWorkingData[WatchIndexer];
             }
             WatchVariableColIndex = WatchVariableColIndex + 1;
-
            }
          
          } 
@@ -867,212 +738,3 @@ function getData()
 </body>
 </html>
 
-
-
-)=====";
-
-
-  boolean bWSVR_DebugOfOff = false;
-  boolean bWSVR_HaltContinuous = false;
-  boolean bWSVR_Halted = false;
-  
-  
-  unsigned char ucrWSVR_ButtonState = 9;
- 
-  String strWSVR_ButtonState = "0";
-
-//________________________________________________________________________
-  //unsigned char ucWSVR_NumberOfBreakPointsVariables[5][5]
-  //unsigned char ucWSVR_NumberOfChartVariables = 0;
-  //unsigned char ucWSVR_NumberOfBreakPoints = 0;
- // unsigned char ucWSVR_NumberOfBreakPoints = 0;
-  String strWSVR_VariableNames;
-  String strWSVR_VariableData;
-
-void WSVR_setupWEbServer(void)
-{
-  
-  Serial.print(F("Configuring access point..."));
-
-	
-  Serial.print(F("Connecting to "));
-  Serial.println(ssid);
-  
-  WiFi.persistent(false);
-  WiFi.softAP(ssid, password);
-   delay(2000);
-  WiFi.softAPConfig(local_ip, gateway, subnet);
-  delay(1000);
-  
-  
-  IPAddress myIP = WiFi.softAPIP();
-  Serial.print(F("AP IP address: "));
-  Serial.println(myIP);
-  
-  
- server.on("/", HTTP_GET, [](AsyncWebServerRequest *request)
-  {
-    request->send(200, "text/html", MAIN_page);
-  });
-    
- 
-  server.on("/setPressedButton", HTTP_GET, [](AsyncWebServerRequest *request)
-  {
-      
-      AsyncWebParameter* p;
-     
-     if(request->hasParam("StateButton"))
-       p = request->getParam("StateButton");
-       // Serial.printf("GET[%s]: %s\n", p->name().c_str(), p->value().c_str());
-
-     String t_state = p->value().c_str();//server->arg("StateButton"); //Refer  xhttp.open("GET", "setButton?StateButton="+buttonPressed, true);
-     strWSVR_ButtonState = p->value().c_str();
-     
-     ucrWSVR_ButtonState = strWSVR_ButtonState.toInt();
-    
-     
-    request->send(200, "text/plain", strWSVR_ButtonState); //Send web page
-   
-  });
-
-   server.on("/readData", HTTP_GET, [](AsyncWebServerRequest *request)
-    {
-         request->send(200, "text/plain", strWSVR_VariableData); //Send ADC value only to client ajax request
-   
-    });
-
-   server.on("/loadDataNames", HTTP_GET, [](AsyncWebServerRequest *request)
-    {
-     
-      request->send(200, "text/plain", strWSVR_VariableNames); //Send ADC value only to client ajax request
-   
-    }); 
-    
- 
-  server.begin();
-  Serial.println(F("HTTP server started"));
-  
-
-  Serial.println(F(""));
-}
-
-void WSVR_ButtonResponce(void)
-{
-    switch(ucrWSVR_ButtonState)
-    {
-      case 0:
-      default:
-      {
-     
-       Serial.println("DebugOff");
-       bWSVR_DebugOfOff = false;
-       ucrWSVR_ButtonState = 9;
-      
-       
-        break;
-      }
-      case 1:
-      {
-      
-       Serial.println("DebugOn");
-        ucrWSVR_ButtonState = 9;
-        bWSVR_DebugOfOff = true;
-        
-        break;
-      }
-      case 2:
-      {
-        
-       Serial.println("Halt");
-        ucrWSVR_ButtonState = 9;
-        bWSVR_HaltContinuous = false;
-        break;
-      }
-      case 3:
-      {
-      
-       Serial.println("Continuous");
-       ucrWSVR_ButtonState = 9;
-       bWSVR_HaltContinuous = true;
-        break;
-      }
-
-      case 4:  //continue from BP halt
-      {
-        Serial.println("UnHalt");
-        bWSVR_Halted = false;
-        ucrWSVR_ButtonState = 9;
-        strWSVR_VariableData.replace("HH", "GG");
-       
-        break;
-      }
-      case 5:  //toggle servo
-      {
-        
-        ucrWSVR_ButtonState = 9;
-       
-       
-        break;
-      }
-      case 9:
-      {
-        
-        ucrWSVR_ButtonState = 9;
-        break;
-      }
-    }
-
-}
-
-void WSVR_BreakPointInit()
-{
- // break point initialze variabel names
- // "BPN#;NN;variable name1;...variable name 5;  # is 1 to 5, string these togather to populate all 25 variable names. 
- //BNP numbers don't need to be in order but the names between the BNPs will fill the teh column right below this BNP number
- //initialize chart names and data scope size
- //BPCN;NN;LL1;variable 1 lower limit,UU1; variable 1 upper limit;LL2;variable 2 lower limit,UU2; variable 2 upper limit;+
- //LL3;variable 3 lower limit,UU3; variable 3 upper limit;LL4;variable 4 lower limit,UU4; variable 4 upper limit;LL5;variable 5 lower limit,UU5; variable 5 upper limit;+
- //variable name1;...variable name 6;
- 
-  strWSVR_VariableNames = String("BPN1") + ";" + String("NN") + ";" + String("ulPreviousMicros") + ";" + String("ulCurrentMicros") + ";" + String("uiTestCounter") + ";"
-                        + String("BPCN") + ";" + String("QQ") + ";" 
-                        + String("LL1") + ";" + String(0) + ";" + String("UU1") + ";" + String(2000000000) + ";"
-                        + String("LL2") + ";" + String(0) + ";" + String("UU2") + ";" + String(2000000000) + ";"
-                        + String("LL3") + ";" + String(0) + ";" + String("UU3") + ";" + String(65535) + ";"
-                        + String("LL4") + ";" + String(0) + ";" + String("UU4") + ";" + String(0) + ";"
-                        + String("LL5") + ";" + String(0) + ";" + String("UU5") + ";" + String(0) + ";"
-                        + String("LL6") + ";" + String(0) + ";" + String("UU6") + ";" + String(0) + ";"
-                        + String("NN") + ";" + String("ulPre-Micros") + ";" + String("ulCur-Micros")+ ";" + String("uiTestCounter");
-}
-
-void WSVR_BreakPoint(unsigned char ucBPindex)
-{
-  extern unsigned long ulPreviousMicros;
-  extern unsigned long ulCurrentMicros;
-  extern unsigned int uiTestCounter;
-
-  if(bWSVR_DebugOfOff)
-  {
-    
-    if(bWSVR_HaltContinuous == false)
-    {
-     bWSVR_Halted = true;
-     while(bWSVR_Halted)
-     {
-       strWSVR_VariableData = String("BP1") + ";" + "HH" + ";" +String(ulPreviousMicros) + ";" + String(ulCurrentMicros)+ ";" + String(uiTestCounter)+ ";"
-                            + String("BPC") + ";" + "CC" + ";" +String(ulPreviousMicros) + ";" + String(ulCurrentMicros)+ ";" + String(uiTestCounter);
-       WSVR_ButtonResponce();
-       if((bWSVR_DebugOfOff == false) || (bWSVR_HaltContinuous))
-       {
-        break;
-       }
-     }
-    }
-    else
-    {
-      strWSVR_VariableData = String("BP1") + ";" + "XX" + ";" +String(ulPreviousMicros) + ";" + String(ulCurrentMicros)+ ";" + String(uiTestCounter) + ";" 
-                           + String("BPC") + ";" + "CC" + ";" +String(ulPreviousMicros) + ";" + String(ulCurrentMicros)+ ";" + String(uiTestCounter);
-    }
-   }
-  
-}
