@@ -44,6 +44,7 @@
 */
 
 
+TaskHandle_t Core0;
 
 //pins
 #define INDICATORLED 2
@@ -52,6 +53,7 @@
 #define SCL 21
 
 
+#include <esp_task_wdt.h>
 
 #include <Math.h>
 #include "MyWEBserver.h"
@@ -67,18 +69,67 @@ const int ciMainTimer =  1000;//200;
 
 unsigned int uiCommunticationTimer;
 
+unsigned long ulPreviousMicrosCore0;
+unsigned long ulCurrentMicrosCore0;
 
 unsigned long ulPreviousMicros;
 unsigned long ulCurrentMicros;
 
+
+void Core0code( void * pvParameters ){
+  Serial.print("Core - ");
+  Serial.print(xPortGetCoreID());
+  Serial.println("   running ");
+
+ 
+  
+  //loop function for core 0
+  for(;;)
+  {
+
+       
+       esp_err_t esp_task_wdt_reset();
+      //main timing loop enters if every ~1ms
+      ulCurrentMicrosCore0 = micros();
+      //if ((ulCurrentMicrosCore0 - ulPreviousMicrosCore0) >= 500)
+     // {
+        Serial.println("C");
+        ulPreviousMicrosCore0 = ulCurrentMicrosCore0;
+         WSVR_ButtonResponce();
+        
+      //} 
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
 void setup() {
   Serial.begin(115200);
   pinMode(INDICATORLED, OUTPUT);
-  
-  WSVR_BreakPointInit();
+  Serial.println(xPortGetCoreID());
 
-  WSVR_setupWEbServer();
+   //setup
+   WSVR_BreakPointInit();
 
+   WSVR_setupWEbServer();
+   
+   xTaskCreatePinnedToCore(
+                    Core0code,   /* Task function. */
+                    "Core0",     /* name of task. */
+                    10000,       /* Stack size of task */
+                    NULL,        /* parameter of the task */
+                    1,           /* priority of the task */
+                    &Core0,      /* Task handle to keep track of created task */
+                    0);          /* pin task to core 0 */                  
+  delay(500); 
 
  
 }
@@ -107,7 +158,7 @@ void loop()
     }
 */
     
-    WSVR_ButtonResponce();
+   
    
 
     uiCountUp = uiCountUp + 1;
@@ -123,7 +174,7 @@ void loop()
       if (bToggleBit & 1)
       {
         digitalWrite(INDICATORLED, HIGH);
-  
+        Serial.println(xPortGetCoreID());
       }
       else
       {
