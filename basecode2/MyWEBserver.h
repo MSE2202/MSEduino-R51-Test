@@ -975,6 +975,8 @@ void WSVR_ButtonResponce(void)
       {
       
        Serial.println("DebugOn");
+       
+        //esp_err_t esp_task_wdt_status(TaskHandle_t handle)
         ucrWSVR_ButtonState = 9;
         bWSVR_DebugOfOff = true;
         

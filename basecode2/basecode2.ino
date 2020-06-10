@@ -81,26 +81,28 @@ void Core0code( void * pvParameters ){
   Serial.print(xPortGetCoreID());
   Serial.println("   running ");
 
- 
+   WSVR_BreakPointInit();
+
+   WSVR_setupWEbServer();
   
   //loop function for core 0
   for(;;)
   {
 
        
-       esp_err_t esp_task_wdt_reset();
+       //esp_err_t esp_task_wdt_reset();
+       
       //main timing loop enters if every ~1ms
       ulCurrentMicrosCore0 = micros();
-      //if ((ulCurrentMicrosCore0 - ulPreviousMicrosCore0) >= 500)
-     // {
-        Serial.println("C");
+      if ((ulCurrentMicrosCore0 - ulPreviousMicrosCore0) >= 500)
+      {
+        vTaskDelay(1);
         ulPreviousMicrosCore0 = ulCurrentMicrosCore0;
-         WSVR_ButtonResponce();
+        WSVR_ButtonResponce();
         
-      //} 
+      } 
   }
 }
-
 
 
 
@@ -117,9 +119,7 @@ void setup() {
   Serial.println(xPortGetCoreID());
 
    //setup
-   WSVR_BreakPointInit();
-
-   WSVR_setupWEbServer();
+   
    
    xTaskCreatePinnedToCore(
                     Core0code,   /* Task function. */
@@ -135,7 +135,7 @@ void setup() {
 }
 void loop()
 {
-
+   //esp_err_t esp_task_wdt_reset();
   //main timing loop enters if every ~200us (ciMainTimer). thsi loop time controls all other timers
   ulCurrentMicros = micros();
   if ((ulCurrentMicros - ulPreviousMicros) >= ciMainTimer)
@@ -174,7 +174,7 @@ void loop()
       if (bToggleBit & 1)
       {
         digitalWrite(INDICATORLED, HIGH);
-        Serial.println(xPortGetCoreID());
+        
       }
       else
       {
