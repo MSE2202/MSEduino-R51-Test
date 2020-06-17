@@ -1,7 +1,17 @@
+/*
+//Western Engineering base code 
+March 21,2020
+  
+\WEB server code
+
+
+*/
+
+#ifndef MYWEBSERVER_H
+#define MYWEBSERVER_H 1
 
 
 
-//#include <WiFi.h>
 #include <ESPAsyncWebServer.h>
 
 
@@ -482,6 +492,32 @@ function getNames()
      {
        for (WatchIndexer=0;WatchIndexer<vWorkingName.length;WatchIndexer++)  
        {
+        if(vWorkingName[WatchIndexer] == "DBON")
+         {
+           WatchVariableColIndex = 20;
+           WatchVarableRowIndex = 7;
+           document.getElementById("DebugOn").checked = true;
+           //document.getElementById("DebugOff").checked = false;
+           DebugOnOff = true;
+         }
+         if(vWorkingName[WatchIndexer] == "DBOF")
+         {
+           WatchVariableColIndex = 20;
+           WatchVarableRowIndex = 7;
+           DebugOnOff = false;
+         }
+         if(vWorkingName[WatchIndexer] == "HALT")
+         {
+           WatchVariableColIndex = 20;
+           WatchVarableRowIndex = 7;
+           HaltContin = false;
+         }
+         if(vWorkingName[WatchIndexer] == "CONT")
+         {
+           WatchVariableColIndex = 20;
+           WatchVarableRowIndex = 7;
+           HaltContin = true;
+         }
          if(vWorkingName[WatchIndexer] == "BPN1")
          {
           WatchVariableColIndex = 7;
@@ -517,7 +553,7 @@ function getNames()
            WatchVariableColIndex = 6;
            
          }
-         if(WatchVariableColIndex >= 10)
+         if(WatchVariableColIndex == 10)
          {
           if(UpperLowerLimit == 0)
           {
@@ -894,7 +930,7 @@ void WSVR_setupWEbServer(void)
   
   Serial.print(F("Configuring access point..."));
 
-	
+  
   Serial.print(F("Connecting to "));
   Serial.println(ssid);
   
@@ -1026,55 +1062,6 @@ void WSVR_ButtonResponce(void)
 
 }
 
-void WSVR_BreakPointInit()
-{
- // break point initialze variabel names
- // "BPN#;NN;variable name1;...variable name 5;  # is 1 to 5, string these togather to populate all 25 variable names. 
- //BNP numbers don't need to be in order but the names between the BNPs will fill the teh column right below this BNP number
- //initialize chart names and data scope size
- //BPCN;NN;LL1;variable 1 lower limit,UU1; variable 1 upper limit;LL2;variable 2 lower limit,UU2; variable 2 upper limit;+
- //LL3;variable 3 lower limit,UU3; variable 3 upper limit;LL4;variable 4 lower limit,UU4; variable 4 upper limit;LL5;variable 5 lower limit,UU5; variable 5 upper limit;+
- //variable name1;...variable name 6;
- 
-  strWSVR_VariableNames = String("BPN1") + ";" + String("NN") + ";" + String("ulPreviousMicros") + ";" + String("ulCurrentMicros") + ";" + String("uiTestCounter") + ";"
-                        + String("BPCN") + ";" + String("QQ") + ";" 
-                        + String("LL1") + ";" + String(0) + ";" + String("UU1") + ";" + String(2000000000) + ";"
-                        + String("LL2") + ";" + String(0) + ";" + String("UU2") + ";" + String(2000000000) + ";"
-                        + String("LL3") + ";" + String(0) + ";" + String("UU3") + ";" + String(65535) + ";"
-                        + String("LL4") + ";" + String(0) + ";" + String("UU4") + ";" + String(0) + ";"
-                        + String("LL5") + ";" + String(0) + ";" + String("UU5") + ";" + String(0) + ";"
-                        + String("LL6") + ";" + String(0) + ";" + String("UU6") + ";" + String(0) + ";"
-                        + String("NN") + ";" + String("ulPre-Micros") + ";" + String("ulCur-Micros")+ ";" + String("uiTestCounter");
-}
 
-void WSVR_BreakPoint(unsigned char ucBPindex)
-{
-  extern unsigned long ulPreviousMicros;
-  extern unsigned long ulCurrentMicros;
-  extern unsigned int uiTestCounter;
 
-  if(bWSVR_DebugOfOff)
-  {
-    
-    if(bWSVR_HaltContinuous == false)
-    {
-     bWSVR_Halted = true;
-     while(bWSVR_Halted)
-     {
-       strWSVR_VariableData = String("BP1") + ";" + "HH" + ";" +String(ulPreviousMicros) + ";" + String(ulCurrentMicros)+ ";" + String(uiTestCounter)+ ";"
-                            + String("BPC") + ";" + "CC" + ";" +String(ulPreviousMicros) + ";" + String(ulCurrentMicros)+ ";" + String(uiTestCounter);
-       WSVR_ButtonResponce();
-       if((bWSVR_DebugOfOff == false) || (bWSVR_HaltContinuous))
-       {
-        break;
-       }
-     }
-    }
-    else
-    {
-      strWSVR_VariableData = String("BP1") + ";" + "XX" + ";" +String(ulPreviousMicros) + ";" + String(ulCurrentMicros)+ ";" + String(uiTestCounter) + ";" 
-                           + String("BPC") + ";" + "CC" + ";" +String(ulPreviousMicros) + ";" + String(ulCurrentMicros)+ ";" + String(uiTestCounter);
-    }
-   }
-  
-}
+#endif

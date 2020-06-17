@@ -1,6 +1,6 @@
 
 
-//Western Engineering S1116 base code
+//Western Engineering base code
 //2020 05 13 E J Porter
 
 
@@ -44,7 +44,8 @@
 */
 
 
-TaskHandle_t Core0;
+
+#include "Core_Zero.h"
 
 //pins
 #define INDICATORLED 2
@@ -57,6 +58,7 @@ TaskHandle_t Core0;
 
 #include <Math.h>
 #include "MyWEBserver.h"
+#include "BreakPoint.h"
 
 
 void loopWEBServerButtonresponce(void);
@@ -69,68 +71,16 @@ const int ciMainTimer =  1000;//200;
 
 unsigned int uiCommunticationTimer;
 
-unsigned long ulPreviousMicrosCore0;
-unsigned long ulCurrentMicrosCore0;
 
 unsigned long ulPreviousMicros;
 unsigned long ulCurrentMicros;
 
 
-void Core0code( void * pvParameters ){
-  Serial.print("Core - ");
-  Serial.print(xPortGetCoreID());
-  Serial.println("   running ");
-
-   WSVR_BreakPointInit();
-
-   WSVR_setupWEbServer();
-  
-  //loop function for core 0
-  for(;;)
-  {
-
-       
-       //esp_err_t esp_task_wdt_reset();
-       
-      //main timing loop enters if every ~1ms
-      ulCurrentMicrosCore0 = micros();
-      if ((ulCurrentMicrosCore0 - ulPreviousMicrosCore0) >= 500)
-      {
-        vTaskDelay(1);
-        ulPreviousMicrosCore0 = ulCurrentMicrosCore0;
-        WSVR_ButtonResponce();
-        
-      } 
-  }
-}
-
-
-
-
-
-
-
-
-
-
 void setup() {
   Serial.begin(115200);
   pinMode(INDICATORLED, OUTPUT);
-  Serial.println(xPortGetCoreID());
-
-   //setup
-   
-   
-   xTaskCreatePinnedToCore(
-                    Core0code,   /* Task function. */
-                    "Core0",     /* name of task. */
-                    10000,       /* Stack size of task */
-                    NULL,        /* parameter of the task */
-                    1,           /* priority of the task */
-                    &Core0,      /* Task handle to keep track of created task */
-                    0);          /* pin task to core 0 */                  
-  delay(500); 
-
+  
+  Core_ZEROInit();
  
 }
 void loop()
