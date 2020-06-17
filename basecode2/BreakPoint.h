@@ -13,7 +13,7 @@ March 21,2020
 //-----------------------------------------------------------
 //Column 1
  
-#define WATCH_VARIABLE_1_NAME "uiTestCounter;CH1;0;65535" //only 6 charting varable allowed, first number is minimun value ; 2nd is maximum value
+#define WATCH_VARIABLE_1_NAME "uiTestCounter;LL1;0;UL1;65535" //only 6 charting varable allowed, first number is minimun value ; 2nd is maximum value
 #define WATCH_VARIABLE_1_TYPE unsigned int
 #define WATCH_VARIABLE_1 uiTestCounter
 // 
@@ -21,7 +21,7 @@ March 21,2020
 #define WATCH_VARIABLE_2_TYPE boolean
 #define WATCH_VARIABLE_2 bTestCounter
 //
-#define WATCH_VARIABLE_3_NAME "fTestCounter;CH2;-500;500"
+#define WATCH_VARIABLE_3_NAME "fTestCounter;LL2;-500;UL2;500"
 #define WATCH_VARIABLE_3_TYPE float
 #define WATCH_VARIABLE_3 fTestCounter
 
@@ -200,64 +200,64 @@ void WSVR_BreakPointInit(String strDebug_OnOff, String strHaltContinous)
  strWSVR_VariableNames = String(strDebug_OnOff) + ";" + String(strHaltContinous) + ";" + String("BPN") + ";" + String("CC") + ";"
 
 #ifdef WATCH_VARIABLE_1_NAME
-                       + String(WATCH_VARIABLE_1_NAME) + ";" 
+                       + String("WV01") + ";" + String(WATCH_VARIABLE_1_NAME) + ";" 
 #endif 
 #ifdef WATCH_VARIABLE_2_NAME
-                       + String(WATCH_VARIABLE_2_NAME) + ";" 
+                       + String("WV02") + ";" + String(WATCH_VARIABLE_2_NAME) + ";" 
 #endif
 #ifdef WATCH_VARIABLE_3_NAME
-                       + String(WATCH_VARIABLE_3_NAME) + ";" 
+                       + String("WV03") + ";" + String(WATCH_VARIABLE_3_NAME) + ";" 
 #endif
 #ifdef WATCH_VARIABLE_4_NAME
-                       + String(WATCH_VARIABLE_4_NAME) + ";" 
+                       + String("WV04") + ";" + String(WATCH_VARIABLE_4_NAME) + ";" 
 #endif
 #ifdef WATCH_VARIABLE_5_NAME
-                       + String(WATCH_VARIABLE_5_NAME) + ";" 
+                       + String("WV05") + ";" + String(WATCH_VARIABLE_5_NAME) + ";" 
 #endif
 #ifdef WATCH_VARIABLE_6_NAME
-                       + String(WATCH_VARIABLE_6_NAME) + ";" 
+                       + String("WV06") + ";" + String(WATCH_VARIABLE_6_NAME) + ";" 
 #endif
 #ifdef WATCH_VARIABLE_7_NAME
-                       + String(WATCH_VARIABLE_7_NAME) + ";" 
+                       + String("WV07") + ";" + String(WATCH_VARIABLE_7_NAME) + ";" 
 #endif
 #ifdef WATCH_VARIABLE_8_NAME
-                       + String(WATCH_VARIABLE_8_NAME) + ";" 
+                       + String("WV08") + ";" + String(WATCH_VARIABLE_8_NAME) + ";" 
 #endif
 #ifdef WATCH_VARIABLE_9_NAME
-                       + String(WATCH_VARIABLE_9_NAME) + ";" 
+                       + String("WV09") + ";" + String(WATCH_VARIABLE_9_NAME) + ";" 
 #endif
 #ifdef WATCH_VARIABLE_10_NAME
-                       + String(WATCH_VARIABLE_10_NAME) + ";" 
+                       + String("WV10") + ";" + String(WATCH_VARIABLE_10_NAME) + ";" 
 #endif
 #ifdef WATCH_VARIABLE_11_NAME
-                       + String(WATCH_VARIABLE_11_NAME) + ";" 
+                       + String("WV11") + ";" + String(WATCH_VARIABLE_11_NAME) + ";" 
 #endif
 #ifdef WATCH_VARIABLE_12_NAME
-                       + String(WATCH_VARIABLE_12_NAME) + ";" 
+                       + String("WV12") + ";" + String(WATCH_VARIABLE_12_NAME) + ";" 
 #endif
 #ifdef WATCH_VARIABLE_13_NAME
-                       + String(WATCH_VARIABLE_13_NAME) + ";" 
+                       + String("WV13") + ";" + String(WATCH_VARIABLE_13_NAME) + ";" 
 #endif
 #ifdef WATCH_VARIABLE_14_NAME
-                       + String(WATCH_VARIABLE_14_NAME) + ";" 
+                       + String("WV14") + ";" + String(WATCH_VARIABLE_14_NAME) + ";" 
 #endif
 #ifdef WATCH_VARIABLE_15_NAME
-                       + String(WATCH_VARIABLE_15_NAME) + ";" 
+                       + String("WV15") + ";" + String(WATCH_VARIABLE_15_NAME) + ";" 
 #endif
 #ifdef WATCH_VARIABLE_16_NAME
-                       + String(WATCH_VARIABLE_16_NAME) + ";" 
+                       + String("WV16") + ";" + String(WATCH_VARIABLE_16_NAME) + ";" 
 #endif
 #ifdef WATCH_VARIABLE_17_NAME
-                       + String(WATCH_VARIABLE_17_NAME) + ";" 
+                       + String("WV17") + ";" + String(WATCH_VARIABLE_17_NAME) + ";" 
 #endif
 #ifdef WATCH_VARIABLE_18_NAME
-                       + String(WATCH_VARIABLE_18_NAME) + ";" 
+                       + String("WV18") + ";" + String(WATCH_VARIABLE_18_NAME) + ";" 
 #endif
 #ifdef WATCH_VARIABLE_19_NAME
-                       + String(WATCH_VARIABLE_19_NAME) + ";" 
+                       + String("WV19") + ";" + String(WATCH_VARIABLE_19_NAME) + ";" 
 #endif
 #ifdef WATCH_VARIABLE_20_NAME
-                       + String(WATCH_VARIABLE_20_NAME) + ";" 
+                       + String("WV20") + ";" + String(WATCH_VARIABLE_20_NAME) + ";" 
 #endif                      
                        + String("END"); 
 
@@ -268,7 +268,7 @@ void WSVR_BreakPoint(unsigned char ucBPindex)
  
   if(bWSVR_DebugOfOff)
   {
- strWSVR_VariableNames = String("BPD") + ";" + String("CC") + ";"
+ strWSVR_VariableData = String("BPD") + ";" + String("CC") + ";"
 
 #ifdef WATCH_VARIABLE_1_NAME
                        + String(WATCH_VARIABLE_1) + ";" 
@@ -335,17 +335,23 @@ void WSVR_BreakPoint(unsigned char ucBPindex)
     if(bWSVR_HaltContinuous == false)
     {
      bWSVR_Halted = true;
-     strWSVR_VariableData.setCharAt(4,'H');       
-     strWSVR_VariableData.setCharAt(5,'H');    
-     while(bWSVR_Halted)
-     {
-               
-       WSVR_ButtonResponce();
-       if((bWSVR_DebugOfOff == false) || (bWSVR_HaltContinuous))
+       
+     if((ucBPindex != 0)  && (ucBPindex < 5))
+     { 
+       strWSVR_VariableData.setCharAt(4,'H'); 
+       strWSVR_VariableData.setCharAt(5,(0x30 + ucBPindex));
+       while(bWSVR_Halted)
        {
-        break;
+                 
+         WSVR_ButtonResponce();
+         if((bWSVR_DebugOfOff == false) || (bWSVR_HaltContinuous))
+         {
+          break;
+         }
        }
      }
+            
+     
      strWSVR_VariableData.setCharAt(4,'C');       
      strWSVR_VariableData.setCharAt(5,'C'); 
     }

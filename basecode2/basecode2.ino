@@ -136,8 +136,8 @@ void loop()
       else
       {
         digitalWrite(INDICATORLED, LOW);
-        bTestCounter = bTestCounter & 1;
-        
+        bTestCounter = bTestCounter + 1;
+        Serial.println(fTestCounter);
         WSVR_BreakPoint(1);
   
       }
