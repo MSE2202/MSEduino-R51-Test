@@ -47,7 +47,7 @@ void Core_ZeroCode( void * pvParameters )
 
   //Core 0 Setup
   //-------------------------------------------------------------------------------------------
-   WSVR_BreakPointInit("DBON","HALT"); //Start contidions "HALT", "CONT", DBON", DBOF" 
+   WSVR_BreakPointInit("DBON","CONT"); //Start contidions "HALT", "CONT", DBON", DBOF" 
 
    WSVR_setupWEbServer();
   

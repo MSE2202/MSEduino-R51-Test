@@ -10,9 +10,164 @@ March 21,2020
 #ifndef BREAKPOINT_H
 #define BREAKPOINT_H 1
 
+//-----------------------------------------------------------
+//Column 1
+ 
+#define WATCH_VARIABLE_1_NAME "uiTestCounter;CH1;0;65535" //only 6 charting varable allowed, first number is minimun value ; 2nd is maximum value
+#define WATCH_VARIABLE_1_TYPE unsigned int
+#define WATCH_VARIABLE_1 uiTestCounter
+// 
+#define WATCH_VARIABLE_2_NAME "bTestCounter"
+#define WATCH_VARIABLE_2_TYPE boolean
+#define WATCH_VARIABLE_2 bTestCounter
+//
+#define WATCH_VARIABLE_3_NAME "fTestCounter;CH2;-500;500"
+#define WATCH_VARIABLE_3_TYPE float
+#define WATCH_VARIABLE_3 fTestCounter
+
+//#define WATCH_VARIABLE_4_NAME ""
+//#define WATCH_VARIABLE_4_TYPE unsigned int
+//#define WATCH_VARIABLE_4 
+//
+//#define WATCH_VARIABLE_5_NAME ""
+//#define WATCH_VARIABLE_5_TYPE unsigned int
+//#define WATCH_VARIABLE_5 
+//
+////-----------------------------------------------------------
+////Column 2
+
+//#define WATCH_VARIABLE_6_NAME ""
+//#define WATCH_VARIABLE_6_TYPE unsigned int
+//#define WATCH_VARIABLE_6 
+// 
+//#define WATCH_VARIABLE_7_NAME ""
+//#define WATCH_VARIABLE_7_TYPE unsigned int
+//#define WATCH_VARIABLE_7 
+//
+//#define WATCH_VARIABLE_8_NAME ""
+//#define WATCH_VARIABLE_8_TYPE unsigned int
+//#define WATCH_VARIABLE_8 
+//
+//#define WATCH_VARIABLE_9_NAME ""
+//#define WATCH_VARIABLE_9_TYPE unsigned int
+//#define WATCH_VARIABLE_9 
+//
+//#define WATCH_VARIABLE_10_NAME ""
+//#define WATCH_VARIABLE_10_TYPE unsigned int
+//#define WATCH_VARIABLE_10 
+//
+////-----------------------------------------------------------
+////Column 3
+//#define WATCH_VARIABLE_11_NAME ""
+//#define WATCH_VARIABLE_11_TYPE unsigned int
+//#define WATCH_VARIABLE_11
+// 
+//#define WATCH_VARIABLE_12_NAME ""
+//#define WATCH_VARIABLE_12_TYPE unsigned int
+//#define WATCH_VARIABLE_12 
+//
+//#define WATCH_VARIABLE_13_NAME ""
+//#define WATCH_VARIABLE_13_TYPE unsigned int
+//#define WATCH_VARIABLE_13 
+//
+//#define WATCH_VARIABLE_14_NAME ""
+//#define WATCH_VARIABLE_14_TYPE unsigned int
+//#define WATCH_VARIABLE_14 
+//
+//#define WATCH_VARIABLE_15_NAME ""
+//#define WATCH_VARIABLE_15_TYPE unsigned int
+//#define WATCH_VARIABLE_15 
+//
+////-----------------------------------------------------------
+////Column 4
+//#define WATCH_VARIABLE_16_NAME ""
+//#define WATCH_VARIABLE_16_TYPE unsigned int
+//#define WATCH_VARIABLE_16
+// 
+//#define WATCH_VARIABLE_17_NAME ""
+//#define WATCH_VARIABLE_17_TYPE unsigned int
+//#define WATCH_VARIABLE_17 
+//
+//#define WATCH_VARIABLE_18_NAME ""
+//#define WATCH_VARIABLE_18_TYPE unsigned int
+//#define WATCH_VARIABLE_18 
+//
+//#define WATCH_VARIABLE_19_NAME ""
+//#define WATCH_VARIABLE_19_TYPE unsigned int
+//#define WATCH_VARIABLE_19 
+//
+//#define WATCH_VARIABLE_20_NAME ""
+//#define WATCH_VARIABLE_20_TYPE unsigned int
+//#define WATCH_VARIABLE_20 
+
 
 #include "MyWEBserver.h"
 
+//temporary variable for local vaiable wtaching
+ unsigned int BP_uiTempVariable1; 
+
+ //extern variable you what to watch except locals 
+#ifdef  WATCH_VARIABLE_1
+extern WATCH_VARIABLE_1_TYPE WATCH_VARIABLE_1;
+#endif
+#ifdef  WATCH_VARIABLE_2
+extern WATCH_VARIABLE_2_TYPE WATCH_VARIABLE_2;
+#endif
+#ifdef  WATCH_VARIABLE_3
+extern WATCH_VARIABLE_3_TYPE WATCH_VARIABLE_3;
+#endif
+#ifdef  WATCH_VARIABLE_4
+extern WATCH_VARIABLE_4_TYPE WATCH_VARIABLE_4;
+#endif
+#ifdef  WATCH_VARIABLE_5
+extern WATCH_VARIABLE_5_TYPE WATCH_VARIABLE_5;
+#endif
+#ifdef  WATCH_VARIABLE_6
+extern WATCH_VARIABLE_6_TYPE WATCH_VARIABLE_6;
+#endif
+#ifdef  WATCH_VARIABLE_7
+extern WATCH_VARIABLE_7_TYPE WATCH_VARIABLE_7;
+#endif
+#ifdef  WATCH_VARIABLE_8
+extern WATCH_VARIABLE_8_TYPE WATCH_VARIABLE_8;
+#endif
+#ifdef  WATCH_VARIABLE_9
+extern WATCH_VARIABLE_9_TYPE WATCH_VARIABLE_9;
+#endif
+#ifdef  WATCH_VARIABLE_10
+extern WATCH_VARIABLE_10_TYPE WATCH_VARIABLE_10;
+#endif
+#ifdef  WATCH_VARIABLE_11
+extern WATCH_VARIABLE_11_TYPE WATCH_VARIABLE_11;
+#endif
+#ifdef  WATCH_VARIABLE_12
+extern WATCH_VARIABLE_12_TYPE WATCH_VARIABLE_12;
+#endif
+#ifdef  WATCH_VARIABLE_13
+extern WATCH_VARIABLE_13_TYPE WATCH_VARIABLE_13;
+#endif
+#ifdef  WATCH_VARIABLE_14
+extern WATCH_VARIABLE_14_TYPE WATCH_VARIABLE_14;
+#endif
+#ifdef  WATCH_VARIABLE_15
+extern WATCH_VARIABLE_15_TYPE WATCH_VARIABLE_15;
+#endif
+#ifdef  WATCH_VARIABLE_16
+extern WATCH_VARIABLE_16_TYPE WATCH_VARIABLE_16;
+#endif
+#ifdef  WATCH_VARIABLE_17
+extern WATCH_VARIABLE_17_TYPE WATCH_VARIABLE_17;
+#endif
+#ifdef  WATCH_VARIABLE_18
+extern WATCH_VARIABLE_18_TYPE WATCH_VARIABLE_18;
+#endif
+#ifdef  WATCH_VARIABLE_19
+extern WATCH_VARIABLE_19_TYPE WATCH_VARIABLE_19;
+#endif
+#ifdef  WATCH_VARIABLE_20
+extern WATCH_VARIABLE_20_TYPE WATCH_VARIABLE_20;
+#endif
+  
 
 void WSVR_BreakPointInit(String strDebug_OnOff, String strHaltContinous)
 {
@@ -24,7 +179,7 @@ void WSVR_BreakPointInit(String strDebug_OnOff, String strHaltContinous)
  //LL3;variable 3 lower limit,UU3; variable 3 upper limit;LL4;variable 4 lower limit,UU4; variable 4 upper limit;LL5;variable 5 lower limit,UU5; variable 5 upper limit;+
  //variable name1;...variable name 6;
 
-
+  
   if(strDebug_OnOff.equals("DBON"))
   {
      bWSVR_DebugOfOff = true;
@@ -42,49 +197,160 @@ void WSVR_BreakPointInit(String strDebug_OnOff, String strHaltContinous)
      bWSVR_HaltContinuous = true;
   } 
   
- 
-  //strWSVR_VariableNames = //String("BPN1") + ";" + String("NN") + ";" + String("") + ";" + String("") + ";" + String("") + ";"
-   strWSVR_VariableNames  = String(strDebug_OnOff) + ";" + String(strHaltContinous) + ";"
-                        + String("BPCN") + ";" + String("QQ") + ";" 
-                        + String("LL1") + ";" + String(0) + ";" + String("UU1") + ";" + String(100) + ";"
-                        + String("LL2") + ";" + String(0) + ";" + String("UU2") + ";" + String(100) + ";"
-                        + String("LL3") + ";" + String(0) + ";" + String("UU3") + ";" + String(0) + ";"
-                        + String("LL4") + ";" + String(0) + ";" + String("UU4") + ";" + String(0) + ";"
-                        + String("LL5") + ";" + String(0) + ";" + String("UU5") + ";" + String(0) + ";"
-                        + String("LL6") + ";" + String(0) + ";" + String("UU6") + ";" + String(0) + ";"
-                        + String("NN") + ";" + String("countb") + ";" + String("ucCapacity")+ ";" + String("");
-}
+ strWSVR_VariableNames = String(strDebug_OnOff) + ";" + String(strHaltContinous) + ";" + String("BPN") + ";" + String("CC") + ";"
+
+#ifdef WATCH_VARIABLE_1_NAME
+                       + String(WATCH_VARIABLE_1_NAME) + ";" 
+#endif 
+#ifdef WATCH_VARIABLE_2_NAME
+                       + String(WATCH_VARIABLE_2_NAME) + ";" 
+#endif
+#ifdef WATCH_VARIABLE_3_NAME
+                       + String(WATCH_VARIABLE_3_NAME) + ";" 
+#endif
+#ifdef WATCH_VARIABLE_4_NAME
+                       + String(WATCH_VARIABLE_4_NAME) + ";" 
+#endif
+#ifdef WATCH_VARIABLE_5_NAME
+                       + String(WATCH_VARIABLE_5_NAME) + ";" 
+#endif
+#ifdef WATCH_VARIABLE_6_NAME
+                       + String(WATCH_VARIABLE_6_NAME) + ";" 
+#endif
+#ifdef WATCH_VARIABLE_7_NAME
+                       + String(WATCH_VARIABLE_7_NAME) + ";" 
+#endif
+#ifdef WATCH_VARIABLE_8_NAME
+                       + String(WATCH_VARIABLE_8_NAME) + ";" 
+#endif
+#ifdef WATCH_VARIABLE_9_NAME
+                       + String(WATCH_VARIABLE_9_NAME) + ";" 
+#endif
+#ifdef WATCH_VARIABLE_10_NAME
+                       + String(WATCH_VARIABLE_10_NAME) + ";" 
+#endif
+#ifdef WATCH_VARIABLE_11_NAME
+                       + String(WATCH_VARIABLE_11_NAME) + ";" 
+#endif
+#ifdef WATCH_VARIABLE_12_NAME
+                       + String(WATCH_VARIABLE_12_NAME) + ";" 
+#endif
+#ifdef WATCH_VARIABLE_13_NAME
+                       + String(WATCH_VARIABLE_13_NAME) + ";" 
+#endif
+#ifdef WATCH_VARIABLE_14_NAME
+                       + String(WATCH_VARIABLE_14_NAME) + ";" 
+#endif
+#ifdef WATCH_VARIABLE_15_NAME
+                       + String(WATCH_VARIABLE_15_NAME) + ";" 
+#endif
+#ifdef WATCH_VARIABLE_16_NAME
+                       + String(WATCH_VARIABLE_16_NAME) + ";" 
+#endif
+#ifdef WATCH_VARIABLE_17_NAME
+                       + String(WATCH_VARIABLE_17_NAME) + ";" 
+#endif
+#ifdef WATCH_VARIABLE_18_NAME
+                       + String(WATCH_VARIABLE_18_NAME) + ";" 
+#endif
+#ifdef WATCH_VARIABLE_19_NAME
+                       + String(WATCH_VARIABLE_19_NAME) + ";" 
+#endif
+#ifdef WATCH_VARIABLE_20_NAME
+                       + String(WATCH_VARIABLE_20_NAME) + ";" 
+#endif                      
+                       + String("END"); 
+
+}        
 
 void WSVR_BreakPoint(unsigned char ucBPindex)
 {
  
-  extern unsigned int uiTestCounter;
-  
-  
   if(bWSVR_DebugOfOff)
   {
+ strWSVR_VariableNames = String("BPD") + ";" + String("CC") + ";"
+
+#ifdef WATCH_VARIABLE_1_NAME
+                       + String(WATCH_VARIABLE_1) + ";" 
+#endif 
+#ifdef WATCH_VARIABLE_2_NAME
+                       + String(WATCH_VARIABLE_2) + ";" 
+#endif
+#ifdef WATCH_VARIABLE_3_NAME
+                       + String(WATCH_VARIABLE_3) + ";" 
+#endif
+#ifdef WATCH_VARIABLE_4_NAME
+                       + String(WATCH_VARIABLE_4) + ";" 
+#endif
+#ifdef WATCH_VARIABLE_5_NAME
+                       + String(WATCH_VARIABLE_5) + ";" 
+#endif
+#ifdef WATCH_VARIABLE_6_NAME
+                       + String(WATCH_VARIABLE_6) + ";" 
+#endif
+#ifdef WATCH_VARIABLE_7_NAME
+                       + String(WATCH_VARIABLE_7) + ";" 
+#endif
+#ifdef WATCH_VARIABLE_8_NAME
+                       + String(WATCH_VARIABLE_8) + ";" 
+#endif
+#ifdef WATCH_VARIABLE_9_NAME
+                       + String(WATCH_VARIABLE_9) + ";" 
+#endif
+#ifdef WATCH_VARIABLE_10_NAME
+                       + String(WATCH_VARIABLE_10) + ";" 
+#endif
+#ifdef WATCH_VARIABLE_11_NAME
+                       + String(WATCH_VARIABLE_11) + ";" 
+#endif
+#ifdef WATCH_VARIABLE_12_NAME
+                       + String(WATCH_VARIABLE_12) + ";" 
+#endif
+#ifdef WATCH_VARIABLE_13_NAME
+                       + String(WATCH_VARIABLE_13) + ";" 
+#endif
+#ifdef WATCH_VARIABLE_14_NAME
+                       + String(WATCH_VARIABLE_14) + ";" 
+#endif
+#ifdef WATCH_VARIABLE_15_NAME
+                       + String(WATCH_VARIABLE_15) + ";" 
+#endif
+#ifdef WATCH_VARIABLE_16_NAME
+                       + String(WATCH_VARIABLE_16) + ";" 
+#endif
+#ifdef WATCH_VARIABLE_17_NAME
+                       + String(WATCH_VARIABLE_17) + ";" 
+#endif
+#ifdef WATCH_VARIABLE_18_NAME
+                       + String(WATCH_VARIABLE_18) + ";" 
+#endif
+#ifdef WATCH_VARIABLE_19_NAME
+                       + String(WATCH_VARIABLE_19) + ";" 
+#endif
+#ifdef WATCH_VARIABLE_20_NAME
+                       + String(WATCH_VARIABLE_20) + ";" 
+#endif                      
+                       + String("END"); 
     
     if(bWSVR_HaltContinuous == false)
     {
      bWSVR_Halted = true;
+     strWSVR_VariableData.setCharAt(4,'H');       
+     strWSVR_VariableData.setCharAt(5,'H');    
      while(bWSVR_Halted)
      {
-      // strWSVR_VariableData = String("BP1") + ";" + "HH" + ";" +String(0) + ";" + String(0)+ ";" + String()+ ";"
-      //                      + String("BPC") + ";" + "CC" + ";" +String(countb) + ";" + String()+ ";" + String();
-        strWSVR_VariableData = String("BPC") + ";" + "CC" + ";" + String(uiTestCounter);                     
+               
        WSVR_ButtonResponce();
        if((bWSVR_DebugOfOff == false) || (bWSVR_HaltContinuous))
        {
         break;
        }
      }
+     strWSVR_VariableData.setCharAt(4,'C');       
+     strWSVR_VariableData.setCharAt(5,'C'); 
     }
-    else
-    {
-      //strWSVR_VariableData = String("BP1") + ";" + "XX" + ";" +String( ) + ";" + String(0)+ ";" + String(0) + ";" 
-      //                     + String("BPC") + ";" + "CC" + ";" +String(countb) + ";" + String(ulCurrentMicros)+ ";" + String(uiTestCounter);
-      strWSVR_VariableData = String("BPC") + ";" + "CC" + ";" + String(uiTestCounter);
-    }
+    
+   
    }
   
 }

@@ -223,16 +223,25 @@ th, td {
   text-align: left;
   
 }
-table#DP01 tr:nth-child(even) {
+table#DP02 tr:nth-child(even) {
   background-color: #eee;
 }
-table#DP01 tr:nth-child(odd) {
+
+table#DP02 tr:nth-child(even) {
+  background-color: #eee;
+}
+table#DP02 tr:nth-child(odd) {
  background-color: #fff;
+}
+table#DP02 th {
+  background-color: grey;
+  color: white;
 }
 table#DP01 th {
   background-color: grey;
   color: white;
 }
+
 
 
 .
@@ -289,17 +298,20 @@ table#DP01 th {
         <th name = WatchHeader colspan="2" style= "text-align: center;">   Debug Point 4</th>
         <th name = WatchHeader colspan="2" style= "text-align: center;">   Debug Point 5</th>
       </tr>
+     </table> 
+     <br>
+     
+     <table id="DP02">
       <tr>
-        <td>Var Name</td> 
-        <td>Data</td> 
-        <td>Var Name</td> 
-        <td>Data</td> 
-        <td>Var Name</td> 
-        <td>Data</td> 
-        <td>Var Name</td> 
-        <td>Data</td> 
-        <td>Var Name</td> 
-        <td>Data</td> 
+        <th>Var Name</th> 
+        <th>Data</th> 
+        <th>Var Name</th> 
+        <th>Data</th> 
+        <th>Var Name</th> 
+        <th>Data</th> 
+        <th>Var Name</th> 
+        <th>Data</th> 
+       
         
       </tr>
       <tr>
@@ -311,8 +323,7 @@ table#DP01 th {
         <td name = WatchData style= "word-wrap:break-word;">00</td>
         <td name = WatchName style= "word-wrap:break-word;"> Watch 0,3</td>
         <td name = WatchData style= "word-wrap:break-word;">00</td>
-        <td name = WatchName style= "word-wrap:break-word;"> Watch 0,4</td>
-        <td name = WatchData style= "word-wrap:break-word;">00</td>
+       
         
         
       </tr>
@@ -325,8 +336,7 @@ table#DP01 th {
         <td name = WatchData style= "word-wrap:break-word;">00</td>
         <td name = WatchName style= "word-wrap:break-word;">" Watch 1,3"</td>
         <td name = WatchData style= "word-wrap:break-word;">00</td>
-        <td name = WatchName style= "word-wrap:break-word;">" Watch 1,4"</td>
-        <td name = WatchData style= "word-wrap:break-word;">00</td>
+       
       </tr>
       <tr>
         <td name = WatchName style= "word-wrap:break-word;">" Watch 2,0"</td>
@@ -337,8 +347,7 @@ table#DP01 th {
         <td name = WatchData style= "word-wrap:break-word;">00</td>
         <td name = WatchName style= "word-wrap:break-word;">" Watch 2,3"</td>
         <td name = WatchData style= "word-wrap:break-word;">00</td>
-        <td name = WatchName style= "word-wrap:break-word;">" Watch 2,4"</td>
-        <td name = WatchData style= "word-wrap:break-word;">00</td>
+       
       </tr>
       <tr>
         <td name = WatchName style= "word-wrap:break-word;">" Watch 3,0"</td>
@@ -349,8 +358,7 @@ table#DP01 th {
         <td name = WatchData style= "word-wrap:break-word;">00</td>
         <td name = WatchName style= "word-wrap:break-word;">" Watch 3,3"</td>
         <td name = WatchData style= "word-wrap:break-word;">00</td>
-        <td name = WatchName style= "word-wrap:break-word;">" Watch 3,4"</td>
-        <td name = WatchData style= "word-wrap:break-word;">00</td>
+       
       </tr>
       <tr>
         <td name = WatchName style= "word-wrap:break-word;">" Watch 4,0"</td>
@@ -361,41 +369,10 @@ table#DP01 th {
         <td name = WatchData style= "word-wrap:break-word;">00</td>
         <td name = WatchName style= "word-wrap:break-word;">" Watch 4,3"</td>
         <td name = WatchData style= "word-wrap:break-word;">00</td>
-        <td name = WatchName style= "word-wrap:break-word;">" Watch 4,4"</td>
-        <td name = WatchData style= "word-wrap:break-word;">00</td>
+       
       </tr>
     </table>  
-    
-    <br>
-  
-    <table id="DP02">
-      <tr>
-        <th  style= "text-align: center; background-color: red; color: white;">   Watch Chart 0</th>
-        <th  style= "text-align: center; background-color: green; color: black;">   Watch Chart 1</th>
-        <th  style= "text-align: center; background-color: blue; color: white;">   Watch Chart 2</th>
-        <th  style= "text-align: center; background-color: yellow; color: black;">   Watch Chart 3</th>
-        <th  style= "text-align: center; background-color: orange; color: black;">   Watch Chart 4</th>
-        <th  style= "text-align: center; background-color: black; color: white;">   Watch Chart 5</th>
-      </tr>
-      <tr>
-        <td name = WatchNameChart style= "word-wrap:break-word;"> Watch Name C0</td> 
-        <td name = WatchNameChart style= "word-wrap:break-word;"> Watch Name C1</td> 
-        <td name = WatchNameChart style= "word-wrap:break-word;"> Watch Name C2</td> 
-        <td name = WatchNameChart style= "word-wrap:break-word;"> Watch Name C3</td> 
-        <td name = WatchNameChart style= "word-wrap:break-word;"> Watch Name C4</td>
-        <td name = WatchNameChart style= "word-wrap:break-word;"> Watch Name C5</td>        
-                
-      </tr>
-      <tr>
-        <td name = WatchChartData style= "word-wrap:break-word;">00</td>
-        <td name = WatchChartData style= "word-wrap:break-word;">00</td>
-        <td name = WatchChartData style= "word-wrap:break-word;">00</td>
-        <td name = WatchChartData style= "word-wrap:break-word;">00</td>
-        <td name = WatchChartData style= "word-wrap:break-word;">00</td>
-        <td name = WatchChartData style= "word-wrap:break-word;">00</td>
-      </tr>
-      
-    </table>  
+     
     <br>
     <canvas id="myCanvas"  onclick="sendData(5)" style="border:1px solid #d3d3d3;">
         Your browser does not support the HTML5 canvas tag.
@@ -420,10 +397,8 @@ table#DP01 th {
  var canHeight = 0;
  var ChartForCount;
  var WVN = document.getElementsByName("WatchName")
- var WVNC = document.getElementsByName("WatchNameChart")
  var WVH = document.getElementsByName("WatchHeader")
  var WVD = document.getElementsByName("WatchData");
- var WVDC = document.getElementsByName("WatchChartData");
  var WatchVarableRowIndex = 0;
  var WatchVariableColIndex = 0;
  var WatchColumHaltedAt = 6;
@@ -436,17 +411,15 @@ table#DP01 th {
           ["Empty", "Empty", "Empty", "Empty", "Empty"],
           ["Empty", "Empty", "Empty", "Empty", "Empty"],
           ["Empty", "Empty", "Empty", "Empty", "Empty"],
-          ["Empty", "Empty", "Empty", "Empty", "Empty"]
+          
           ];
  var WatchVariableData = [
               [0, 0, 0, 0, 0],
               [0, 0, 0, 0, 0],
               [0, 0, 0, 0, 0],
               [0, 0, 0, 0, 0],
-              [0, 0, 0, 0, 0]
+              
                ];   
-
-var WatchVariableNamesChart = ["Empty", "Empty", "Empty", "Empty", "Empty", "Empty"];            
 
  var counttmr = 0;
  ctx.moveTo(0,0);
@@ -459,7 +432,7 @@ var WatchVariableNamesChart = ["Empty", "Empty", "Empty", "Empty", "Empty", "Emp
 
  for(WatchVarableRowIndex=0;WatchVarableRowIndex<5;WatchVarableRowIndex++)  
  {
-   for (WatchVariableColIndex=0;WatchVariableColIndex<5;WatchVariableColIndex++)  
+   for (WatchVariableColIndex=0;WatchVariableColIndex<4;WatchVariableColIndex++)  
    { 
      
      WVN[WatchVarableRowIndex + (5* WatchVariableColIndex)].innerHTML = WatchVariableNames[WatchVariableColIndex][WatchVarableRowIndex];
@@ -470,14 +443,6 @@ var WatchVariableNamesChart = ["Empty", "Empty", "Empty", "Empty", "Empty", "Emp
  getNames();
  
  
- 
- for (WatchVarableRowIndex=0;WatchVarableRowIndex<6;WatchVarableRowIndex++)  
- {
-      
-  WVNC[WatchVarableRowIndex].innerHTML = WatchVariableNamesChart[WatchVarableRowIndex];
- 
- }   
-
 function getNames() 
 {
   var xhttp = new XMLHttpRequest();
@@ -497,25 +462,27 @@ function getNames()
            WatchVariableColIndex = 20;
            WatchVarableRowIndex = 7;
            document.getElementById("DebugOn").checked = true;
-           //document.getElementById("DebugOff").checked = false;
            DebugOnOff = true;
          }
          if(vWorkingName[WatchIndexer] == "DBOF")
          {
            WatchVariableColIndex = 20;
            WatchVarableRowIndex = 7;
+       document.getElementById("DebugOn").checked = false;
            DebugOnOff = false;
          }
          if(vWorkingName[WatchIndexer] == "HALT")
          {
            WatchVariableColIndex = 20;
            WatchVarableRowIndex = 7;
+       document.getElementById("HaltContinuous").checked = false;
            HaltContin = false;
          }
          if(vWorkingName[WatchIndexer] == "CONT")
          {
            WatchVariableColIndex = 20;
            WatchVarableRowIndex = 7;
+       document.getElementById("HaltContinuous").checked = true;
            HaltContin = true;
          }
          if(vWorkingName[WatchIndexer] == "BPN1")
@@ -902,6 +869,7 @@ function getData()
 </script>
 </body>
 </html>
+
 
 
 
