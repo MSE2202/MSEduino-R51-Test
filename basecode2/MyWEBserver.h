@@ -848,6 +848,10 @@ function getData()
 
            for (ChartVariableIndex=0;ChartVariableIndex<6;ChartVariableIndex++)  
            {
+            if(WatchIndexer == 4)
+            {
+              WatchIndexer = 4;
+            }
              if(ChartWatchIndex[ChartVariableIndex] == WatchVariableIndex)
              {
               ConvertFromString = parseFloat(vWorkingData[WatchIndexer]);
