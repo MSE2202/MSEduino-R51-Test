@@ -389,7 +389,7 @@ table#DP01 th {
  var XAxisPrevious =  -2;
  var YAxis = [0,0,0,0,0,0];
  var YAxisPrevious = [0,0,0,0,0,0];
- var ChartLowerLimits = [-10,-10,-10,-10,-10,-10];
+ var ChartLowerLimits = [0,0,0,0,0,0];
  var ChartUpperLimits = [0,0,0,0,0,0];
  var ChartWatchIndex = [9,9,9,9,9,9];
  var ChartVariableIndex;

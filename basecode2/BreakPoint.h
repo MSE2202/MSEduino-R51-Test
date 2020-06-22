@@ -2,8 +2,15 @@
 //Western Engineering base code 
 March 21,2020
   
-\WEB server code
+\Break point variable code setup
 
+usage
+#define WATCH_VARIABLE_1_NAME "put Varianle name here ( in quotes), if charting is wanted then inside quotes put  ;LL1;###;UL1;####"  the ## is the upper and lower variable limits nagative values ok 
+                                                                                                        //only 6 charting varable allowed, ie LL1, UL1 to LL6, UL6
+#define WATCH_VARIABLE_1_TYPE " put variabel type ie unsigned int, boolean, float etc
+#define WATCH_VARIABLE_1 Variable name , not in quotes, if the variable is not a golbal ie local a temperary global variable wil have to be used and the local variable will have to be passed in code to this 
+                                                                                        Temp variable before call to breap point funtion. see under //temporary variable for local vaiable wtaching
+ 
 
 */
 
