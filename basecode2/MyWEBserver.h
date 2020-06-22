@@ -389,7 +389,7 @@ table#DP01 th {
  var XAxisPrevious =  -2;
  var YAxis = [0,0,0,0,0,0];
  var YAxisPrevious = [0,0,0,0,0,0];
- var ChartLowerLimits = [0,0,0,0,0,0];
+ var ChartLowerLimits = [-10,-10,-10,-10,-10,-10];
  var ChartUpperLimits = [0,0,0,0,0,0];
  var ChartWatchIndex = [9,9,9,9,9,9];
  var ChartVariableIndex;
@@ -504,7 +504,7 @@ function getNames()
          if(vWorkingName[WatchIndexer] == "LL2")
          {
            WatchCommandIndex = 5;
-           ChartWatchIndex[2] = WatchVariableIndex;
+           ChartWatchIndex[1] = WatchVariableIndex;
            WVN[WatchVariableIndex].style.backgroundColor = "green";
            WVN[WatchVariableIndex].style.color = "white";
            ChartVariableIndex = 1;
@@ -777,7 +777,7 @@ function getData()
   var xhttp = new XMLHttpRequest();
   var vWorkingData;
   var ConvertFromString;
-  var Denominator = 1;
+  var Denominator = -50;
   
 
   xhttp.onreadystatechange = function() 
@@ -851,6 +851,7 @@ function getData()
             if(WatchIndexer == 4)
             {
               WatchIndexer = 4;
+             
             }
              if(ChartWatchIndex[ChartVariableIndex] == WatchVariableIndex)
              {

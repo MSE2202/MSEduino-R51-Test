@@ -115,7 +115,9 @@ void loop()
 
     uiCountUp = uiCountUp + 1;
     uiTestCounter = uiTestCounter + 1;
-    fTestCounter = fTestCounter + 25.77;
+    
+    Serial.println(fTestCounter);
+    
     if(fTestCounter > 500)
     {
       fTestCounter = -500.00;
@@ -136,8 +138,8 @@ void loop()
       else
       {
         digitalWrite(INDICATORLED, LOW);
+        fTestCounter = fTestCounter + 25.77;
         bTestCounter = bTestCounter + 1;
-        Serial.println(fTestCounter);
         WSVR_BreakPoint(1);
   
       }
