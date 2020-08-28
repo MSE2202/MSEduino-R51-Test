@@ -1017,9 +1017,10 @@ void WSVR_setupWEbServer(void)
      strWSVR_ButtonState = p->value().c_str();
      
      ucWSVR_ButtonState = strWSVR_ButtonState.toInt();
-    
+     ucWSVR_GETRequest = 2;
+    GetRequest = request;
      
-    request->send(200, "text/plain", strWSVR_ButtonState); //Send web page
+   // request->send(200, "text/plain", strWSVR_ButtonState); //Send web page
    
   });
 
@@ -1059,45 +1060,31 @@ void WSVR_AnswerGetRequest(void)
     case 1:
     {
       GetRequest->send(200, "text/html", MAIN_page);
-        Serial.println(" get 1 ");
-        Serial.println(ucWSVR_GETRequest);
+       
       ucWSVR_GETRequest = 0;
      
       break;
     }
     case 2:
     {
-        AsyncWebParameter* p;
-       
-       if(GetRequest->hasParam("S"))
-         p = GetRequest->getParam("S");
-         // Serial.printf("GET[%s]: %s\n", p->name().c_str(), p->value().c_str());
-  
-       String t_state = p->value().c_str();//server->arg("S"); //Refer  xhttp.open("GET", "setButton?StateButton="+buttonPressed, true);
-       strWSVR_ButtonState = p->value().c_str();
-       
-       ucWSVR_ButtonState = strWSVR_ButtonState.toInt();
       
        
-    //  GetRequest->send(200, "text/plain", strWSVR_ButtonState); //Send web page
-      Serial.println(" get 2 ");
-        Serial.println(ucWSVR_GETRequest);
+      GetRequest->send(200, "text/plain", strWSVR_ButtonState); //Send web page
+   
       ucWSVR_GETRequest = 0;
       break;
     }
     case 3:
     {
       GetRequest->send(200, "text/plain", strWSVR_VariableData); //Send ADC value only to client ajax request
-         Serial.println(" get 3 ");
-        Serial.println(ucWSVR_GETRequest);
+        
       ucWSVR_GETRequest = 0;
       break;
     }
     case 4:
     {
       GetRequest->send(200, "text/plain", strWSVR_VariableNames); //Send ADC value only to client ajax request
-         Serial.println(" get 4 ");
-        Serial.println(ucWSVR_GETRequest);
+         
       ucWSVR_GETRequest = 0;
       break;
     }

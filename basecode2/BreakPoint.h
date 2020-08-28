@@ -349,7 +349,7 @@ void WSVR_BreakPoint(unsigned char ucBPindex)
        strWSVR_VariableData.setCharAt(5,(0x30 + ucBPindex));
        while(bWSVR_Halted)
        {
-                 
+         WSVR_AnswerGetRequest();        
          WSVR_ButtonResponce();
          vTaskDelay(1);
          if((bWSVR_DebugOfOff == false) || (bWSVR_HaltContinuous))
