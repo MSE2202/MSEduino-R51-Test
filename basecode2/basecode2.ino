@@ -59,23 +59,28 @@
 #include <Math.h>
 #include "MyWEBserver.h"
 #include "BreakPoint.h"
-
+#include "WDT.h";
 
 void loopWEBServerButtonresponce(void);
 
-unsigned int uiCountUp;
-unsigned int uiTestCounter;
-boolean bTestCounter;
-float fTestCounter;
+//unsigned int uiCountUp;
+//unsigned int uiTestCounter;
+//boolean bTestCounter;
+//float fTestCounter;
+//
+//char bToggleBit;
+const int CR1_ciMainTimer =  1000;
 
-char bToggleBit;
-const int ciMainTimer =  1000;//200;
+unsigned char CR1_ucMainTimerCaseCore1;
 
-unsigned int uiCommunticationTimer;
+uint32_t CR1_u32Now;
+uint32_t CR1_u32Last;
+uint32_t CR1_u32Temp;
+uint32_t CR1_u32Avg;
 
 
-unsigned long ulPreviousMicros;
-unsigned long ulCurrentMicros;
+unsigned long CR1_ulMainTimerPrevious;
+unsigned long CR1_ulMainTimerNow;
 
 
 void setup() {
@@ -83,70 +88,119 @@ void setup() {
   pinMode(INDICATORLED, OUTPUT);
   
   Core_ZEROInit();
- 
+
+  WDT_EnableFastWatchDogCore1();
+   WDT_ResetCore1();
+   WDT_vfFastWDTWarningCore1[0] = 0;
+   WDT_vfFastWDTWarningCore1[1] = 0;
+   WDT_vfFastWDTWarningCore1[2] = 0;
+   WDT_vfFastWDTWarningCore1[3] = 0;
+   WDT_ResetCore1();
+   WDT_vfFastWDTWarningCore1[4] = 0;
+   WDT_vfFastWDTWarningCore1[5] = 0;
+   WDT_vfFastWDTWarningCore1[6] = 0;
+   WDT_vfFastWDTWarningCore1[7] = 0;
+   WDT_ResetCore1();
+   WDT_vfFastWDTWarningCore1[8] = 0;
+   WDT_vfFastWDTWarningCore1[9] = 0;
+   WDT_ResetCore1(); 
 }
 void loop()
 {
-   //esp_err_t esp_task_wdt_reset();
-  //main timing loop enters if every ~200us (ciMainTimer). thsi loop time controls all other timers
-  ulCurrentMicros = micros();
-  if ((ulCurrentMicros - ulPreviousMicros) >= ciMainTimer)
+
+  //WSVR_BreakPoint(1);
+ 
+ 
+ 
+ CR1_ulMainTimerNow = micros();
+ if(CR1_ulMainTimerNow - CR1_ulMainTimerPrevious >= CR1_ciMainTimer)
+ {
+   WDT_ResetCore1(); 
+   WDT_ucCaseIndexCore0 = CR0_ucMainTimerCaseCore0;
+   
+   CR1_ulMainTimerPrevious = CR1_ulMainTimerNow;
+ 
+  switch(CR1_ucMainTimerCaseCore1)  //full switch run through is 1mS
   {
-    ulPreviousMicros = ulCurrentMicros;
-
-    //increment program timers
-  
-    uiCommunticationTimer = uiCommunticationTimer + 1;
-    bToggleBit = bToggleBit + 1;
-   /* if (bToggleBit & 1)
+    //###############################################################################
+    case 0: //LCD Display
     {
-      digitalWrite(INDICATORLED, HIGH);
-
+      
+     
+      CR1_ucMainTimerCaseCore1 = 1;
+      
+      break;
     }
-    else
+    //###############################################################################
+    case 1: //Screen control
     {
-      digitalWrite(INDICATORLED, LOW);
-
-    }
-*/
-    
    
+    
+      CR1_ucMainTimerCaseCore1 = 2;
+    
+      break;
+    }
+    //###############################################################################
+    case 2: //push button control
+    {
+      
    
-
-    uiCountUp = uiCountUp + 1;
-    uiTestCounter = uiTestCounter + 1;
-    
-    Serial.println(fTestCounter);
-    
-    if(fTestCounter > 500)
-    {
-      fTestCounter = -500.00;
+      CR1_ucMainTimerCaseCore1 = 3;
+      break;
     }
-    if(uiTestCounter > 65530)
+    //###############################################################################
+    case 3: //LCD Display
     {
-      uiTestCounter = 0;
+      
+      
+      CR1_ucMainTimerCaseCore1 = 4;
+      break;
     }
-    
-    if(uiCountUp > 1500)
+    //###############################################################################
+    case 4:   ///warning nad emergency control
     {
-      uiCountUp  =0;
-      if (bToggleBit & 1)
-      {
-        digitalWrite(INDICATORLED, HIGH);
-        
-      }
-      else
-      {
-        digitalWrite(INDICATORLED, LOW);
-        fTestCounter = fTestCounter + 25.77;
-        bTestCounter = bTestCounter + 1;
-        WSVR_BreakPoint(1);
+    
+      CR1_ucMainTimerCaseCore1 = 5;
+      break;
+    }
+    //###############################################################################
+    case 5: 
+    {
+   
+      CR1_ucMainTimerCaseCore1 = 6;
+      break;
+    }
+    //###############################################################################
+    case 6: //LCD Display
+    {
   
-      }
+    
+      CR1_ucMainTimerCaseCore1 = 7;
+      break;
     }
-
+    //###############################################################################
+    case 7: 
+    {
+   
+      CR1_ucMainTimerCaseCore1 = 8;
+      break;
+    }
+    //###############################################################################
+    case 8: 
+    {
+    
+      CR1_ucMainTimerCaseCore1 = 9;
+      break;
+    }
+    //###############################################################################
+    case 9: 
+    {
+  
+      CR1_ucMainTimerCaseCore1 = 0;
+      break;
+    }
 
   }
-
+ }
 
 }

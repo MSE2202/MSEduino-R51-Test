@@ -1030,7 +1030,9 @@ void WSVR_setupWEbServer(void)
  
   server.begin();
   Serial.println(F("HTTP server started"));
-  
+  //turn off wifi for now it adds time to execution
+//  WiFi.mode(WIFI_OFF);
+//  btStop();
 
   Serial.println(F(""));
 }
