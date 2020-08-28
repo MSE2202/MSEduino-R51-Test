@@ -699,7 +699,7 @@ function getNames()
   };
 
 
-  xhttp.open("GET", "loadDataNames", true);
+  xhttp.open("GET", "LN", true);
   xhttp.send();
  }
    
@@ -761,17 +761,66 @@ function sendData(ButtonPressed) {
   }
   if (Sendit)
   {
-    xhttp.open("GET", "setPressedButton?StateButton="+ButtonPressed, true);
+    xhttp.open("GET", "PB?S="+ButtonPressed, true);
     xhttp.send();
   }
 }
 
+function Chartting()
+{
+  canWidth = Math.round(window.innerWidth* 0.85);
+  canHeight = Math.round(window.innerHeight* 0.3);
+  if((canHeight != ctx.canvas.height) || (canWidth != ctx.canvas.width))
+  {
+  ctx.canvas.width = canWidth;
+  ctx.canvas.height = canHeight;
+  XAxis = 0;
+   
+  
+    
+  }
+  
+  ctx.beginPath();
+  ctx.lineWidth = "5";
+  ctx.strokeStyle = "white";
+  ctx.moveTo((XAxis+4),0);
+  ctx.lineTo((XAxis+4),(canHeight + 1));
+  ctx.stroke();
+  
+  
  
-setInterval(function() {
-  // Call a function repetatively with 2 Second interval
-  getData();
-}, 250); //250mSeconds update rate
+  
+  XAxisPrevious = XAxis;
+  XAxis = XAxis + 1;
+  
+  if(XAxis > canWidth)
+  {
+    XAxis = -2;
+    XAxisPrevious = -2;
+  
+   ctx.moveTo(0,YAxisPrevious[0]);
+   ctx.moveTo(1,YAxisPrevious[1]);
+   ctx.moveTo(2,YAxisPrevious[2]);
+   ctx.moveTo(3,YAxisPrevious[3]);
+   ctx.moveTo(4,YAxisPrevious[4]);
+   ctx.moveTo(5,YAxisPrevious[5]);
+  }
+  
+  
+  for (ChartForCount=0;ChartForCount<6;ChartForCount++)
+  {
+    ctx.beginPath();
+    ctx.moveTo(XAxisPrevious,YAxisPrevious[ChartForCount]);
+    ctx.strokeStyle = colors[ChartForCount%colors.length];
+    ctx.lineWidth = 2;  
+    ctx.lineTo(XAxis,YAxis[ChartForCount]);
+    YAxisPrevious[ChartForCount] = YAxis[ChartForCount];
+    ctx.stroke();
+  }
+
+}
  
+
 function getData() 
 {
   var xhttp = new XMLHttpRequest();
@@ -883,63 +932,19 @@ function getData()
     }
   };
 
-
-  xhttp.open("GET", "readData", true);
+  xhttp.open("GET", "RD", true);
   xhttp.send();
 
-  canWidth = Math.round(window.innerWidth* 0.85);
-  canHeight = Math.round(window.innerHeight* 0.3);
-  if((canHeight != ctx.canvas.height) || (canWidth != ctx.canvas.width))
-  {
-  ctx.canvas.width = canWidth;
-  ctx.canvas.height = canHeight;
-  XAxis = 0;
-   
-  
-    
-  }
-  
-  ctx.beginPath();
-  ctx.lineWidth = "5";
-  ctx.strokeStyle = "white";
-  ctx.moveTo((XAxis+4),0);
-  ctx.lineTo((XAxis+4),(canHeight + 1));
-  ctx.stroke();
-  
-  
+}
+
+setInterval(function() {
+  // Call a function repetatively with 2 Second interval
+  getData();
+  Chartting();
+}, 250); //250mSeconds update rate
  
-  
-  XAxisPrevious = XAxis;
-  XAxis = XAxis + 1;
-  
-  if(XAxis > canWidth)
-  {
-    XAxis = -2;
-    XAxisPrevious = -2;
-  
-   ctx.moveTo(0,YAxisPrevious[0]);
-   ctx.moveTo(1,YAxisPrevious[1]);
-   ctx.moveTo(2,YAxisPrevious[2]);
-   ctx.moveTo(3,YAxisPrevious[3]);
-   ctx.moveTo(4,YAxisPrevious[4]);
-   ctx.moveTo(5,YAxisPrevious[5]);
-  }
-  
-  
-  for (ChartForCount=0;ChartForCount<6;ChartForCount++)
-  {
-    ctx.beginPath();
-    ctx.moveTo(XAxisPrevious,YAxisPrevious[ChartForCount]);
-    ctx.strokeStyle = colors[ChartForCount%colors.length];
-    ctx.lineWidth = 2;  
-    ctx.lineTo(XAxis,YAxis[ChartForCount]);
-    YAxisPrevious[ChartForCount] = YAxis[ChartForCount];
-    ctx.stroke();
-  }
-  
-   
- 
-  }
+
+
 
 </script>
 </body>
@@ -955,10 +960,12 @@ function getData()
   boolean bWSVR_HaltContinuous = false;
   boolean bWSVR_Halted = false;
   
-  
-  unsigned char ucrWSVR_ButtonState = 9;
+  unsigned char ucWSVR_GETRequest = 0;
+  unsigned char ucWSVR_ButtonState = 9;
  
   String strWSVR_ButtonState = "0";
+
+  AsyncWebServerRequest *GetRequest;
 
 //________________________________________________________________________
   //unsigned char ucWSVR_NumberOfBreakPointsVariables[5][5]
@@ -991,39 +998,45 @@ void WSVR_setupWEbServer(void)
   
  server.on("/", HTTP_GET, [](AsyncWebServerRequest *request)
   {
-    request->send(200, "text/html", MAIN_page);
+    //request->send(200, "text/html", MAIN_page);
+    ucWSVR_GETRequest = 1;
+    GetRequest = request;
   });
     
  
-  server.on("/setPressedButton", HTTP_GET, [](AsyncWebServerRequest *request)
+  server.on("/PB", HTTP_GET, [](AsyncWebServerRequest *request)  //setPressedButton
   {
       
       AsyncWebParameter* p;
      
-     if(request->hasParam("StateButton"))
-       p = request->getParam("StateButton");
+     if(request->hasParam("S"))
+       p = request->getParam("S");
        // Serial.printf("GET[%s]: %s\n", p->name().c_str(), p->value().c_str());
 
-     String t_state = p->value().c_str();//server->arg("StateButton"); //Refer  xhttp.open("GET", "setButton?StateButton="+buttonPressed, true);
+     String t_state = p->value().c_str();//server->arg("S"); //Refer  xhttp.open("GET", "setButton?StateButton="+buttonPressed, true);
      strWSVR_ButtonState = p->value().c_str();
      
-     ucrWSVR_ButtonState = strWSVR_ButtonState.toInt();
+     ucWSVR_ButtonState = strWSVR_ButtonState.toInt();
     
      
     request->send(200, "text/plain", strWSVR_ButtonState); //Send web page
    
   });
 
-   server.on("/readData", HTTP_GET, [](AsyncWebServerRequest *request)
+   server.on("/RD", HTTP_GET, [](AsyncWebServerRequest *request)  //readData
     {
-         request->send(200, "text/plain", strWSVR_VariableData); //Send ADC value only to client ajax request
+        // request->send(200, "text/plain", strWSVR_VariableData); //Send ADC value only to client ajax request
+      ucWSVR_GETRequest = 3;
+      GetRequest = request;
+     
    
     });
 
-   server.on("/loadDataNames", HTTP_GET, [](AsyncWebServerRequest *request)
+   server.on("/LN", HTTP_GET, [](AsyncWebServerRequest *request) //loadDataNames
     {
-     
-      request->send(200, "text/plain", strWSVR_VariableNames); //Send ADC value only to client ajax request
+       ucWSVR_GETRequest = 4;
+      GetRequest = request;
+      //request->send(200, "text/plain", strWSVR_VariableNames); //Send ADC value only to client ajax request
    
     }); 
     
@@ -1037,9 +1050,64 @@ void WSVR_setupWEbServer(void)
   Serial.println(F(""));
 }
 
+void WSVR_AnswerGetRequest(void)
+{
+  
+ 
+  switch(ucWSVR_GETRequest)
+  {
+    case 1:
+    {
+      GetRequest->send(200, "text/html", MAIN_page);
+        Serial.println(" get 1 ");
+        Serial.println(ucWSVR_GETRequest);
+      ucWSVR_GETRequest = 0;
+     
+      break;
+    }
+    case 2:
+    {
+        AsyncWebParameter* p;
+       
+       if(GetRequest->hasParam("S"))
+         p = GetRequest->getParam("S");
+         // Serial.printf("GET[%s]: %s\n", p->name().c_str(), p->value().c_str());
+  
+       String t_state = p->value().c_str();//server->arg("S"); //Refer  xhttp.open("GET", "setButton?StateButton="+buttonPressed, true);
+       strWSVR_ButtonState = p->value().c_str();
+       
+       ucWSVR_ButtonState = strWSVR_ButtonState.toInt();
+      
+       
+    //  GetRequest->send(200, "text/plain", strWSVR_ButtonState); //Send web page
+      Serial.println(" get 2 ");
+        Serial.println(ucWSVR_GETRequest);
+      ucWSVR_GETRequest = 0;
+      break;
+    }
+    case 3:
+    {
+      GetRequest->send(200, "text/plain", strWSVR_VariableData); //Send ADC value only to client ajax request
+         Serial.println(" get 3 ");
+        Serial.println(ucWSVR_GETRequest);
+      ucWSVR_GETRequest = 0;
+      break;
+    }
+    case 4:
+    {
+      GetRequest->send(200, "text/plain", strWSVR_VariableNames); //Send ADC value only to client ajax request
+         Serial.println(" get 4 ");
+        Serial.println(ucWSVR_GETRequest);
+      ucWSVR_GETRequest = 0;
+      break;
+    }
+  }
+}
+
+
 void WSVR_ButtonResponce(void)
 {
-    switch(ucrWSVR_ButtonState)
+    switch(ucWSVR_ButtonState)
     {
       case 0:
       default:
@@ -1047,7 +1115,7 @@ void WSVR_ButtonResponce(void)
      
        Serial.println("DebugOff");
        bWSVR_DebugOfOff = false;
-       ucrWSVR_ButtonState = 9;
+       ucWSVR_ButtonState = 9;
       
        
         break;
@@ -1058,7 +1126,7 @@ void WSVR_ButtonResponce(void)
        Serial.println("DebugOn");
        
         //esp_err_t esp_task_wdt_status(TaskHandle_t handle)
-        ucrWSVR_ButtonState = 9;
+        ucWSVR_ButtonState = 9;
         bWSVR_DebugOfOff = true;
         
         break;
@@ -1067,7 +1135,7 @@ void WSVR_ButtonResponce(void)
       {
         
        Serial.println("Halt");
-        ucrWSVR_ButtonState = 9;
+        ucWSVR_ButtonState = 9;
         bWSVR_HaltContinuous = false;
         break;
       }
@@ -1075,7 +1143,7 @@ void WSVR_ButtonResponce(void)
       {
       
        Serial.println("Continuous");
-       ucrWSVR_ButtonState = 9;
+       ucWSVR_ButtonState = 9;
        bWSVR_HaltContinuous = true;
         break;
       }
@@ -1084,7 +1152,7 @@ void WSVR_ButtonResponce(void)
       {
         Serial.println("UnHalt");
         bWSVR_Halted = false;
-        ucrWSVR_ButtonState = 9;
+        ucWSVR_ButtonState = 9;
         strWSVR_VariableData.replace("HH", "GG");
        
         break;
@@ -1092,7 +1160,7 @@ void WSVR_ButtonResponce(void)
       case 5:  //toggle servo
       {
         
-        ucrWSVR_ButtonState = 9;
+        ucWSVR_ButtonState = 9;
        
        
         break;
@@ -1100,7 +1168,7 @@ void WSVR_ButtonResponce(void)
       case 9:
       {
         
-        ucrWSVR_ButtonState = 9;
+        ucWSVR_ButtonState = 9;
         break;
       }
     }

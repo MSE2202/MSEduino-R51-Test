@@ -21,6 +21,8 @@ const int CR0_ciMainTimer =  1000;
 
 unsigned char CR0_ucMainTimerCaseCore0;
 
+unsigned int uiTestCounter;
+
 uint32_t CR0_u32Now;
 uint32_t CR0_u32Last;
 uint32_t CR0_u32Temp;
@@ -58,7 +60,11 @@ void Core_ZeroCode( void * pvParameters )
    WSVR_BreakPointInit("DBON","CONT"); //Start contidions "HALT", "CONT", DBON", DBOF" 
 
    WSVR_setupWEbServer();
-
+  
+   delay(1000);
+   
+   WSVR_AnswerGetRequest();
+   
    WDT_EnableFastWatchDogCore0();
    
    WDT_ResetCore0();
@@ -103,7 +109,7 @@ void Core_ZeroCode( void * pvParameters )
           //###############################################################################
           case 0: //LCD Display
           {
-            
+            WSVR_AnswerGetRequest();
             CR0_ucMainTimerCaseCore0 = 1;
             
             break;
@@ -112,8 +118,9 @@ void Core_ZeroCode( void * pvParameters )
           case 1: //Screen control
           {
          
-           
-            
+            uiTestCounter = uiTestCounter + 1;
+            //Serial.println(uiTestCounter);
+            WSVR_BreakPoint(1);
             CR0_ucMainTimerCaseCore0 = 2;
           
             break;

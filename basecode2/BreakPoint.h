@@ -24,13 +24,13 @@ usage
 #define WATCH_VARIABLE_1_TYPE unsigned int
 #define WATCH_VARIABLE_1 uiTestCounter
 // 
-#define WATCH_VARIABLE_2_NAME "bTestCounter"
-#define WATCH_VARIABLE_2_TYPE boolean
-#define WATCH_VARIABLE_2 bTestCounter
-//
-#define WATCH_VARIABLE_3_NAME "fTestCounter;LL2;-500;UL2;500"
-#define WATCH_VARIABLE_3_TYPE float
-#define WATCH_VARIABLE_3 fTestCounter
+//#define WATCH_VARIABLE_2_NAME "bTestCounter"
+//#define WATCH_VARIABLE_2_TYPE boolean
+//#define WATCH_VARIABLE_2 bTestCounter
+////
+//#define WATCH_VARIABLE_3_NAME "fTestCounter;LL2;-500;UL2;500"
+//#define WATCH_VARIABLE_3_TYPE float
+//#define WATCH_VARIABLE_3 fTestCounter
 
 //#define WATCH_VARIABLE_4_NAME ""
 //#define WATCH_VARIABLE_4_TYPE unsigned int
@@ -351,6 +351,7 @@ void WSVR_BreakPoint(unsigned char ucBPindex)
        {
                  
          WSVR_ButtonResponce();
+         vTaskDelay(1);
          if((bWSVR_DebugOfOff == false) || (bWSVR_HaltContinuous))
          {
           break;
