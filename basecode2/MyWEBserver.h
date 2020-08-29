@@ -14,6 +14,7 @@ March 21,2020
 
 #include <ESPAsyncWebServer.h>
 
+#include <WebSocketsServer.h>
 
 bool btWS_Fellover = true;
 
@@ -22,11 +23,14 @@ const char *ssid = "BaseC2";
 const char *password = "12345678";  //must be 8 characters long
 
 
+
 IPAddress local_ip(192,168,128,1);
 IPAddress gateway(192,168,1,1);
 IPAddress subnet(255,255,255,0);
 
 AsyncWebServer server(80);
+WebSocketsServer webSocket(81); 
+
 
  
 const char MAIN_page[] PROGMEM = R"=====(
@@ -414,6 +418,25 @@ table#DP01 th {
  ctx.canvas.height = window.innerHeight* 0.3;
  canWidth = ctx.canvas.width;
  canHeight = ctx.canvas.height;
+
+
+var connection = new WebSocket('ws://' + location.hostname + ':81/', ['arduino']);
+connection.onopen = function () {
+  connection.send('Connect ' + new Date());
+};
+connection.onerror = function (error) {
+  console.log('WebSocket Error ', error);
+};
+connection.onmessage = function (e) {
+  console.log('Server: ', e.data);
+};
+connection.onclose = function () {
+  console.log('WebSocket connection closed');
+};
+
+
+
+
  
  //ctx.beginPath();
   getNames();
@@ -938,10 +961,10 @@ function getData()
 }
 
 setInterval(function() {
-  // Call a function repetatively with 2 Second interval
+  
   getData();
   Chartting();
-}, 250); //250mSeconds update rate
+}, 100); //100mSeconds update rate
  
 
 
@@ -974,6 +997,51 @@ setInterval(function() {
  // unsigned char ucWSVR_NumberOfBreakPoints = 0;
   String strWSVR_VariableNames;
   String strWSVR_VariableData;
+
+void webSocketEvent(uint8_t num, WStype_t type, uint8_t * payload, size_t lenght) { // When a WebSocket message is received
+  switch (type) 
+  {
+    case WStype_DISCONNECTED:             // if the websocket is disconnected
+    {
+      Serial.printf("[%u] Disconnected!\n", num);
+      break;
+    }
+    case WStype_CONNECTED:
+    {              // if a new websocket connection is established
+        IPAddress ip = webSocket.remoteIP(num);
+        Serial.printf("[%u] Connected from %d.%d.%d.%d url: %s\n", num, ip[0], ip[1], ip[2], ip[3], payload);
+        break;        
+    }
+      
+    case WStype_TEXT:                     // if new text data is received
+    {
+//      Serial.printf("[%u] get Text: %s\n", num, payload);
+//      if (payload[0] == '#') {            // we get RGB data
+//        uint32_t rgb = (uint32_t) strtol((const char *) &payload[1], NULL, 16);   // decode rgb data
+//        int r = ((rgb >> 20) & 0x3FF);                     // 10 bits per color, so R: bits 20-29
+//        int g = ((rgb >> 10) & 0x3FF);                     // G: bits 10-19
+//        int b =          rgb & 0x3FF;                      // B: bits  0-9
+//
+//        analogWrite(LED_RED,   r);                         // write it to the LED output pins
+//        analogWrite(LED_GREEN, g);
+//        analogWrite(LED_BLUE,  b);
+//      } else if (payload[0] == 'R') {                      // the browser sends an R when the rainbow effect is enabled
+//        rainbow = true;
+//      } else if (payload[0] == 'N') {                      // the browser sends an N when the rainbow effect is disabled
+//        rainbow = false;
+//      }
+      break;
+    }
+ //   case WStype_BIN:
+//    case WStype_ERROR:
+//    case WStype_FRAGMENT_TEXT_START:
+//    case WStype_FRAGMENT_BIN_START:
+//    case WStype_FRAGMENT:
+//    case WStype_FRAGMENT_FIN:
+//    default:
+  }
+}
+
 
 void WSVR_setupWEbServer(void)
 {
@@ -1041,7 +1109,11 @@ void WSVR_setupWEbServer(void)
    
     }); 
     
- 
+  webSocket.begin();                          // start the websocket server
+  webSocket.onEvent(webSocketEvent);  
+  Serial.println("WebSocket server started.");
+  
+  
   server.begin();
   Serial.println(F("HTTP server started"));
   //turn off wifi for now it adds time to execution
@@ -1049,7 +1121,11 @@ void WSVR_setupWEbServer(void)
 //  btStop();
 
   Serial.println(F(""));
+
+  
 }
+
+
 
 void WSVR_AnswerGetRequest(void)
 {
@@ -1076,8 +1152,9 @@ void WSVR_AnswerGetRequest(void)
     }
     case 3:
     {
+     
       GetRequest->send(200, "text/plain", strWSVR_VariableData); //Send ADC value only to client ajax request
-        
+    
       ucWSVR_GETRequest = 0;
       break;
     }
@@ -1103,7 +1180,7 @@ void WSVR_ButtonResponce(void)
        Serial.println("DebugOff");
        bWSVR_DebugOfOff = false;
        ucWSVR_ButtonState = 9;
-      
+       webSocket.sendTXT(0, "message here");
        
         break;
       }
@@ -1161,7 +1238,5 @@ void WSVR_ButtonResponce(void)
     }
 
 }
-
-
 
 #endif

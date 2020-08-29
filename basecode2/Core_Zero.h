@@ -102,7 +102,7 @@ void Core_ZeroCode( void * pvParameters )
         
         
         WSVR_ButtonResponce();
-        
+        webSocket.loop();   
         
         switch(CR0_ucMainTimerCaseCore0)  //full switch run through is 1mS
         {
