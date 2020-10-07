@@ -423,6 +423,7 @@ table#DP01 th {
 var connection = new WebSocket('ws://' + location.hostname + ':81/', ['arduino']);
 connection.onopen = function () {
   connection.send('Connect ' + new Date());
+  //alert("WebSocket is supported by your Browser!");
 };
 connection.onerror = function (error) {
   console.log('WebSocket Error ', error);
@@ -434,7 +435,8 @@ connection.onclose = function () {
   console.log('WebSocket connection closed');
 };
 
-
+//To send data to server
+//connection.send("something");
 
 
  
@@ -968,7 +970,6 @@ setInterval(function() {
  
 
 
-
 </script>
 </body>
 </html>
@@ -985,8 +986,12 @@ setInterval(function() {
   
   unsigned char ucWSVR_GETRequest = 0;
   unsigned char ucWSVR_ButtonState = 9;
+
+  unsigned char ucWSVR_WEBSocketConnected = 0;
  
   String strWSVR_ButtonState = "0";
+
+  
 
   AsyncWebServerRequest *GetRequest;
 
@@ -998,24 +1003,31 @@ setInterval(function() {
   String strWSVR_VariableNames;
   String strWSVR_VariableData;
 
-void webSocketEvent(uint8_t num, WStype_t type, uint8_t * payload, size_t lenght) { // When a WebSocket message is received
+void webSocketEvent(uint8_t num, WStype_t type, uint8_t * payload, size_t lenght) 
+{ // When a WebSocket message is received
+  
   switch (type) 
   {
     case WStype_DISCONNECTED:             // if the websocket is disconnected
     {
       Serial.printf("[%u] Disconnected!\n", num);
+      ucWSVR_WEBSocketConnected = 0;
       break;
     }
     case WStype_CONNECTED:
     {              // if a new websocket connection is established
         IPAddress ip = webSocket.remoteIP(num);
         Serial.printf("[%u] Connected from %d.%d.%d.%d url: %s\n", num, ip[0], ip[1], ip[2], ip[3], payload);
+        ucWSVR_WEBSocketConnected = 1;
         break;        
     }
       
     case WStype_TEXT:                     // if new text data is received
     {
-//      Serial.printf("[%u] get Text: %s\n", num, payload);
+      Serial.print("T");
+      Serial.printf("[%u] get Text: %s\n", num, payload);
+      
+      
 //      if (payload[0] == '#') {            // we get RGB data
 //        uint32_t rgb = (uint32_t) strtol((const char *) &payload[1], NULL, 16);   // decode rgb data
 //        int r = ((rgb >> 20) & 0x3FF);                     // 10 bits per color, so R: bits 20-29
@@ -1032,13 +1044,21 @@ void webSocketEvent(uint8_t num, WStype_t type, uint8_t * payload, size_t lenght
 //      }
       break;
     }
- //   case WStype_BIN:
-//    case WStype_ERROR:
-//    case WStype_FRAGMENT_TEXT_START:
-//    case WStype_FRAGMENT_BIN_START:
-//    case WStype_FRAGMENT:
-//    case WStype_FRAGMENT_FIN:
-//    default:
+    case WStype_BIN:
+    {
+      Serial.print("b");
+      break;
+    }
+    case WStype_ERROR:
+    case WStype_FRAGMENT_TEXT_START:
+    case WStype_FRAGMENT_BIN_START:
+    case WStype_FRAGMENT:
+    case WStype_FRAGMENT_FIN:
+    default:
+    {
+      Serial.print("O");
+      break;
+    }
   }
 }
 
@@ -1169,6 +1189,19 @@ void WSVR_AnswerGetRequest(void)
 }
 
 
+void WSVR_SendMsg(void)
+{
+  if(ucWSVR_WEBSocketConnected)
+  {
+   
+   webSocket.sendTXT(0, "message here");
+  }
+  else
+  {
+    Serial.println("Not Connected ");
+  }
+}
+
 void WSVR_ButtonResponce(void)
 {
     switch(ucWSVR_ButtonState)
@@ -1180,7 +1213,7 @@ void WSVR_ButtonResponce(void)
        Serial.println("DebugOff");
        bWSVR_DebugOfOff = false;
        ucWSVR_ButtonState = 9;
-       webSocket.sendTXT(0, "message here");
+       
        
         break;
       }

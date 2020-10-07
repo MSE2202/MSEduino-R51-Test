@@ -196,7 +196,7 @@ void Core_ZeroCode( void * pvParameters )
           //###############################################################################
           case 7: 
           {
-           
+            WSVR_SendMsg();
             CR0_ucMainTimerCaseCore0 = 8;
             break;
           }

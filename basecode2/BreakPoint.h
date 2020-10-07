@@ -275,6 +275,7 @@ void WSVR_BreakPoint(unsigned char ucBPindex)
  
   if(bWSVR_DebugOfOff)
   {
+    
  strWSVR_VariableData = String("BPD") + ";" + String("CC") + ";"
 
 #ifdef WATCH_VARIABLE_1_NAME
