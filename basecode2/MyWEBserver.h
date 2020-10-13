@@ -435,8 +435,7 @@ connection.onclose = function () {
   console.log('WebSocket connection closed');
 };
 
-//To send data to server
-//connection.send("something");
+
 
 
  
@@ -731,7 +730,9 @@ function getNames()
 function sendData(ButtonPressed) {
   var xhttp = new XMLHttpRequest();
   var Sendit = false;
-   
+
+  //To send data to server
+connection.send("something"); 
   switch(ButtonPressed)
   {
     case 0:
@@ -1194,7 +1195,7 @@ void WSVR_SendMsg(void)
   if(ucWSVR_WEBSocketConnected)
   {
    
-   webSocket.sendTXT(0, "message here");
+   //webSocket.sendTXT(0, "message here");
   }
   else
   {
@@ -1225,7 +1226,7 @@ void WSVR_ButtonResponce(void)
         //esp_err_t esp_task_wdt_status(TaskHandle_t handle)
         ucWSVR_ButtonState = 9;
         bWSVR_DebugOfOff = true;
-        
+        webSocket.sendTXT(0, "debog ON");
         break;
       }
       case 2:

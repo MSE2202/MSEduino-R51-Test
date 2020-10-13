@@ -102,7 +102,9 @@ void Core_ZeroCode( void * pvParameters )
         
         
         WSVR_ButtonResponce();
-        webSocket.loop();   
+        asm volatile("esync; rsr %0,ccount":"=a" (CR0_u32Last)); // @ 240mHz clock each tick is ~4nS  
+        webSocket.loop();
+         asm volatile("esync; rsr %0,ccount":"=a" (CR0_u32Now));    
         
         switch(CR0_ucMainTimerCaseCore0)  //full switch run through is 1mS
         {
@@ -154,20 +156,16 @@ void Core_ZeroCode( void * pvParameters )
           //  asm volatile("esync; rsr %0,ccount":"=a" (CR0_u32Last)); //@ 240mHz 1 tick = ~4nS
           //  asm volatile("esync; rsr %0,ccount":"=a" (CR0_u32Now));              
 //
-//                  if(GV_u32Temp < (GV_u32Now - GV_u32Last)) //display max time for execution
+//                  if(CR0_u32Temp < (CR0_u32Now - CR0_u32Last)) //display max time for execution
 //                  {
-//                    GV_u32Temp  = (GV_u32Now - GV_u32Last);
+//                    CR0_u32Temp  = (CR0_u32Now - CR0_u32Last);
 //                  }
-//                  GV_u32Avg = (GV_u32Avg + (GV_u32Now - GV_u32Last))/2;
-//                  Serial.print("  now ");
-//                  Serial.print(GV_u32Now);
-//                  Serial.print("  lst ");
-//                  Serial.print(GV_u32Last);
+//                  CR0_u32Avg = (CR0_u32Avg + (CR0_u32Now - CR0_u32Last))/2;
 //                  Serial.print("  max ");
-//                  Serial.print(GV_u32Temp);
+//                  Serial.print(CR0_u32Temp);
 //                  Serial.print(" avg  ");
-//                  Serial.println(GV_u32Avg);
-//
+//                  Serial.println(CR0_u32Avg);
+
 //                  for(GV_uiLoopCounter_A = 0; GV_uiLoopCounter_A < 10; GV_uiLoopCounter_A++)
 //                  {
 //                  
