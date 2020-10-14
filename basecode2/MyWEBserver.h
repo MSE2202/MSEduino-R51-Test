@@ -410,6 +410,7 @@ table#DP01 th {
  var colors = ["red",   "green",   "blue",   "yellow",   "orange", "black"];
  
  var counttmr = 0;
+ var vWorkingData;
  ctx.moveTo(0,0);
  ctx.canvas.width = window.innerWidth* 0.85;
  ctx.canvas.height = window.innerHeight* 0.3;
@@ -421,6 +422,7 @@ var connection = new WebSocket('ws://' + location.hostname + ':81/', ['arduino']
 connection.onopen = function () {
   connection.send('Connect ' + new Date());
   //alert("WebSocket is supported by your Browser!");
+   sendData(6);   //load graph/chart with names for debugging
 };
 connection.onerror = function (error) { console.log('WebSocket Error ', error);};
 connection.onmessage = function (e) { onMessage(e)};
@@ -430,7 +432,7 @@ connection.onclose = function () { console.log('WebSocket connection closed');};
 // Called when a message is received from the server
 function onMessage(e) 
 {
-  var vWorkingData;
+ 
     // Print out our received message
     console.log("Received: " + e.data);
     vWorkingData = (e.data).split(";");
@@ -443,29 +445,26 @@ function onMessage(e)
  
  //ctx.beginPath();
  // getNames();
- sendData(6);   //load graph/chart with names for debugging
+
  
 function getNames(e) 
 {
- //// var xhttp = new XMLHttpRequest();
+ 
   var vWorkingName;
  
- // xhttp.onreadystatechange = function() 
-//  {
-//    if (this.readyState == 4 && this.status == 200)
-//    {
-     vWorkingName = (e.data).split(";");
+ 
+     vWorkingName = vWorkingData;
      if(vWorkingName.length > 1)
      {
        for (WatchIndexer=0;WatchIndexer<vWorkingName.length;WatchIndexer++)  
        {
-         if(WatchCommandIndex == 5)
+         if(WatchCommandIndex == 5)  //Setup charts lower float limit
          {
           ChartLowerLimits[ChartVariableIndex] = parseFloat(vWorkingName[WatchIndexer]);
           WatchCommandIndex = 0;
          }
 
-         if(WatchCommandIndex == 6)
+         if(WatchCommandIndex == 6)  //setup charts upper limit
          {
           ChartUpperLimits[ChartVariableIndex] = parseFloat(vWorkingName[WatchIndexer]);
           WatchCommandIndex = 0;
@@ -720,13 +719,6 @@ function getNames(e)
 
        }
      }
-  
-   // }
-  //};
-
-
-  xhttp.open("GET", "LN", true);
-  xhttp.send();
  }
    
 function sendData(ButtonPressed)
@@ -736,7 +728,7 @@ function sendData(ButtonPressed)
 
   switch(ButtonPressed)
   {
-    case 0:
+    case 0:   //debug on button pressed
     {
       if (DebugOnOff == false)
       {
@@ -745,7 +737,7 @@ function sendData(ButtonPressed)
       }
       break;
     }
-    case 1:
+    case 1:  //debug off button pressed
     {
       if (DebugOnOff == true)
       {
@@ -754,7 +746,7 @@ function sendData(ButtonPressed)
       }
       break;
     }
-    case 2:
+    case 2:   //halt button pressed
     {
       if (HaltContin == true)
       {
@@ -763,7 +755,7 @@ function sendData(ButtonPressed)
       }
       break;
     }
-    case 3:
+    case 3:  //continue button pressed
     {
       if (HaltContin == false)
       {
@@ -772,7 +764,7 @@ function sendData(ButtonPressed)
       }
       break;
     }
-    case 4:
+    case 4:   //debug point pressed
     {
       if (WatchColumHaltedAt < 6)
       {
@@ -785,7 +777,7 @@ function sendData(ButtonPressed)
       }
       break;
     }
-    case 6:
+    case 6:  //requesting variable name data to load charts
     {
       connection.send("L");
        
@@ -1094,7 +1086,7 @@ void WSVR_setupWEbServer(void)
   
  server.on("/", HTTP_GET, [](AsyncWebServerRequest *request)
   {
-    //request->send(200, "text/html", MAIN_page);
+    request->send(200, "text/html", MAIN_page);
 //    ucWSVR_GETRequest = 1;
 //    GetRequest = request;
   });
