@@ -101,11 +101,11 @@ void Core_ZeroCode( void * pvParameters )
         CR0_ulPreviousMicrosCore0 = CR0_ulCurrentMicrosCore0;
         
         
-        WSVR_ButtonResponce();
-        asm volatile("esync; rsr %0,ccount":"=a" (CR0_u32Last)); // @ 240mHz clock each tick is ~4nS  
-        webSocket.loop();
-         asm volatile("esync; rsr %0,ccount":"=a" (CR0_u32Now));    
-        
+       // WSVR_ButtonResponce();
+//        asm volatile("esync; rsr %0,ccount":"=a" (CR0_u32Last)); // @ 240mHz clock each tick is ~4nS  
+//        webSocket.loop();
+//         asm volatile("esync; rsr %0,ccount":"=a" (CR0_u32Now));    
+//        
         switch(CR0_ucMainTimerCaseCore0)  //full switch run through is 1mS
         {
           //###############################################################################
@@ -117,7 +117,7 @@ void Core_ZeroCode( void * pvParameters )
             break;
           }
           //###############################################################################
-          case 1: //Screen control
+          case 1: //
           {
          
             uiTestCounter = uiTestCounter + 1;
@@ -128,10 +128,12 @@ void Core_ZeroCode( void * pvParameters )
             break;
           }
           //###############################################################################
-          case 2: //push button control
+          case 2: //web page control
           {
-            
-            
+            asm volatile("esync; rsr %0,ccount":"=a" (CR0_u32Last)); // @ 240mHz clock each tick is ~4nS  
+            webSocket.loop();
+            asm volatile("esync; rsr %0,ccount":"=a" (CR0_u32Now));    
+           
             CR0_ucMainTimerCaseCore0 = 3;
             break;
           }
@@ -194,7 +196,7 @@ void Core_ZeroCode( void * pvParameters )
           //###############################################################################
           case 7: 
           {
-            WSVR_SendMsg();
+            //WSVR_SendMsg();
             CR0_ucMainTimerCaseCore0 = 8;
             break;
           }

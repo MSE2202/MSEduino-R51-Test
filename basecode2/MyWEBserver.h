@@ -16,6 +16,8 @@ March 21,2020
 
 #include <WebSocketsServer.h>
 
+void WSVR_ButtonResponse(void);
+
 bool btWS_Fellover = true;
 
 // Replace with your network credentials
@@ -247,11 +249,6 @@ table#DP01 th {
 }
 
 
-
-.
-
-
-
 .Datum{
   position:absolute;
   top:84%;
@@ -270,12 +267,12 @@ table#DP01 th {
 
  <div class="form">
   <div>
-    <input type="radio" onclick="sendData(1)" id="DebugOn" value="1" name="DebugOnOff" checked />
+    <input type="radio" onclick="sendData(0)" id="DebugOn" value="1" name="DebugOnOff" checked />
     <label class="DebugOn" for="DebugOn"></label>
   
   </div>
   <div>
-    <input type="radio" onclick="sendData(0)" id="DebugOff" value="0" name="DebugOnOff" checked />
+    <input type="radio" onclick="sendData(1)" id="DebugOff" value="0" name="DebugOnOff" checked />
     <label class="DebugOff" for="DebugOff"></label>
   </div>
 
@@ -727,29 +724,28 @@ function getNames()
   xhttp.send();
  }
    
-function sendData(ButtonPressed) {
-  var xhttp = new XMLHttpRequest();
-  var Sendit = false;
+function sendData(ButtonPressed)
+{
 
   //To send data to server
-connection.send("something"); 
+
   switch(ButtonPressed)
   {
     case 0:
     {
-      if (DebugOnOff == true)
+      if (DebugOnOff == false)
       {
-        Sendit = true;
-        DebugOnOff = false;
+        connection.send("Po"); 
+        DebugOnOff = true;
       }
       break;
     }
     case 1:
     {
-      if (DebugOnOff == false)
+      if (DebugOnOff == true)
       {
-        Sendit = true;
-        DebugOnOff = true;
+        connection.send("Pf");
+        DebugOnOff = false;
       }
       break;
     }
@@ -757,7 +753,7 @@ connection.send("something");
     {
       if (HaltContin == true)
       {
-        Sendit = true;
+        connection.send("Ph");
         HaltContin = false;
       }
       break;
@@ -766,7 +762,7 @@ connection.send("something");
     {
       if (HaltContin == false)
       {
-        Sendit = true;
+        connection.send("Pc");
         HaltContin = true;
       }
       break;
@@ -775,7 +771,7 @@ connection.send("something");
     {
       if (WatchColumHaltedAt < 6)
       {
-        Sendit = true;
+        connection.send("Pt");
         if(WatchColumHaltedAt < 5)
         {
           WVH[WatchColumHaltedAt].style.backgroundColor = "grey";
@@ -785,11 +781,7 @@ connection.send("something");
       break;
     }
   }
-  if (Sendit)
-  {
-    xhttp.open("GET", "PB?S="+ButtonPressed, true);
-    xhttp.send();
-  }
+ 
 }
 
 function Chartting()
@@ -1025,25 +1017,23 @@ void webSocketEvent(uint8_t num, WStype_t type, uint8_t * payload, size_t lenght
       
     case WStype_TEXT:                     // if new text data is received
     {
-      Serial.print("T");
-      Serial.printf("[%u] get Text: %s\n", num, payload);
+     
       
-      
-//      if (payload[0] == '#') {            // we get RGB data
-//        uint32_t rgb = (uint32_t) strtol((const char *) &payload[1], NULL, 16);   // decode rgb data
-//        int r = ((rgb >> 20) & 0x3FF);                     // 10 bits per color, so R: bits 20-29
-//        int g = ((rgb >> 10) & 0x3FF);                     // G: bits 10-19
-//        int b =          rgb & 0x3FF;                      // B: bits  0-9
-//
-//        analogWrite(LED_RED,   r);                         // write it to the LED output pins
-//        analogWrite(LED_GREEN, g);
-//        analogWrite(LED_BLUE,  b);
-//      } else if (payload[0] == 'R') {                      // the browser sends an R when the rainbow effect is enabled
-//        rainbow = true;
-//      } else if (payload[0] == 'N') {                      // the browser sends an N when the rainbow effect is disabled
-//        rainbow = false;
-//      }
-      break;
+      switch(payload[0])
+      {
+        case 'P':
+        {
+          
+          strWSVR_ButtonState = payload[1];
+          Serial.print("P");
+          Serial.printf("%c",payload[1]);
+          Serial.println("");
+          WSVR_ButtonResponse();
+          break;
+        }
+         
+      }
+     break;
     }
     case WStype_BIN:
     {
@@ -1093,25 +1083,6 @@ void WSVR_setupWEbServer(void)
   });
     
  
-  server.on("/PB", HTTP_GET, [](AsyncWebServerRequest *request)  //setPressedButton
-  {
-      
-      AsyncWebParameter* p;
-     
-     if(request->hasParam("S"))
-       p = request->getParam("S");
-       // Serial.printf("GET[%s]: %s\n", p->name().c_str(), p->value().c_str());
-
-     String t_state = p->value().c_str();//server->arg("S"); //Refer  xhttp.open("GET", "setButton?StateButton="+buttonPressed, true);
-     strWSVR_ButtonState = p->value().c_str();
-     
-     ucWSVR_ButtonState = strWSVR_ButtonState.toInt();
-     ucWSVR_GETRequest = 2;
-    GetRequest = request;
-     
-   // request->send(200, "text/plain", strWSVR_ButtonState); //Send web page
-   
-  });
 
    server.on("/RD", HTTP_GET, [](AsyncWebServerRequest *request)  //readData
     {
@@ -1162,15 +1133,15 @@ void WSVR_AnswerGetRequest(void)
      
       break;
     }
-    case 2:
-    {
-      
-       
-      GetRequest->send(200, "text/plain", strWSVR_ButtonState); //Send web page
-   
-      ucWSVR_GETRequest = 0;
-      break;
-    }
+//    case 2:
+//    {
+//      
+//       
+//      GetRequest->send(200, "text/plain", strWSVR_ButtonState); //Send web page
+//   
+//      ucWSVR_GETRequest = 0;
+//      break;
+//    }
     case 3:
     {
      
@@ -1203,72 +1174,69 @@ void WSVR_SendMsg(void)
   }
 }
 
-void WSVR_ButtonResponce(void)
+void WSVR_ButtonResponse(void)
 {
+   ucWSVR_ButtonState = strWSVR_ButtonState.toInt();
+   
     switch(ucWSVR_ButtonState)
     {
-      case 0:
-      default:
+      case 'o':
+       {
+       Serial.println("DebugOn");
+       strWSVR_ButtonState = "";
+       bWSVR_DebugOfOff = true;
+       break;
+      }
+      case 'f':
       {
-     
        Serial.println("DebugOff");
        bWSVR_DebugOfOff = false;
-       ucWSVR_ButtonState = 9;
-       
-       
-        break;
+       strWSVR_ButtonState = "";
+       break;
       }
-      case 1:
-      {
-      
-       Serial.println("DebugOn");
-       
-        //esp_err_t esp_task_wdt_status(TaskHandle_t handle)
-        ucWSVR_ButtonState = 9;
-        bWSVR_DebugOfOff = true;
-        webSocket.sendTXT(0, "debog ON");
-        break;
-      }
-      case 2:
+      case 'h':
       {
         
        Serial.println("Halt");
-        ucWSVR_ButtonState = 9;
+        strWSVR_ButtonState = "";
         bWSVR_HaltContinuous = false;
         break;
       }
-      case 3:
+      case 'c':
       {
       
        Serial.println("Continuous");
-       ucWSVR_ButtonState = 9;
+       strWSVR_ButtonState = "";
        bWSVR_HaltContinuous = true;
         break;
       }
 
-      case 4:  //continue from BP halt
+      case 't':  //continue from BP halt
       {
         Serial.println("UnHalt");
         bWSVR_Halted = false;
-        ucWSVR_ButtonState = 9;
+        strWSVR_ButtonState = "";
         strWSVR_VariableData.replace("HH", "GG");
        
         break;
       }
-      case 5:  //toggle servo
+      case 'g': 
       {
         
-        ucWSVR_ButtonState = 9;
+        strWSVR_ButtonState = "";
        
        
         break;
       }
-      case 9:
+      case 's':
       {
         
-        ucWSVR_ButtonState = 9;
+        strWSVR_ButtonState = "";
         break;
       }
+     
+        
+       
     }
 
 }
