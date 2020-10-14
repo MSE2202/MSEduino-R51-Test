@@ -62,8 +62,10 @@ void Core_ZeroCode( void * pvParameters )
    WSVR_setupWEbServer();
   
    delay(1000);
+
    
-   WSVR_AnswerGetRequest();
+   //WSVR_AnswerGetRequest();
+   WSVR_SendToWeb();
    
    WDT_EnableFastWatchDogCore0();
    
@@ -111,7 +113,7 @@ void Core_ZeroCode( void * pvParameters )
           //###############################################################################
           case 0: //LCD Display
           {
-            WSVR_AnswerGetRequest();
+           // WSVR_AnswerGetRequest();
             CR0_ucMainTimerCaseCore0 = 1;
             
             break;
@@ -141,7 +143,7 @@ void Core_ZeroCode( void * pvParameters )
           case 3: //LCD Display
           {
             
-            
+            //WSVR_SendToWeb();
             CR0_ucMainTimerCaseCore0 = 4;
             break;
           }

@@ -422,34 +422,39 @@ connection.onopen = function () {
   connection.send('Connect ' + new Date());
   //alert("WebSocket is supported by your Browser!");
 };
-connection.onerror = function (error) {
-  console.log('WebSocket Error ', error);
-};
-connection.onmessage = function (e) {
-  console.log('Server: ', e.data);
-};
-connection.onclose = function () {
-  console.log('WebSocket connection closed');
-};
+connection.onerror = function (error) { console.log('WebSocket Error ', error);};
+connection.onmessage = function (e) { onMessage(e)};
+connection.onclose = function () { console.log('WebSocket connection closed');};
 
 
-
+// Called when a message is received from the server
+function onMessage(e) 
+{
+  var vWorkingData;
+    // Print out our received message
+    console.log("Received: " + e.data);
+    vWorkingData = (e.data).split(";");
+   if(vWorkingData[0] == "N#^")
+   {
+    getNames();
+   }
+}
 
  
  //ctx.beginPath();
-  getNames();
+ // getNames();
+ sendData(6);   //load graph/chart with names for debugging
  
- 
-function getNames() 
+function getNames(e) 
 {
-  var xhttp = new XMLHttpRequest();
+ //// var xhttp = new XMLHttpRequest();
   var vWorkingName;
  
-  xhttp.onreadystatechange = function() 
-  {
-    if (this.readyState == 4 && this.status == 200)
-    {
-     vWorkingName = (this.responseText).split(";");
+ // xhttp.onreadystatechange = function() 
+//  {
+//    if (this.readyState == 4 && this.status == 200)
+//    {
+     vWorkingName = (e.data).split(";");
      if(vWorkingName.length > 1)
      {
        for (WatchIndexer=0;WatchIndexer<vWorkingName.length;WatchIndexer++)  
@@ -716,8 +721,8 @@ function getNames()
        }
      }
   
-    }
-  };
+   // }
+  //};
 
 
   xhttp.open("GET", "LN", true);
@@ -778,6 +783,12 @@ function sendData(ButtonPressed)
         }
         WatchColumHaltedAt = 6;
       }
+      break;
+    }
+    case 6:
+    {
+      connection.send("L");
+       
       break;
     }
   }
@@ -956,8 +967,8 @@ function getData()
 }
 
 setInterval(function() {
-  
-  getData();
+ 
+ // getData();
   Chartting();
 }, 100); //100mSeconds update rate
  
@@ -1031,6 +1042,12 @@ void webSocketEvent(uint8_t num, WStype_t type, uint8_t * payload, size_t lenght
           WSVR_ButtonResponse();
           break;
         }
+        case 'L':
+        {
+          
+          webSocket.sendTXT(0, strWSVR_VariableNames);
+          break;
+        }
          
       }
      break;
@@ -1078,28 +1095,28 @@ void WSVR_setupWEbServer(void)
  server.on("/", HTTP_GET, [](AsyncWebServerRequest *request)
   {
     //request->send(200, "text/html", MAIN_page);
-    ucWSVR_GETRequest = 1;
-    GetRequest = request;
+//    ucWSVR_GETRequest = 1;
+//    GetRequest = request;
   });
     
  
 
-   server.on("/RD", HTTP_GET, [](AsyncWebServerRequest *request)  //readData
-    {
-        // request->send(200, "text/plain", strWSVR_VariableData); //Send ADC value only to client ajax request
-      ucWSVR_GETRequest = 3;
-      GetRequest = request;
-     
-   
-    });
-
-   server.on("/LN", HTTP_GET, [](AsyncWebServerRequest *request) //loadDataNames
-    {
-       ucWSVR_GETRequest = 4;
-      GetRequest = request;
-      //request->send(200, "text/plain", strWSVR_VariableNames); //Send ADC value only to client ajax request
-   
-    }); 
+//   server.on("/RD", HTTP_GET, [](AsyncWebServerRequest *request)  //readData
+//    {
+//        // request->send(200, "text/plain", strWSVR_VariableData); //Send ADC value only to client ajax request
+//      ucWSVR_GETRequest = 3;
+//      GetRequest = request;
+//     
+//   
+//    });
+//
+//   server.on("/LN", HTTP_GET, [](AsyncWebServerRequest *request) //loadDataNames
+//    {
+//       ucWSVR_GETRequest = 4;
+//      GetRequest = request;
+//      //request->send(200, "text/plain", strWSVR_VariableNames); //Send ADC value only to client ajax request
+//   
+//    }); 
     
   webSocket.begin();                          // start the websocket server
   webSocket.onEvent(webSocketEvent);  
@@ -1113,52 +1130,56 @@ void WSVR_setupWEbServer(void)
 //  btStop();
 
   Serial.println(F(""));
-
-  
 }
 
 
-
-void WSVR_AnswerGetRequest(void)
+void WSVR_SendToWeb(void)
 {
-  
- 
-  switch(ucWSVR_GETRequest)
-  {
-    case 1:
-    {
-      GetRequest->send(200, "text/html", MAIN_page);
-       
-      ucWSVR_GETRequest = 0;
-     
-      break;
-    }
-//    case 2:
+     webSocket.sendTXT(0, "#######");
+}
+
+
+//void WSVR_AnswerGetRequest(void)
+//{
+//  
+// 
+//  switch(ucWSVR_GETRequest)
+//  {
+//    case 1:
 //    {
-//      
+//      GetRequest->send(200, "text/html", MAIN_page);
 //       
-//      GetRequest->send(200, "text/plain", strWSVR_ButtonState); //Send web page
-//   
+//      ucWSVR_GETRequest = 0;
+//     
+//      break;
+//    }
+////    case 2:
+////    {
+////      
+////       
+////      GetRequest->send(200, "text/plain", strWSVR_ButtonState); //Send web page
+////   
+////      ucWSVR_GETRequest = 0;
+////      break;
+////    }
+//    case 3:
+//    {
+//     
+//      GetRequest->send(200, "text/plain", strWSVR_VariableData); //Send ADC value only to client ajax request
+//    
 //      ucWSVR_GETRequest = 0;
 //      break;
 //    }
-    case 3:
-    {
-     
-      GetRequest->send(200, "text/plain", strWSVR_VariableData); //Send ADC value only to client ajax request
-    
-      ucWSVR_GETRequest = 0;
-      break;
-    }
-    case 4:
-    {
-      GetRequest->send(200, "text/plain", strWSVR_VariableNames); //Send ADC value only to client ajax request
-         
-      ucWSVR_GETRequest = 0;
-      break;
-    }
-  }
-}
+//    case 4:
+//    {
+//       
+//      GetRequest->send(200, "text/plain", strWSVR_VariableNames); //Send ADC value only to client ajax request
+//         
+//      ucWSVR_GETRequest = 0;
+//      break;
+//    }
+//  }
+//}
 
 
 void WSVR_SendMsg(void)

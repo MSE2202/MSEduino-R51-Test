@@ -204,7 +204,7 @@ void WSVR_BreakPointInit(String strDebug_OnOff, String strHaltContinous)
      bWSVR_HaltContinuous = true;
   } 
   
- strWSVR_VariableNames = String(strDebug_OnOff) + ";" + String(strHaltContinous) + ";" + String("BPN") + ";" + String("CC") + ";"
+ strWSVR_VariableNames = String(String("N#^") + ";" + strDebug_OnOff) + ";" + String(strHaltContinous) + ";" + String("BPN") + ";" + String("CC") + ";"
 
 #ifdef WATCH_VARIABLE_1_NAME
                        + String("WV01") + ";" + String(WATCH_VARIABLE_1_NAME) + ";" 
@@ -350,7 +350,7 @@ void WSVR_BreakPoint(unsigned char ucBPindex)
        strWSVR_VariableData.setCharAt(5,(0x30 + ucBPindex));
        while(bWSVR_Halted)
        {
-         WSVR_AnswerGetRequest();     
+         //WSVR_AnswerGetRequest();     
          webSocket.loop();
          WSVR_ButtonResponse();
          vTaskDelay(1);
