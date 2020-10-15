@@ -135,11 +135,15 @@ void WSVR_setupWEbServer(void)
   
  server.on("/", HTTP_GET, [](AsyncWebServerRequest *request)
   {
-    request->send(200, "text/html", BreakPoint_page);
+    request->send(200, "text/html", Main_page);
 
   });
     
- 
+ server.on("/BP", HTTP_GET, [](AsyncWebServerRequest *request)
+  {
+    request->send(200, "text/html", BreakPoint_page);
+
+  });
     
   webSocket.begin();                          // start the websocket server
   webSocket.onEvent(webSocketEvent);  
