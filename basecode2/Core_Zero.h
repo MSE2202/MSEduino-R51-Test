@@ -64,9 +64,6 @@ void Core_ZeroCode( void * pvParameters )
    delay(1000);
 
    
-   //WSVR_AnswerGetRequest();
-   WSVR_SendToWeb();
-   
    WDT_EnableFastWatchDogCore0();
    
    WDT_ResetCore0();

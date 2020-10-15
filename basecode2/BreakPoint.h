@@ -195,6 +195,7 @@ void WSVR_BreakPointInit(String strDebug_OnOff, String strHaltContinous)
   {
      bWSVR_DebugOfOff = false;
   }
+ 
   if(strHaltContinous.equals("HALT"))
   {
      bWSVR_HaltContinuous = false;
@@ -272,11 +273,11 @@ void WSVR_BreakPointInit(String strDebug_OnOff, String strHaltContinous)
 
 void WSVR_BreakPoint(unsigned char ucBPindex)
 {
- 
+  
   if(bWSVR_DebugOfOff)
   {
     
- strWSVR_VariableData = String("BPD") + ";" + String("CC") + ";"
+ strWSVR_VariableData = String("V#^") + ";" + String("CC") + ";"
 
 #ifdef WATCH_VARIABLE_1_NAME
                        + String(WATCH_VARIABLE_1) + ";" 
@@ -350,7 +351,7 @@ void WSVR_BreakPoint(unsigned char ucBPindex)
        strWSVR_VariableData.setCharAt(5,(0x30 + ucBPindex));
        while(bWSVR_Halted)
        {
-         //WSVR_AnswerGetRequest();     
+         WSVR_SendMsg(strWSVR_VariableData);
          webSocket.loop();
          WSVR_ButtonResponse();
          vTaskDelay(1);
@@ -364,6 +365,12 @@ void WSVR_BreakPoint(unsigned char ucBPindex)
      
      strWSVR_VariableData.setCharAt(4,'C');       
      strWSVR_VariableData.setCharAt(5,'C'); 
+     
+    }
+    else
+    {
+      WSVR_SendMsg(strWSVR_VariableData);
+     
     }
     
    
