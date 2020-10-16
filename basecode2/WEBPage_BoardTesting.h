@@ -2,19 +2,16 @@
 //Western Engineering base code 
 March 21,2020
   
-\WEB Page code for Break point WEBpage
+\WEB Page code for Board Testing
 
 
 */
 
-#ifndef BREAKPOINTWEBPAGE_H
-#define BREAKPOINTWEBPAGE_H 1
-
-
-
+#ifndef BOARDTESTINGWEBPAGE_H
+#define BOARDTESTINGWEBPAGE_H 1
 
  
-const char BreakPoint_page[] PROGMEM = R"=====(
+const char BoardTesting_page[] PROGMEM = R"=====(
 <!DOCTYPE html>
 <html>
 

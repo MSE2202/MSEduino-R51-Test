@@ -122,6 +122,32 @@ body{
     color: white;
 }
 
+.MainReturn{
+  position:absolute;
+ 
+  top:1%;
+  left:52%;
+  height:5%;
+  width:2%;
+  background-color: yellow;
+ 
+}
+.MainReturn:after {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    
+   font: Arial, Helvetica, sans-serif;
+  font-size: 1vmax;
+  font-weight: bold;
+  content: 'M';
+  color: black;
+      
+}
+
 
 .Halt{
   position:absolute;
@@ -246,12 +272,12 @@ table#DP01 th {
 
  <div class="form">
   <div>
-    <input type="radio" onclick="sendData(0)" id="DebugOn" value="1" name="DebugOnOff" checked />
+    <input type="radio" onclick="sendData(0)" id="DebugOn" value="0" name="DebugOnOff" checked />
     <label class="DebugOn" for="DebugOn"></label>
   
   </div>
   <div>
-    <input type="radio" onclick="sendData(1)" id="DebugOff" value="0" name="DebugOnOff" checked />
+    <input type="radio" onclick="sendData(1)" id="DebugOff" value="1" name="DebugOnOff" checked />
     <label class="DebugOff" for="DebugOff"></label>
   </div>
 
@@ -264,6 +290,13 @@ table#DP01 th {
     <input type="radio" onclick="sendData(3)" id="Continuous" value="3" name="HaltContinuous" unchecked />
     <label class="Continuous" for="Continuous"></label>
   </div>
+
+   <div>
+    <input type="radio" onclick="sendData(7)" id="MainReturn" value="7" name="MainReturn" checked />
+    <label class="MainReturn" for="MainReturn"></label>
+  </div>
+
+
  <div>
   
   
@@ -761,6 +794,12 @@ function sendData(ButtonPressed)
     case 6:  //requesting variable name data to load charts
     {
       connection.send("L");
+       
+      break;
+    }
+    case 7:  //return to main screen
+    {
+      location.replace("/")
        
       break;
     }

@@ -11,7 +11,9 @@ March 21,2020
 #define MYWEBSERVER_H 1
 
 
-#include "BreakPointWEBPage.h"
+#include "WEBPage_BoardTesting.h"
+#include "WEBPage_BreakPoint.h"
+#include "WEBPage_Main.h"
 #include <ESPAsyncWebServer.h>
 
 #include <WebSocketsServer.h>
@@ -144,6 +146,12 @@ void WSVR_setupWEbServer(void)
     request->send(200, "text/html", BreakPoint_page);
 
   });
+
+  server.on("/BT", HTTP_GET, [](AsyncWebServerRequest *request)
+  {
+    request->send(200, "text/html", BoardTesting_page);
+
+  });
     
   webSocket.begin();                          // start the websocket server
   webSocket.onEvent(webSocketEvent);  
@@ -154,7 +162,7 @@ void WSVR_setupWEbServer(void)
   Serial.println(F("HTTP server started"));
   //turn off wifi for now it adds time to execution
 //  WiFi.mode(WIFI_OFF);
-//  btStop();
+//  btStop();  //turn off bluetooth module
 
   Serial.println(F(""));
 }
