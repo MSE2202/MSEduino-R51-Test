@@ -10,8 +10,9 @@ March 21,2020
 #ifndef MYWEBSERVER_H
 #define MYWEBSERVER_H 1
 
-
+#ifdef BROADTESTING
 #include "WEBPage_BoardTesting.h"
+#endif
 #include "WEBPage_BreakPoint.h"
 #include "WEBPage_Main.h"
 #include <ESPAsyncWebServer.h>
@@ -146,12 +147,13 @@ void WSVR_setupWEbServer(void)
     request->send(200, "text/html", BreakPoint_page);
 
   });
-
+#ifdef BROADTESTING
   server.on("/BT", HTTP_GET, [](AsyncWebServerRequest *request)
   {
     request->send(200, "text/html", BoardTesting_page);
 
   });
+#endif
     
   webSocket.begin();                          // start the websocket server
   webSocket.onEvent(webSocketEvent);  

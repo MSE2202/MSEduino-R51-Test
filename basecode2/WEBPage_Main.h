@@ -120,7 +120,7 @@ body{
     color: white;
 }
 
-
+#ifdef BROADTESTING
 .BoardTesting{
   position:absolute;
   
@@ -151,7 +151,7 @@ body{
       
 }
 
-
+#endif
 
 
 
@@ -172,11 +172,13 @@ body{
     <label class="Breakpoints" for="Breakpoints"></label>
   </div>
 
+
   <div>
     <input type="radio" onclick="myFunctionBT()" id="BoardTesting" value="2" name="BoardTest" checked/>
     <label class="BoardTesting" for="BoardTesting"></label>
   
   </div>
+
   
  
 </div>
@@ -185,6 +187,7 @@ function myFunctionBP()
 {
   location.replace("/BP")
 }
+
 function myFunctionBT()
 {
   location.replace("/BT")

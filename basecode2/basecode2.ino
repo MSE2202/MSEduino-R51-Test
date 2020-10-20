@@ -44,6 +44,9 @@
 
 #include "Core_Zero.h"
 
+//#define BROADTESTING 1
+
+
 //pins
 #define INDICATORLED 2
 

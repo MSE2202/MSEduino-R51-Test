@@ -128,7 +128,7 @@ body{
   top:1%;
   left:52%;
   height:5%;
-  width:2%;
+  width:1%;
   background-color: yellow;
  
 }
