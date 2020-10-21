@@ -12,15 +12,18 @@ Usage either through serial Monitor or WEB PAGE 192.168.128.1
 #define BOARDTESTING_H 1
 
 #include <Adafruit_NeoPixel.h>
+#include "BoardTestingInstructions.h"
+
 
 //pins
 #define BRDTST_INDICATORLED 2     //pin 2 has a LED connected on ESP32 Board
+
+#define BRDTST_PB1 27             //when JP13 has jumper installed pin D27 i sconnected to push Buttton 1
+#define BRDTST_PB2 26             //when JP14 has jumper installed pin D26 i sconnected to push Buttton 2
 #define BRDTST_LED_PIN     25     //when JP5 has jumper installed pin D25 is connected to SMART LEDs
 
+#define BRSTST_LED_COUNT 2       //number of SMART LEDs in use
 
-
-// How many SK6812 are attached to the MSE-Duino?
-#define BRSTST_LED_COUNT  2
 
 
 // Declare our SK6812 SMART LED object:
@@ -80,7 +83,7 @@ void Testing()
       case 'B':
       case 'b':
       {
-        if(brdtst_ucIncrementTestStep == 0)
+        if(brdtst_ucIncrementTestStep != brstst_ucMaxNumberofTestSteps)
         {
           brdtst_ucIncrementTestStep = 0;
           if(brdtst_ucTestID > 0)
@@ -126,10 +129,12 @@ void Testing()
  {
   case 0: //setup for board testing
   {
+     SmartLEDs.clear(); // Set all pixel colors to 'off'
+     SmartLEDs.show();   // Send the updated pixel colors to the hardware.
+     brstst_ucMaxNumberofTestSteps = 3;
+     
      Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-     Serial.println(F(" Board Testing"));
-     Serial.println(F(" First Test: Blink on ESP32 LED"));
-     Serial.println(F(" Enter \"C\"ontinue, \"S\"kip this test or \"Q\"uit")); 
+     Serial.printf("%s",BoardTesting_Instructions[0]);
      Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
      //ESP32 Blink Test
      pinMode(BRDTST_INDICATORLED, OUTPUT);
@@ -147,19 +152,14 @@ void Testing()
   {
     
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    Serial.println(F(" Blink on ESP32 LED, Test 1/5"));
-    Serial.println(F(" Enter \"C\"ontinue to next test,\"B\"ack to go beginning of Test, \"S\"kip the next Test or \"Q\"uit")); 
-    Serial.println(F("   - Blue LED on ESP32 board should be blinking, If working push \"C\" "));
-    Serial.println(F("   - If not working: unplug ESP32 from power sources. "));
-    Serial.println(F("   --- Use multimeter to check continuity ( beep test), to ground, to 3V3, on physical pin 4,  if beep find short and fix. (use the schematic and board artwork as reference "));
-    Serial.println(F(" Next Test 2/5: SMART LEDs Test"));
+    Serial.printf("%s",BoardTesting_Instructions[1]);
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
     brdtst_ucIncrementTestStep = 3;
     break;
   }  
   case 3:  //repeat test until user sends response
   {
-    brstst_ucMaxNumberofTestSteps = 3;
+    
     brdtst_uiTimeCount = brdtst_uiTimeCount + 1;
     if(brdtst_uiTimeCount >= 25)
     {
@@ -173,12 +173,7 @@ void Testing()
    digitalWrite(BRDTST_INDICATORLED,false);
     
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    Serial.println(F(" SMART LEDs Test, Test 2/5"));
-    Serial.println(F(" Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip Next Test or \"Q\"uit")); 
-    Serial.println(F(" Next Test 3/5: Push Button Test"));
-    Serial.println(F(""));
-    Serial.println(F(" Instructions:"));
-    Serial.println(F("   - Put jumper on JP5, then push \"C\" "));
+    Serial.printf("%s",BoardTesting_Instructions[2]);
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
     //SMART LED Testing
      SmartLEDs.begin(); // INITIALIZE SMART LEDs object (REQUIRED)
@@ -195,18 +190,7 @@ void Testing()
   case 12:
   {
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    Serial.println(F(" SMART LEDs Test, Test 2/5"));
-    Serial.println(F(" Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit")); 
-    Serial.println(F(" Next Test 3/5: Push Button Test"));
-    Serial.println(F(""));
-    Serial.println(F(" Instructions:"));
-    Serial.println(F("   - SMART LED1 (look for label on board) should change colours, then LED2 then back to LED1, if working push \"C\" "));
-    Serial.println(F("   - If not working: unplug ESP32 from power sources. "));
-    Serial.println(F("   --- check  jumper is connected correctly to JP5"));
-    Serial.println(F("   --- did only one light? If yes then the connections from ESP32 to SMART LEDS is good, check LED power/ground pins and Din/Dout on LED not working"));
-    Serial.println(F("   --- check  solder joints on JP5, D25 (physical pin – 23) and SMART LED1 "));
-    Serial.println(F("   --- Use multimeter to check continuity ( beep test), to ground, to 3V3, to points along the circuit path( use the schematic and board artwork as reference "));
-    Serial.println(F("   --- Use oscilloscope to check signal coming from pin 25 , look at SK2812 data sheet for  signal specs."));
+    Serial.printf("%s",BoardTesting_Instructions[3]);
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
     brdtst_ucIncrementTestStep = 3;
     brdtst_uiTimeCount = 0;
@@ -215,7 +199,7 @@ void Testing()
    }
    case 13:
    {
-     
+     brstst_ucMaxNumberofTestSteps = 3;
      brdtst_uiTimeCount = brdtst_uiTimeCount + 1;
      if(brdtst_uiTimeCount >= 50)
      {
@@ -264,19 +248,92 @@ void Testing()
      } 
     break;
    }
-   case 14:
-  {
+   case 20:
+   {
+    brstst_ucMaxNumberofTestSteps = 3;
     SmartLEDs.clear(); // Set all pixel colors to 'off'
     SmartLEDs.show();   // Send the updated pixel colors to the hardware.
-    
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));Serial.println(F(""));
+    Serial.printf("%s",BoardTesting_Instructions[4]);
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+    pinMode(BRDTST_PB1, INPUT_PULLUP); // set D27 as input and turn on pull up to use push button
+    brdtst_ucIncrementTestStep = 1;
     break;
    }
-   case 15:
+   case 21:
    {
-    
-     
+    // waiting for user input
     break;
    }
+   case 22:
+   {
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+    Serial.printf("%s",BoardTesting_Instructions[5]);
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+    brdtst_ucIncrementTestStep = 3;
+    brdtst_TempLoopVariable = 0;
+    break;
+   }
+   case 23:
+   {
+    if(digitalRead(BRDTST_PB1) != brdtst_TempLoopVariable)
+    {
+      brdtst_TempLoopVariable = digitalRead(BRDTST_PB1);
+      if(brdtst_TempLoopVariable)
+      {
+        Serial.println(F("Push Button 1 released"));
+      }
+      else
+      {
+        Serial.println(F("Push Button 1 pressed"));
+      }
+    }
+    break;
+   }
+   case 30:
+   {
+    brstst_ucMaxNumberofTestSteps = 3;
+    SmartLEDs.clear(); // Set all pixel colors to 'off'
+    SmartLEDs.show();   // Send the updated pixel colors to the hardware.
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));Serial.println(F(""));
+    Serial.printf("%s",BoardTesting_Instructions[6]);
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+    pinMode(BRDTST_PB2, INPUT_PULLUP); // set D26 as input and turn on pull up to use push button
+    brdtst_ucIncrementTestStep = 1;
+    break;
+   }
+   case 31:
+   {
+    // waiting for user input
+    break;
+   }
+   case 32:
+   {
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+    Serial.printf("%s",BoardTesting_Instructions[7]);
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+    brdtst_ucIncrementTestStep = 3;
+    brdtst_TempLoopVariable = 0;
+    break;
+   }
+   case 33:
+   {
+   
+    if(digitalRead(BRDTST_PB2) != brdtst_TempLoopVariable)
+    {
+      brdtst_TempLoopVariable = digitalRead(BRDTST_PB2);
+      if(brdtst_TempLoopVariable)
+      {
+        Serial.println(F("Push Button 2 released"));
+      }
+      else
+      {
+        Serial.println(F("Push Button 2 pressed"));
+      }
+    }
+    break;
+   }
+   
  }
 
   

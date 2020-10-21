@@ -30,8 +30,8 @@
   21            GPIO32/AD1_4/T9
   22            GPIO33/AD1_5/T8
   23            GPIO25/AD2_8/DAC1                 SK6812 Smart LEDs
-  24            GPIO26/A2_9/DAC2
-  25            GPIO27/AD2_7/T7                   
+  24            GPIO26/A2_9/DAC2                  Push Button 2
+  25            GPIO27/AD2_7/T7                   Push Button 1
   26            GPOP14/AD2_6/T6/SD_CLK            
   27            GPIO12/AD2_5/T5/SD_D2/            
   28            GPIO13/AD2_4/T4/SD_D3/            
