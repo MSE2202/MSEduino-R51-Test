@@ -6,10 +6,10 @@
 
 /*
   esp32
-  pins         description                        used
-  1             3v3                               PWR 3V3
-  2             gnd                               GND
-  3             GPIO15/AD2_3/T3/SD_CMD/
+  pins         description                        Brd Jumpers                           User (Fill in chart with user PIN usage) 
+  1             3v3                               PWR 3V3                                 3V3
+  2             gnd                               GND                                     GND
+  3             GPIO15/AD2_3/T3/SD_CMD/                         
   4             GPIO2/AD2_2/T2/SD_D0              INDICATORLED
   5             GPIO4/AD2_0/T0/SD_D1
   6             GPIO16/RX2
@@ -17,10 +17,10 @@
   8             GPIO5                             
   9             GPIO18                            
   10            GPIO19/CTS0
-  11            GPIO21                             CLK
+  11            GPIO21                             
   12            GPIO3/RX0
   13            GPIO1//TX0
-  14            GPIO22/RTS1                        SDA
+  14            GPIO22/RTS1                        
   15            GPIO23
   16            EN
   17            GPI36/VP/AD1_0                    
@@ -29,29 +29,25 @@
   20            GPI35/AD1_7
   21            GPIO32/AD1_4/T9
   22            GPIO33/AD1_5/T8
-  23            GPIO25/AD2_8/DAC1
+  23            GPIO25/AD2_8/DAC1                 SK6812 Smart LEDs
   24            GPIO26/A2_9/DAC2
   25            GPIO27/AD2_7/T7                   
   26            GPOP14/AD2_6/T6/SD_CLK            
   27            GPIO12/AD2_5/T5/SD_D2/            
   28            GPIO13/AD2_4/T4/SD_D3/            
-  29            GND                               GND
-  30            VIN                               PWR >= 5v
+  29            GND                               GND                                 GND
+  30            VIN                               PWR 5V t 7V                         PWR 5V to 7V
 
 */
 
 
 
-#include "Core_Zero.h"
+#include "0_Core_Zero.h"
 
-//#define BROADTESTING 1
+#define BROADTESTING 1
 
 
-//pins
-#define INDICATORLED 2
 
-#define SDA 22
-#define SCL 21
 
 
 #include <esp_task_wdt.h>
@@ -60,6 +56,11 @@
 #include "MyWEBserver.h"
 #include "BreakPoint.h"
 #include "WDT.h";
+
+#ifdef BROADTESTING
+#include "BoardTesting.h"
+#endif
+
 
 void loopWEBServerButtonresponce(void);
 
@@ -85,7 +86,7 @@ unsigned long CR1_ulMainTimerNow;
 
 void setup() {
   Serial.begin(115200);
-  pinMode(INDICATORLED, OUTPUT);
+  
   
   Core_ZEROInit();
 
@@ -109,23 +110,26 @@ void loop()
 {
 
   //WSVR_BreakPoint(1);
- 
- 
- 
+
  CR1_ulMainTimerNow = micros();
- if(CR1_ulMainTimerNow - CR1_ulMainTimerPrevious >= CR1_ciMainTimer)
+ if(CR1_ulMainTimerNow - CR1_ulMainTimerPrevious >= CR1_ciMainTimer)   //enter main switch case every 1mS , with 10 cases it take 10mS to run every case
  {
-   WDT_ResetCore1(); 
-   WDT_ucCaseIndexCore0 = CR0_ucMainTimerCaseCore0;
+   WDT_ResetCore1();   //watchdog reset
+   WDT_ucCaseIndexCore1 = CR1_ucMainTimerCaseCore1;  //loads case index so wath dog can track if case is taking longer than 1mS
    
    CR1_ulMainTimerPrevious = CR1_ulMainTimerNow;
  
   switch(CR1_ucMainTimerCaseCore1)  //full switch run through is 1mS
   {
     //###############################################################################
-    case 0: //LCD Display
+    case 0: //Board Testing if enabled
     {
-      
+#ifdef BROADTESTING
+       if((brdtst_BoardTestingActive) && (WDT_vbCore0Running))
+       {
+         Testing();
+       }
+#endif
      
       CR1_ucMainTimerCaseCore1 = 1;
       

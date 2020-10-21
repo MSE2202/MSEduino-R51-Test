@@ -18,6 +18,8 @@
  
  volatile boolean  WDT_vbTiggeredCore0;
  volatile boolean  WDT_vbTiggeredCore1;
+
+  volatile boolean  WDT_vbCore0Running = false;
  
  volatile unsigned char WDT_ucCaseIndexCore0;
  volatile unsigned char WDT_ucCaseIndexCore1;
@@ -100,6 +102,7 @@ void WDT_EnableFastWatchDogCore0()
     timerAlarmEnable(WDT_htTimer0);
 
     Serial.println("WDT Core 0 on");
+    WDT_vbCore0Running = true;
   }
 
   WDT_ResetCore0();

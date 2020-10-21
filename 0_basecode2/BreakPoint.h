@@ -18,30 +18,30 @@ usage
 #define BREAKPOINT_H 1
 
 //-----------------------------------------------------------
-//Column 1
+//Row 1
  
 #define WATCH_VARIABLE_1_NAME "uiTestCounter;LL1;0;UL1;65535" //only 6 charting varable allowed, first number is minimun value ; 2nd is maximum value
 #define WATCH_VARIABLE_1_TYPE unsigned int
 #define WATCH_VARIABLE_1 uiTestCounter
 // 
-//#define WATCH_VARIABLE_2_NAME "bTestCounter"
-//#define WATCH_VARIABLE_2_TYPE boolean
-//#define WATCH_VARIABLE_2 bTestCounter
+#define WATCH_VARIABLE_2_NAME "brdtst_ucTestID"
+#define WATCH_VARIABLE_2_TYPE unsigned char
+#define WATCH_VARIABLE_2 brdtst_ucTestID
 ////
-//#define WATCH_VARIABLE_3_NAME "fTestCounter;LL2;-500;UL2;500"
-//#define WATCH_VARIABLE_3_TYPE float
-//#define WATCH_VARIABLE_3 fTestCounter
+#define WATCH_VARIABLE_3_NAME "brdtst_ucIncrementTestStep"
+#define WATCH_VARIABLE_3_TYPE unsigned char
+#define WATCH_VARIABLE_3 brdtst_ucIncrementTestStep
 
-//#define WATCH_VARIABLE_4_NAME ""
-//#define WATCH_VARIABLE_4_TYPE unsigned int
-//#define WATCH_VARIABLE_4 
+//#define WATCH_VARIABLE_4_NAME "fTestCounter;LL2;-500;UL2;500"
+//#define WATCH_VARIABLE_4_TYPE float
+//#define WATCH_VARIABLE_4 fTestCounter
 //
 //#define WATCH_VARIABLE_5_NAME ""
 //#define WATCH_VARIABLE_5_TYPE unsigned int
 //#define WATCH_VARIABLE_5 
 //
 ////-----------------------------------------------------------
-////Column 2
+////Row 2
 
 //#define WATCH_VARIABLE_6_NAME ""
 //#define WATCH_VARIABLE_6_TYPE unsigned int
@@ -64,7 +64,7 @@ usage
 //#define WATCH_VARIABLE_10 
 //
 ////-----------------------------------------------------------
-////Column 3
+////Row 3
 //#define WATCH_VARIABLE_11_NAME ""
 //#define WATCH_VARIABLE_11_TYPE unsigned int
 //#define WATCH_VARIABLE_11
@@ -86,7 +86,7 @@ usage
 //#define WATCH_VARIABLE_15 
 //
 ////-----------------------------------------------------------
-////Column 4
+////Row 4
 //#define WATCH_VARIABLE_16_NAME ""
 //#define WATCH_VARIABLE_16_TYPE unsigned int
 //#define WATCH_VARIABLE_16
