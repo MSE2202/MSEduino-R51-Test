@@ -1,20 +1,3 @@
-/*
-//Western Engineering base code 
-March 21,2020
-  
-\WEB Page code for Break point WEBpage
-
-
-*/
-
-#ifndef BREAKPOINTWEBPAGE_H
-#define BREAKPOINTWEBPAGE_H 1
-
-
-
-
- 
-const char BreakPoint_page[] PROGMEM = R"=====(
 <!DOCTYPE html>
 <html>
 
@@ -254,13 +237,13 @@ table#DP01 th {
 }
 
 
-//.Datum{
- // position:absolute;
-//  top:84%;/
-//  left:10%;
-//  font: 100% Arial, Helvetica, sans-serif;
-//  font-weight: bold;
-//}
+.Datum{
+  position:absolute;
+  top:84%;
+  left:10%;
+  font: 100% Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
 
 
 
@@ -503,7 +486,7 @@ function getNames()
          {
            WatchCommandIndex = 0;
            WatchVariableIndex = 0;
-           document.getElementById("DebugOn").checked = false;
+       document.getElementById("DebugOn").checked = false;
            DebugOnOff = false;
          }
          if(vWorkingName[WatchIndexer] == "HALT")
@@ -972,24 +955,3 @@ setInterval(function() {
 </html>
 
 
-
-
-)=====";
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#endif
