@@ -51,7 +51,8 @@ Usage either through serial Monitor or WEB PAGE 192.168.128.1
 #define BRDTST_PB2         26     //when JP14 has jumper installed pin D26 is connected to push Buttton 2
 #define BRDTST_LED_PIN     25     //when JP5 has jumper installed pin D25 is connected to SMART LEDs
 
-
+#define BRDTST_HALLPH1     4
+#define BRDTST_HALLPH2     5
 
 
 
@@ -76,9 +77,9 @@ Adafruit_NeoPixel SmartLEDs(BRSTST_LED_COUNT, BRDTST_LED_PIN, NEO_GRB + NEO_KHZ4
 boolean   brdtst_BoardTestingActive = true;
 unsigned char brdtst_LEDBrightness = 25;
 unsigned char brstst_ucMaxNumberofTestSteps = 10;
-unsigned char brstst_ucMaxNumberofTests = 27;
+unsigned char brstst_ucMaxNumberofTests = 28;
 unsigned char brdtst_ucIncrementTestStep = 0;
-unsigned char brdtst_ucTestID = 24;
+unsigned char brdtst_ucTestID = 28;
 
 unsigned char brdtst_TempLoopVariable = 0;
 unsigned char brdtst_TempLoopVariable2 = 0;
@@ -1791,7 +1792,63 @@ void Testing()
     brdtst_ucTestID = 0;
     break;
    }
+
+//Add in encoder test
+
+ case 280:
+   {
+    brstst_ucMaxNumberofTestSteps = 4;
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));Serial.println(F(""));
+    Serial.printf("%s",BoardTesting_Instructions[76]);
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+    pinMode(BRDTST_HALLPH1, INPUT);
+    pinMode(BRDTST_HALLPH2, INPUT);
+    brdtst_ucIncrementTestStep = 1;
+    
+    break;
+   }
+   case 281:
+   {
+    if(digitalRead(BRDTST_HALLPH1) != brdtst_TempLoopVariable)
+    {
+      brdtst_TempLoopVariable = digitalRead(BRDTST_HALLPH1);
+      if(brdtst_TempLoopVariable)
+      {
+        Serial.println(F("Ph1 High"));
+      }
+      else
+      {
+        Serial.println(F("PH1 Low"));
+      }
+    }
+     if(digitalRead(BRDTST_HALLPH2) != brdtst_TempLoopVariable2)
+    {
+      brdtst_TempLoopVariable2 = digitalRead(BRDTST_HALLPH2);
+      if(brdtst_TempLoopVariable2)
+      {
+        Serial.println(F("PH2 High"));
+      }
+      else
+      {
+        Serial.println(F("PH2 Low"));
+      }
+    }
+    break;
+   }
+   case 282:
+   {
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+    Serial.printf("%s",BoardTesting_Instructions[75]);
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+    brdtst_ucIncrementTestStep = 7;
+    brdtst_TempLoopVariable = 0;
+    break;
+   }
+
+
+   
  }
+
 
 }
 
