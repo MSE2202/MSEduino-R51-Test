@@ -1,10 +1,25 @@
 
+
+const static char BoardTesting_Instructions[] PROGMEM = 
+{
+" Board Testing \n  First Test: Blink on ESP32 LED\n  Enter \"C\"ontinue, \"S\"kip this test or \"Q\"uit \n",
+" Blink on ESP32 LED, Test 1/5 \n  Enter \"C\"ontinue to next test,\"B\"ack to go beginning of Test, \"S\"kip to the next Test or \"Q\"uit \n    - Blue LED on ESP32 board should be blinking, If working push \"C\' \n
+   - If not working: unplug ESP32 from power sources. \n   --- Use multimeter to check continuity ( beep test), to ground, to 3V3, on physical pin 4,  if beep find short and fix. (use the schematic and board artwork as reference \n Next Test 2/5: SMART LEDs Test"
+};
+
+
+
+
+
+
+
+
 Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
 Serial.println(F(" Board Testing"));
 Serial.println(F(" First Test: Blink on ESP32 LED"));
 Serial.println(F(" Enter \"C\"ontinue, \"S\"kip this test or \"Q\"uit"));
 Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-
+)=====";
 Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
 Serial.println(F(" Blink on ESP32 LED, Test 1/5"));
 Serial.println(F(" Enter \"C\"ontinue to next test,\"B\"ack to go beginning of Test, \"S\"kip to the next Test or \"Q\"uit")); 
