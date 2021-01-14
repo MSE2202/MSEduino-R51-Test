@@ -57,7 +57,6 @@
 #include <esp_task_wdt.h>
 
 #include <Math.h>
-#include "Motion.h";
 #include "MyWEBserver.h"
 #include "BreakPoint.h"
 #include "WDT.h";
@@ -113,22 +112,24 @@ void setup() {
    WDT_vfFastWDTWarningCore1[9] = 0;
    WDT_ResetCore1(); 
 
+   CR1_ucMainTimerCaseCore1 = 0;
+   
+ }
 
-   setupMotion();
-}
+
+ 
 void loop()
 {
 
   //WSVR_BreakPoint(1);
 
  CR1_ulMainTimerNow = micros();
- if(CR1_ulMainTimerNow - CR1_ulMotorTimerPrevious >= CR1_ciMainTimer)   //enter main switch case every 1mS , with 10 cases it take 10mS to run every case
+ if(CR1_ulMainTimerNow - CR1_ulMainTimerPrevious >= CR1_ciMainTimer)   //enter main switch case every 1mS , with 10 cases it take 10mS to run every case
  {
+   CR1_ulMainTimerPrevious = CR1_ulMainTimerNow;
    WDT_ResetCore1();   //watchdog reset
-   WDT_ucCaseIndexCore1 = CR1_ulMotorTimerPrevious;  //loads case index so wath dog can track if case is taking longer than 1mS
-   
-   CR1_ulMotorTimerPrevious = CR1_ulMainTimerNow;
- 
+   WDT_ucCaseIndexCore1 = CR1_ucMainTimerCaseCore1;  //loads case index so wath dog can track if case is taking longer than 1mS
+      
   switch(CR1_ucMainTimerCaseCore1)  //full switch run through is 1mS
   {
     //###############################################################################
@@ -141,85 +142,11 @@ void loop()
        }
 #endif
      
-      CR1_ulMotorTimerNow = millis();
-      if(CR1_ulMotorTimerNow - CR1_ulMainTimerPrevious >= 5000)   
-      {   
-       CR1_ulMainTimerPrevious = CR1_ulMotorTimerNow;
-      
-       switch(ucMotorStateIndex)
-       {
-        case 0:
-        {
-          ucMotorStateIndex = 1;
-          ucMotorState = 0;
-          move(0);
-          break;
-        }
-         case 1:
-        {
-          ucMotorStateIndex = 2;
-          ucMotorState = 0;
-          move(0);
-          break;
-        }
-         case 2:
-        {
-          ucMotorStateIndex = 3;
-          ucMotorState = 1;
-          move(0);
-          break;
-        }
-         case 3:
-        {
-          ucMotorStateIndex = 4;
-          ucMotorState = 0;
-          move(0);
-          break;
-        }
-         case 4:
-        {
-          ucMotorStateIndex = 5;
-          ucMotorState = 2;
-          move(0);
-          break;
-        }
-         case 5:
-        {
-          ucMotorStateIndex = 6;
-          ucMotorState = 0;
-          move(0);
-          break;
-        }
-         case 6:
-        {
-          ucMotorStateIndex = 7;
-          ucMotorState = 3;
-          move(0);
-          break;
-        }
-         case 7:
-        {
-          ucMotorStateIndex = 8;
-          ucMotorState = 0;
-          move(0);
-          break;
-        }
-         case 8:
-        {
-          ucMotorStateIndex = 0;
-          ucMotorState = 4;
-          move(0);
-          break;
-        }
-         
-       }
-       
-       
-      }
+     
       break;
     }
     //###############################################################################
-    case 1: //Screen control
+    case 1: 
     {
    
     
@@ -228,7 +155,7 @@ void loop()
       break;
     }
     //###############################################################################
-    case 2: //push button control
+    case 2: 
     {
       
    
@@ -236,7 +163,7 @@ void loop()
       break;
     }
     //###############################################################################
-    case 3: //LCD Display
+    case 3:
     {
       
       
@@ -244,7 +171,7 @@ void loop()
       break;
     }
     //###############################################################################
-    case 4:   ///warning nad emergency control
+    case 4:   
     {
     
       CR1_ucMainTimerCaseCore1 = 5;
@@ -258,7 +185,7 @@ void loop()
       break;
     }
     //###############################################################################
-    case 6: //LCD Display
+    case 6: 
     {
   
     

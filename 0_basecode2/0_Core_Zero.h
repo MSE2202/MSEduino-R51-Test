@@ -81,6 +81,7 @@ void Core_ZeroCode( void * pvParameters )
    WDT_vfFastWDTWarningCore0[9] = 0;
    WDT_ResetCore0(); 
    
+   CR0_ucMainTimerCaseCore0 = 0;
    
   //loop function for core 0
   //-------------------------------------------------------------------------------------------
@@ -91,14 +92,12 @@ void Core_ZeroCode( void * pvParameters )
        CR0_ulCurrentMicrosCore0 = micros();
       if ((CR0_ulCurrentMicrosCore0 - CR0_ulPreviousMicrosCore0) >= CR0_ciMainTimer)
       {
-        
+        CR0_ulPreviousMicrosCore0 = CR0_ulCurrentMicrosCore0;
         WDT_ResetCore0();
         WDT_ucCaseIndexCore0 = CR0_ucMainTimerCaseCore0;
         vTaskDelay(1);
 
-    
-        CR0_ulPreviousMicrosCore0 = CR0_ulCurrentMicrosCore0;
-        
+        WDT_CheckOperationTime();
         
        // WSVR_ButtonResponce();
 //        asm volatile("esync; rsr %0,ccount":"=a" (CR0_u32Last)); // @ 240mHz clock each tick is ~4nS  
@@ -137,7 +136,7 @@ void Core_ZeroCode( void * pvParameters )
             break;
           }
           //###############################################################################
-          case 3: //LCD Display
+          case 3: 
           {
             
             //WSVR_SendToWeb();
@@ -145,7 +144,7 @@ void Core_ZeroCode( void * pvParameters )
             break;
           }
           //###############################################################################
-          case 4:   ///warning nad emergency control
+          case 4:   
           {
           
             CR0_ucMainTimerCaseCore0 = 5;
@@ -154,33 +153,7 @@ void Core_ZeroCode( void * pvParameters )
           //###############################################################################
           case 5: 
           {
-          //  asm volatile("esync; rsr %0,ccount":"=a" (CR0_u32Last)); //@ 240mHz 1 tick = ~4nS
-          //  asm volatile("esync; rsr %0,ccount":"=a" (CR0_u32Now));              
-//
-//                  if(CR0_u32Temp < (CR0_u32Now - CR0_u32Last)) //display max time for execution
-//                  {
-//                    CR0_u32Temp  = (CR0_u32Now - CR0_u32Last);
-//                  }
-//                  CR0_u32Avg = (CR0_u32Avg + (CR0_u32Now - CR0_u32Last))/2;
-//                  Serial.print("  max ");
-//                  Serial.print(CR0_u32Temp);
-//                  Serial.print(" avg  ");
-//                  Serial.println(CR0_u32Avg);
-
-//                  for(GV_uiLoopCounter_A = 0; GV_uiLoopCounter_A < 10; GV_uiLoopCounter_A++)
-//                  {
-//                  
-//                  Serial.print(GV_uiLoopCounter_A); 
-//                  Serial.print(" , ");
-//                  Serial.print(WDT_vfFastWDTWarningCore0[GV_uiLoopCounter_A]);
-//                  Serial.print(" , ");
-//                  Serial.println(WDT_vfFastWDTWarningCore1[GV_uiLoopCounter_A]);
-//                  }
-//                  
-//         
-                  
-                  
-                  
+               
             CR0_ucMainTimerCaseCore0 = 6;
             break;
           }
