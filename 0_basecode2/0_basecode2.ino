@@ -9,7 +9,7 @@
   pins         description                        Brd Jumpers /Labels                                                                      User (Fill in chart with user PIN usage) 
   1             3v3                               PWR 3V3                                                                                  3V3
   2             gnd                               GND                                                                                      GND
-  3             GPIO15/AD2_3/T3/SD_CMD/           D15 (has connections in both 5V and 3V areas)               
+  3             GPIO15/AD2_3/T3/SD_CMD/           D15 (has connections in both 5V and 3V areas)                    
   4             GPIO2/AD2_2/T2/SD_D0              D2(has connections in both 5V and 3V areas)  /INDICATORLED ( On ESP32 board
   5             GPIO4/AD2_0/T0/SD_D1              D4(has connections in both 5V and 3V areas)  
   6             GPIO16/RX2                        Slide Switch S1b
@@ -47,12 +47,17 @@
 #define BROADTESTING 1
 
 
-
+//pins
+#define MOTORLEFTa 14
+#define MOTORLEFTb 4
+#define MOTORRIGHTa 5
+#define MOTORRIGHTb 18
 
 
 #include <esp_task_wdt.h>
 
 #include <Math.h>
+#include "Motion.h";
 #include "MyWEBserver.h"
 #include "BreakPoint.h"
 #include "WDT.h";
@@ -74,6 +79,7 @@ const int CR1_ciMainTimer =  1000;
 
 unsigned char CR1_ucMainTimerCaseCore1;
 
+
 uint32_t CR1_u32Now;
 uint32_t CR1_u32Last;
 uint32_t CR1_u32Temp;
@@ -83,7 +89,8 @@ uint32_t CR1_u32Avg;
 unsigned long CR1_ulMainTimerPrevious;
 unsigned long CR1_ulMainTimerNow;
 
-
+unsigned long CR1_ulMotorTimerPrevious;
+unsigned long CR1_ulMotorTimerNow;
 void setup() {
   Serial.begin(115200);
   
@@ -105,6 +112,9 @@ void setup() {
    WDT_vfFastWDTWarningCore1[8] = 0;
    WDT_vfFastWDTWarningCore1[9] = 0;
    WDT_ResetCore1(); 
+
+
+   setupMotion();
 }
 void loop()
 {
@@ -112,12 +122,12 @@ void loop()
   //WSVR_BreakPoint(1);
 
  CR1_ulMainTimerNow = micros();
- if(CR1_ulMainTimerNow - CR1_ulMainTimerPrevious >= CR1_ciMainTimer)   //enter main switch case every 1mS , with 10 cases it take 10mS to run every case
+ if(CR1_ulMainTimerNow - CR1_ulMotorTimerPrevious >= CR1_ciMainTimer)   //enter main switch case every 1mS , with 10 cases it take 10mS to run every case
  {
    WDT_ResetCore1();   //watchdog reset
-   WDT_ucCaseIndexCore1 = CR1_ucMainTimerCaseCore1;  //loads case index so wath dog can track if case is taking longer than 1mS
+   WDT_ucCaseIndexCore1 = CR1_ulMotorTimerPrevious;  //loads case index so wath dog can track if case is taking longer than 1mS
    
-   CR1_ulMainTimerPrevious = CR1_ulMainTimerNow;
+   CR1_ulMotorTimerPrevious = CR1_ulMainTimerNow;
  
   switch(CR1_ucMainTimerCaseCore1)  //full switch run through is 1mS
   {
@@ -131,8 +141,81 @@ void loop()
        }
 #endif
      
-      CR1_ucMainTimerCaseCore1 = 1;
+      CR1_ulMotorTimerNow = millis();
+      if(CR1_ulMotorTimerNow - CR1_ulMainTimerPrevious >= 5000)   
+      {   
+       CR1_ulMainTimerPrevious = CR1_ulMotorTimerNow;
       
+       switch(ucMotorStateIndex)
+       {
+        case 0:
+        {
+          ucMotorStateIndex = 1;
+          ucMotorState = 0;
+          move(0);
+          break;
+        }
+         case 1:
+        {
+          ucMotorStateIndex = 2;
+          ucMotorState = 0;
+          move(0);
+          break;
+        }
+         case 2:
+        {
+          ucMotorStateIndex = 3;
+          ucMotorState = 1;
+          move(0);
+          break;
+        }
+         case 3:
+        {
+          ucMotorStateIndex = 4;
+          ucMotorState = 0;
+          move(0);
+          break;
+        }
+         case 4:
+        {
+          ucMotorStateIndex = 5;
+          ucMotorState = 2;
+          move(0);
+          break;
+        }
+         case 5:
+        {
+          ucMotorStateIndex = 6;
+          ucMotorState = 0;
+          move(0);
+          break;
+        }
+         case 6:
+        {
+          ucMotorStateIndex = 7;
+          ucMotorState = 3;
+          move(0);
+          break;
+        }
+         case 7:
+        {
+          ucMotorStateIndex = 8;
+          ucMotorState = 0;
+          move(0);
+          break;
+        }
+         case 8:
+        {
+          ucMotorStateIndex = 0;
+          ucMotorState = 4;
+          move(0);
+          break;
+        }
+         
+       }
+       
+       
+      }
       break;
     }
     //###############################################################################

@@ -239,6 +239,12 @@ void WSVR_ButtonResponse(void)
         strWSVR_ButtonState = "";
         break;
       }
+      case 'F':
+      {
+        
+        strWSVR_ButtonState = "";
+        break;
+      }
      
         
        
