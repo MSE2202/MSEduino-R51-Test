@@ -7,121 +7,365 @@ Western Engineering base code
 
 
 
-•  User inputs
-• BPM – 5 to 30 (in 1 BPM steps) 
-• I:E – 1:1, 1;2, 1:3, 1:4 shown on display as 0.5, 0.33, 0.25, 0.2 
-
-• maximum/maximum minute ventilation (Ve) 
-       o prototype setting - 1.5 to 21.9L  
-• TV – 100 to 900 (in steps 10) 
-      o  tidal volume 
-      o Adult - 6-8 ml/kg body weight, 200-750 mL typical
-      o Only for adults > 40 kg
-• Limit maximum pressure (MP) (0- 60.0) 
-• Positive end-expiratory pressure (PEEP) (0-60.0) 
-• startup run from 10 to 60 seconds (RT)
-
 
 */
 #ifndef NVS_H
   #define NVS_H 1
   
-#include "EEPROM.h"
+#include <EEPROM.h>
 
+//DEBUG print
+#define DEBUGEEPROM 1
+#define DEBUGEEPROM2 1
+#define DEBUGEEPROM_COMMIT 1
 
+#define NVS_HEADER 0xAA
+#define NVS_FOOTER 0x26
 
 #define NVS_EEPROM_SIZE 32
-#define NVS_CRC 0
-#define NVS_ADR_BPM 0
-#define NVS_ADR_IE 2
-#define NVS_ADR_VE 4
-#define NVS_ADR_TV 6
-#define NVS_ADR_MP 8
-#define NVS_ADR_PEEP 10
-#define NVS_ADR_RT 12
+#define NVS_Header 0
+#define NVS_CRC_1 1
+#define NVS_CRC_2 2
+#define NVS_Footer 3
 
-EEPROMClass  NCS_CRC("eeprom0",2); 
-EEPROMClass  NVS1("eeprom1",32);
-EEPROMClass  NVS2("eeprom2",32);
 
-unsigned char NVS_uc_Error;
+
+unsigned char NVS_Reverse(unsigned char crc);
+
+EEPROMClass  NVS_CRCArea("eeprom0",4); 
+EEPROMClass  NVS_Area1("eeprom1",NVS_EEPROM_SIZE);
+EEPROMClass  NVS_Area2("eeprom2",NVS_EEPROM_SIZE);
+
+boolean NVS_btEEpromArea1_2 = 0; //0 = area 1 ; 1 = area 2
+
+
 unsigned char NVS_ucTempRead;
-unsigned int NVS_uiCRC; 
+unsigned int NVS_uiCRC_1; 
+unsigned int NVS_uiCRC_2;
 unsigned int NVS_uiCRC_Temp; 
+unsigned int NVS_uiCRC_Temp2;
+unsigned int NVS_uiHeader; 
+unsigned int NVS_uiFooter;
+unsigned int NVS_uiForCounter;
+unsigned int NVS_ui_Error;
 
-
-void NVS_Init()
+unsigned char NVS_Init()
 {
-  unsigned int uiForCounter;
-  NVS_uc_Error = 0;
-  if (!NCS_CRC.begin(NCS_CRC.length()))
+  
+  NVS_btEEpromArea1_2 = 0;
+  NVS_ui_Error = 0;
+  //check to see if eeprom area exist
+  if (!NVS_CRCArea.begin(NVS_CRCArea.length()))
   {
-   NVS_uc_Error = 0x01;
+   NVS_ui_Error = 0x01;
   }
-  if (!NVS1.begin(NVS1.length()))
+  if (!NVS_Area1.begin(NVS_Area1.length()))
   {
-   NVS_uc_Error |= 0x02;
+   NVS_ui_Error |= 0x02;
   }
-  if (!NVS2.begin(NVS2.length())) 
+  if (!NVS_Area2.begin(NVS_Area2.length())) 
   {
-     NVS_uc_Error |= 0x04;
+     NVS_ui_Error |= 0x04;
   }
-  //checks CRC to  both Data sets
-  // if both same unit starts in timed run mode unless Run Timre (RT)= 0 the start in set mode;
-  // if one = crc data and one not start in set mode but run in run time 
-  //if both not = to CRC then strat in setup mode
-  if(NVS_uc_Error == 0)
+  if(NVS_ui_Error == 0)
   {
-    NVS_uiCRC = NCS_CRC.readByte(NVS_CRC);
+  //check heater and footer ( footer is reversesand 2s ompoliment of header
+  //Header = 0xAA
+  //Footer = 0x26
+   NVS_uiHeader = NVS_CRCArea.readByte(NVS_Header);
+   NVS_uiFooter = NVS_CRCArea.readByte(NVS_Footer);
+   if((NVS_uiHeader != NVS_HEADER) || (NVS_uiFooter != NVS_FOOTER))
+   {
+    NVS_ui_Error |= 0x08;
+   }
+  // check CRC for eeprom area 1 is = eeprom area 2
+  // checks CRC againts both Data sets
+  // if good then set RTC memory
+  // not set up then start fresh
+  //if corrupt then error message
+  
+  
+    // check CRC for eeprom area 1 is = eeprom area 2
+    NVS_uiCRC_1 = NVS_CRCArea.readByte(NVS_CRC_1);
+    NVS_uiCRC_2 = NVS_CRCArea.readByte(NVS_CRC_2);
+    //crc_2 in stored in revered bit and 2 complimented, need to undo
+    NVS_uiCRC_Temp = NVS_uiCRC_2;
+    NVS_uiCRC_Temp = ~NVS_uiCRC_Temp + 1;
+    NVS_uiCRC_Temp2 = NVS_Reverse(NVS_uiCRC_Temp);
+    #ifdef DEBUGEEPROM2
+     Serial.println("");
+     Serial.print("CRC 1 = ");
+     Serial.println(NVS_uiCRC_1, HEX);
+     Serial.print("CRC 2 raw = ");
+     Serial.println(NVS_uiCRC_2, HEX);
+     Serial.print("CRC 2 2comp = ");
+     Serial.println(NVS_uiCRC_Temp, HEX);
+     Serial.print("CRC 2 reversed = ");
+     Serial.println(NVS_uiCRC_Temp2, HEX);
+     
+    #endif
+    NVS_uiCRC_2 = NVS_uiCRC_Temp2;
+    
     NVS_uiCRC_Temp = 0;
-    for (uiForCounter = 0; uiForCounter < NVS_EEPROM_SIZE; uiForCounter++)
+    for (NVS_uiForCounter = 0; NVS_uiForCounter < NVS_EEPROM_SIZE; NVS_uiForCounter++)
     {
-      NVS_uiCRC_Temp ^= NVS1.readByte(uiForCounter);
+      NVS_uiCRC_Temp ^= NVS_Area1.readByte(NVS_uiForCounter);
     }
-    if(NVS_uiCRC_Temp != NVS_uiCRC)
+     #ifdef DEBUGEEPROM2
+     Serial.println("");
+     Serial.print("CRC 1 chk ");
+     Serial.print("CRC 1 = ");
+     Serial.println(NVS_uiCRC_1, HEX);
+     Serial.print("CRC 1 calc = ");
+     Serial.println(NVS_uiCRC_Temp, HEX);
+     
+    #endif
+    if(NVS_uiCRC_Temp != NVS_uiCRC_1) 
     {
-      NVS_uc_Error = 0x10;
+      NVS_ui_Error |= 0x20;
     }
-    NVS_uiCRC_Temp = 0;
-    for (uiForCounter = 0; uiForCounter < NVS_EEPROM_SIZE; uiForCounter++)
+    NVS_uiCRC_Temp2 = 0;
+    for (NVS_uiForCounter = 0; NVS_uiForCounter < NVS_EEPROM_SIZE; NVS_uiForCounter++)
     {
-      NVS_uiCRC_Temp ^= NVS2.readByte(uiForCounter);
+      NVS_uiCRC_Temp2 ^= NVS_Area2.readByte(NVS_uiForCounter);
     }
-    if(NVS_uiCRC_Temp != NVS_uiCRC)
+     #ifdef DEBUGEEPROM2
+     Serial.println("");
+     Serial.print("CRC 2 chk ");
+     Serial.print("CRC 2 = ");
+     Serial.println(NVS_uiCRC_2, HEX);
+     Serial.print("CRC 2 calc = ");
+     Serial.println(NVS_uiCRC_Temp2, HEX);
+     
+    #endif
+    
+    if(NVS_uiCRC_Temp2 != NVS_uiCRC_2)
     {
-      NVS_uc_Error |= 0x20;
+      NVS_ui_Error |= 0x40;
     }
+    
+    if((NVS_ui_Error & 0x02) && (NVS_uiCRC_Temp != NVS_uiCRC_Temp2))
+    {
+      NVS_ui_Error |= 0x200;
+    }
+    if((NVS_ui_Error & 0x04) && (NVS_uiCRC_Temp2 != NVS_uiCRC_Temp))
+    {
+      NVS_ui_Error |= 0x400;
+    }
+    if(NVS_uiCRC_1 != NVS_uiCRC_2)
+    {
+      NVS_ui_Error |= 0x10;
+    }
+    if((NVS_uiFooter == 0xFF) && (NVS_uiHeader == 0xFF) && (NVS_uiCRC_1 == 0xFF) && (NVS_uiCRC_2 == 0xFF))
+    {
+      NVS_ui_Error |= 0x80;
+    } 
+   }
+  #ifdef DEBUGEEPROM
+   if(NVS_ui_Error)
+   {
+    Serial.println("");
+    Serial.print(" eeprom error = ");
+    Serial.println(NVS_ui_Error,BIN);
+    if(NVS_ui_Error & 0x07)
+    {
+      Serial.print("eeprom area not set: ");
+      if(NVS_ui_Error & 0x01)
+      {
+        Serial.print(" CRC area, ");
+      }
+      if(NVS_ui_Error & 0x02)
+      {
+        Serial.print(" eeprom area 1, ");
+      }
+      if(NVS_ui_Error & 0x04)
+      {
+        Serial.print(" eeprom area 2, ");
+      }
+      Serial.println("");
+      
+    }
+    if(NVS_ui_Error & 0x08)
+    {
+      Serial.println("");
+      Serial.print(" Header/Footer is corrupt ");
+      Serial.print(NVS_uiHeader,HEX);
+      Serial.print("/");
+      Serial.print(NVS_uiFooter,HEX);
+      Serial.print(" not 0xAA/0x26 ");
+    }
+    if(NVS_ui_Error & 0xF0)
+    {
+      if(NVS_ui_Error & 0x10)
+      {
+        Serial.print(" CRCs don't match");
+      }
+      if(NVS_ui_Error & 0x20)
+      {
+        Serial.print(" area 1 data corrupt, CRC_1 !=. ");
+      }
+       if(NVS_ui_Error & 0x200)
+      {
+        Serial.print(" area 1 data corrupt, CRC_2 !=. ");
+      }
+      if(NVS_ui_Error & 0x40)
+      {
+        Serial.print(" area 2 data corrupt, CRC_2 !=. ");
+      }
+      if(NVS_ui_Error & 0x400)
+      {
+        Serial.print(" area 2 data corrupt, CRC_1 !=. ");
+      }
+      Serial.println("");
+     if(NVS_ui_Error & 0x80)
+      {
+        Serial.println(" Most likely new micro not data saved yet");
+      } 
+    }
+    if((NVS_ui_Error & 0x220) && (!(NVS_ui_Error & 0x040) && (!(NVS_ui_Error & 0x0400))))
+    {
+      NVS_btEEpromArea1_2 = 1; //use area 2
+    }
+   }
+   else
+   {
+     Serial.println("");
+     Serial.println(" eeprom error = ");
+     Serial.println(NVS_ui_Error);
+   }
+  #endif
+  return(NVS_ui_Error);
+}
+
+uint8_t NVS_ReadUChar(unsigned int uiAddress) //one byte
+{
+  if(NVS_btEEpromArea1_2)
+  {
+   return(NVS_Area2.readUChar(uiAddress));
+  }
+  else
+  {
+   return(NVS_Area2.readUChar(uiAddress));
   }
 }
 
-//Stores data when data is entered
-
-void NVS_Store(unsigned char ucAddress,unsigned int uiData)
+uint16_t NVS_ReadUInt(unsigned  int uiAddress)//2 byte
 {
-
-   NVS1.writeUShort(ucAddress, uiData);
+  if(NVS_btEEpromArea1_2)
+  {
+   return(NVS_Area2.readUShort(uiAddress));
+  }
+  else
+  {
+   return(NVS_Area1.readUShort(uiAddress));
+  }
 }
 
-//Commit NVS when the unit is locked or when put to sleep
-//does a RAID commit over a few cycles
-void NVS_Commit()
+uint32_t NVS_ReadULong(unsigned  int uiAddress)//4 bytes
 {
-  unsigned int uiForCounter;
+  if(NVS_btEEpromArea1_2)
+  {
+   return(NVS_Area2.readULong(uiAddress));
+  }
+  else
+  {
+   return(NVS_Area1.readULong(uiAddress));
+  }
+}
 
-  NVS_uiCRC_Temp = 0;
-  NVS1.commit();
-  for (uiForCounter = 0; uiForCounter < NVS_EEPROM_SIZE; uiForCounter++)
-    {
-      NVS_ucTempRead = NVS1.readByte(uiForCounter);
-      NVS2.writeByte(uiForCounter, NVS_ucTempRead);
-      NVS_uiCRC_Temp ^= NVS_ucTempRead;
-    }
-  NVS2.commit();
-  NCS_CRC.writeByte(NVS_CRC,NVS_uiCRC_Temp);
+int32_t NVS_ReadLong(unsigned  int uiAddress)//4 bytes
+{
+  if(NVS_btEEpromArea1_2)
+  {
+   return(NVS_Area2.readLong(uiAddress));
+  }
+  else
+  {
+   return(NVS_Area1.readLong(uiAddress));
+  }
+}
+
+double_t NVS_ReadDouble(unsigned  int uiAddress)//8 bytes
+{
+  if(NVS_btEEpromArea1_2)
+  {
+   return(NVS_Area2.readDouble(uiAddress));
+  }
+  else
+  {
+   return(NVS_Area1.readDouble(uiAddress));
+  }
+}
+
+void NVS_StoreUChar(unsigned  int uiAddress,uint8_t ucData)
+{
+   Serial.println();
+   Serial.print(" d = ");
+   Serial.print(ucData);
+   Serial.print("  @ ");
+   Serial.println(uiAddress);
+   
+   NVS_Area1.writeUChar(uiAddress, ucData);
+}
+
+void NVS_StoreUInt(unsigned  int uiAddress,uint16_t uiData)
+{
+
+   NVS_Area1.writeUShort(uiAddress, uiData);
+}
+
+void NVS_StoreULong(unsigned  int uiAddress,uint32_t ulData)
+{
+
+   NVS_Area1.writeULong(uiAddress, ulData);
+}
+
+void NVS_StoreLong(unsigned  int uiAddress,int32_t lData)
+{
+
+   NVS_Area1.writeLong(uiAddress, lData);
+}
+
+void NVS_StoreDouble(unsigned  int uiAddress,double_t dData)
+{
+  
+  NVS_Area1.writeDouble(uiAddress, dData);
   
 }
 
 
+
+//Commit Area 1 when the unit is when put to sleep/Shutdown
+//does a RAID commit 
+void NVS_Commit()
+{
+ 
+  NVS_uiCRC_Temp = 0;
+  NVS_Area1.commit();
+  for (NVS_uiForCounter = 0; NVS_uiForCounter < NVS_EEPROM_SIZE; NVS_uiForCounter++)
+    {
+      NVS_ucTempRead = NVS_Area1.readByte(NVS_uiForCounter);
+      NVS_Area2.writeByte(NVS_uiForCounter, NVS_ucTempRead);
+      NVS_uiCRC_Temp ^= NVS_ucTempRead;
+    }
+  NVS_Area2.commit();
+  NVS_CRCArea.writeByte(NVS_Header,NVS_HEADER);
+  NVS_CRCArea.writeByte(NVS_CRC_1,NVS_uiCRC_Temp);
+  NVS_uiCRC_Temp =  NVS_Reverse(NVS_uiCRC_Temp);
+  NVS_uiCRC_Temp = ~NVS_uiCRC_Temp + 1;
+  NVS_CRCArea.writeByte(NVS_CRC_2,NVS_uiCRC_Temp);
+  NVS_CRCArea.writeByte(NVS_Footer,NVS_FOOTER);
+  NVS_CRCArea.commit();
+  
+}
+
+unsigned char NVS_Reverse(unsigned char crc)
+{
+   crc = (crc & 0xF0) >> 4 | (crc & 0x0F) << 4;
+   crc = (crc & 0xCC) >> 2 | (crc & 0x33) << 2;
+   crc = (crc & 0xAA) >> 1 | (crc & 0x55) << 1;
+   return crc;
+}
 
 
 #endif

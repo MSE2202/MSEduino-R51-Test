@@ -12,17 +12,21 @@
 //---------------------------------------------------------------------------
 //WatchDog
 
+#define ONEHUNDEREDMICROSECONDS 243000
+
  
  unsigned char WDT_ucWatchDogCore0BeenSet;
  unsigned char WDT_ucWatchDogCore1BeenSet;
  
  volatile boolean  WDT_vbTiggeredCore0;
  volatile boolean  WDT_vbTiggeredCore1;
-
-  volatile boolean  WDT_vbCore0Running = false;
+ volatile boolean  WDT_vbTiggeredCore0Msg = false;
+ volatile boolean  WDT_vbTiggeredCore1Msg = false;
+ volatile boolean  WDT_vbCore0Running = false;
  
  volatile unsigned char WDT_ucCaseIndexCore0;
  volatile unsigned char WDT_ucCaseIndexCore1;
+ 
  
  
  volatile uint32_t WDT_vfFastWDTWarningCore0[10];
@@ -61,12 +65,17 @@ void IRAM_ATTR WDT_TimeOutCore1() {
 static void WDT_ResetCore0()
 {
    portENTER_CRITICAL(&WDT_pmtTimerMux0);
-   //WDT_vlNowTimeCore0 = micros();
+  
    asm volatile("esync; rsr %0,ccount":"=a" (WDT_vlNowTimeCore0)); // @ 240mHz clock each tick is ~4nS 
    if(WDT_vbTiggeredCore0)
    {
     WDT_vfFastWDTWarningCore0[WDT_ucCaseIndexCore0] = WDT_vlNowTimeCore0 - WDT_vlPreviousTimeCore0;
     WDT_vbTiggeredCore0 = false;
+    WDT_vbTiggeredCore0Msg = true;
+   }
+   else
+   {
+    WDT_vfFastWDTWarningCore0[WDT_ucCaseIndexCore0] = 0;
    }
    WDT_vlPreviousTimeCore0 = WDT_vlNowTimeCore0;
    timerWrite(WDT_htTimer0, 0); //reset timer (feed watchdog)
@@ -76,12 +85,18 @@ static void WDT_ResetCore0()
 static void WDT_ResetCore1()
 {
    portENTER_CRITICAL(&WDT_pmtTimerMux1);
-  // WDT_vlNowTimeCore1 = micros();
+  
    asm volatile("esync; rsr %0,ccount":"=a" (WDT_vlNowTimeCore1)); // @ 240mHz clock each tick is ~4nS 
    if(WDT_vbTiggeredCore1)
    {
+    
     WDT_vfFastWDTWarningCore1[WDT_ucCaseIndexCore1] = WDT_vlNowTimeCore1 - WDT_vlPreviousTimeCore1;
     WDT_vbTiggeredCore1 = false;
+    WDT_vbTiggeredCore1Msg = true;
+   }
+   else
+   {
+    WDT_vfFastWDTWarningCore1[WDT_ucCaseIndexCore1] = 0;
    }
    WDT_vlPreviousTimeCore1 = WDT_vlNowTimeCore1;
    timerWrite(WDT_htTimer1, 0); //reset timer (feed watchdog)
@@ -98,10 +113,10 @@ void WDT_EnableFastWatchDogCore0()
   {
     WDT_htTimer0 = timerBegin(0, 80, true);
     timerAttachInterrupt(WDT_htTimer0, &WDT_TimeOutCore0, true);
-    timerAlarmWrite(WDT_htTimer0, 1010, true);
+    timerAlarmWrite(WDT_htTimer0, 5010, true);
     timerAlarmEnable(WDT_htTimer0);
 
-    Serial.println("WDT Core 0 on");
+    Serial.println(" WDT Core 0 on");
     WDT_vbCore0Running = true;
   }
 
@@ -123,11 +138,90 @@ void WDT_EnableFastWatchDogCore1()
     timerAttachInterrupt(WDT_htTimer1, &WDT_TimeOutCore1, true);
     timerAlarmWrite(WDT_htTimer1, 1010, true);
     timerAlarmEnable(WDT_htTimer1);
-    Serial.println("WDT Core 1 on");
+    Serial.println(" WDT Core 1 on");
   }
 
   WDT_ResetCore1();
  
 }
+
+
+void WDT_CheckOperationTime()
+{
+  float fTempCal;
+  
+  if(WDT_vbTiggeredCore0Msg)
+  {
+    WDT_vbTiggeredCore0Msg = false;  
+    fTempCal = (WDT_vfFastWDTWarningCore0[WDT_ucCaseIndexCore0] * 3)/1000000;
+    if(fTempCal != 0)
+    {
+     Serial.print("Core 0 its time was = ");
+     Serial.print(fTempCal);
+     Serial.println(" mS");
+    }
+    else
+    {
+     fTempCal = (WDT_vfFastWDTWarningCore0[WDT_ucCaseIndexCore0] * 3)/1000;
+     if(fTempCal != 0)
+     {
+      Serial.print("Core 0 its time was = ");
+      Serial.print(fTempCal);
+      Serial.println(" uS");
+     }
+     else
+     {    
+      fTempCal = WDT_vfFastWDTWarningCore0[WDT_ucCaseIndexCore0] * 3;
+      if(fTempCal != 0)
+      {
+       Serial.print("Core 0 its time was = ");
+       Serial.print(fTempCal);
+       Serial.println(" nS");
+      }
+     }
+    }
+  }
+  if(WDT_vbTiggeredCore1Msg)
+  {
+    WDT_vbTiggeredCore1Msg = false;
+    fTempCal = (WDT_vfFastWDTWarningCore1[WDT_ucCaseIndexCore1] * 3)/1000000;
+    if(fTempCal != 0)
+    {
+     Serial.print("Core 1 Case ");
+     Serial.print(WDT_ucCaseIndexCore1);
+     Serial.print(" its time was = ");
+     Serial.print(fTempCal);
+     Serial.println(" mS");
+    }
+    else
+    {
+     fTempCal = (WDT_vfFastWDTWarningCore1[WDT_ucCaseIndexCore1] * 3)/1000;
+     if(fTempCal != 0)
+     {
+      Serial.print("Core 1 Case ");
+      Serial.print(WDT_ucCaseIndexCore1);
+      Serial.print(" its time was = ");
+      Serial.print(fTempCal);
+      Serial.println(" uS");
+     }
+     else
+     {
+      fTempCal = (WDT_vfFastWDTWarningCore1[WDT_ucCaseIndexCore1] * 3);
+      if(fTempCal != 0)
+      {
+       Serial.print("Core 1 Case ");
+       Serial.print(WDT_ucCaseIndexCore1);
+       Serial.print(" its time was = ");
+       Serial.print(fTempCal);
+       Serial.println(" nS");
+      }
+     }
+    }
+  }
+}
+
+
+
+
 
 #endif

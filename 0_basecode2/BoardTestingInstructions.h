@@ -26,7 +26,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n"
 "\n"
 " Board Testing \n"
-"Preform these tests with only USB cable, Do not connect battery unless otherwise noted\n"
+"Preform these tests with only USB cable, DO NOT connect battery unless otherwise noted\n"
 "\n"  
 "Test 1 out of 27\n"
 " Blink on ESP32 LED Test         Next Test: SMART LEDs Test\n"
@@ -38,7 +38,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "Enter \"C\"ontinue to next test,\"B\"ack to go beginning of Test, \"S\"kip to the next Test or \"Q\"uit \n"
 "   - Blue LED on ESP32 board should be blinking, If working push \"C\' \n"
 "   - If not working: unplug ESP32 from power sources. \n"
-"      --- Use multimeter to check continuity ( beep test), to ground, to 3V3, on physical pin 4,  if beep find short and fix. (use the schematic and board artwork as reference \n",
+"      --- Use multimeter to check continuity (beep test), to ground, to 3V3, on physical pin 4,  if beep find short and fix. (use the schematic and board artwork as reference \n",
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Test 2 [2]
 "\n"  
@@ -47,7 +47,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
 " Instructions:\n"
-"   - Put jumper on JP5 (labled - LEDs), then push \"C\" \n",
+"   - Put jumper on JP5 (labeled - LEDs), then push \"C\" \n",
 //
 //Test 2 continued  [3]
 "\n"  
@@ -58,10 +58,10 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Instructions:\n"
 "   - SMART LED1 (look for label on board) should change colours, then SMART LED2should change colours,  then back to LED1, if working push \"C\" \n"
 "   - If not working: unplug ESP32 from power sources. \n"
-"   --- check  jumper is connected correctly to JP5\n"
+"   --- check jumper is connected correctly to JP5\n"
 "   --- did only one light? If yes then the connections from ESP32 to SMART LEDS is good, check LED power/ground pins and Din/Dout on LED not working\n"
-"   --- check  solder joints on JP5, D25 (physical pin – 23) and SMART LED1/LED2 \n"
-"   --- Use multimeter to check continuity ( beep test), to ground, to 3V3, to points along the circuit path( use the schematic and board artwork as reference \n"
+"   --- check solder joints on JP5, D25 (physical pin – 23) and SMART LED1/LED2 \n"
+"   --- Use multimeter to check continuity (beep test), to ground, to 3V3, to points along the circuit path( use the schematic and board artwork as reference \n"
 "   --- Use oscilloscope to check signal coming from pin 25 , look at SK2812 data sheet for  signal specs.\n",
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Test 3 [4]
@@ -82,9 +82,9 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Instructions:\n"
 "   - The Serial Monitor will update on Push Button 1 change of state, if working push \"C\" \n"
 "   - If not working: unplug ESP32 from power sources. \n"
-"   --- check  jumper is connected correctly to two pin header JP13\n"
-"   --- check  solder joints on two pin header JP13, D27 (physical pin – 25), Resistor 14 and Push Button 1\n"
-"   --- Use multimeter to check continuity ( beep test), to ground, to 3V3, to points along the circuit path( use the schematic and board artwork as reference \n",
+"   --- check jumper is connected correctly to two pin header JP13\n"
+"   --- check solder joints on two pin header JP13, D27 (physical pin – 25), Resistor 14 and Push Button 1\n"
+"   --- Use multimeter to check continuity (beep test), to ground, to 3V3, to points along the circuit path( use the schematic and board artwork as reference \n",
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Test 4 [6]
 "\n"  
@@ -104,9 +104,9 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Instructions:\n"
 "   - The Serial Monitor will update on Push Button 2 change of state, if working push \"C\" \n"
 "   - If not working: unplug ESP32 from power sources. \n"
-"   --- check  jumper is connected correctly to JP14\n"
-"   --- check  solder joints on JP14, D26 (physical pin – 24), Resistor 14 and Push Button 2\n"
-"   --- Use multimeter to check continuity ( beep test), to ground, to 3V3, to points along the circuit path( use the schematic and board artwork as reference \n",
+"   --- check jumper is connected correctly to JP14\n"
+"   --- check solder joints on JP14, D26 (physical pin – 24), Resistor 14 and Push Button 2\n"
+"   --- Use multimeter to check continuity (beep test), to ground, to 3V3, to points along the circuit path( use the schematic and board artwork as reference \n",
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Test 5 [8]
 "\n"  
@@ -126,9 +126,9 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Instructions:\n"
 "   - The Serial Monitor will update on Slide Switch 1a change of state, if working push \"C\" \n"
 "   - If not working: unplug ESP32 from power sources. \n"
-"   --- check  jumper is connected correctly to JP7\n"
-"   --- check  solder joints on JP7, D13 (physical pin – 28), Resistor 7 and Slide Switch 1a\n"
-"   --- Use multimeter to check continuity ( beep test), to ground, to 3V3, to points along the circuit path( use the schematic and board artwork as reference \n",
+"   --- check jumper is connected correctly to JP7\n"
+"   --- check solder joints on JP7, D13 (physical pin – 28), Resistor 7 and Slide Switch 1a\n"
+"   --- Use multimeter to check continuity (beep test), to ground, to 3V3, to points along the circuit path( use the schematic and board artwork as reference \n",
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Test 6 [10]
 "\n"  
@@ -148,9 +148,9 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Instructions:\n"
 "   - The Serial Monitor will update on Slide Switch 1b change of state, if working push \"C\" \n"
 "   - If not working: unplug ESP32 from power sources. \n"
-"   --- check  jumper is connected correctly to JP8\n"
-"   --- check  solder joints on JP8, D16 (physical pin – 6), Resistor 8 and Slide Switch 1b\n"
-"   --- Use multimeter to check continuity ( beep test), to ground, to 3V3, to points along the circuit path( use the schematic and board artwork as reference \n",
+"   --- check jumper is connected correctly to JP8\n"
+"   --- check solder joints on JP8, D16 (physical pin – 6), Resistor 8 and Slide Switch 1b\n"
+"   --- Use multimeter to check continuity (beep test), to ground, to 3V3, to points along the circuit path( use the schematic and board artwork as reference \n",
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Test 7 [12]
 "\n"  
@@ -170,9 +170,9 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Instructions:\n"
 "   - The Serial Monitor will update on Slide Switch 2a change of state, if working push \"C\" \n"
 "   - If not working: unplug ESP32 from power sources. \n"
-"   --- check  jumper is connected correctly to JP6\n"
-"   --- check  solder joints on JP6, D14 (physical pin – 26), Resistor 5 and Slide Switch 2a\n"
-"   --- Use multimeter to check continuity ( beep test), to ground, to 3V3, to points along the circuit path( use the schematic and board artwork as reference \n",
+"   --- check jumper is connected correctly to JP6\n"
+"   --- check solder joints on JP6, D14 (physical pin – 26), Resistor 5 and Slide Switch 2a\n"
+"   --- Use multimeter to check continuity (beep test), to ground, to 3V3, to points along the circuit path( use the schematic and board artwork as reference \n",
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Test 8 [14]
 "\n"  
@@ -192,9 +192,9 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Instructions:\n"
 "   - The Serial Monitor will update on Slide Switch 2b change of state, if working push \"C\" \n"
 "   - If not working: unplug ESP32 from power sources. \n"
-"   --- check  jumper is connected correctly to JP9\n"
-"   --- check  solder joints on JP9, D17 (physical pin – 7), Resistor 6 and Slide Switch 2b\n"
-"   --- Use multimeter to check continuity ( beep test), to ground, to 3V3, to points along the circuit path( use the schematic and board artwork as reference \n",
+"   --- check jumper is connected correctly to JP9\n"
+"   --- check solder joints on JP9, D17 (physical pin – 7), Resistor 6 and Slide Switch 2b\n"
+"   --- Use multimeter to check continuity (beep test), to ground, to 3V3, to points along the circuit path( use the schematic and board artwork as reference \n",
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Test 9 [16]
 "\n"  
@@ -212,11 +212,11 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
 " Instructions:\n"
-"   - The Serial Monitor will display Potentiometer R1 values as you  adjust the potentiometer, if working push \"C\" \n"
+"   - The Serial Monitor will display Potentiometer R1 values as you adjust the potentiometer, if working push \"C\" \n"
 "   - If not working: unplug ESP32 from power sources. \n"
-"   --- check  jumper is connected correctly to JP2\n"
-"   --- check  solder joints on JP2, AD4 (physical pin – 21), Resistor 3 and Potentiometer R1\n"
-"   --- Use multimeter to check continuity ( beep test), to ground, to 3V3, to points along the circuit path( use the schematic and board artwork as reference \n",
+"   --- check jumper is connected correctly to JP2\n"
+"   --- check solder joints on JP2, AD4 (physical pin – 21), Resistor 3 and Potentiometer R1\n"
+"   --- Use multimeter to check continuity (beep test), to ground, to 3V3, to points along the circuit path( use the schematic and board artwork as reference \n",
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Test 10 [18]
 "\n"  
@@ -234,12 +234,12 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
 " Instructions:\n"
-"   - The Serial Monitor will display Potentiometer R2 values as you  adjust the potentiometer, if working push \"C\" \n"
+"   - The Serial Monitor will display Potentiometer R2 values as you adjust the potentiometer, if working push \"C\" \n"
 "   - If not working: unplug ESP32 from power sources. \n"
-"   --- check  jumper is connected correctly to J32\n"
-"   --- check  solder joints on JP3, AD7 (physical pin – 20), Resistor 4 and Potentiometer R2\n"
-"   --- Use multimeter to check continuity ( beep test), to ground, to 3V3, to points along the circuit path( use the schematic and board artwork as reference \n"
-"   --- Note: Potentiometer R2 is a multi turn pot , it will take 10 or more turns to reach one max/min resistance\n",
+"   --- check jumper is connected correctly to J32\n"
+"   --- check solder joints on JP3, AD7 (physical pin – 20), Resistor 4 and Potentiometer R2\n"
+"   --- Use multimeter to check continuity (beep test), to ground, to 3V3, to points along the circuit path( use the schematic and board artwork as reference \n"
+"   --- Note: Potentiometer R2 is a multi-turn pot, it will take 10 or more turns to reach one max/min resistance\n",
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Test 11 [20]
 "\n"  
@@ -249,7 +249,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "\n"
 " Instructions:\n"
 "   - Remove jumper on JP2 (labeled - PR1)\n"
-"   - Take one of your supplied receptacle to receptacle wires and put one end on JP2 pin closest to ESP32\n"
+"   - Take one of your supplied receptacles to receptacles wires and put one end on JP2 pin closest to ESP32\n"
 "   - Connect the other end to J7 (labeled - AD0) pin closet to ESP32, then push \"C\" \n",
 //
 //Test 11 continued [21]
@@ -259,12 +259,12 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
 " Instructions:\n"
-"   - The Serial Monitor will display Potentiometer R1 values as you  adjust the potentiometer, if working push \"C\" \n"
+"   - The Serial Monitor will display Potentiometer R1 values as you adjust the potentiometer, if working push \"C\" \n"
 "   - If not working: unplug ESP32 from power sources. \n"
-"   --- check  wire jumper is connected correctly to JP2 pin closest to ESP32 \n"
+"   --- check wire jumper is connected correctly to JP2 pin closest to ESP32 \n"
 "   --- check the other end is connected to J7 (labeled - AD0) pin closet to ESP32\n"
-"   --- check  solder joints on J7, AD0 (physical pin – 17)\n"
-"   --- Use multimeter to check continuity ( beep test), to ground, to 3V3, to points along the circuit path( use the schematic and board artwork as reference \n",
+"   --- check solder joints on J7, AD0 (physical pin – 17)\n"
+"   --- Use multimeter to check continuity (beep test), to ground, to 3V3, to points along the circuit path( use the schematic and board artwork as reference \n",
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Test 12 [22]
 "\n"  
@@ -283,12 +283,12 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
 " Instructions:\n"
-"   - The Serial Monitor will display Potentiometer R1 values as you  adjust the potentiometer, if working push \"C\" \n"
+"   - The Serial Monitor will display Potentiometer R1 values as you adjust the potentiometer, if working push \"C\" \n"
 "   - If not working: unplug ESP32 from power sources. \n"
-"   --- check  wire jumper is connected correctly to JP2 pin closest to ESP32 \n"
+"   --- check wire jumper is connected correctly to JP2 pin closest to ESP32 \n"
 "   --- check the other end is connected to J6 (labeled - AD3) pin closet to ESP32\n"
-"   --- check  solder joints on J6, AD3 (physical pin – 18)\n"
-"   --- Use multimeter to check continuity ( beep test), to ground, to 3V3, to points along the circuit path( use the schematic and board artwork as reference \n",
+"   --- check solder joints on J6, AD3 (physical pin – 18)\n"
+"   --- Use multimeter to check continuity (beep test), to ground, to 3V3, to points along the circuit path( use the schematic and board artwork as reference \n",
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Test 13 [24]
 "\n"  
@@ -309,10 +309,10 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Instructions:\n"
 "   - The Serial Monitor will display Potentiometer R1 values as you adjust the potentiometer, if working push \"C\" \n"
 "   - If not working: unplug ESP32 from power sources. \n"
-"   --- check  wire jumper is connected correctly to JP2 pin closest to ESP32 \n"
+"   --- check wire jumper is connected correctly to JP2 pin closest to ESP32 \n"
 "   --- check the other end is connected to J5 (labeled - AD6) pin closet to ESP32\n"
-"   --- check  solder joints on J5, AD6 (physical pin – 19)\n"
-"   --- Use multimeter to check continuity ( beep test), to ground, to 3V3, to points along the circuit path( use the schematic and board artwork as reference \n",
+"   --- check solder joints on J5, AD6 (physical pin – 19)\n"
+"   --- Use multimeter to check continuity (beep test), to ground, to 3V3, to points along the circuit path( use the schematic and board artwork as reference \n",
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Test 14 [26]
 "\n"  
@@ -334,10 +334,10 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Instructions:\n"
 "   - The Serial Monitor will display Potentiometer R1 values as you adjust the potentiometer, if working push \"C\" \n"
 "   - If not working: unplug ESP32 from power sources. \n"
-"   --- check  wire jumper is connected correctly to JP2 pin closest to ESP32 \n"
+"   --- check wire jumper is connected correctly to JP2 pin closest to ESP32 \n"
 "   --- check the other end is connected to J2 (labeled - AD5) pin closet to ESP32\n"
-"   --- check  solder joints on J2, AD5 (physical pin – 22)\n"
-"   --- Use multimeter to check continuity ( beep test), to ground, to 3V3, to points along the circuit path( use the schematic and board artwork as reference \n",
+"   --- check solder joints on J2, AD5 (physical pin – 22)\n"
+"   --- Use multimeter to check continuity (beep test), to ground, to 3V3, to points along the circuit path( use the schematic and board artwork as reference \n",
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Test 15 [28]
 "\n"  
@@ -347,7 +347,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "\n"
 " Instructions:\n"
 "   - Remove jumper on two pin header JP8 (labeled - S1b)\n"
-"   - Take one of your supplied receptacle to receptacle wires and put one end on two pin header JP8 pin closest to four resistors\n"
+"   - Take one of your supplied receptacles to wires and put one end on two pin header JP8 pin closest to four resistors\n"
 "   - Connect the other end to J9 (in 3 Volt Digital area labeled - 2) pin closet to ESP32, then push \"C\" \n",
 //
 //Test 15 continued [29]
@@ -359,10 +359,10 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Instructions:\n"
 "   - The Serial Monitor will update on Slide Switch 1b  change of state, if working push \"C\" \n"
 "   - If not working: unplug ESP32 from power sources. \n"
-"   --- check  wire jumper is connected correctly to two pin header JP8 pin closest four resistors\n"
+"   --- check wire jumper is connected correctly to two pin header JP8 pin closest four resistors\n"
 "   --- check the other end is connected to J9 (in 3 Volt Digital area labeled - 2) pin closet to ESP32\n"
-"   --- check  solder joints on J9, D2 (physical pin – 4)\n"
-"   --- Use multimeter to check continuity ( beep test), to ground, to 3V3, to points along the circuit path( use the schematic and board artwork as reference \n",
+"   --- check solder joints on J9, D2 (physical pin – 4)\n"
+"   --- Use multimeter to check continuity (beep test), to ground, to 3V3, to points along the circuit path( use the schematic and board artwork as reference \n",
 //
 //Test 15 [30]
 "\n"  
@@ -383,10 +383,10 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Instructions:\n"
 "   - The Serial Monitor will update on Slide Switch 1b  change of state, if working push \"C\" \n"
 "   - If not working: unplug ESP32 from power sources. \n"
-"   --- check  wire jumper is connected correctly to two pin header JP8 pin closest four resistors\n"
+"   --- check wire jumper is connected correctly to two pin header JP8 pin closest four resistors\n"
 "   --- check the other end is connected to J29 (in 5 Volt Digital area labeled - 2) pin closet to ESP32\n"
-"   --- check  solder joints on J29, D2 (physical pin – 4)\n"
-"   --- Use multimeter to check continuity ( beep test), to ground, to 3V3, to points along the circuit path( use the schematic and board artwork as reference \n",
+"   --- check solder joints on J29, D2 (physical pin – 4)\n"
+"   --- Use multimeter to check continuity (beep test), to ground, to 3V3, to points along the circuit path( use the schematic and board artwork as reference \n",
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Test 16 [32]
 "\n"  
@@ -407,10 +407,10 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Instructions:\n"
 "   - The Serial Monitor will update on Slide Switch 1b  change of state, if working push \"C\" \n"
 "   - If not working: unplug ESP32 from power sources. \n"
-"   --- check  wire jumper is connected correctly to two pin header JP8 pin closest four resistors\n"
+"   --- check wire jumper is connected correctly to two pin header JP8 pin closest four resistors\n"
 "   --- check the other end is connected to J10 (in 3 Volt Digital area labeled - 4) pin closet to ESP32\n"
-"   --- check  solder joints on J10, D4 (physical pin – 4)\n"
-"   --- Use multimeter to check continuity ( beep test), to ground, to 3V3, to points along the circuit path( use the schematic and board artwork as reference \n",
+"   --- check solder joints on J10, D4 (physical pin – 4)\n"
+"   --- Use multimeter to check continuity (beep test), to ground, to 3V3, to points along the circuit path( use the schematic and board artwork as reference \n",
 //
 //Test 16 [34]
 "\n"  
@@ -431,10 +431,10 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Instructions:\n"
 "   - The Serial Monitor will update on Slide Switch 1b  change of state, if working push \"C\" \n"
 "   - If not working: unplug ESP32 from power sources. \n"
-"   --- check  wire jumper is connected correctly to two pin header JP8 pin closest four resistors\n"
+"   --- check wire jumper is connected correctly to two pin header JP8 pin closest four resistors\n"
 "   --- check the other end is connected to J28 (in 5 Volt Digital area labeled - 4) pin closet to ESP32\n"
-"   --- check  solder joints on J28, D4 (physical pin – 4)\n"
-"   --- Use multimeter to check continuity ( beep test), to ground, to 3V3, to points along the circuit path( use the schematic and board artwork as reference \n",
+"   --- check solder joints on J28, D4 (physical pin – 4)\n"
+"   --- Use multimeter to check continuity (beep test), to ground, to 3V3, to points along the circuit path( use the schematic and board artwork as reference \n",
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Test 17 [36]
 "\n"  
@@ -455,10 +455,10 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Instructions:\n"
 "   - The Serial Monitor will update on Slide Switch 1b  change of state, if working push \"C\" \n"
 "   - If not working: unplug ESP32 from power sources. \n"
-"   --- check  wire jumper is connected correctly to two pin header JP8 pin closest four resistors\n"
+"   --- check wire jumper is connected correctly to two pin header JP8 pin closest four resistors\n"
 "   --- check the other end is connected to J8 (in 3 Volt Digital area labeled - 15) pin closet to ESP32\n"
-"   --- check  solder joints on J8, D15 (physical pin – 3)\n"
-"   --- Use multimeter to check continuity ( beep test), to ground, to 3V3, to points along the circuit path( use the schematic and board artwork as reference \n",
+"   --- check solder joints on J8, D15 (physical pin – 3)\n"
+"   --- Use multimeter to check continuity (beep test), to ground, to 3V3, to points along the circuit path( use the schematic and board artwork as reference \n",
 //
 //Test 17 [38]
 "\n"  
@@ -480,10 +480,10 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Instructions:\n"
 "   - The Serial Monitor will update on Slide Switch 1b  change of state, if working push \"C\" \n"
 "   - If not working: unplug ESP32 from power sources. \n"
-"   --- check  wire jumper is connected correctly to two pin header JP8 pin closest four resistors\n"
+"   --- check wire jumper is connected correctly to two pin header JP8 pin closest four resistors\n"
 "   --- check the other end is connected to J30 (in 5 Volt Digital area labeled - 15) pin closet to ESP32\n"
-"   --- check  solder joints on J30, D15 (physical pin – 3)\n"
-"   --- Use multimeter to check continuity ( beep test), to ground, to 3V3, to points along the circuit path( use the schematic and board artwork as reference \n",
+"   --- check solder joints on J30, D15 (physical pin – 3)\n"
+"   --- Use multimeter to check continuity (beep test), to ground, to 3V3, to points along the circuit path( use the schematic and board artwork as reference \n",
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Test 18 [40]
 "\n"  
@@ -504,10 +504,10 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Instructions:\n"
 "   - The Serial Monitor will update on Slide Switch 1b  change of state, if working push \"C\" \n"
 "   - If not working: unplug ESP32 from power sources. \n"
-"   --- check  wire jumper is connected correctly to two pin header JP8 pin closest four resistors\n"
+"   --- check wire jumper is connected correctly to two pin header JP8 pin closest four resistors\n"
 "   --- check the other end is connected to J17 (in 3 Volt Digital area labeled - 12) pin closet to ESP32\n"
-"   --- check  solder joints on J17, D12 (physical pin – 27)\n"
-"   --- Use multimeter to check continuity ( beep test), to ground, to 3V3, to points along the circuit path( use the schematic and board artwork as reference \n",
+"   --- check solder joints on J17, D12 (physical pin – 27)\n"
+"   --- Use multimeter to check continuity (beep test), to ground, to 3V3, to points along the circuit path( use the schematic and board artwork as reference \n",
 //
 //Test 18 [42]
 "\n"  
@@ -528,10 +528,10 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Instructions:\n"
 "   - The Serial Monitor will update on Slide Switch 1b  change of state, if working push \"C\" \n"
 "   - If not working: unplug ESP32 from power sources. \n"
-"   --- check  wire jumper is connected correctly to two pin header JP8 pin closest four resistors\n"
+"   --- check wire jumper is connected correctly to two pin header JP8 pin closest four resistors\n"
 "   --- check the other end is connected to J24 (in 5 Volt Digital area labeled - 12) pin closet to ESP32\n"
-"   --- check  solder joints on J24, D12 (physical pin – 27)\n"
-"   --- Use multimeter to check continuity ( beep test), to ground, to 3V3, to points along the circuit path( use the schematic and board artwork as reference \n",
+"   --- check solder joints on J24, D12 (physical pin – 27)\n"
+"   --- Use multimeter to check continuity (beep test), to ground, to 3V3, to points along the circuit path( use the schematic and board artwork as reference \n",
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Test 19 [44]
 "\n"  
@@ -552,10 +552,10 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Instructions:\n"
 "   - The Serial Monitor will update on Slide Switch 1b  change of state, if working push \"C\" \n"
 "   - If not working: unplug ESP32 from power sources. \n"
-"   --- check  wire jumper is connected correctly to two pin header JP8 pin closest four resistors\n"
+"   --- check wire jumper is connected correctly to two pin header JP8 pin closest four resistors\n"
 "   --- check the other end is connected to J13 (in 3 Volt Digital area labeled - 5) pin closet to ESP32\n"
-"   --- check  solder joints on J13, D5 (physical pin – 8)\n"
-"   --- Use multimeter to check continuity ( beep test), to ground, to 3V3, to points along the circuit path( use the schematic and board artwork as reference \n",
+"   --- check solder joints on J13, D5 (physical pin – 8)\n"
+"   --- Use multimeter to check continuity (beep test), to ground, to 3V3, to points along the circuit path( use the schematic and board artwork as reference \n",
 //
 //Test 19 [46]
 "\n"  
@@ -576,10 +576,10 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Instructions:\n"
 "   - The Serial Monitor will update on Slide Switch 1b  change of state, if working push \"C\" \n"
 "   - If not working: unplug ESP32 from power sources. \n"
-"   --- check  wire jumper is connected correctly to two pin header JP8 pin closest four resistors\n"
+"   --- check wire jumper is connected correctly to two pin header JP8 pin closest four resistors\n"
 "   --- check the other end is connected to J27 (in 5 Volt Digital area labeled - 5) pin closet to ESP32\n"
-"   --- check  solder joints on J27, D5 (physical pin – 8)\n"
-"   --- Use multimeter to check continuity ( beep test), to ground, to 3V3, to points along the circuit path( use the schematic and board artwork as reference \n",
+"   --- check solder joints on J27, D5 (physical pin – 8)\n"
+"   --- Use multimeter to check continuity (beep test), to ground, to 3V3, to points along the circuit path( use the schematic and board artwork as reference \n",
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Test 20 [48]
 "\n"  
@@ -600,10 +600,10 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Instructions:\n"
 "   - The Serial Monitor will update on Slide Switch 1b  change of state, if working push \"C\" \n"
 "   - If not working: unplug ESP32 from power sources. \n"
-"   --- check  wire jumper is connected correctly to two pin header JP8 pin closest four resistors\n"
+"   --- check wire jumper is connected correctly to two pin header JP8 pin closest four resistors\n"
 "   --- check the other end is connected to J14 (in 3 Volt Digital area labeled - 18) pin closet to ESP32\n"
-"   --- check  solder joints on J14, D18 (physical pin – 9)\n"
-"   --- Use multimeter to check continuity ( beep test), to ground, to 3V3, to points along the circuit path( use the schematic and board artwork as reference \n",
+"   --- check solder joints on J14, D18 (physical pin – 9)\n"
+"   --- Use multimeter to check continuity (beep test), to ground, to 3V3, to points along the circuit path( use the schematic and board artwork as reference \n",
 //
 //Test 20 [50]
 "\n"  
@@ -624,10 +624,10 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Instructions:\n"
 "   - The Serial Monitor will update on Slide Switch 1b  change of state, if working push \"C\" \n"
 "   - If not working: unplug ESP32 from power sources. \n"
-"   --- check  wire jumper is connected correctly to two pin header JP8 pin closest four resistors\n"
+"   --- check wire jumper is connected correctly to two pin header JP8 pin closest four resistors\n"
 "   --- check the other end is connected to J26 (in 5 Volt Digital area labeled - 18) pin closet to ESP32\n"
-"   --- check  solder joints on J26, D18 (physical pin – 9)\n"
-"   --- Use multimeter to check continuity ( beep test), to ground, to 3V3, to points along the circuit path( use the schematic and board artwork as reference \n",
+"   --- check solder joints on J26, D18 (physical pin – 9)\n"
+"   --- Use multimeter to check continuity (beep test), to ground, to 3V3, to points along the circuit path( use the schematic and board artwork as reference \n",
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Test 21 [52]
 "\n"  
@@ -648,10 +648,10 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Instructions:\n"
 "   - The Serial Monitor will update on Slide Switch 1b  change of state, if working push \"C\" \n"
 "   - If not working: unplug ESP32 from power sources. \n"
-"   --- check  wire jumper is connected correctly to two pin header JP8 pin closest four resistors\n"
+"   --- check wire jumper is connected correctly to two pin header JP8 pin closest four resistors\n"
 "   --- check the other end is connected to J15 (in 3 Volt Digital area labeled - 19) pin closet to ESP32\n"
-"   --- check  solder joints on J15, D19 (physical pin – 10)\n"
-"   --- Use multimeter to check continuity ( beep test), to ground, to 3V3, to points along the circuit path( use the schematic and board artwork as reference \n",
+"   --- check solder joints on J15, D19 (physical pin – 10)\n"
+"   --- Use multimeter to check continuity (beep test), to ground, to 3V3, to points along the circuit path( use the schematic and board artwork as reference \n",
 //
 //Test 21 [54]
 "\n"  
@@ -672,10 +672,10 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Instructions:\n"
 "   - The Serial Monitor will update on Slide Switch 1b  change of state, if working push \"C\" \n"
 "   - If not working: unplug ESP32 from power sources. \n"
-"   --- check  wire jumper is connected correctly to two pin header JP8 pin closest four resistors\n"
+"   --- check wire jumper is connected correctly to two pin header JP8 pin closest four resistors\n"
 "   --- check the other end is connected to J25 (in 5 Volt Digital area labeled - 19) pin closet to ESP32\n"
-"   --- check  solder joints on J25, D19 (physical pin – 10)\n"
-"   --- Use multimeter to check continuity ( beep test), to ground, to 3V3, to points along the circuit path( use the schematic and board artwork as reference \n",
+"   --- check solder joints on J25, D19 (physical pin – 10)\n"
+"   --- Use multimeter to check continuity (beep test), to ground, to 3V3, to points along the circuit path( use the schematic and board artwork as reference \n",
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Test 22 [56]
 "\n"  
@@ -696,10 +696,10 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Instructions:\n"
 "   - The Serial Monitor will update on Slide Switch 1b  change of state, if working push \"C\" \n"
 "   - If not working: unplug ESP32 from power sources. \n"
-"   --- check  wire jumper is connected correctly to two pin header JP8 pin closest four resistors\n"
+"   --- check wire jumper is connected correctly to two pin header JP8 pin closest four resistors\n"
 "   --- check the other end is connected to J21 (in 3 Volt Digital area labeled - 23) pin closet to ESP32\n"
-"   --- check  solder joints on J21, D23 (physical pin – 15)\n"
-"   --- Use multimeter to check continuity ( beep test), to ground, to 3V3, to points along the circuit path( use the schematic and board artwork as reference \n",
+"   --- check solder joints on J21, D23 (physical pin – 15)\n"
+"   --- Use multimeter to check continuity (beep test), to ground, to 3V3, to points along the circuit path( use the schematic and board artwork as reference \n",
 //
 //Test 22 [58]
 "\n"  
@@ -720,10 +720,10 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Instructions:\n"
 "   - The Serial Monitor will update on Slide Switch 1b  change of state, if working push \"C\" \n"
 "   - If not working: unplug ESP32 from power sources. \n"
-"   --- check  wire jumper is connected correctly to two pin header JP13, pin closest closest to Slide Switches\n"
+"   --- check wire jumper is connected correctly to two pin header JP13, pin closest to Slide Switches\n"
 "   --- check the other end is connected to two pin header J23 (in 5 Volt Digital area labeled - 23) pin closet to ESP32\n"
-"   --- check  solder joints on two pin header J23, D23 (physical pin – 15)\n"
-"   --- Use multimeter to check continuity ( beep test), to ground, to 3V3, to points along the circuit path( use the schematic and board artwork as reference \n",
+"   --- check solder joints on two pin header J23, D23 (physical pin – 15)\n"
+"   --- Use multimeter to check continuity (beep test), to ground, to 3V3, to points along the circuit path( use the schematic and board artwork as reference \n",
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Test 23 [60]
 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n"
@@ -737,7 +737,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
 " Instructions:\n"
-"  !!! This is where you might blow your ESP32 if your not careful connecting to the correct pins  !!!! \n" 
+"  !!! This is where you might blow your ESP32 if you're not careful connecting to the correct pins  !!!! \n" 
 "   - Disconnect you wire jumper (both ends) reconnect one end to a ground pin of the digital i/o three pin headers ( pins closet to edge of board)\n"   
 "   - Connect the other end to four pin header JP11 (has labels - Gnd, 3V, SCLK, SDA) to pin labeled SDA, then push \"C\" \n",
 //
@@ -750,11 +750,11 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Instructions:\n"
 "   - The Serial Monitor will update when wire jumper is removed form ground pin and replaced on ground pin, if working push \"C\" \n"
 "   - If not working: unplug ESP32 from power sources. \n"
-"   --- check  wire jumper is connected correctly to a ground pin of the digital i/o three pin headers ( pins closet to edge of board)\n"
-"   --- check the other end is connected to  four pin header JP11 (has labels - Gnd, 3V, SCLK, SDA) to pin labeled SDA,\n"
+"   --- check wire jumper is connected correctly to a ground pin of the digital i/o three pin headers ( pins closet to edge of board)\n"
+"   --- check the other end is connected to four pin header JP11 (has labels - Gnd, 3V, SCLK, SDA) to pin labeled SDA,\n"
 "   --- make sure Transistor Q3 soldered in the correct orientation\n"
-"   --- check  solder joints on four pin header J11, Transistor Q3, Resistor R12 and R13, D21/I2C_DA (physical pin – 11)\n"
-"   --- Use multimeter to check continuity ( beep test), to ground, to 3V3, to points along the circuit path( use the schematic and board artwork as reference \n",
+"   --- check solder joints on four pin header J11, Transistor Q3, Resistor R12 and R13, D21/I2C_DA (physical pin – 11)\n"
+"   --- Use multimeter to check continuity (beep test), to ground, to 3V3, to points along the circuit path( use the schematic and board artwork as reference \n",
 //
 //Test 23 [62]
 "\n"  
@@ -774,11 +774,11 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "\n"
 " Instructions:\n"
 "   - The Serial Monitor will update when wire jumper is removed form ground pin and replaced on ground pin, if working push \"C\" \n"
-"   --- check  wire jumper is connected correctly to a ground pin of the digital i/o three pin headers ( pins closet to edge of board)\n"
-"   --- check the other end is connected to  four pin header JP11 (has labels - Gnd, 3V, SCLK, SDA) to pin labeled SCLK,\n"
+"   --- check wire jumper is connected correctly to a ground pin of the digital i/o three pin headers ( pins closet to edge of board)\n"
+"   --- check the other end is connected to four pin header JP11 (has labels - Gnd, 3V, SCLK, SDA) to pin labeled SCLK,\n"
 "   --- make sure Transistor Q4 soldered in the correct orientation\n"
-"   --- check  solder joints on four pin header J11, Transistor Q4, Resistor R15 and R16, D22/I2C_CLK (physical pin – 14)\n"
-"   --- Use multimeter to check continuity ( beep test), to ground, to 3V3, to points along the circuit path( use the schematic and board artwork as reference \n",
+"   --- check solder joints on four pin header J11, Transistor Q4, Resistor R15 and R16, D22/I2C_CLK (physical pin – 14)\n"
+"   --- Use multimeter to check continuity (beep test), to ground, to 3V3, to points along the circuit path( use the schematic and board artwork as reference \n",
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Test 24 [64]
 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n"
@@ -792,7 +792,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
 " Instructions:\n"
-"  !!! This is where you might blow your ESP32 if your not careful connecting to the correct pins  !!!! \n" 
+"  !!! This is where you might blow you're ESP32 if your not careful connecting to the correct pins  !!!! \n" 
 "   - leave wire jumper on a ground pin of the digital i/o three pin headers ( pins closet to edge of board)\n"   
 "   - Connect the other end to four pin header JP12 (has labels - Gnd, 5V, SCLK, SDA) to pin labeled SDA, then push \"C\" \n",
 //
@@ -805,11 +805,11 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Instructions:\n"
 "   - The Serial Monitor will update when wire jumper is removed form ground pin and replaced on ground pin, if working push \"C\" \n"
 "   - If not working: unplug ESP32 from power sources. \n"
-"   --- check  wire jumper is connected correctly to a ground pin of the digital i/o three pin headers ( pins closet to edge of board)\n"
-"   --- check the other end is connected to  four pin header JP12 (has labels - Gnd, 5V, SCLK, SDA) to pin labeled SDA,\n"
+"   --- check wire jumper is connected correctly to a ground pin of the digital i/o three pin headers ( pins closet to edge of board)\n"
+"   --- check the other end is connected to four pin header JP12 (has labels - Gnd, 5V, SCLK, SDA) to pin labeled SDA,\n"
 "   --- make sure Transistor Q3 soldered in the correct orientation\n"
-"   --- check  solder joints on four pin header J12, Transistor Q3, Resistor R12 and R13, D21/I2C_DA (physical pin – 11)\n"
-"   --- Use multimeter to check continuity ( beep test), to ground, to 3V3, to points along the circuit path( use the schematic and board artwork as reference \n",
+"   --- check solder joints on four pin header J12, Transistor Q3, Resistor R12 and R13, D21/I2C_DA (physical pin – 11)\n"
+"   --- Use multimeter to check continuity (beep test), to ground, to 3V3, to points along the circuit path( use the schematic and board artwork as reference \n",
 //
 //Test 24 [66]
 "\n"  
@@ -829,11 +829,11 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "\n"
 " Instructions:\n"
 "   - The Serial Monitor will update when wire jumper is removed form ground pin and replaced on ground pin, if working push \"C\" \n"
-"   --- check  wire jumper is connected correctly to a ground pin of the digital i/o three pin headers ( pins closet to edge of board)\n"
-"   --- check the other end is connected to  four pin header JP12 (has labels - Gnd, 5V, SCLK, SDA) to pin labeled SCLK,\n"
+"   --- check wire jumper is connected correctly to a ground pin of the digital i/o three pin headers ( pins closet to edge of board)\n"
+"   --- check the other end is connected to four pin header JP12 (has labels - Gnd, 5V, SCLK, SDA) to pin labeled SCLK,\n"
 "   --- make sure Transistor Q4 soldered in the correct orientation\n"
-"   --- check  solder joints on four pin header J12, Transistor Q4, Resistor R15 and R16, D22/I2C_CLK (physical pin – 14)\n"
-"   --- Use multimeter to check continuity ( beep test), to ground, to 3V3, to points along the circuit path( use the schematic and board artwork as reference \n",
+"   --- check solder joints on four pin header J12, Transistor Q4, Resistor R15 and R16, D22/I2C_CLK (physical pin – 14)\n"
+"   --- Use multimeter to check continuity (beep test), to ground, to 3V3, to points along the circuit path( use the schematic and board artwork as reference \n",
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Test 25 [68]
 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n"
@@ -847,11 +847,11 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
 " Instructions:\n"
-"  !!! This is where you might blow your ESP32 if your not careful connecting to the correct pins  !!!! \n" 
+"  !!! This is where you might blow you're ESP32 if your not careful connecting to the correct pins  !!!! \n" 
 "   - Disconnect the wire jumper ( both ends) reconnect one end to the four pin header JP15 (has labels - Gnd, 3V, Tx, Rx) to pin labeled Rx\n"   
 "   - Using a second wire jumper connect one end to the same four pin header JP15 to pin labeled Tx\n"
-"   - using a 4K& resistor put in the two open end sof the two wire jumper.\n"
-"   - This test automaticly count from 1 to 10 then print a C then conintue counting, Press \"C\" \n",
+"   - using a 4K7 resistor put in the two open ends of the two wire jumper.\n"
+"   - This test automatically counts from 1 to 10 then print a C then continue counting, Press \"C\" \n",
 "\n"
 //
 //Test 25 continued [69]
@@ -865,11 +865,11 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "   - The Serial Monitor will display a count to 10 then a C if count stops it worked, disconnect the wire jumper ( both ends) and push \"C\" \n"
 "\n"
 "   - If it continued to count it's not working: unplug ESP32 from power sources. \n"
-"   --- check  the two wire jumpers is connected correctly to the four pin header JP15 (has labels - Gnd, 3V, Tx, Rx) to pin labeled Rx and Tx\n"   
+"   --- check the two wire jumpers is connected correctly to the four pin header JP15 (has labels - Gnd, 3V, Tx, Rx) to pin labeled Rx and Tx\n"   
 "   --- check the other ends are connected to a 4K7 resistor\n"
 "   --- make sure Transistor Q5 and Q6 are soldered in the correct orientation\n"
-"   --- check  solder joints on four pin header J15, Transistor Q5 and Q6, Resistor R18, R19, R20 and R21, pins RX0 (physical pin – 12) and TX0 (physical pin – 13)\n"
-"   --- Use multimeter to check continuity ( beep test), to ground, to 3V3, to points along the circuit path( use the schematic and board artwork as reference \n",
+"   --- check solder joints on four pin header J15, Transistor Q5 and Q6, Resistor R18, R19, R20 and R21, pins RX0 (physical pin – 12) and TX0 (physical pin – 13)\n"
+"   --- Use multimeter to check continuity (beep test), to ground, to 3V3, to points along the circuit path( use the schematic and board artwork as reference \n",
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Test 26 [70]
 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n"
@@ -883,7 +883,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
 " Instructions:\n"
-"  !!! This is where you might blow your ESP32 if your not careful connecting to the correct pins  !!!! \n" 
+"  !!! This is where you might blow you're ESP32 if your not careful connecting to the correct pins  !!!! \n" 
 "   - Disconnect you wire jumper ( both ends) reconnect one end to the four pin header JP16 (has labels - Gnd, 5V, Tx, Rx) to pin labeled Rx\n"   
 "   - Connect the other end to the same four pin header JP16 to pin labeled Tx, then push \"C\" \n",
 "\n"
@@ -901,11 +901,11 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "   - If it worked, disconnect the wire jumper ( both ends) and push \"C\" \n"
 "\n"
 "   - If not working: unplug ESP32 from power sources. \n"
-"   --- check  wire jumper is connected correctly to the four pin header JP16 (has labels - Gnd, 3V, Tx, Rx) to pin labeled Rx\n"   
+"   --- check wire jumper is connected correctly to the four pin header JP16 (has labels - Gnd, 3V, Tx, Rx) to pin labeled Rx\n"   
 "   --- check the other end is connected to the same four pin header JP16 to pin labeled Tx,\n"
 "   --- make sure Transistor Q5 and Q6 are soldered in the correct orientation\n"
-"   --- check  solder joints on four pin header J15, Transistor Q5 and Q6, Resistor R18, R19, R20 and R21, pins RX0 (physical pin – 12) and TX0 (physical pin – 13)\n"
-"   --- Use multimeter to check continuity ( beep test), to ground, to 3V3, to points along the circuit path( use the schematic and board artwork as reference \n",
+"   --- check solder joints on four pin header J15, Transistor Q5 and Q6, Resistor R18, R19, R20 and R21, pins RX0 (physical pin – 12) and TX0 (physical pin – 13)\n"
+"   --- Use multimeter to check continuity (beep test), to ground, to 3V3, to points along the circuit path( use the schematic and board artwork as reference \n",
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Test 27 [72]
 
@@ -925,11 +925,11 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
 " Instructions:\n"
-"   - The Serial Monitor will display a value bwtweeb 1900 and 2000, if it worked, push \"C\" \n"
+"   - The Serial Monitor will display a value between 1900 and 2000, if it worked, push \"C\" \n"
 "   - If not working: unplug ESP32 from power sources. \n"
-"   --- check  wire jumper is connected correctly to the two pin header JP1\n"   
-"   --- check  solder joints on two pin header JP1, on all 8 pins of IC U3 \n"
-"   --- Use multimeter to check continuity ( beep test), to ground, to 3V3, to points along the circuit path( use the schematic and board artwork as reference \n",
+"   --- check wire jumper is connected correctly to the two pin header JP1\n"   
+"   --- check solder joints on two pin header JP1, on all 8 pins of IC U3 \n"
+"   --- Use multimeter to check continuity (beep test), to ground, to 3V3, to points along the circuit path( use the schematic and board artwork as reference \n",
 //Test 27 [74]
 
 "\n"  
@@ -939,9 +939,9 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "\n"
 " Instructions:\n"
 "   - leave jumper on two pin header JP1 (labeled - IMon)\n"
-"   - solder jumper wires to one of the metal geared motors, plug this motor in the Digitl i/o three pin header (closest to the push button end of board\n"
-"   - one motor lead goes ot the ground pin (closest to edge of board) and the ohter motor lead is connected to middle pin ( +5V pin)\n"   
-"   - Plug Battery into under side of board on USB connector, then push \"C\" \n",
+"   - solder jumper wires to one of the metal geared motors, plug this motor in the Digital i/o three pin header (closest to the push button end of board\n"
+"   - one motor lead goes to the ground pin (closest to edge of board) and the other motor lead is connected to middle pin ( +5V pin)\n"   
+"   - Plug Battery into underside of board on USB connector, then push \"C\" \n",
 "\n"
 //
 //Test 27 continued [75]
@@ -954,9 +954,9 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "   - The Serial Monitor will display a value greater than 2000, if it worked, push \"C\" \n"
 "   - If not working: unplug ESP32 from power sources (Battery and USB). \n"
 "   --- was the motor turning? If not check soldered leads on motor and solder leads on three pin header.\n"
-"   --- check  wire jumper is connected correctly to the two pin header JP1\n"   
-"   --- check  solder joints on two pin header JP1, on all 8 pins of IC U3 \n"
-"   --- Use multimeter to check continuity ( beep test), to ground, to 3V3, to points along the circuit path( use the schematic and board artwork as reference \n",
+"   --- check wire jumper is connected correctly to the two pin header JP1\n"   
+"   --- check solder joints on two pin header JP1, on all 8 pins of IC U3 \n"
+"   --- Use multimeter to check continuity (beep test), to ground, to 3V3, to points along the circuit path( use the schematic and board artwork as reference \n",
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //End [76]
