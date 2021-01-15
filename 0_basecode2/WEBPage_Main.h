@@ -10,7 +10,7 @@ Oct 15,2020
 #ifndef MAINWEBPAGE_H
 #define MAINWEBPAGE_H 1
 
-
+#define BROADTESTING 1
  
 const char Main_page[] PROGMEM = R"=====(
 <!DOCTYPE html>

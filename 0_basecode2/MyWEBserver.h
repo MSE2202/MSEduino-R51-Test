@@ -10,6 +10,9 @@ March 21,2020
 #ifndef MYWEBSERVER_H
 #define MYWEBSERVER_H 1
 
+#define BROADTESTING 1
+
+
 #ifdef BROADTESTING
 #include "WEBPage_BoardTesting.h"
 #endif

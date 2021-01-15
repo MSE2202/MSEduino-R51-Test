@@ -28,7 +28,7 @@
   19            GPI34/AD1_6/                      AD6
   20            GPI35/AD1_7                       Potentiometer R2 / AD7
   21            GPIO32/AD1_4/T9                   Potentiometer R1 / AD4
-  22            GPIO33/AD1_5/T8                   IMon/D33  monitor board current
+  22            GPIO33/AD1_5/T8                   IMon/D33/ AD5  monitor board current
   23            GPIO25/AD2_8/DAC1                 SK6812 Smart LEDs / D25
   24            GPIO26/A2_9/DAC2                  Push Button PB2
   25            GPIO27/AD2_7/T7                   Push Button PB1
