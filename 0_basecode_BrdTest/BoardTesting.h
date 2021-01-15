@@ -1,5 +1,5 @@
 /*
-//Western Engineering base code 
+//Western Engineering base code board testing
 Oct 10,2020
   
 \Board Testing code
@@ -168,8 +168,7 @@ void BRD_Testing()
    
  }
  
-  
-  WSVR_BreakPoint(2);
+ 
  brdtst_uiTestIndex = (unsigned int)((brdtst_ucTestID * 10) + brdtst_ucIncrementTestStep);
  switch(brdtst_uiTestIndex)
  {

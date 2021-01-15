@@ -1,6 +1,6 @@
 
 /*
-//Western Engineering base code 
+//Western Engineering base code board testing
 Oct 10,2020
   
 \Board Testing Instructions

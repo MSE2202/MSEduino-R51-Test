@@ -1,5 +1,5 @@
 /*
-Western Engineering base code
+Western Engineering base code board testing
 2020 06 17
   
 \Core 0 code
@@ -10,9 +10,6 @@ Western Engineering base code
 #ifndef CORE_ZERO_H
 #define CORE_ZERO_H 1
 
-
-#include "MyWEBserver.h"
-#include "BreakPoint.h"
 #include "WDT.h";
 
 TaskHandle_t Core_Zero;
@@ -57,10 +54,7 @@ void Core_ZeroCode( void * pvParameters )
 
   //Core 0 Setup
   //-------------------------------------------------------------------------------------------
-   WSVR_BreakPointInit("DBON","CONT"); //Start contidions "HALT", "CONT", DBON", DBOF" 
-
-   WSVR_setupWEbServer();
-  
+   
    delay(1000);
 
    
@@ -96,20 +90,13 @@ void Core_ZeroCode( void * pvParameters )
         WDT_ResetCore0();
         WDT_ucCaseIndexCore0 = CR0_ucMainTimerCaseCore0;
         vTaskDelay(1);
-
-       // WDT_CheckOperationTime();
-        
-       // WSVR_ButtonResponce();
-//        asm volatile("esync; rsr %0,ccount":"=a" (CR0_u32Last)); // @ 240mHz clock each tick is ~4nS  
-//        webSocket.loop();
-//         asm volatile("esync; rsr %0,ccount":"=a" (CR0_u32Now));    
-//        
+       
         switch(CR0_ucMainTimerCaseCore0)  //full switch run through is 1mS
         {
           //###############################################################################
           case 0: //LCD Display
           {
-           // WSVR_AnswerGetRequest();
+           
             CR0_ucMainTimerCaseCore0 = 1;
             
             break;
@@ -118,9 +105,7 @@ void Core_ZeroCode( void * pvParameters )
           case 1: //
           {
          
-            uiTestCounter = uiTestCounter + 1;
-            //Serial.println(uiTestCounter);
-            WSVR_BreakPoint(1);
+            
             CR0_ucMainTimerCaseCore0 = 2;
           
             break;
@@ -128,9 +113,7 @@ void Core_ZeroCode( void * pvParameters )
           //###############################################################################
           case 2: //web page control
           {
-            asm volatile("esync; rsr %0,ccount":"=a" (CR0_u32Last)); // @ 240mHz clock each tick is ~4nS  
-            webSocket.loop();
-            asm volatile("esync; rsr %0,ccount":"=a" (CR0_u32Now));    
+            
            
             CR0_ucMainTimerCaseCore0 = 3;
             break;
@@ -139,7 +122,7 @@ void Core_ZeroCode( void * pvParameters )
           case 3: 
           {
             
-            //WSVR_SendToWeb();
+            
             CR0_ucMainTimerCaseCore0 = 4;
             break;
           }
@@ -168,7 +151,7 @@ void Core_ZeroCode( void * pvParameters )
           //###############################################################################
           case 7: 
           {
-            //WSVR_SendMsg();
+            
             CR0_ucMainTimerCaseCore0 = 8;
             break;
           }

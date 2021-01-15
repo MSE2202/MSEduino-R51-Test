@@ -1,6 +1,6 @@
 
 //MSE 2202 
-//Western Engineering base code
+//Western Engineering base code board testing
 //2020 05 13 E J Porter
 
 
@@ -57,8 +57,7 @@
 #include <esp_task_wdt.h>
 
 #include <Math.h>
-#include "MyWEBserver.h"
-#include "BreakPoint.h"
+
 #include "WDT.h";
 
 #ifdef BROADTESTING
@@ -66,7 +65,6 @@
 #endif
 
 
-void loopWEBServerButtonresponce(void);
 
 //unsigned int uiCountUp;
 //unsigned int uiTestCounter;

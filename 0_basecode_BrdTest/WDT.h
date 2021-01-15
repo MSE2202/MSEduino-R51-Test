@@ -1,5 +1,5 @@
 /*
- Western Engineering base code
+ Western Engineering base code board testing
 2020 05 13 E J Porter
 
  WatchDog implement
