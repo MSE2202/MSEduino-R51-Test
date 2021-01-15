@@ -1,3 +1,17 @@
+/*
+//Western Engineering base code 
+March 21,2020
+  
+\WEB Page code for Board Testing
+
+
+*/
+
+#ifndef BOARDTESTINGWEBPAGE_H
+#define BOARDTESTINGWEBPAGE_H 1
+
+ 
+const char BoardTesting_page[] PROGMEM = R"=====(
 <!DOCTYPE html>
 
 <head>
@@ -442,3 +456,37 @@ img.src =
 </body> 
 </html>
 
+       
+    }
+    window.onload = function()
+  {
+        
+        // Obtain a reference to the canvas element using its id.
+     context.drawImage(img, 
+        0, 0, img.width, img.height, 
+        0, 0, htmlCanvas.width, htmlCanvas.height
+        );
+       
+
+    };
+  
+
+)=====";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#endif
