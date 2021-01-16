@@ -863,7 +863,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Instructions:\n"
 "  !!! This is where you might blow you're ESP32 if your not careful connecting to the correct pins  !!!! \n" 
 "   - Disconnect the wire jumper( both ends), reconnect one end to the four pin header JP15 (has labels - Gnd, 3V, Tx, Rx) to pin labeled Tx.\n"   
-"   - Using a 4K7 resistor put in the open end of the wire jumper, take a second jumer wire and connect to the other end of the 4k7 resistor.\n" 
+"   - Using a 470 ohm resistor put in the open end of the wire jumper, take a second jumer wire and connect to the other end of the 470 ohm resistor.\n" 
 "   - This test automatically counts from 1 to 10 then print an X.\n"
 "   - During the 1 to 10 count (not before 1 or after 10), connect the free end of the second jumper wire to the four pin header JP15 (has labels - Gnd, 3V, Tx, Rx) to pin labeled Rx.\n"
 "   - Enter \"C\" to start test.\n",
@@ -900,7 +900,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Instructions:\n"
 "  !!! This is where you might blow you're ESP32 if you're not careful connecting to the correct pins  !!!! \n" 
 "   - Disconnect the wire jumper( both ends), reconnect one end to the four pin header JP16 (has labels - Gnd, 3V, Tx, Rx) to pin labeled Tx.\n"   
-"   - Using a 4K7 resistor put in the open end of the wire jumper, take a second jumper wire and connect to the other end of the 4k7 resistor.\n" 
+"   - Using a 470 ohm resistor put in the open end of the wire jumper, take a second jumper wire and connect to the other end of the 470 ohm resistor.\n" 
 "   - This test automatically counts from 1 to 10 then print an X.\n"
 "   - During the 1 to 10 count (not before 1 or after 10), connect the free end of the second jumper wire to the four-pin header JP16 (has labels - Gnd, 3V, Tx, Rx) to pin labeled Rx.\n"
 "   - Enter \"C\" to start test.\n",
