@@ -87,6 +87,10 @@ unsigned char brdtst_TempLoopVariable2 = 0;
 unsigned int brdtst_uiTimeCount;
 unsigned int brdtst_uiTestIndex;
 
+boolean brdtst_bToggle;
+unsigned long brdtst_ulTimerPrevious;
+unsigned long brdtst_ulTimerCurrent;
+
 
 void BRD_Testing()
 {
@@ -2050,11 +2054,15 @@ void BRD_Testing()
     Serial.printf("%s",BoardTesting_Instructions[74]);
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
     brdtst_ucIncrementTestStep = 5;
+
+    brdtst_ulTimerPrevious = millis();
     break;
    }
    case 265:
    {
     // waiting for user input
+    
+      
     break;
    }
    case 266:
@@ -2064,6 +2072,11 @@ void BRD_Testing()
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
     brdtst_ucIncrementTestStep = 7;
     brdtst_TempLoopVariable = 0;
+    
+    ledcSetup(5,50,8);
+    ledcAttachPin(15,5);
+    ledcWrite(5,25);
+   
     break;
    }
    case 267:
@@ -2076,6 +2089,23 @@ void BRD_Testing()
         Serial.print(F("Current Monitor  = "));
         Serial.println(analogRead(BRDTST_IMON));
      }
+
+    brdtst_ulTimerCurrent = millis();
+    if(brdtst_ulTimerCurrent - brdtst_ulTimerPrevious >= 200)   //enter main switch case every 1mS , with 10 cases it take 10mS to run every case
+    {
+     brdtst_ulTimerPrevious = brdtst_ulTimerCurrent;
+      brdtst_bToggle ^= 1;
+     if( brdtst_bToggle)
+     {
+      ledcWrite(5,23);
+     }
+     else
+     {
+        ledcWrite(5,6);
+        
+     }
+    }
+     
     break;
    }     
 //***********************************************************************************************************************************************************************************************************************

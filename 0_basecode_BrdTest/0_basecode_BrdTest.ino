@@ -46,18 +46,11 @@
 #define BROADTESTING 1
 
 
-//pins
-#define MOTORLEFTa 14
-#define MOTORLEFTb 4
-#define MOTORRIGHTa 5
-#define MOTORRIGHTb 18
-
-
 #include <esp_task_wdt.h>
 
 #include <Math.h>
 
-#include "WDT.h";
+#include "WDT.h"
 
 #ifdef BROADTESTING
 #include "BoardTesting.h"
@@ -87,6 +80,7 @@ unsigned long CR1_ulMainTimerNow;
 
 unsigned long CR1_ulMotorTimerPrevious;
 unsigned long CR1_ulMotorTimerNow;
+
 void setup() {
   Serial.begin(115200);
   
