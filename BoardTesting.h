@@ -8,6 +8,7 @@ Usage either through serial Monitor or WEB PAGE 192.168.128.1
 
 */
 
+
 #ifndef BOARDTESTING_H
 #define BOARDTESTING_H 1
 
@@ -15,53 +16,126 @@ Usage either through serial Monitor or WEB PAGE 192.168.128.1
 #include "BoardTestingInstructions.h"
 
 
+
 //pins
-#define BRDTST_INDICATORLED 2     //pin 2 has a LED connected on ESP32 Board
-#define BRDTST_SLIDE_SW_1A 13     //when JP7 has jumper installed Digital pin D13 is connected to Slide Switch 1a
-#define BRDTST_SLIDE_SW_1B 16     //when JP8 has jumper installed Digital pin D16 is connected to Slide Switch 1b
-#define BRDTST_SLIDE_SW_2A 14     //when JP6 has jumper installed Digital pin D14 is connected to Slide Switch 2a
-#define BRDTST_SLIDE_SW_2B 17     //when JP9 has jumper installed Digital pin D17 is connected to Slide Switch 2b
+#define BRDTST_GPIO4  4            //pin 4 not connected to other devices (J4); also is analog AD1-3
+#define BRDTST_GPIO5  5            //pin 5 not connected to other devices (J5); also is analog   AD1-4
+#define BRDTST_GPIO6  6            //pin 6 not connected to other devices (J6); also is analog   AD1-5
+#define BRDTST_GPIO7  7            //pin 7 not connected to other devices (J7); also is analog   AD1-6
+
+#define BRDTST_ENCODER_LEFT_A 15    //when DIP Switch S1-1 is ON, Left encoder A signal is connected to pin 8 GPIO15 (J15); When DIP Switch S1-1 is off can be used as analog AD2-4
+#define BRDTST_ENCODER_LEFT_B 16    //when DIP Switch S1-2 is ON, Left encoder B signal is connected to pin 9 GPIO16 (J16); When DIP Switch S1-2 is off can be used as analog AD2-5
+#define BRDTST_ENCODER_LEFT_DIR 17  //when DIP Switch S1-3 is ON, Left encoder Direction signal is connected to pin 10 GPIO17 (J17); When DIP Switch S1-3 is off can be used as analog AD2-6
+#define BRDTST_ENCODER_LEFT_SPD 18  //when DIP Switch S1-4 is ON, Left encoder Speed signal is connected to pin 11 GPIO18 (J18); When DIP Switch S1-4 is off can be used as analog AD2-7
+
+#define BRDTST_GPIO8     8         //pin 12 not connected to other devices (J8); also is analog AD1-7
+
+#define ESP32s3_USB_DM   19         //pin 13 use only for USB connection (GPIO19)
+#define ESP32s3_USB_DP   20         //pin 14 use only for USB connection (GPIO20)
+
+#define BRDTST_SLIDE_SW1_S1_5 3     //DIP Switch S1-5 pulls Digital pin D3 to ground when ON; pin 15 GPIO3 (J3); When DIP Switch S1-5 is off can be used as analog AD1-2
+#define BRDTST_SLIDE_SW0_S1_6 46    //DIP Switch S1-6 pulls Digital pin D46 to ground when ON; pin 16 GPIO46 (J46)
+
+#define BRDTST_GPIO9     9         //pin 17 not connected to other devices (J9); also is analog AD1-8
+#define BRDTST_GPIO10    10        //pin 18 not connected to other devices (J10); also is analog AD1-9
+
+#define BRDTST_ENCODER_RIGHT_A 11    //when DIP Switch S1-7 is ON, Right encoder A signal is connected to pin 19 GPIO11 (J11); When DIP Switch S1-7 is off can be used as analog AD2-0
+#define BRDTST_ENCODER_RIGHT_B 12    //when DIP Switch S1-8 is ON, Right encoder B signal is connected to pin 20 GPIO12 (J12); When DIP Switch S1-8 is off can be used as analog AD2-1
+#define BRDTST_ENCODER_RIGHT_DIR 13  //when DIP Switch S1-9 is ON, Right encoder Direction signal is connected to pin 21 GPIO13 (J13); When DIP Switch S1-9 is off can be used as analog AD2-2
+#define BRDTST_ENCODER_RIGHT_SPD 14  //when DIP Switch S1-10 is ON, Right encoder Speed signal is connected to pin 22 GPIO14 (J14); When DIP Switch S1-10 is off can be used as analog AD2-3
+
+#define BRDTST_SMART_LED     21     //when DIP Switch S1-11 is ON, Smart LED is connected to pin 23 GPIO21 (J21)
+
+#define BRDTST_I2C_DA      47      //GPIO47 pin 24 I2C Data at (J47) (3V) and JP1 (5V)
+#define BRDTST_I2C_CLK     48      //GPIO48 pin 25 I2C CLK at (J48) (3V) and JP1 (5V)
+
+#define BRDTST_GPIO45    45        //GPIO45 (J45)pin 26 DO NOT TIE HIGH
+
+#define BRDTST_PB1    0        //GPIO0 pin 27 Push Button 1
+
+#define BRDTST_MOTOR_1_A 35    //GPIO35 pin 28 (J35) Motor 1 A
+#define BRDTST_MOTOR_1_B 36    //GPIO36 pin 29 (J36) Motor 1 B
+#define BRDTST_MOTOR_2_A 37    //GPIO37 pin 30 (J37) Motor 2 A
+#define BRDTST_MOTOR_2_B 38    //GPIO38 pin 31 (J38) Motor 2 B
+
+#define BRDTST_STEPPER_DIR 39    //GPIO39 pin 32 (J39) STEPPER Motor direction pin
+#define BRDTST_STEPPER_CLK 40    //GPIO40 pin 33 (J40) stepper motor clock pin
+
+#define BRDTST_SERVO_1 41    //GPIO41 pin 34 (J41) Servo 1
+#define BRDTST_SERVO_2 42    //GPIO42 pin 35 (J42) Servo 2
+
+#define BRDTST_RX 44        //GPIO44 pin 36 (JP2) SCI Rx in pin
+#define BRDTST_TX 43        //GPIO43 pin 37 (JP2) SCI Tx in pin
+
+#define BRDTST_GPIO2 2    //GPIO2 pin 38 not connected to other devices (J2); also is analog AD1-1
+
+#define BRDTST_POT_R1  A0  //when DIP Switch S1-12 is ON, Analog AD0 (pin 39, GPIO1 is connected to Poteniometer R1
 
 
-#define BRDTST_POT_R1      A4     //when JP2 has jumper installed Analog pin AD4 is connected to Poteniometer R1
-#define BRDTST_POT_R2      A7     //when JP3 has jumper installed Analog pin AD7 is connected to Poteniometer R2
 
-#define BRDTST_AD0         A0     //Analog input AD0
-#define BRDTST_AD3         A3     //Analog input AD3
-#define BRDTST_AD6         A6     //Analog input AD6
-#define BRDTST_IMON        A5     //when JP1 has jumper installed Analog pin AD5 is connected to Current Monitor IC U3
-
-#define BRDTST_D2          2      //Digital i/o D2 at Jumper J9 and J29
-#define BRDTST_D4          4      //Digital i/o D4 at Jumper J10 and J28
-#define BRDTST_D15         15     //Digital i/o D15 at Jumper J8 and J30
-#define BRDTST_D12         12     //Digital i/o D12 at Jumper J17 and J24
-#define BRDTST_D5          5      //Digital i/o D5 at Jumper J13 and J27
-#define BRDTST_D18         18     //Digital i/o D18 at Jumper J14 and J26
-#define BRDTST_D19         19     //Digital i/o D19 at Jumper J15 and J25
-#define BRDTST_D23         23     //Digital i/o D23 at Jumper J21 and J23
-
-#define BRDTST_TX0_OUT     1      //TX0 UART at jumper J15 (3V) and JP16 (5V)
-#define BRDTST_RX0_IN      3      //RX0 UART at jumper J15 (3V) and JP16 (5V)
-
-#define BRDTST_I2C_CLK     22      //I2C CLK at jumper J11 (3V) and JP12 (5V)
-#define BRDTST_I2C_DA      21      //I2C Data at jumper J11 (3V) and JP12 (5V)
-
-
-#define BRDTST_PB1         27     //when JP13 has jumper installed pin D27 is connected to push Buttton 1
-#define BRDTST_PB2         26     //when JP14 has jumper installed pin D26 is connected to push Buttton 2
-#define BRDTST_LED_PIN     25     //when JP5 has jumper installed pin D25 is connected to SMART LEDs
-
-#define BRDTST_HALLPH1     15     //encoder input B
-#define BRDTST_HALLPH2     2      //encoder input A
+#define BRDTST_LED_COUNT    1       //number of SMART LEDs in use
 
 
 
-#define BRSTST_LED_COUNT    2       //number of SMART LEDs in use
+
+
+
+
+
+//#define BRDTST_INDICATORLED 2     //pin 2 has a LED connected on ESP32 Board
+//#define BRDTST_SLIDE_SW_1A 13     //when JP7 has jumper installed Digital pin D13 is connected to Slide Switch 1a
+//#define BRDTST_SLIDE_SW_1B 16     //when JP8 has jumper installed Digital pin D16 is connected to Slide Switch 1b
+//#define BRDTST_SLIDE_SW_2A 14     //when JP6 has jumper installed Digital pin D14 is connected to Slide Switch 2a
+//#define BRDTST_SLIDE_SW_2B 17     //when JP9 has jumper installed Digital pin D17 is connected to Slide Switch 2b
+//
+//
+//#define BRDTST_POT_R1      A4     //when JP2 has jumper installed Analog pin AD4 is connected to Poteniometer R1
+//#define BRDTST_POT_R2      A7     //when JP3 has jumper installed Analog pin AD7 is connected to Poteniometer R2
+//
+//#define BRDTST_AD0         A0     //Analog input AD0
+//#define BRDTST_AD3         A3     //Analog input AD3
+//#define BRDTST_AD6         A6     //Analog input AD6
+//#define BRDTST_IMON        A5     //when JP1 has jumper installed Analog pin AD5 is connected to Current Monitor IC U3
+//
+//#define BRDTST_D2          2      //Digital i/o D2 at Jumper J9 and J29
+//#define BRDTST_D4          4      //Digital i/o D4 at Jumper J10 and J28
+//#define BRDTST_D15         15     //Digital i/o D15 at Jumper J8 and J30
+//#define BRDTST_D12         12     //Digital i/o D12 at Jumper J17 and J24
+//#define BRDTST_D5          5      //Digital i/o D5 at Jumper J13 and J27
+//#define BRDTST_D18         18     //Digital i/o D18 at Jumper J14 and J26
+//#define BRDTST_D19         19     //Digital i/o D19 at Jumper J15 and J25
+//#define BRDTST_D23         23     //Digital i/o D23 at Jumper J21 and J23
+//
+//#define BRDTST_TX0_OUT     1      //TX0 UART at jumper J15 (3V) and JP16 (5V)
+//#define BRDTST_RX0_IN      3      //RX0 UART at jumper J15 (3V) and JP16 (5V)
+//
+//#define BRDTST_I2C_CLK     22      //I2C CLK at jumper J11 (3V) and JP12 (5V)
+//#define BRDTST_I2C_DA      21      //I2C Data at jumper J11 (3V) and JP12 (5V)
+//
+//
+//#define BRDTST_PB1         27     //when JP13 has jumper installed pin D27 is connected to push Buttton 1
+//#define BRDTST_PB2         26     //when JP14 has jumper installed pin D26 is connected to push Buttton 2
+//#define BRDTST_SMART_LED     25     //when JP5 has jumper installed pin D25 is connected to SMART LEDs
+//
+//#define BRDTST_HALLPH1     15     //encoder input B
+//#define BRDTST_HALLPH2     2      //encoder input A
+//
+//
+//
+//#define BRSTST_LED_COUNT    1       //number of SMART LEDs in use
+//
+
+
+
+
+
+
+
 
 
 
 // Declare our SK6812 SMART LED object:
-Adafruit_NeoPixel SmartLEDs(BRSTST_LED_COUNT, BRDTST_LED_PIN, NEO_GRB + NEO_KHZ400);
+Adafruit_NeoPixel SmartLEDs(BRDTST_LED_COUNT, BRDTST_SMART_LED, NEO_GRB + NEO_KHZ400);
 // Argument 1 = Number of LEDs (pixels) in use
 // Argument 2 = ESP32 pin number 
 // Argument 3 = Pixel type flags, add together as needed:
@@ -86,7 +160,7 @@ unsigned char brdtst_TempLoopVariable2 = 0;
 
 unsigned int brdtst_uiTimeCount;
 unsigned int brdtst_uiTestIndex;
-
+byte bit4 = 1;
 
 void BRD_Testing()
 {
@@ -173,58 +247,42 @@ void BRD_Testing()
  {
   case 0: //setup for board testing
   {
-     SmartLEDs.clear(); // Set all pixel colors to 'off'
+  
+      
+      SmartLEDs.begin(); // INITIALIZE SMART LEDs object (REQUIRED)
+     SmartLEDs.setPixelColor(0,0,0,0);// Set pixel colors to 'off'
      SmartLEDs.show();   // Send the updated pixel colors to the hardware.
-     brstst_ucMaxNumberofTestSteps = 3;
+     brstst_ucMaxNumberofTestSteps = 1;
      
      Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
      Serial.printf("%s",BoardTesting_Instructions[0]);
      Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
      //ESP32 Blink Test
-     pinMode(BRDTST_INDICATORLED, OUTPUT);
+    pinMode(BRDTST_GPIO4, OUTPUT);
     
+    digitalWrite(BRDTST_GPIO4,bit4);
      
      brdtst_ucIncrementTestStep = 1;
     break;
   }
-  case 1:
+ case 1:
   {
     //waiting for user input
+    
     break;
   }
- //blink LEDs
-  case 2:  //display instructions  
-  {
-    
-    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    Serial.printf("%s",BoardTesting_Instructions[1]);
-    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    brdtst_ucIncrementTestStep = 3;
-    break;
-  }  
-  case 3:  //repeat test until user sends response
-  {
-    
-    brdtst_uiTimeCount = brdtst_uiTimeCount + 1;
-    if(brdtst_uiTimeCount >= 25)
-    {
-      brdtst_uiTimeCount = 0;
-      digitalWrite(BRDTST_INDICATORLED,!digitalRead(BRDTST_INDICATORLED));
-    }
-    break;
-  }
-  //***********************************************************************************************************************************************************************************************************************
+  // ***********************************************************************************************************************************************************************************************************************
   //Smart LEDs
   case 10:
   {
-   digitalWrite(BRDTST_INDICATORLED,false);
-    
+   //digitalWrite(BRDTST_INDICATORLED,false);
+    brstst_ucMaxNumberofTestSteps = 3;
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    Serial.printf("%s",BoardTesting_Instructions[2]);
+    Serial.printf("%s",BoardTesting_Instructions[1]);
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
     //SMART LED Testing
      SmartLEDs.begin(); // INITIALIZE SMART LEDs object (REQUIRED)
-     SmartLEDs.clear(); // Set all pixel colors to 'off'
+     SmartLEDs.setPixelColor(0,0,0,0); // Set pixel colors to 'off'
      SmartLEDs.show();   // Send the updated pixel colors to the hardware.
      brdtst_ucIncrementTestStep = 1;
     break;
@@ -236,8 +294,9 @@ void BRD_Testing()
   }
   case 12:
   {
+    
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    Serial.printf("%s",BoardTesting_Instructions[3]);
+    Serial.printf("%s",BoardTesting_Instructions[2]);
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
     brdtst_ucIncrementTestStep = 3;
     brdtst_uiTimeCount = 0;
@@ -246,15 +305,16 @@ void BRD_Testing()
    }
    case 13:
    {
-     brstst_ucMaxNumberofTestSteps = 3;
+     
      brdtst_uiTimeCount = brdtst_uiTimeCount + 1;
-     if(brdtst_uiTimeCount >= 50)
+     if(brdtst_uiTimeCount >= 500)
      {
         brdtst_uiTimeCount = 0;
         switch(brdtst_TempLoopVariable)
         {
           case 0:
           {
+            
             // SmartLEDs.Color() takes RGB values, from 0,0,0 up to 255,255,255
             SmartLEDs.setPixelColor(brdtst_TempLoopVariable2,5,0,0);
             brdtst_TempLoopVariable = 1;
@@ -262,6 +322,7 @@ void BRD_Testing()
           }
           case 1:
           {
+            
             // SmartLEDs.Color() takes RGB values, from 0,0,0 up to 255,255,255
             SmartLEDs.setPixelColor(brdtst_TempLoopVariable2,0,5,0);
             brdtst_TempLoopVariable = 2;
@@ -269,6 +330,7 @@ void BRD_Testing()
           }
           case 2:
           {
+            
             // SmartLEDs.Color() takes RGB values, from 0,0,0 up to 255,255,255
             SmartLEDs.setPixelColor(brdtst_TempLoopVariable2,0,0,5);
             brdtst_TempLoopVariable = 3;
@@ -276,6 +338,7 @@ void BRD_Testing()
           }
           case 3:
           {
+            
             // SmartLEDs.Color() takes RGB values, from 0,0,0 up to 255,255,255
             SmartLEDs.setPixelColor(brdtst_TempLoopVariable2,0,0,0);
             if(brdtst_TempLoopVariable2)
@@ -292,19 +355,22 @@ void BRD_Testing()
         }
        
         SmartLEDs.show();   // Send the updated pixel colors to the hardware.
+        bit4 ^= 1;
+        digitalWrite(BRDTST_GPIO4,bit4);
      } 
     break;
    }
-   //***********************************************************************************************************************************************************************************************************************
+
+   // ***********************************************************************************************************************************************************************************************************************
    //push button 1 test
    case 20:
    {
     brstst_ucMaxNumberofTestSteps = 3;
     SmartLEDs.begin(); // INITIALIZE SMART LEDs object (REQUIRED)
-    SmartLEDs.clear(); // Set all pixel colors to 'off'
-    SmartLEDs.show();   // Send the updated pixel colors to the hardware.
+     SmartLEDs.setPixelColor(0,0,0,0); // Set pixel colors to 'off'
+     SmartLEDs.show();   // Send the updated pixel colors to the hardware.
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));Serial.println(F(""));
-    Serial.printf("%s",BoardTesting_Instructions[4]);
+    Serial.printf("case 20 %s",BoardTesting_Instructions[3]);
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
     pinMode(BRDTST_PB1, INPUT_PULLUP); // set D27 as input and turn on pull up to use push button
     brdtst_ucIncrementTestStep = 1;
@@ -318,7 +384,7 @@ void BRD_Testing()
    case 22:
    {
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    Serial.printf("%s",BoardTesting_Instructions[5]);
+    Serial.printf("%s",BoardTesting_Instructions[4]);
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
     brdtst_ucIncrementTestStep = 3;
     brdtst_TempLoopVariable = 0;
@@ -340,18 +406,17 @@ void BRD_Testing()
     }
     break;
    }
-   //***********************************************************************************************************************************************************************************************************************
-   //push button 2 test
+   
+   
+   // ***********************************************************************************************************************************************************************************************************************
+   //DIP Switch S1-5 test
    case 30:
    {
     brstst_ucMaxNumberofTestSteps = 3;
-    SmartLEDs.begin(); // INITIALIZE SMART LEDs object (REQUIRED)
-    SmartLEDs.clear(); // Set all pixel colors to 'off'
-    SmartLEDs.show();   // Send the updated pixel colors to the hardware.
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));Serial.println(F(""));
-    Serial.printf("%s",BoardTesting_Instructions[6]);
+    Serial.printf("%s",BoardTesting_Instructions[8]);
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    pinMode(BRDTST_PB2, INPUT_PULLUP); // set D26 as input and turn on pull up to use push button
+    pinMode(BRDTST_SLIDE_SW1_S1_5, INPUT_PULLUP); // set D3 as input
     brdtst_ucIncrementTestStep = 1;
     break;
    }
@@ -363,82 +428,40 @@ void BRD_Testing()
    case 32:
    {
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    Serial.printf("%s",BoardTesting_Instructions[7]);
+    Serial.printf("%s",BoardTesting_Instructions[9]);
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
     brdtst_ucIncrementTestStep = 3;
     brdtst_TempLoopVariable = 0;
+    brdtst_TempLoopVariable = digitalRead(BRDTST_SLIDE_SW1_S1_5);
+    if(brdtst_TempLoopVariable)
+    {
+      Serial.println(F("DIP Switch S1-5 Off (Input High), switch to test"));
+    }
+    else
+    {
+      Serial.println(F("DIP Switch S1-5 ON (Input Low), switch to test"));
+    }
     break;
    }
    case 33:
    {
    
-    if(digitalRead(BRDTST_PB2) != brdtst_TempLoopVariable)
+    if(digitalRead(BRDTST_SLIDE_SW1_S1_5) != brdtst_TempLoopVariable)
     {
-      brdtst_TempLoopVariable = digitalRead(BRDTST_PB2);
+      brdtst_TempLoopVariable = digitalRead(BRDTST_SLIDE_SW1_S1_5);
       if(brdtst_TempLoopVariable)
       {
-        Serial.println(F("Push Button 2 released"));
+        Serial.println(F("DIP Switch S1-5 Off (Input High)"));
       }
       else
       {
-        Serial.println(F("Push Button 2 pressed"));
+        Serial.println(F("DIP Switch S1-5 ON (Input Low)"));
       }
     }
     break;
    }
-   //***********************************************************************************************************************************************************************************************************************
-   //Slide Switch 1a test
-   case 40:
-   {
-    brstst_ucMaxNumberofTestSteps = 3;
-    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));Serial.println(F(""));
-    Serial.printf("%s",BoardTesting_Instructions[8]);
-    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    pinMode(BRDTST_SLIDE_SW_1A, INPUT); // set D13 as input
-    brdtst_ucIncrementTestStep = 1;
-    break;
-   }
-   case 41:
-   {
-    // waiting for user input
-    break;
-   }
-   case 42:
-   {
-    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    Serial.printf("%s",BoardTesting_Instructions[9]);
-    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    brdtst_ucIncrementTestStep = 3;
-    brdtst_TempLoopVariable = 0;
-    brdtst_TempLoopVariable = digitalRead(BRDTST_SLIDE_SW_1A);
-    if(brdtst_TempLoopVariable)
-    {
-      Serial.println(F("Slide Switch 1a High, switch to test"));
-    }
-    else
-    {
-      Serial.println(F("Slide Switch 1a Low, switch to test"));
-    }
-    break;
-   }
-   case 43:
-   {
-   
-    if(digitalRead(BRDTST_SLIDE_SW_1A) != brdtst_TempLoopVariable)
-    {
-      brdtst_TempLoopVariable = digitalRead(BRDTST_SLIDE_SW_1A);
-      if(brdtst_TempLoopVariable)
-      {
-        Serial.println(F("Slide Switch 1a High"));
-      }
-      else
-      {
-        Serial.println(F("Slide Switch 1a Low"));
-      }
-    }
-    break;
-   }
-//***********************************************************************************************************************************************************************************************************************
+   /*
+// ***********************************************************************************************************************************************************************************************************************
    //Slide Switch 1b test
    case 50:
    {
@@ -490,7 +513,7 @@ void BRD_Testing()
     }
     break;
    }
- //***********************************************************************************************************************************************************************************************************************
+ // ***********************************************************************************************************************************************************************************************************************
    //Slide Switch 2a test
    case 60:
    {
@@ -542,7 +565,7 @@ void BRD_Testing()
     }
     break;
    }  
- //***********************************************************************************************************************************************************************************************************************
+ // ***********************************************************************************************************************************************************************************************************************
    //Slide Switch 2b test
    case 70:
    {
@@ -594,7 +617,7 @@ void BRD_Testing()
     }
     break;
    }    
- //***********************************************************************************************************************************************************************************************************************
+ // ***********************************************************************************************************************************************************************************************************************
    //Potentiometer R1 Test
    case 80:
    {
@@ -638,7 +661,7 @@ void BRD_Testing()
     break;
    }
   
- //***********************************************************************************************************************************************************************************************************************
+ // ***********************************************************************************************************************************************************************************************************************
    //Potentiometer R2 Test
    case 90:
    {
@@ -682,7 +705,7 @@ void BRD_Testing()
     // waiting for user input
     break;
    } 
- //***********************************************************************************************************************************************************************************************************************
+ // ***********************************************************************************************************************************************************************************************************************
    //Analog Input AD0  Test
    case 100:
    {
@@ -725,7 +748,7 @@ void BRD_Testing()
     // waiting for user input
     break;
    }
-   //***********************************************************************************************************************************************************************************************************************
+   // ***********************************************************************************************************************************************************************************************************************
    //Analog Input AD3  Test
    case 110:
    {
@@ -769,7 +792,7 @@ void BRD_Testing()
     // waiting for user input
     break;
    }     
-   //***********************************************************************************************************************************************************************************************************************
+   // ***********************************************************************************************************************************************************************************************************************
    //Analog Input AD6  Test
    case 120:
    {
@@ -813,7 +836,7 @@ void BRD_Testing()
     break;
    }
        
-   //***********************************************************************************************************************************************************************************************************************
+   // ***********************************************************************************************************************************************************************************************************************
    //Analog Input AD5  Test
    case 130:
    {
@@ -857,7 +880,7 @@ void BRD_Testing()
     break;
    }
       
-  //***********************************************************************************************************************************************************************************************************************
+  // ***********************************************************************************************************************************************************************************************************************
    //Digital Input D2 Test
    case 140:
    {
@@ -959,7 +982,7 @@ void BRD_Testing()
     }
     break;
    }    
-//***********************************************************************************************************************************************************************************************************************
+// ***********************************************************************************************************************************************************************************************************************
    //Digital Input D4 Test
    case 150:
    {
@@ -1060,7 +1083,7 @@ void BRD_Testing()
     }
     break;
    } 
-//***********************************************************************************************************************************************************************************************************************
+// ***********************************************************************************************************************************************************************************************************************
    //Digital Input 15 Test
    case 160:
    {
@@ -1161,7 +1184,7 @@ void BRD_Testing()
     }
     break;
    } 
-//***********************************************************************************************************************************************************************************************************************
+// ***********************************************************************************************************************************************************************************************************************
    //Digital Input 12 Test
    case 170:
    {
@@ -1262,7 +1285,7 @@ void BRD_Testing()
     }
     break;
    } 
-//***********************************************************************************************************************************************************************************************************************
+// ***********************************************************************************************************************************************************************************************************************
    //Digital Input 5 Test
    case 180:
    {
@@ -1363,7 +1386,7 @@ void BRD_Testing()
     }
     break;
    } 
- //***********************************************************************************************************************************************************************************************************************
+ // ***********************************************************************************************************************************************************************************************************************
    //Digital Input 18 Test
    case 190:
    {
@@ -1464,7 +1487,7 @@ void BRD_Testing()
     }
     break;
    } 
-  //***********************************************************************************************************************************************************************************************************************
+  // ***********************************************************************************************************************************************************************************************************************
    //Digital Input 19 Test
    case 200:
    {
@@ -1565,7 +1588,7 @@ void BRD_Testing()
     }
     break;
    } 
-//***********************************************************************************************************************************************************************************************************************
+// ***********************************************************************************************************************************************************************************************************************
    //Digital Input 23 Test
    case 210:
    {
@@ -1666,7 +1689,7 @@ void BRD_Testing()
     }
     break;
    } 
- //***********************************************************************************************************************************************************************************************************************
+ // ***********************************************************************************************************************************************************************************************************************
    //I2C 3V Port Pin Test 
    case 220:
    {
@@ -1769,7 +1792,7 @@ void BRD_Testing()
     break;
    } 
  
-//***********************************************************************************************************************************************************************************************************************
+// ***********************************************************************************************************************************************************************************************************************
    //I2C 5V Port Pin Test 
    case 230:
    {
@@ -1871,7 +1894,7 @@ void BRD_Testing()
     }
     break;
    } 
-//***********************************************************************************************************************************************************************************************************************
+// ***********************************************************************************************************************************************************************************************************************
    // UART0 3V Port Pins Test
    case 240:
    {
@@ -1939,7 +1962,7 @@ void BRD_Testing()
     // waiting for user input
     break;
    }    
-//***********************************************************************************************************************************************************************************************************************
+// ***********************************************************************************************************************************************************************************************************************
    // UART0 5V Port Pins Test
    case 250:
    {
@@ -2005,7 +2028,7 @@ void BRD_Testing()
     // waiting for user input
     break;
    } 
-//***********************************************************************************************************************************************************************************************************************
+// ***********************************************************************************************************************************************************************************************************************
    //Current Monitor Input Test 
    case 260:
    {
@@ -2077,7 +2100,7 @@ void BRD_Testing()
      }
     break;
    }     
-//***********************************************************************************************************************************************************************************************************************
+// ***********************************************************************************************************************************************************************************************************************
   
    //encoder test
 
@@ -2161,7 +2184,7 @@ void BRD_Testing()
    }
 
    
-//***********************************************************************************************************************************************************************************************************************
+// ***********************************************************************************************************************************************************************************************************************
    //Done Testst 
    case 280:
    {
@@ -2175,7 +2198,7 @@ void BRD_Testing()
     break;
    }
 
-
+*/
    
  }
 

@@ -13,7 +13,7 @@ Western Engineering base code
 
 #include "MyWEBserver.h"
 
-#include "WDT.h";
+#include "WDT.h"
 
 TaskHandle_t Core_Zero;
 

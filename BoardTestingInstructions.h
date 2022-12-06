@@ -27,200 +27,123 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "\n"
 " Board Testing \n"
 "Preform these tests with only USB cable, DO NOT connect battery unless otherwise noted\n"
-"\n"  
-"Test 1 out of 28\n"
-" Blink on ESP32 LED Test         Next Test: SMART LEDs Test\n"
-"First Test: Blink on ESP32 LED\n"
-"Enter \"C\"ontinue, \"S\"kip this test or \"Q\"uit \n",
-//
-//Test 1 continued  [1]
-" Blink on ESP32 LED, Test 1 out of 28 \n" 
-"Enter \"C\"ontinue to next test,\"B\"ack to go beginning of Test, \"S\"kip to the next Test or \"Q\"uit \n"
-"   - Blue LED on ESP32 board should be blinking, if working enter \"C\' \n"
-"   - If not working: unplug ESP32 from power sources. \n"
-"      --- Use multimeter to check continuity (beep test), to ground, to 3V3, on physical pin 4,  if beep find short and fix. (use the schematic and board artwork as reference \n",
+"Slide all DIP Switch (S1) off, (slide towards resistors)\n" 
+" Enter \"C\"ontinue to next instruction\n",  
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//Test 2 [2]
+//Test 1 [1]
 "\n"  
-"Test 2 out of 28\n"
+"Test 1 out of 27\n"
 " SMART LEDs Test         Next Test: Push Button 1 Test\n"
 "Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
 " Instructions:\n"
-"   - Put jumper on JP5 (labeled - LEDs), then enter \"C\" \n",
+"   - Slide DIP Switch S1-11 to ON, then enter \"C\" \n",
 //
-//Test 2 continued  [3]
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//Test 1 continued  [2]
 "\n"  
-"Test 2 out of 28\n"
+"Test 1 out of 27\n"
 " SMART LEDs Test         Next Test: Push Button 1 Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
 " Instructions:\n"
-"   - SMART LED1 (look for label on board) should change colours, then SMART LED2 should change colours,  then back to LED1, if working enter \"C\" \n"
-"   - If not working: unplug ESP32 from power sources. \n"
-"   --- check jumper is connected correctly to JP5\n"
-"   --- did only one light? If yes then the connections from ESP32 to SMART LEDS is good, check LED power/ground pins and Din/Dout on LED not working\n"
-"   --- check solder joints on JP5, D25 (physical pin – 23) and SMART LED1/LED2 \n"
+"   - SMART LED1 (look for label on board) should change colours, if working enter \"C\" \n"
+"   - If not working: unplug MSE_Duino from power sources. \n"
+"   --- check DIP Switche S1-11 is toggled correctly to ON \n"
+"   --- check LED power/ground pins and Din/Dout on LED for soldering or shorts\n"
+"   --- check solder joints on S1-11, GPIO21 (physical pin – 23), and SMART LED1\n"
 "   --- Use multimeter to check continuity (beep test), to ground, to 3V3, to points along the circuit path (use the schematic and board artwork as reference)\n"
-"   --- Use oscilloscope to check signal coming from pin 25 , look at SK2812 data sheet for signal specs.\n",
+"   --- Use oscilloscope to check signal coming from pin 23 , look at SK2812 data sheet for signal specs.\n",
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//Test 3 [4]
+//Test 2 [3]
 "\n"  
-"Test 3 out of 28\n"
-" Push Button 1 Test         Next Test: Push Button 2 Test\n"
+"Test 2 out of 28\n"
+" Push Button 1 Test         Next Test: DIP Switch S1-5 Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
 " Instructions: \n"
-"   - Put jumper on two pin header JP13 (labeled - PB1), then enter \"C\" \n",
+"   - DIP SWITCH S1-11 to off then enter \"C\" \n",
 //
-//Test 3 continued  [5]
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//Test 2 continued  [4]
 "\n"  
-"Test 3 out of 28\n"
-" Push Button 1 Test         Next Test: Push Button 2 Test\n"
+"Test 2 out of 28\n"
+" Push Button 1 Test         Next Test: DIP Switch S1-5 Test Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
 " Instructions:\n"
 "   - The Serial Monitor will update on Push Button 1 change of state, if working enter \"C\" \n"
 "   - If not working: unplug ESP32 from power sources. \n"
-"   --- check jumper is connected correctly to two pin header JP13\n"
-"   --- check solder joints on two pin header JP13, D27 (physical pin – 25), Resistor 14 and Push Button 1\n"
+"   --- check solder joints on GPIO0 (physical pin 27),and Push Button 1\n"
 "   --- Use multimeter to check continuity (beep test), to ground, to 3V3, to points along the circuit path (use the schematic and board artwork as reference)\n",
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//Test 4 [6]
+//Test 3 [5]
 "\n"  
-"Test 4 out of 28\n"
-" Push Button 2 Test         Next Test: Slide Switch 1a Test\n"
+"Test 3 out of 28\n"
+" DIP Switch S1-5 Test         Next Test: DIP Switch S1-6 Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
 " Instructions:\n"
-"   - Put jumper on JP14 (labeled - PB2), then enter \"C\" \n",
+"   - DIP SWITCH S1-5 to off then enter \"C\" \n",
 //
-//Test 4 continued [7]
+//Test 3 continued [6]
 "\n"  
-"Test 4 out of 28\n"
-" Push Button 2 Test         Next Test: Slide Switch 1a Test\n"
+"Test 5 out of 28\n"
+" DIP Switch S1-5 Test         Next Test: DIP Switch S1-6 Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
 " Instructions:\n"
-"   - The Serial Monitor will update on Push Button 2 change of state, if working enter \"C\" \n"
+"   - The Serial Monitor will update on DIP Switch S1-5 change of state, if working enter \"C\" \n"
 "   - If not working: unplug ESP32 from power sources. \n"
-"   --- check jumper is connected correctly to JP14\n"
-"   --- check solder joints on JP14, D26 (physical pin – 24), Resistor 14 and Push Button 2\n"
+"   --- check solder joints on J3, (physical pin 15), Resistor 3 and DIP Switch S1-5\n"
 "   --- Use multimeter to check continuity (beep test), to ground, to 3V3, to points along the circuit path (use the schematic and board artwork as reference)\n",
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//Test 5 [8]
+//Test 4 [7]
 "\n"  
-"Test 5 out of 28\n"
-" Slide Switch 1a Test         Next Test: Slide Switch 1b Test\n"
+"Test 4 out of 28\n"
+" DIP Switch S1-6 Test         Next Test: Potentiometer R1 Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
 " Instructions:\n"
-"   - Put jumper on JP7 (labeled - a) , then enter \"C\" \n",
+"   - DIP SWITCH S1-5 to off then enter \"C\" \n",
 //
-//Test 5 continued [9]
+//Test 4 continued [8]
 "\n"  
-"Test 5 out of 28\n"
-" Slide Switch 1a Test         Next Test: Slide Switch 1b Test\n"
-" Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
-"\n"
-" Instructions:\n"
-"   - The Serial Monitor will update on Slide Switch 1a change of state, if working enter \"C\" \n"
-"   - If not working: unplug ESP32 from power sources. \n"
-"   --- check jumper is connected correctly to JP7\n"
-"   --- check solder joints on JP7, D13 (physical pin – 28), Resistor 7 and Slide Switch 1a\n"
-"   --- Use multimeter to check continuity (beep test), to ground, to 3V3, to points along the circuit path (use the schematic and board artwork as reference)\n",
-//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//Test 6 [10]
-"\n"  
-"Test 6 out of 28\n"
-" Slide Switch 1b Test         Next Test: Slide Switch 2a Test\n"
-" Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
-"\n"
-" Instructions:\n"
-"   - Put jumper on JP8 (labeled - S1b), then enter \"C\" \n",
-//
-//Test 6 continued [11]
-"\n"  
-"Test 6 out of 28\n"
-" Slide Switch 1b Test         Next Test: Slide Switch 2a Test\n"
+"Test 4 out of 28\n"
+" DIP Switch S1-6 Test         Next Test: Potentiometer R1 Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
 " Instructions:\n"
 "   - The Serial Monitor will update on Slide Switch 1b change of state, if working enter \"C\" \n"
 "   - If not working: unplug ESP32 from power sources. \n"
-"   --- check jumper is connected correctly to JP8\n"
-"   --- check solder joints on JP8, D16 (physical pin – 6), Resistor 8 and Slide Switch 1b\n"
+"   --- check solder joints on J46, (physical pin 16), Resistor 10 and DIP Switch S1-6\n"
 "   --- Use multimeter to check continuity (beep test), to ground, to 3V3, to points along the circuit path (use the schematic and board artwork as reference)\n",
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//Test 7 [12]
+//Test 5 [9]
 "\n"  
-"Test 7 out of 28\n"
-" Slide Switch 2a Test         Next Test: Slide Switch 2b Test\n"
-" Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
-"\n"
-" Instructions:\n"
-"   - Put jumper on JP6 (labeled - a), then enter \"C\" \n",
-//
-//Test 7 continued [13]
-"\n"  
-"Test 7 out of 28\n"
-" Slide Switch 2a Test         Next Test: Slide Switch 2b Test\n"
-" Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
-"\n"
-" Instructions:\n"
-"   - The Serial Monitor will update on Slide Switch 2a change of state, if working enter \"C\" \n"
-"   - If not working: unplug ESP32 from power sources. \n"
-"   --- check jumper is connected correctly to JP6\n"
-"   --- check solder joints on JP6, D14 (physical pin – 26), Resistor 5 and Slide Switch 2a\n"
-"   --- Use multimeter to check continuity (beep test), to ground, to 3V3, to points along the circuit path (use the schematic and board artwork as reference)\n",
-//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//Test 8 [14]
-"\n"  
-"Test 8 out of 28\n"
-" Slide Switch 2b Test         Next Test: Potentiometer R1 Test\n"
-" Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
-"\n"
-" Instructions:\n"
-"   - Put jumper on JP9 (labeled - S2b), then enter \"C\" \n",
-//
-//Test 8 continued [15]
-"\n"  
-"Test 8 out of 28\n"
-" Slide Switch 2b Test         Next Test: Potentiometer R1 Test\n"
-" Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
-"\n"
-" Instructions:\n"
-"   - The Serial Monitor will update on Slide Switch 2b change of state, if working enter \"C\" \n"
-"   - If not working: unplug ESP32 from power sources. \n"
-"   --- check jumper is connected correctly to JP9\n"
-"   --- check solder joints on JP9, D17 (physical pin – 7), Resistor 6 and Slide Switch 2b\n"
-"   --- Use multimeter to check continuity (beep test), to ground, to 3V3, to points along the circuit path (use the schematic and board artwork as reference)\n",
-//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//Test 9 [16]
-"\n"  
-"Test 9 out of 28\n"
+"Test 5 out of 28\n"
 " Potentiometer R1 Test        Next Test: Potentiometer R2 Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
 " Instructions:\n"
-"   - Put jumper on JP2 (labeled - PR2), then enter \"C\" \n"
+"   - DIP SWITCH S1-6 to off and DIP SWITCH S1-12 to on, then enter \"C\" \n"
 "       NOTE: Once you are finished with this test you will need to enter \"C\" to stop the scolling data.\n"
 "             The Serial Monitor will display Potentiometer R1 values as you adjust the potentiometer.\n",
 //
-//Test 9 continued [17]
+//Test 5 continued [10]
 "\n"  
-"Test 9 out of 28\n"
+"Test 5 out of 28\n"
 " Potentiometer R1 Test        Next Test: Potentiometer R2 Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
 " Instructions:\n"
 "   - The Serial Monitor should have displayed Potentiometer R1 values as you adjust the potentiometer, if working enter \"C\" \n"
 "   - If not working: unplug ESP32 from power sources. \n"
-"   --- check jumper is connected correctly to JP2\n"
-"   --- check solder joints on JP2, AD4 (physical pin – 21), Resistor 3 and Potentiometer R1\n"
+"   --- check DIP SWITCH S1-12 is on\n"
+"   --- check solder joints on J39, AD0 (physical pin 39), Resistor 9 and Potentiometer R1\n"
 "   --- Use multimeter to check continuity (beep test), to ground, to 3V3, to points along the circuit path (use the schematic and board artwork as reference)\n",
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//Test 10 [18]
+//Test 10 [18]EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE  
 "\n"  
 "Test 10 out of 28\n"
 " Potentiometer R2 Test        Next Test: Analog Input AD0 Test\n"

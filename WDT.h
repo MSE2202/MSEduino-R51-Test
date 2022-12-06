@@ -112,7 +112,7 @@ void WDT_EnableFastWatchDogCore0()
   else
   {
     WDT_htTimer0 = timerBegin(0, 80, true);
-    timerAttachInterrupt(WDT_htTimer0, &WDT_TimeOutCore0, true);
+    timerAttachInterrupt(WDT_htTimer0, &WDT_TimeOutCore0, false);
     timerAlarmWrite(WDT_htTimer0, 5010, true);
     timerAlarmEnable(WDT_htTimer0);
 
@@ -135,7 +135,7 @@ void WDT_EnableFastWatchDogCore1()
   {
   
      WDT_htTimer1 = timerBegin(1, 80, true);
-    timerAttachInterrupt(WDT_htTimer1, &WDT_TimeOutCore1, true);
+    timerAttachInterrupt(WDT_htTimer1, &WDT_TimeOutCore1, false);  //only use level , edge not working yet
     timerAlarmWrite(WDT_htTimer1, 1010, true);
     timerAlarmEnable(WDT_htTimer1);
     Serial.println(" WDT Core 1 on");

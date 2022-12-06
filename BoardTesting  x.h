@@ -49,7 +49,7 @@ Usage either through serial Monitor or WEB PAGE 192.168.128.1
 
 #define BRDTST_PB1         27     //when JP13 has jumper installed pin D27 is connected to push Buttton 1
 #define BRDTST_PB2         26     //when JP14 has jumper installed pin D26 is connected to push Buttton 2
-#define BRDTST_LED_PIN     25     //when JP5 has jumper installed pin D25 is connected to SMART LEDs
+#define BRDTST_SMART_LED     25     //when JP5 has jumper installed pin D25 is connected to SMART LEDs
 
 #define BRDTST_HALLPH1     15     //encoder input B
 #define BRDTST_HALLPH2     2      //encoder input A
@@ -61,7 +61,7 @@ Usage either through serial Monitor or WEB PAGE 192.168.128.1
 
 
 // Declare our SK6812 SMART LED object:
-Adafruit_NeoPixel SmartLEDs(BRSTST_LED_COUNT, BRDTST_LED_PIN, NEO_GRB + NEO_KHZ400);
+Adafruit_NeoPixel SmartLEDs(BRSTST_LED_COUNT, BRDTST_SMART_LED, NEO_GRB + NEO_KHZ400);
 // Argument 1 = Number of LEDs (pixels) in use
 // Argument 2 = ESP32 pin number 
 // Argument 3 = Pixel type flags, add together as needed:
