@@ -252,6 +252,8 @@ void BRD_Testing()
       SmartLEDs.begin(); // INITIALIZE SMART LEDs object (REQUIRED)
      SmartLEDs.setPixelColor(0,0,0,0);// Set pixel colors to 'off'
      SmartLEDs.show();   // Send the updated pixel colors to the hardware.
+     SmartLEDs.setPixelColor(1,0,0,0);// Set pixel colors to 'off'
+     SmartLEDs.show();   // Send the updated pixel colors to the hardware.
      brstst_ucMaxNumberofTestSteps = 1;
      
      Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
@@ -281,8 +283,8 @@ void BRD_Testing()
     Serial.printf("%s",BoardTesting_Instructions[1]);
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
     //SMART LED Testing
-     SmartLEDs.begin(); // INITIALIZE SMART LEDs object (REQUIRED)
-     SmartLEDs.setPixelColor(0,0,0,0); // Set pixel colors to 'off'
+     //SmartLEDs.begin(); // INITIALIZE SMART LEDs object (REQUIRED)
+     SmartLEDs.setPixelColor(1,0,0,0); // Set pixel colors to 'off'
      SmartLEDs.show();   // Send the updated pixel colors to the hardware.
      brdtst_ucIncrementTestStep = 1;
     break;
@@ -366,11 +368,11 @@ void BRD_Testing()
    case 20:
    {
     brstst_ucMaxNumberofTestSteps = 3;
-    SmartLEDs.begin(); // INITIALIZE SMART LEDs object (REQUIRED)
-     SmartLEDs.setPixelColor(0,0,0,0); // Set pixel colors to 'off'
+    //SmartLEDs.begin(); // INITIALIZE SMART LEDs object (REQUIRED)
+     SmartLEDs.setPixelColor(1,0,0,0); // Set pixel colors to 'off'
      SmartLEDs.show();   // Send the updated pixel colors to the hardware.
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));Serial.println(F(""));
-    Serial.printf("case 20 %s",BoardTesting_Instructions[3]);
+    Serial.printf("%s",BoardTesting_Instructions[3]);
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
     pinMode(BRDTST_PB1, INPUT_PULLUP); // set D27 as input and turn on pull up to use push button
     brdtst_ucIncrementTestStep = 1;
@@ -414,7 +416,7 @@ void BRD_Testing()
    {
     brstst_ucMaxNumberofTestSteps = 3;
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));Serial.println(F(""));
-    Serial.printf("%s",BoardTesting_Instructions[8]);
+    Serial.printf("%s",BoardTesting_Instructions[5]);
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
     pinMode(BRDTST_SLIDE_SW1_S1_5, INPUT_PULLUP); // set D3 as input
     brdtst_ucIncrementTestStep = 1;
@@ -428,7 +430,7 @@ void BRD_Testing()
    case 32:
    {
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    Serial.printf("%s",BoardTesting_Instructions[9]);
+    Serial.printf("%s",BoardTesting_Instructions[6]);
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
     brdtst_ucIncrementTestStep = 3;
     brdtst_TempLoopVariable = 0;
