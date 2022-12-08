@@ -446,8 +446,8 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Instructions:\n"
 "  !!! This is where you might blow you're ESP32 if your not careful connecting to the correct pins  !!!! \n" 
 "   - leave wire jumper on the one end of the three pin header J4, pin closest to inside of board\n"  
-"   - Move the wire jumper from three pin header J48 to the four pin header JP1 connect to pin closest to inside to board , Labeled DA\n",
-"   - then enter \"C\" \n"
+"   - Move the wire jumper from three pin header J48 to the four pin header JP1 connect to pin closest to inside to board , Labeled DA\n"
+"   - then enter \"C\" \n",
 //
 //Test 17 continued [34]
 "\n"  
@@ -473,8 +473,8 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Instructions:\n"
 "  !!! This is where you might blow you're ESP32 if your not careful connecting to the correct pins  !!!! \n" 
 "   - leave wire jumper on the one end of the three pin header J4, pin closest to inside of board\n"  
-"   - Move the wire jumper from four pin header JP1 connect to pin closest to inside to board to the same four pin header JP1 pin down one from the pin closest to inside of board , Labeled CLK\n",
-"   - then enter \"C\" \n"
+"   - Move the wire jumper from four pin header JP1 connect to pin closest to inside to board to the same four pin header JP1 pin down one from the pin closest to inside of board , Labeled CLK\n"
+"   - then enter \"C\" \n",
 //
 //Test 18 continued [36]
 "\n"  
@@ -673,7 +673,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
 " Instructions:\n"
-"   - Remove the receptacles to receptacles wires \n"
+"   - Remove the receptacle to receptacle wire \n"
 "   - Plug one of your small blue Servos into three pin header J42, with brown wire connected to pin at edge of board and orange wire on pin closest to inside of board\n"
 "   - then enter \"C\" \n"
 "       NOTE: Once you are finished with this test you will need to enter \"C\" to stop the scolling data.\n",
@@ -699,7 +699,8 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "\n"
 " Instructions:\n"
 "  !!! This is where you might blow you're ESP32 if your not careful connecting to the correct pins  !!!! \n" 
-"   - Disconnect the wire jumper( both ends), reconnect one end to the three pin header JP2 on pin closest to inside of board labeled Tx.\n"   
+"   - Disconnect the Servo\n"
+"   - Connect one end to of a receptacle to receptacle wires to the three pin header JP2 on pin closest to inside of board labeled Tx.\n"   
 "   - Using a 470 resistor put in the open end of the wire jumper, take a second jumer wire and connect to the other end of the 4k7 resistor.\n" 
 "   - This test automatically counts from 1 to 10 then print an X.\n"
 "   - During the 1 to 10 count (not before 1 or after 10), connect the free end of the second jumper wire to the three pin header JP2 on middle pin labeled Rx.\n"
@@ -761,8 +762,8 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "   - Turn over the MSE-Duino Board\n"
 "   - Holding one of the encoder magnetic strips by one end. (You can also use a flat fridge magnet for this test)\n"
 "   - then enter \"C\" \n"
-"       NOTE: Once you are finished with this test you will need to enter \"C\" to stop the scrolling data.\n",
-"\n"
+"       NOTE: Once you are finished with this test you will need to enter \"C\" to stop the scrolling data.\n"
+"\n",
 //
 //Test 29 continued [58]
 "\n"  

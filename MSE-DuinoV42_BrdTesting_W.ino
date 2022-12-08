@@ -89,7 +89,9 @@ unsigned long CR1_ulMotorTimerNow;
 void setup() 
 {
   Serial.begin(115200);
-  
+
+  Serial.println(F("MSE-diuno V4.2 Test Program"));
+  delay(1000);
   
   Core_ZEROInit();
 
