@@ -78,62 +78,6 @@ Usage either through serial Monitor or WEB PAGE 192.168.128.1
 
 
 
-
-
-
-
-//#define BRDTST_INDICATORLED 2     //pin 2 has a LED connected on ESP32 Board
-//#define BRDTST_SLIDE_SW_1A 13     //when JP7 has jumper installed Digital pin D13 is connected to Slide Switch 1a
-//#define BRDTST_SLIDE_SW_1B 16     //when JP8 has jumper installed Digital pin D16 is connected to Slide Switch 1b
-//#define BRDTST_SLIDE_SW_2A 14     //when JP6 has jumper installed Digital pin D14 is connected to Slide Switch 2a
-//#define BRDTST_SLIDE_SW_2B 17     //when JP9 has jumper installed Digital pin D17 is connected to Slide Switch 2b
-//
-//
-//#define BRDTST_POT_R1      A4     //when JP2 has jumper installed Analog pin AD4 is connected to Poteniometer R1
-//#define BRDTST_POT_R2      A7     //when JP3 has jumper installed Analog pin AD7 is connected to Poteniometer R2
-//
-//#define BRDTST_AD0         A0     //Analog input AD0
-//#define BRDTST_AD3         A3     //Analog input AD3
-//#define BRDTST_AD6         A6     //Analog input AD6
-//#define BRDTST_IMON        A5     //when JP1 has jumper installed Analog pin AD5 is connected to Current Monitor IC U3
-//
-//#define BRDTST_D2          2      //Digital i/o D2 at Jumper J9 and J29
-//#define BRDTST_D4          4      //Digital i/o D4 at Jumper J10 and J28
-//#define BRDTST_D15         15     //Digital i/o D15 at Jumper J8 and J30
-//#define BRDTST_D12         12     //Digital i/o D12 at Jumper J17 and J24
-//#define BRDTST_D5          5      //Digital i/o D5 at Jumper J13 and J27
-//#define BRDTST_D18         18     //Digital i/o D18 at Jumper J14 and J26
-//#define BRDTST_D19         19     //Digital i/o D19 at Jumper J15 and J25
-//#define BRDTST_D23         23     //Digital i/o D23 at Jumper J21 and J23
-//
-//#define BRDTST_TX0_OUT     1      //TX0 UART at jumper J15 (3V) and JP16 (5V)
-//#define BRDTST_RX0_IN      3      //RX0 UART at jumper J15 (3V) and JP16 (5V)
-//
-//#define BRDTST_I2C_CLK     22      //I2C CLK at jumper J11 (3V) and JP12 (5V)
-//#define BRDTST_I2C_DA      21      //I2C Data at jumper J11 (3V) and JP12 (5V)
-//
-//
-//#define BRDTST_PB1         27     //when JP13 has jumper installed pin D27 is connected to push Buttton 1
-//#define BRDTST_PB2         26     //when JP14 has jumper installed pin D26 is connected to push Buttton 2
-//#define BRDTST_SMART_LED     25     //when JP5 has jumper installed pin D25 is connected to SMART LEDs
-//
-//#define BRDTST_HALLPH1     15     //encoder input B
-//#define BRDTST_HALLPH2     2      //encoder input A
-//
-//
-//
-//#define BRSTST_LED_COUNT    1       //number of SMART LEDs in use
-//
-
-
-
-
-
-
-
-
-
-
 // Declare our SK6812 SMART LED object:
 Adafruit_NeoPixel SmartLEDs(BRDTST_LED_COUNT, BRDTST_SMART_LED, NEO_GRB + NEO_KHZ400);
 // Argument 1 = Number of LEDs (pixels) in use
@@ -151,7 +95,7 @@ Adafruit_NeoPixel SmartLEDs(BRDTST_LED_COUNT, BRDTST_SMART_LED, NEO_GRB + NEO_KH
 boolean   brdtst_BoardTestingActive = true;
 unsigned char brdtst_LEDBrightness = 25;
 unsigned char brstst_ucMaxNumberofTestSteps = 10;
-unsigned char brstst_ucMaxNumberofTests = 28;
+unsigned char brstst_ucMaxNumberofTests = 30;
 unsigned char brdtst_ucIncrementTestStep = 0;
 unsigned char brdtst_ucTestID = 0;
 
@@ -1635,6 +1579,7 @@ void BRD_Testing()
  // UART0 3V Port Pins Test
    case 270:
    {
+    
     brstst_ucMaxNumberofTestSteps = 4;
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));Serial.println(F(""));
     Serial.printf("%s",BoardTesting_Instructions[53]);
@@ -1682,7 +1627,7 @@ void BRD_Testing()
     
     break;
    }
-   case 274:
+   case 273:
    {
     pinMode(BRDTST_RX, OUTPUT);
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
@@ -1694,7 +1639,7 @@ void BRD_Testing()
     
     break;
    }
-   case 275:
+   case 274:
    {
      
     // waiting for user input
@@ -1800,47 +1745,74 @@ void BRD_Testing()
    }
    case 283:
    {
-    brdtst_TempLoopVariable = digitalRead(BRDTST_ENCODER_LEFT_A);
-    if(brdtst_TempLoopVariable)
+    if(digitalRead(BRDTST_ENCODER_LEFT_A))
     {
-      Serial.println(F("A High"));
+      brdtst_EncoderTest |= 1;
     }
     else
     {
-      Serial.println(F("A Low"));
+      brdtst_EncoderTest &= 0xFE;
     }
-    brdtst_TempLoopVariable = digitalRead(BRDTST_ENCODER_LEFT_B);
-    if(brdtst_TempLoopVariable)
+    if(digitalRead(BRDTST_ENCODER_LEFT_B))
     {
-      Serial.println(F("B High"));
-    }
-    else
-    {
-      Serial.println(F("B Low"));
-    }
-    brdtst_TempLoopVariable = digitalRead(BRDTST_ENCODER_LEFT_DIR);
-    if(brdtst_TempLoopVariable)
-    {
-      Serial.println(F("Direction Forward"));
+      brdtst_EncoderTest |= 0x02;
     }
     else
     {
-      Serial.println(F("Direction Backwards"));
+      brdtst_EncoderTest &= 0xFD;
     }
-    brdtst_TempLoopVariable = digitalRead(BRDTST_ENCODER_LEFT_SPD);
-    if(brdtst_TempLoopVariable != brdtst_TempLoopVariable2)
+    if(digitalRead(BRDTST_ENCODER_LEFT_SPD))
     {
-      brdtst_TempLoopVariable2 = brdtst_TempLoopVariable;
+      brdtst_EncoderTest |= 0x04;
+    }
+    else
+    {
+      brdtst_EncoderTest &= 0xFB;
+    }
+    if((brdtst_EncoderTest & 0x01) != (brdtst_EncoderTest2 & 0x01))
+    {
+       if(brdtst_EncoderTest & 0x01)
+       {
+         Serial.print(F("A High, "));
+       }
+       else
+       {
+         Serial.print(F("A Low, "));
+       }
+    }
+    if((brdtst_EncoderTest & 0x02) != (brdtst_EncoderTest2 & 0x02))
+    {
+       if(brdtst_EncoderTest & 0x02)
+       {
+         Serial.print(F("B High, "));
+       }
+       else
+       {
+         Serial.print(F("B Low, "));
+       }
+    }
+    if((brdtst_EncoderTest & 0x04) != (brdtst_EncoderTest2 & 0x04))
+    {
       if(digitalRead(BRDTST_ENCODER_LEFT_DIR))
       {
+        Serial.print(F("Direction Forward  "));
         brdtst_iCounter = brdtst_iCounter + 1;
       }
       else
        {
+        Serial.print(F("Direction Backwards  "));
         brdtst_iCounter = brdtst_iCounter - 1;
       }
-      Serial.printf("Speed count  = %i\n",brdtst_iCounter);
+      Serial.printf("Speed count  = %i",brdtst_iCounter);
+      
     }
+    if(brdtst_EncoderTest != brdtst_EncoderTest2)
+    {
+      brdtst_EncoderTest2 = brdtst_EncoderTest;
+      Serial.println(F(" "));
+    }
+    
+   
     break;
    }
    case 284:
@@ -1876,99 +1848,154 @@ void BRD_Testing()
     // waiting for user input
     break;
    }
-   case 292:
+    case 292:
    {
     brdtst_ucIncrementTestStep = 3;
-    brdtst_TempLoopVariable = digitalRead(BRDTST_ENCODER_RIGHT_A);
-    if(brdtst_TempLoopVariable)
+    if(digitalRead(BRDTST_ENCODER_RIGHT_A))
     {
-      Serial.println(F("A High"));
+      brdtst_EncoderTest |= 1;
     }
     else
     {
-      Serial.println(F("A Low"));
+      brdtst_EncoderTest &= 0xFE;
     }
-    brdtst_TempLoopVariable = digitalRead(BRDTST_ENCODER_RIGHT_B);
-    if(brdtst_TempLoopVariable)
+    if(digitalRead(BRDTST_ENCODER_RIGHT_B))
     {
-      Serial.println(F("B High"));
-    }
-    else
-    {
-      Serial.println(F("B Low"));
-    }
-    brdtst_TempLoopVariable = digitalRead(BRDTST_ENCODER_RIGHT_DIR);
-    if(brdtst_TempLoopVariable)
-    {
-      Serial.println(F("Direction Forward"));
+      brdtst_EncoderTest |= 0x02;
     }
     else
     {
-      Serial.println(F("Direction Backwards"));
+      brdtst_EncoderTest &= 0xFD;
     }
-    brdtst_TempLoopVariable = digitalRead(BRDTST_ENCODER_RIGHT_SPD);
-    if(brdtst_TempLoopVariable != brdtst_TempLoopVariable2)
+    if(digitalRead(BRDTST_ENCODER_RIGHT_SPD))
     {
-      brdtst_TempLoopVariable2 = brdtst_TempLoopVariable;
-      if(digitalRead(BRDTST_ENCODER_LEFT_DIR))
+      brdtst_EncoderTest |= 0x04;
+    }
+    else
+    {
+      brdtst_EncoderTest &= 0xFB;
+    }
+    if((brdtst_EncoderTest & 0x01) != (brdtst_EncoderTest2 & 0x01))
+    {
+       if(brdtst_EncoderTest & 0x01)
+       {
+         Serial.print(F("A High, "));
+       }
+       else
+       {
+         Serial.print(F("A Low, "));
+       }
+    }
+    if((brdtst_EncoderTest & 0x02) != (brdtst_EncoderTest2 & 0x02))
+    {
+       if(brdtst_EncoderTest & 0x02)
+       {
+         Serial.print(F("B High, "));
+       }
+       else
+       {
+         Serial.print(F("B Low, "));
+       }
+    }
+    if((brdtst_EncoderTest & 0x04) != (brdtst_EncoderTest2 & 0x04))
+    {
+      if(digitalRead(BRDTST_ENCODER_RIGHT_DIR))
       {
+        Serial.print(F("Direction Forward  "));
         brdtst_iCounter = brdtst_iCounter + 1;
       }
       else
        {
+        Serial.print(F("Direction Backwards  "));
         brdtst_iCounter = brdtst_iCounter - 1;
       }
-      Serial.printf("Speed count  = %i\n",brdtst_iCounter);
+      Serial.printf("Speed count  = %i",brdtst_iCounter);
       
     }
+    if(brdtst_EncoderTest != brdtst_EncoderTest2)
+    {
+      brdtst_EncoderTest2 = brdtst_EncoderTest;
+      Serial.println(F(" "));
+    }
+    
+   
+   
     // waiting for user input
     break;
    }
    case 293:
    {
-    brdtst_TempLoopVariable = digitalRead(BRDTST_ENCODER_RIGHT_A);
-    if(brdtst_TempLoopVariable)
+    if(digitalRead(BRDTST_ENCODER_RIGHT_A))
     {
-      Serial.println(F("A High"));
+      brdtst_EncoderTest |= 1;
     }
     else
     {
-      Serial.println(F("A Low"));
+      brdtst_EncoderTest &= 0xFE;
     }
-    brdtst_TempLoopVariable = digitalRead(BRDTST_ENCODER_RIGHT_B);
-    if(brdtst_TempLoopVariable)
+    if(digitalRead(BRDTST_ENCODER_RIGHT_B))
     {
-      Serial.println(F("B High"));
-    }
-    else
-    {
-      Serial.println(F("B Low"));
-    }
-    brdtst_TempLoopVariable = digitalRead(BRDTST_ENCODER_RIGHT_DIR);
-    if(brdtst_TempLoopVariable)
-    {
-      Serial.println(F("Direction Forward"));
+      brdtst_EncoderTest |= 0x02;
     }
     else
     {
-      Serial.println(F("Direction Backwards"));
+      brdtst_EncoderTest &= 0xFD;
     }
-    brdtst_TempLoopVariable = digitalRead(BRDTST_ENCODER_RIGHT_SPD);
-    if(brdtst_TempLoopVariable != brdtst_TempLoopVariable2)
+    if(digitalRead(BRDTST_ENCODER_RIGHT_SPD))
     {
-      brdtst_TempLoopVariable2 = brdtst_TempLoopVariable;
+      brdtst_EncoderTest |= 0x04;
+    }
+    else
+    {
+      brdtst_EncoderTest &= 0xFB;
+    }
+    if((brdtst_EncoderTest & 0x01) != (brdtst_EncoderTest2 & 0x01))
+    {
+       if(brdtst_EncoderTest & 0x01)
+       {
+         Serial.print(F("A High, "));
+       }
+       else
+       {
+         Serial.print(F("A Low, "));
+       }
+    }
+    if((brdtst_EncoderTest & 0x02) != (brdtst_EncoderTest2 & 0x02))
+    {
+       if(brdtst_EncoderTest & 0x02)
+       {
+         Serial.print(F("B High, "));
+       }
+       else
+       {
+         Serial.print(F("B Low, "));
+       }
+    }
+    if((brdtst_EncoderTest & 0x04) != (brdtst_EncoderTest2 & 0x04))
+    {
       if(digitalRead(BRDTST_ENCODER_RIGHT_DIR))
       {
+        Serial.print(F("Direction Forward  "));
         brdtst_iCounter = brdtst_iCounter + 1;
       }
       else
        {
+        Serial.print(F("Direction Backwards  "));
         brdtst_iCounter = brdtst_iCounter - 1;
       }
-      Serial.printf("Speed count  = %i\n",brdtst_iCounter);
-    } 
+      Serial.printf("Speed count  = %i",brdtst_iCounter);
+      
+    }
+    if(brdtst_EncoderTest != brdtst_EncoderTest2)
+    {
+      brdtst_EncoderTest2 = brdtst_EncoderTest;
+      Serial.println(F(" "));
+    }
+    
+   
     break;
    }
+  
    case 294:
    {
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));

@@ -57,7 +57,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Test 2 [3]
 "\n"  
-"Test 2 out of 28\n"
+"Test 2 out of 29\n"
 " Push Button 1 Test         Next Test: DIP Switch S1-5 Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -67,7 +67,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Test 2 continued  [4]
 "\n"  
-"Test 2 out of 28\n"
+"Test 2 out of 29\n"
 " Push Button 1 Test         Next Test: DIP Switch S1-5 Test Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -79,7 +79,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Test 3 [5]
 "\n"  
-"Test 3 out of 28\n"
+"Test 3 out of 29\n"
 " DIP Switch S1-5 Test         Next Test: DIP Switch S1-6 Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -88,7 +88,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //
 //Test 3 continued [6]
 "\n"  
-"Test 5 out of 28\n"
+"Test 5 out of 29\n"
 " DIP Switch S1-5 Test         Next Test: DIP Switch S1-6 Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
@@ -100,7 +100,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Test 4 [7]
 "\n"  
-"Test 4 out of 28\n"
+"Test 4 out of 29\n"
 " DIP Switch S1-6 Test         Next Test: Potentiometer R1 Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -109,7 +109,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //
 //Test 4 continued [8]
 "\n"  
-"Test 4 out of 28\n"
+"Test 4 out of 29\n"
 " DIP Switch S1-6 Test         Next Test: Potentiometer R1 Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
@@ -121,7 +121,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Test 5 [9]
 "\n"  
-"Test 5 out of 28\n"
+"Test 5 out of 29\n"
 " Potentiometer R1 Test        Next Test: Potentiometer R2 Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -132,7 +132,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //
 //Test 5 continued [10]
 "\n"  
-"Test 5 out of 28\n"
+"Test 5 out of 29\n"
 " Potentiometer R1 Test        Next Test: Potentiometer R2 Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
@@ -145,7 +145,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Test 6 [11]
 "\n"  
-"Test 6 out of 28\n"
+"Test 6 out of 29\n"
 " Analog Input AD1-3 Test        Next Test: Analog Input AD1-4 Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -158,7 +158,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //
 //Test 6 continued [12]
 "\n"  
-"Test 6 out of 28\n"
+"Test 6 out of 29\n"
 " Analog Input AD1-3 Test        Next Test: Analog Input AD1-4 Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
@@ -172,7 +172,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Test 7 [13]
 "\n"  
-"Test 7 out of 28\n"
+"Test 7 out of 29\n"
 " Analog Input AD1-4 Test        Next Test: Analog Input AD1-5 Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -184,7 +184,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //
 //Test 7 continued [14]
 "\n"  
-"Test 7 out of 28\n"
+"Test 7 out of 29\n"
 " Analog Input AD1-4 Test        Next Test: Analog Input AD1-5 Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
@@ -198,7 +198,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Test 8 [15]
 "\n"  
-"Test 8 out of 28\n"
+"Test 8 out of 29\n"
 " Analog Input AD1-5 Test        Next Test: Analog Input AD1-6 Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -210,7 +210,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //
 //Test 8 continued [16]
 "\n"  
-"Test 8 out of 28\n"
+"Test 8 out of 29\n"
 " Analog Input AD1-5 Test        Next Test: Analog Input AD1-6 Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
@@ -224,7 +224,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Test 9 [17]
 "\n"  
-"Test 9 out of 28\n"
+"Test 9 out of 29\n"
 " Analog Input AD1-6 Test        Next Test: Analog Input AD1-7 Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -236,7 +236,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //
 //Test 9 continued [18]
 "\n"  
-"Test 9 out of 28\n"
+"Test 9 out of 29\n"
 " Analog Input AD1-6 Test        Next Test: Analog Input AD1-7 Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
@@ -250,7 +250,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Test 10 [19]
 "\n"  
-"Test 10 out of 28\n"
+"Test 10 out of 29\n"
 " Analog Input AD1-7 Test        Next Test: Analog Input AD1-8 Tes\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -262,7 +262,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //
 //Test 10 continued [20]
 "\n"  
-"Test 10 out of 28\n"
+"Test 10 out of 29\n"
 " Analog Input AD1-7 Test        Next Test: Analog Input AD1-8 Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
@@ -276,7 +276,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Test 11 [21]
 "\n"  
-"Test 11 out of 28\n"
+"Test 11 out of 29\n"
 " Analog Input AD1-8 Test        Next Test: Analog Input AD1-9 Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -288,7 +288,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //
 //Test 11 continued [22]
 "\n"  
-"Test 11 out of 28\n"
+"Test 11 out of 29\n"
 " Analog Input AD1-8 Test        Next Test: Analog Input AD1-9 Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
@@ -302,7 +302,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Test 12 [23]
 "\n"  
-"Test 12 out of 28\n"
+"Test 12 out of 29\n"
 " Analog Input AD1-9 Test        Next Test: Analog Input AD1-1 Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -314,7 +314,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //
 //Test 12 continued [24]
 "\n"  
-"Test 12 out of 28\n"
+"Test 12 out of 29\n"
 " Analog Input AD1-9 Test        Next Test: Analog Input AD1-1 Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
@@ -328,7 +328,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Test 13 [25]
 "\n"  
-"Test 13 out of 28\n"
+"Test 13 out of 29\n"
 " Analog Input AD1-1 Test        Next Test: Digital Input GPIO45 Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -340,7 +340,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //
 //Test 13 continued [26]
 "\n"  
-"Test 13 out of 28\n"
+"Test 13 out of 29\n"
 " Analog Input AD1-1 Test        Next Test: Digital Input GPIO45 Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
@@ -354,7 +354,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Test 14 [27]
 "\n"  
-"Test 14 out of 28\n"
+"Test 14 out of 29\n"
 " Digital Input GPIO45 Test        Next Test: I2C 3V Port Pin Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -365,7 +365,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //
 //Test 14 continued [28]
 "\n"  
-"Test 14 out of 28\n"
+"Test 14 out of 29\n"
 " Digital Input GPIO45 Test        Next Test: I2C 3V Port Pin Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
@@ -384,7 +384,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "!!                                                                                                                                                                                     !!\n"
 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n"
 "\n"  
-"Test 15 out of 28\n"
+"Test 15 out of 29\n"
 " I2C 3V Port Pin SDA Test        Next Test: I2C 3V Port Pin CLK\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -395,7 +395,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //
 //Test 15 continued [30]
 "\n"  
-"Test 15 out of 28\n"
+"Test 15 out of 29\n"
 " I2C 3V Port Pin SDA Test        Next Test:I2C 3V Port Pin CLK\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
@@ -410,7 +410,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Test 16 [31]
 "\n"  
-"Test 16 out of 28\n"
+"Test 16 out of 29\n"
 " I2C 3V Port Pin CLK Test        Next Test: I2C 5V Port Pin Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -420,7 +420,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //
 //Test 16 continued [32]
 "\n"  
-"Test 16 out of 28\n"
+"Test 16 out of 29\n"
 " I2C 3V Port Pin CLK Test        Next Test: I2C 5V Port Pin Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
@@ -439,7 +439,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "!!                                                                                                                                                                                     !!\n"
 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n"
 "\n"  
-"Test 17 out of 28\n"
+"Test 17 out of 29\n"
 " I2C DA 5V Port Pin Test        Next Test: I2C CLK 5V Port Pin Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -451,7 +451,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //
 //Test 17 continued [34]
 "\n"  
-"Test 17 out of 28\n"
+"Test 17 out of 29\n"
 " I2C DA 5V Port Pin Test        Next Test: I2C CLK 5V Port Pin Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
@@ -466,7 +466,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Test 18 [35]
 "\n"  
-"Test 18 out of 28\n"
+"Test 18 out of 29\n"
 " I2C CLK 5V Port Pin Test        Next Test: Motor Pin test GPIO35\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -478,7 +478,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //
 //Test 18 continued [36]
 "\n"  
-"Test 18 out of 28\n"
+"Test 18 out of 29\n"
 " I2C CLK 5V Port Pin Test        Next Test: Motor Pin test GPIO35\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
@@ -493,7 +493,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Test 19 [37]
 "\n"  
-"Test 19 out of 28\n"
+"Test 19 out of 29\n"
 " Motor 1 A test GPIO35        Next Test: Motor 1 B test GPIO36\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -505,7 +505,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //
 //Test 19 continued [38]
 "\n"  
-"Test 19 out of 28\n"
+"Test 19 out of 29\n"
 " Motor 1 A test GPIO35        Next Test: Motor 1 B test GPIO36\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
@@ -518,7 +518,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Test 20 [39]
 "\n"  
-"Test 20 out of 28\n"
+"Test 20 out of 29\n"
 " Motor 1 B test GPIO36        Next Test: Motor 2 A test GPIO37\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -530,7 +530,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //
 //Test 20 continued [40]
 "\n"  
-"Test 20 out of 28\n"
+"Test 20 out of 29\n"
 " Motor 1 B test GPIO36        Next Test: Motor 2 A test GPIO37\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
@@ -543,7 +543,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Test 21 [41]
 "\n"  
-"Test 21 out of 28\n"
+"Test 21 out of 29\n"
 " Motor 2 A test GPIO37        Next Test: Motor 2 B test GPIO38\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -555,7 +555,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //
 //Test 21 continued [42]
 "\n"  
-"Test 21 out of 28\n"
+"Test 21 out of 29\n"
 " Motor 2 A test GPIO37        Next Test: Motor 2 B test GPIO38\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
@@ -568,7 +568,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Test 22 [43]
 "\n"  
-"Test 22 out of 28\n"
+"Test 22 out of 29\n"
 " Motor 2 B test GPIO38        Next Test: Stepper DIR Pin test GPIO39\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -580,7 +580,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //
 //Test 22 continued [44]
 "\n"  
-"Test 22 out of 28\n"
+"Test 22 out of 29\n"
 " Motor 2 B test GPIO38        Next Test: Stepper DIR Pin test GPIO39\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
@@ -593,7 +593,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Test 23 [45]
 "\n"  
-"Test 23 out of 28\n"
+"Test 23 out of 29\n"
 " Stepper DIR Pin test GPIO39        Next Test: Stepper CLK Pin test GPIO40\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -605,7 +605,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //
 //Test 23 continued [46]
 "\n"  
-"Test 23 out of 28\n"
+"Test 23 out of 29\n"
 " Stepper DIR Pin test GPIO39        Next Test: Stepper CLK Pin test GPIO40\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
@@ -618,7 +618,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Test 24 [47]
 "\n"  
-"Test 24 out of 28\n"
+"Test 24 out of 29\n"
 " Stepper CLK Pin test GPIO40        Next Test: Servo 1 test GPIO41\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -630,7 +630,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //
 //Test 24 continued [48]
 "\n"  
-"Test 24 out of 28\n"
+"Test 24 out of 29\n"
 " Stepper CLK Pin test GPIO40        Next Test: Servo 1 test GPIO41\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
@@ -643,7 +643,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Test 25 [49]
 "\n"  
-"Test 25 out of 28\n"
+"Test 25 out of 29\n"
 " Servo 1 test GPIO41       Next Test: Servo 2 test GPIO42\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -655,7 +655,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //
 //Test 25 continued [50]
 "\n"  
-"Test 25 out of 28\n"
+"Test 25 out of 29\n"
 " Servo 1 test GPIO41       Next Test: Servo 2 test GPIO42\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
@@ -668,7 +668,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Test 26 [51]
 "\n"  
-"Test 26 out of 28\n"
+"Test 26 out of 29\n"
 " Servo 2 test GPIO42       Next Test: UART0 3V Port Pin Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -680,7 +680,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //
 //Test 26 continued [52]
 "\n"  
-"Test 26 out of 28\n"
+"Test 26 out of 29\n"
 " Servo 2 test GPIO42       Next Test: UART0 3V Port Pin Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
@@ -693,7 +693,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Test 27 [53]
 "\n"  
-"Test 27 out of 28\n"
+"Test 27 out of 29\n"
 " UART0 3V Port Pin Test        Next Test: Left Encoder Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -710,7 +710,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //Test 27 continued [54]
 
 "\n"  
-"Test 27 out of 28\n"
+"Test 27 out of 29\n"
 " UART0 3V Port Pin Test        Next Test: Left Encoder Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
@@ -725,7 +725,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Test 28 [55]
 "\n"  
-"Test 28 out of 28       \n"
+"Test 28 out of 29       \n"
 " Left Encoder Test               Next Test: Right Encoder Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -733,13 +733,13 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "   - Set DIP Switches S1-1, S1-2, S1-3, S1-4 to ON position\n"
 "   - Turn over the MSE-Duino Board\n"
 "   - Holding one of the encoder magnetic strips by one end. (You can also use a flat fridge magnet for this test)\n"
-"   - then enter \"C\" \n"
+"   - The Serial Monitor should display  A, B, DIR ,and  SPD as you slowly drag the black part of the encoder magnetic strip across IC U1\n"
+"      , The direction to drag the strip is from one short end towards the other short end of the circuit board, if working enter \"C\" \n"
 "       NOTE: Once you are finished with this test you will need to enter \"C\" to stop the scrolling data.\n",
-"\n"
 //
 //Test 28 continued [56]
 "\n"  
-"Test 28 out of 28\n"
+"Test 28 out of 29\n"
 " Encoder Board Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
@@ -753,7 +753,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Test 29 [57]
 "\n"  
-"Test 29 out of 28       \n"
+"Test 29 out of 29       \n"
 " Right Encoder Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -761,13 +761,14 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "   - Set DIP Switches S1-1, S1-2, S1-3, S1-4 to OFF and S1-7, S1-8, S1-9, and S1-10\n"
 "   - Turn over the MSE-Duino Board\n"
 "   - Holding one of the encoder magnetic strips by one end. (You can also use a flat fridge magnet for this test)\n"
-"   - then enter \"C\" \n"
+"   - The Serial Monitor should have displayed  A, B, DIR ,and  SPD as you slowly drag the black part of the encoder magnetic strip across IC U2\n"
+"      , The direction to drag the strip is from one short end towards the other short end of the circuit board, if working enter \"C\" \n"
 "       NOTE: Once you are finished with this test you will need to enter \"C\" to stop the scrolling data.\n"
 "\n",
 //
 //Test 29 continued [58]
 "\n"  
-"Test 29 out of 28\n"
+"Test 29 out of 29\n"
 " Right Encoder Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
