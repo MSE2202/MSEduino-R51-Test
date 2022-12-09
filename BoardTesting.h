@@ -65,7 +65,10 @@ Usage either through serial Monitor or WEB PAGE 192.168.128.1
 #define BRDTST_SERVO_2 42    //GPIO42 pin 35 (J42) Servo 2
 
 #define BRDTST_RX 44        //GPIO44 pin 36 (JP2) SCI Rx in pin
+#define BRDTST_GPIO43 43        //GPIO43 pin 37 (JP2) SCI Tx in pin
+#define BRDTST_GPIO44 44        //GPIO44 pin 36 (JP2) SCI Rx in pin
 #define BRDTST_TX 43        //GPIO43 pin 37 (JP2) SCI Tx in pin
+
 
 #define BRDTST_GPIO2 2    //GPIO2 pin 38 not connected to other devices (J2); also is analog AD1-1
 
@@ -95,7 +98,7 @@ Adafruit_NeoPixel SmartLEDs(BRDTST_LED_COUNT, BRDTST_SMART_LED, NEO_GRB + NEO_KH
 boolean   brdtst_BoardTestingActive = true;
 unsigned char brdtst_LEDBrightness = 25;
 unsigned char brstst_ucMaxNumberofTestSteps = 10;
-unsigned char brstst_ucMaxNumberofTests = 30;
+unsigned char brstst_ucMaxNumberofTests = 31;
 unsigned char brdtst_ucIncrementTestStep = 0;
 unsigned char brdtst_ucTestID = 0;
 
@@ -916,16 +919,16 @@ void BRD_Testing()
     }
     break;
    }    
-   
- // ***********************************************************************************************************************************************************************************************************************
- //I2C 3V Port DA Pin Test 
+// ***********************************************************************************************************************************************************************************************************************
+   //Digital Input GPIO43 Test
    case 150:
    {
     brstst_ucMaxNumberofTestSteps = 3;
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));Serial.println(F(""));
     Serial.printf("%s",BoardTesting_Instructions[29]);
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    pinMode(BRDTST_I2C_DA, INPUT); // set I2C_DA  as input
+    pinMode(BRDTST_GPIO43, INPUT); // set D43 as input
+    pinMode(BRDTST_GPIO4, OUTPUT); // set D4 as output
     brdtst_ucIncrementTestStep = 1;
     break;
    }
@@ -942,45 +945,46 @@ void BRD_Testing()
     brdtst_ucIncrementTestStep = 3;
     brdtst_TempLoopVariable = 0;
     digitalWrite(BRDTST_GPIO4, digitalRead(BRDTST_PB1)); // push PB1 to gpio4
-    brdtst_TempLoopVariable = digitalRead(BRDTST_I2C_DA);
+    
+    brdtst_TempLoopVariable = digitalRead(BRDTST_GPIO43);
     if(brdtst_TempLoopVariable)
     {
-      Serial.println(F("I2C 3V Port Pin DA - High, pull ground end wire to test"));
+      Serial.println(F("Digital Input GPIO43 at J43 at JP2 pin closest to inside of board - High, Press PB1 to test"));
     }
     else
     {
-      Serial.println(F("I2C 3V Port Pin DA - Low, pull ground end wire to test"));
+      Serial.println(F("Digital Input GPIO43 at J43 at JP2 pin closest to inside of board - Low, Press PB1 to test"));
     }
     break;
    }
    case 153:
    {
-    digitalWrite(BRDTST_GPIO4, digitalRead(BRDTST_PB1)); // push PB1 to gpio4
-    if(digitalRead(BRDTST_I2C_DA) != brdtst_TempLoopVariable)
+     
+     digitalWrite(BRDTST_GPIO4,digitalRead(BRDTST_PB1)); // push PB1 to gpio4
+    if(digitalRead(BRDTST_GPIO43) != brdtst_TempLoopVariable)
     {
-      
-      brdtst_TempLoopVariable = digitalRead(BRDTST_I2C_DA);
+      brdtst_TempLoopVariable = digitalRead(BRDTST_GPIO43);
       if(brdtst_TempLoopVariable)
       {
-        Serial.println(F("I2C 3V Port Pin DA - High"));
+        Serial.println(F("Digital GPIO43 at JP2 pin closest to inside of board - High"));
       }
       else
       {
-        Serial.println(F("I2C 3V Port Pin DA - Low"));
+        Serial.println(F("Digital GPIO43 at JP2 pin closest to inside of board - Low"));
       }
     }
     break;
-   }
-  
+   }    
 // ***********************************************************************************************************************************************************************************************************************
- //I2C 3V Port CLK Pin Test        
+   //Digital Input GPIO44 Test
    case 160:
    {
     brstst_ucMaxNumberofTestSteps = 3;
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));Serial.println(F(""));
     Serial.printf("%s",BoardTesting_Instructions[31]);
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    pinMode(BRDTST_I2C_CLK, INPUT); // set I2C_CLK  as input
+    pinMode(BRDTST_GPIO44, INPUT); // set D44 as input
+    pinMode(BRDTST_GPIO4, OUTPUT); // set D4 as output
     brdtst_ucIncrementTestStep = 1;
     break;
    }
@@ -997,38 +1001,40 @@ void BRD_Testing()
     brdtst_ucIncrementTestStep = 3;
     brdtst_TempLoopVariable = 0;
     digitalWrite(BRDTST_GPIO4, digitalRead(BRDTST_PB1)); // push PB1 to gpio4
-    brdtst_TempLoopVariable = digitalRead(BRDTST_I2C_CLK);
+    
+    brdtst_TempLoopVariable = digitalRead(BRDTST_GPIO44);
     if(brdtst_TempLoopVariable)
     {
-      Serial.println(F("I2C 3V Port Pin CLK - High, pull ground end wire to test"));
+      Serial.println(F("Digital Input GPIO44 at JP2 pin in middle - High, Press PB1 to test"));
     }
     else
     {
-      Serial.println(F("I2C 3V Port Pin CLK - Low, pull ground end wire to test"));
+      Serial.println(F("Digital Input GPIO44 at JP2 pin in middle - Low, Press PB1 to test"));
     }
     break;
    }
    case 163:
    {
-    digitalWrite(BRDTST_GPIO4, digitalRead(BRDTST_PB1)); // push PB1 to gpio4
-    if(digitalRead(BRDTST_I2C_CLK) != brdtst_TempLoopVariable)
+     
+     digitalWrite(BRDTST_GPIO4,digitalRead(BRDTST_PB1)); // push PB1 to gpio4
+    if(digitalRead(BRDTST_GPIO44) != brdtst_TempLoopVariable)
     {
-      
-      brdtst_TempLoopVariable = digitalRead(BRDTST_I2C_CLK);
+      brdtst_TempLoopVariable = digitalRead(BRDTST_GPIO44);
       if(brdtst_TempLoopVariable)
       {
-        Serial.println(F("I2C 3V Port Pin CLK - High"));
+        Serial.println(F("Digital GPIO44 at JP2 pin in middle - High"));
       }
       else
       {
-        Serial.println(F("I2C 3V Port Pin CLK - Low"));
+        Serial.println(F("Digital GPIO44 at JP2 pin in middle - Low"));
       }
     }
     break;
-   } 
- 
-// ***********************************************************************************************************************************************************************************************************************
-   //I2C 5V Port DA Pin Test 
+   }    
+
+   
+ // ***********************************************************************************************************************************************************************************************************************
+ //I2C 3V Port DA Pin Test 
    case 170:
    {
     brstst_ucMaxNumberofTestSteps = 3;
@@ -1055,6 +1061,116 @@ void BRD_Testing()
     brdtst_TempLoopVariable = digitalRead(BRDTST_I2C_DA);
     if(brdtst_TempLoopVariable)
     {
+      Serial.println(F("I2C 3V Port Pin DA - High, pull ground end wire to test"));
+    }
+    else
+    {
+      Serial.println(F("I2C 3V Port Pin DA - Low, pull ground end wire to test"));
+    }
+    break;
+   }
+   case 173:
+   {
+    digitalWrite(BRDTST_GPIO4, digitalRead(BRDTST_PB1)); // push PB1 to gpio4
+    if(digitalRead(BRDTST_I2C_DA) != brdtst_TempLoopVariable)
+    {
+      
+      brdtst_TempLoopVariable = digitalRead(BRDTST_I2C_DA);
+      if(brdtst_TempLoopVariable)
+      {
+        Serial.println(F("I2C 3V Port Pin DA - High"));
+      }
+      else
+      {
+        Serial.println(F("I2C 3V Port Pin DA - Low"));
+      }
+    }
+    break;
+   }
+  
+// ***********************************************************************************************************************************************************************************************************************
+ //I2C 3V Port CLK Pin Test        
+   case 180:
+   {
+    brstst_ucMaxNumberofTestSteps = 3;
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));Serial.println(F(""));
+    Serial.printf("%s",BoardTesting_Instructions[35]);
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+    pinMode(BRDTST_I2C_CLK, INPUT); // set I2C_CLK  as input
+    brdtst_ucIncrementTestStep = 1;
+    break;
+   }
+   case 18:
+   {
+    // waiting for user input
+    break;
+   }
+   case 182:
+   {
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+    Serial.printf("%s",BoardTesting_Instructions[36]);
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+    brdtst_ucIncrementTestStep = 3;
+    brdtst_TempLoopVariable = 0;
+    digitalWrite(BRDTST_GPIO4, digitalRead(BRDTST_PB1)); // push PB1 to gpio4
+    brdtst_TempLoopVariable = digitalRead(BRDTST_I2C_CLK);
+    if(brdtst_TempLoopVariable)
+    {
+      Serial.println(F("I2C 3V Port Pin CLK - High, pull ground end wire to test"));
+    }
+    else
+    {
+      Serial.println(F("I2C 3V Port Pin CLK - Low, pull ground end wire to test"));
+    }
+    break;
+   }
+   case 183:
+   {
+    digitalWrite(BRDTST_GPIO4, digitalRead(BRDTST_PB1)); // push PB1 to gpio4
+    if(digitalRead(BRDTST_I2C_CLK) != brdtst_TempLoopVariable)
+    {
+      
+      brdtst_TempLoopVariable = digitalRead(BRDTST_I2C_CLK);
+      if(brdtst_TempLoopVariable)
+      {
+        Serial.println(F("I2C 3V Port Pin CLK - High"));
+      }
+      else
+      {
+        Serial.println(F("I2C 3V Port Pin CLK - Low"));
+      }
+    }
+    break;
+   } 
+ 
+// ***********************************************************************************************************************************************************************************************************************
+   //I2C 5V Port DA Pin Test 
+   case 190:
+   {
+    brstst_ucMaxNumberofTestSteps = 3;
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));Serial.println(F(""));
+    Serial.printf("%s",BoardTesting_Instructions[37]);
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+    pinMode(BRDTST_I2C_DA, INPUT); // set I2C_DA  as input
+    brdtst_ucIncrementTestStep = 1;
+    break;
+   }
+   case 191:
+   {
+    // waiting for user input
+    break;
+   }
+   case 192:
+   {
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+    Serial.printf("%s",BoardTesting_Instructions[38]);
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+    brdtst_ucIncrementTestStep = 3;
+    brdtst_TempLoopVariable = 0;
+    digitalWrite(BRDTST_GPIO4, digitalRead(BRDTST_PB1)); // push PB1 to gpio4
+    brdtst_TempLoopVariable = digitalRead(BRDTST_I2C_DA);
+    if(brdtst_TempLoopVariable)
+    {
       Serial.println(F("I2C 5V Port Pin DA - High, pull ground end wire to test"));
     }
     else
@@ -1063,7 +1179,7 @@ void BRD_Testing()
     }
     break;
    }
-   case 173:
+   case 193:
    {
     digitalWrite(BRDTST_GPIO4, digitalRead(BRDTST_PB1)); // push PB1 to gpio4
     if(digitalRead(BRDTST_I2C_DA) != brdtst_TempLoopVariable)
@@ -1083,25 +1199,25 @@ void BRD_Testing()
   
  // ***********************************************************************************************************************************************************************************************************************
    //I2C 5V Port CLK Pin Test     
-   case 180:
+   case 200:
    {
     brstst_ucMaxNumberofTestSteps = 3;
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));Serial.println(F(""));
-    Serial.printf("%s",BoardTesting_Instructions[35]);
+    Serial.printf("%s",BoardTesting_Instructions[39]);
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
     pinMode(BRDTST_I2C_CLK, INPUT); // set I2C_CLK  as input
     brdtst_ucIncrementTestStep = 1;
     break;
    }
-   case 181:
+   case 201:
    {
     // waiting for user input
     break;
    }
-   case 182:
+   case 202:
    {
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    Serial.printf("%s",BoardTesting_Instructions[36]);
+    Serial.printf("%s",BoardTesting_Instructions[40]);
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
     brdtst_ucIncrementTestStep = 3;
     brdtst_TempLoopVariable = 0;
@@ -1117,7 +1233,7 @@ void BRD_Testing()
     }
     break;
    }
-   case 183:
+   case 203:
    {
     digitalWrite(BRDTST_GPIO4, digitalRead(BRDTST_PB1)); // push PB1 to gpio4
     if(digitalRead(BRDTST_I2C_CLK) != brdtst_TempLoopVariable)
@@ -1137,11 +1253,11 @@ void BRD_Testing()
    
 // ***********************************************************************************************************************************************************************************************************************
    //Motor 1 A Pin Test     
-   case 190:
+   case 210:
    {
     brstst_ucMaxNumberofTestSteps = 3;
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));Serial.println(F(""));
-    Serial.printf("%s",BoardTesting_Instructions[37]);
+    Serial.printf("%s",BoardTesting_Instructions[41]);
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
     pinMode(BRDTST_MOTOR_1_A, OUTPUT); // set I2C_CLK  as input
      //setup PWM for motors
@@ -1151,15 +1267,15 @@ void BRD_Testing()
     brdtst_ucIncrementTestStep = 1;
     break;
    }
-   case 191:
+   case 211:
    {
     // waiting for user input
     break;
    }
-   case 192:
+   case 212:
    {
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    Serial.printf("%s",BoardTesting_Instructions[38]);
+    Serial.printf("%s",BoardTesting_Instructions[42]);
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
     brdtst_ucIncrementTestStep = 3;
     brdtst_uiPCMTest = 425;  //zero degree
@@ -1169,7 +1285,7 @@ void BRD_Testing()
     
     break;
    }
-   case 193:
+   case 213:
    {
     brdtst_uiTimeCount = brdtst_uiTimeCount + 1;
     if(brdtst_uiTimeCount > 1500)
@@ -1192,11 +1308,11 @@ void BRD_Testing()
    
  // ***********************************************************************************************************************************************************************************************************************
    //Motor 1 B Pin Test     
-   case 200:
+   case 220:
    {
     brstst_ucMaxNumberofTestSteps = 3;
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));Serial.println(F(""));
-    Serial.printf("%s",BoardTesting_Instructions[39]);
+    Serial.printf("%s",BoardTesting_Instructions[43]);
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
     pinMode(BRDTST_MOTOR_1_B, OUTPUT); // set I2C_CLK  as input
      //setup PWM for motors
@@ -1206,15 +1322,15 @@ void BRD_Testing()
     brdtst_ucIncrementTestStep = 1;
     break;
    }
-   case 201:
+   case 221:
    {
     // waiting for user input
     break;
    }
-   case 202:
+   case 222:
    {
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    Serial.printf("%s",BoardTesting_Instructions[40]);
+    Serial.printf("%s",BoardTesting_Instructions[44]);
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
     brdtst_ucIncrementTestStep = 3;
     brdtst_uiPCMTest = 425;  //zero degree
@@ -1224,7 +1340,7 @@ void BRD_Testing()
     
     break;
    }
-   case 203:
+   case 223:
    {
     brdtst_uiTimeCount = brdtst_uiTimeCount + 1;
      if(brdtst_uiTimeCount > 1500)
@@ -1247,11 +1363,11 @@ void BRD_Testing()
    
    // ***********************************************************************************************************************************************************************************************************************
    //Motor 2 A Pin Test     
-   case 210:
+   case 230:
    {
     brstst_ucMaxNumberofTestSteps = 3;
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));Serial.println(F(""));
-    Serial.printf("%s",BoardTesting_Instructions[41]);
+    Serial.printf("%s",BoardTesting_Instructions[45]);
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
     pinMode(BRDTST_MOTOR_2_A, OUTPUT); // set I2C_CLK  as input
      //setup PWM for motors
@@ -1261,15 +1377,15 @@ void BRD_Testing()
     brdtst_ucIncrementTestStep = 1;
     break;
    }
-   case 211:
+   case 231:
    {
     // waiting for user input
     break;
    }
-   case 212:
+   case 232:
    {
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    Serial.printf("%s",BoardTesting_Instructions[42]);
+    Serial.printf("%s",BoardTesting_Instructions[46]);
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
     brdtst_ucIncrementTestStep = 3;
     brdtst_uiPCMTest = 425;  //zero degree
@@ -1279,7 +1395,7 @@ void BRD_Testing()
     
     break;
    }
-   case 213:
+   case 233:
    {
     brdtst_uiTimeCount = brdtst_uiTimeCount + 1;
     if(brdtst_uiTimeCount >= 1500)
@@ -1302,11 +1418,11 @@ void BRD_Testing()
   
  // ***********************************************************************************************************************************************************************************************************************
    //Motor 2 B Pin Test     
-   case 220:
+   case 240:
    {
     brstst_ucMaxNumberofTestSteps = 3;
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));Serial.println(F(""));
-    Serial.printf("%s",BoardTesting_Instructions[43]);
+    Serial.printf("%s",BoardTesting_Instructions[47]);
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
     pinMode(BRDTST_MOTOR_2_B, OUTPUT); // set I2C_CLK  as input
      //setup PWM for motors
@@ -1316,15 +1432,15 @@ void BRD_Testing()
     brdtst_ucIncrementTestStep = 1;
     break;
    }
-   case 221:
+   case 241:
    {
     // waiting for user input
     break;
    }
-   case 222:
+   case 242:
    {
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    Serial.printf("%s",BoardTesting_Instructions[44]);
+    Serial.printf("%s",BoardTesting_Instructions[48]);
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
     brdtst_ucIncrementTestStep = 3;
     brdtst_uiPCMTest = 425;  //zero degree
@@ -1334,7 +1450,7 @@ void BRD_Testing()
     
     break;
    }
-   case 223:
+   case 243:
    {
     brdtst_uiTimeCount = brdtst_uiTimeCount + 1;
      if(brdtst_uiTimeCount > 1500)
@@ -1357,11 +1473,11 @@ void BRD_Testing()
    
  // ***********************************************************************************************************************************************************************************************************************
    //Stepper Motor DIR Pin Test     
-   case 230:
+   case 250:
    {
     brstst_ucMaxNumberofTestSteps = 3;
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));Serial.println(F(""));
-    Serial.printf("%s",BoardTesting_Instructions[45]);
+    Serial.printf("%s",BoardTesting_Instructions[49]);
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
     pinMode(BRDTST_STEPPER_DIR, OUTPUT); // set I2C_CLK  as input
      //setup PWM for motors
@@ -1371,15 +1487,15 @@ void BRD_Testing()
      brdtst_ucIncrementTestStep = 1;
     break;
    }
-   case 231:
+   case 251:
    {
     // waiting for user input
     break;
    }
-   case 232:
+   case 252:
    {
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    Serial.printf("%s",BoardTesting_Instructions[46]);
+    Serial.printf("%s",BoardTesting_Instructions[50]);
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
     brdtst_ucIncrementTestStep = 3;
     brdtst_uiPCMTest = 425;  //zero degree
@@ -1389,7 +1505,7 @@ void BRD_Testing()
     
     break;
    }
-   case 233:
+   case 253:
    {
     brdtst_uiTimeCount = brdtst_uiTimeCount + 1;
      if(brdtst_uiTimeCount > 1500)
@@ -1412,11 +1528,11 @@ void BRD_Testing()
   
  // ***********************************************************************************************************************************************************************************************************************
    //Stepper Motor CLK Pin Test     
-   case 240:
+   case 260:
    {
     brstst_ucMaxNumberofTestSteps = 3;
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));Serial.println(F(""));
-    Serial.printf("%s",BoardTesting_Instructions[47]);
+    Serial.printf("%s",BoardTesting_Instructions[51]);
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
     pinMode(BRDTST_STEPPER_CLK, OUTPUT); // set I2C_CLK  as input
      //setup PWM for motors
@@ -1426,15 +1542,15 @@ void BRD_Testing()
     brdtst_ucIncrementTestStep = 1;
     break;
    }
-   case 241:
+   case 261:
    {
     // waiting for user input
     break;
    }
-   case 242:
+   case 262:
    {
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    Serial.printf("%s",BoardTesting_Instructions[48]);
+    Serial.printf("%s",BoardTesting_Instructions[52]);
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
     brdtst_ucIncrementTestStep = 3;
     brdtst_uiPCMTest = 425;  //zero degree
@@ -1444,7 +1560,7 @@ void BRD_Testing()
     
     break;
    }
-   case 243:
+   case 263:
    {
     brdtst_uiTimeCount = brdtst_uiTimeCount + 1;
      if(brdtst_uiTimeCount > 1500)
@@ -1467,11 +1583,11 @@ void BRD_Testing()
     
  // ***********************************************************************************************************************************************************************************************************************
    //Servo 1 Pin Test     
-   case 250:
+   case 270:
    {
     brstst_ucMaxNumberofTestSteps = 3;
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));Serial.println(F(""));
-    Serial.printf("%s",BoardTesting_Instructions[49]);
+    Serial.printf("%s",BoardTesting_Instructions[53]);
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
     pinMode(BRDTST_SERVO_1, OUTPUT); // set I2C_CLK  as input
      //setup PWM for motors
@@ -1481,15 +1597,15 @@ void BRD_Testing()
      brdtst_ucIncrementTestStep = 1;
     break;
    }
-   case 251:
+   case 271:
    {
     // waiting for user input
     break;
    }
-   case 252:
+   case 272:
    {
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    Serial.printf("%s",BoardTesting_Instructions[50]);
+    Serial.printf("%s",BoardTesting_Instructions[54]);
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
     brdtst_ucIncrementTestStep = 3;
     brdtst_uiPCMTest = 425;  //zero degree
@@ -1499,7 +1615,7 @@ void BRD_Testing()
     
     break;
    }
-   case 253:
+   case 273:
    {
     brdtst_uiTimeCount = brdtst_uiTimeCount + 1;
      if(brdtst_uiTimeCount > 1500)
@@ -1522,11 +1638,11 @@ void BRD_Testing()
     
  // ***********************************************************************************************************************************************************************************************************************
    //Servo 2 Pin Test     
-   case 260:
+   case 280:
    {
     brstst_ucMaxNumberofTestSteps = 3;
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));Serial.println(F(""));
-    Serial.printf("%s",BoardTesting_Instructions[51]);
+    Serial.printf("%s",BoardTesting_Instructions[55]);
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
     pinMode(BRDTST_SERVO_2, OUTPUT); // set I2C_CLK  as input
      //setup PWM for motors
@@ -1536,15 +1652,15 @@ void BRD_Testing()
     brdtst_ucIncrementTestStep = 1;
     break;
    }
-   case 261:
+   case 281:
    {
     // waiting for user input
     break;
    }
-   case 262:
+   case 282:
    {
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    Serial.printf("%s",BoardTesting_Instructions[52]);
+    Serial.printf("%s",BoardTesting_Instructions[56]);
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
     brdtst_ucIncrementTestStep = 3;
     brdtst_uiPCMTest = 425;  //zero degree
@@ -1554,7 +1670,7 @@ void BRD_Testing()
     
     break;
    }
-   case 263:
+   case 283:
    {
     brdtst_uiTimeCount = brdtst_uiTimeCount + 1;
      if(brdtst_uiTimeCount > 1500)
@@ -1577,82 +1693,82 @@ void BRD_Testing()
    
  // ***********************************************************************************************************************************************************************************************************************
  // UART0 3V Port Pins Test
-   case 270:
-   {
-    
-    brstst_ucMaxNumberofTestSteps = 4;
-    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));Serial.println(F(""));
-    Serial.printf("%s",BoardTesting_Instructions[53]);
-    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    brdtst_ucIncrementTestStep = 1;
-    ledcDetachPin(BRDTST_SERVO_2);
-    brdtst_TempLoopVariable = 0;
-    break;
-   }
-   case 271:
-   {
-    // waiting for user input
-    break;
-   }
-   case 272:
-   {
-    
-    brdtst_uiTimeCount = brdtst_uiTimeCount + 1;
-     if(brdtst_uiTimeCount >= 1000)
-     {
-        brdtst_TempLoopVariable = brdtst_TempLoopVariable + 1;
-        brdtst_uiTimeCount = 0;
-       
-        if(brdtst_TempLoopVariable <= 10)
-         {
-           Serial.print(F("3V UART verify - "));
-           Serial.println(brdtst_TempLoopVariable);
-            
-         }
-         else
-         {
-           if(brdtst_TempLoopVariable > 11)
-           {
-            Serial.println(F("3V UART ERROR"));
-            brdtst_ucIncrementTestStep = 3;
-            
-           }
-           else
-           {
-            Serial.println(F("X"));
-           }
-         }
-    
-     }
-    
-    break;
-   }
-   case 273:
-   {
-    pinMode(BRDTST_RX, OUTPUT);
-    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    Serial.printf("%s",BoardTesting_Instructions[54]);
-    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    brdtst_ucIncrementTestStep = 4;
-    brdtst_TempLoopVariable = 0;
-    pinMode(BRDTST_RX, INPUT);
-    
-    break;
-   }
-   case 274:
-   {
-     
-    // waiting for user input
-    break;
-   }    
+//   case 290:
+//   {
+//    
+//    brstst_ucMaxNumberofTestSteps = 4;
+//    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));Serial.println(F(""));
+//    Serial.printf("%s",BoardTesting_Instructions[57]);
+//    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+//    brdtst_ucIncrementTestStep = 1;
+//    ledcDetachPin(BRDTST_SERVO_2);
+//    brdtst_TempLoopVariable = 0;
+//    break;
+//   }
+//   case 291:
+//   {
+//    // waiting for user input
+//    break;
+//   }
+//   case 292:
+//   {
+//    
+//    brdtst_uiTimeCount = brdtst_uiTimeCount + 1;
+//     if(brdtst_uiTimeCount >= 1000)
+//     {
+//        brdtst_TempLoopVariable = brdtst_TempLoopVariable + 1;
+//        brdtst_uiTimeCount = 0;
+//       
+//        if(brdtst_TempLoopVariable <= 10)
+//         {
+//           Serial.print(F("3V UART verify - "));
+//           Serial.println(brdtst_TempLoopVariable);
+//            
+//         }
+//         else
+//         {
+//           if(brdtst_TempLoopVariable > 11)
+//           {
+//            Serial.println(F("3V UART ERROR"));
+//            brdtst_ucIncrementTestStep = 3;
+//            
+//           }
+//           else
+//           {
+//            Serial.println(F("X"));
+//           }
+//         }
+//    
+//     }
+//    
+//    break;
+//   }
+//   case 293:
+//   {
+//    pinMode(BRDTST_RX, OUTPUT);
+//    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+//    Serial.printf("%s",BoardTesting_Instructions[58]);
+//    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+//    brdtst_ucIncrementTestStep = 4;
+//    brdtst_TempLoopVariable = 0;
+//    pinMode(BRDTST_RX, INPUT);
+//    
+//    break;
+//   }
+//   case 294:
+//   {
+//     
+//    // waiting for user input
+//    break;
+//   }    
  // ***********************************************************************************************************************************************************************************************************************
  //Left encoder test
 
- case 280:
+ case 290:
    {
     brstst_ucMaxNumberofTestSteps = 5;
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));Serial.println(F(""));
-    Serial.printf("%s",BoardTesting_Instructions[55]);
+    Serial.printf("%s",BoardTesting_Instructions[57]);
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
     pinMode(BRDTST_ENCODER_LEFT_A, INPUT_PULLUP);
     pinMode(BRDTST_ENCODER_LEFT_B, INPUT_PULLUP);
@@ -1663,195 +1779,15 @@ void BRD_Testing()
     brdtst_iCounter = 0;
     break;
    }
-   case 281:
-   {
-    // waiting for user input
-    break;
-   }
-   case 282:
-   {
-    brdtst_ucIncrementTestStep = 3;
-    if(digitalRead(BRDTST_ENCODER_LEFT_A))
-    {
-      brdtst_EncoderTest |= 1;
-    }
-    else
-    {
-      brdtst_EncoderTest &= 0xFE;
-    }
-    if(digitalRead(BRDTST_ENCODER_LEFT_B))
-    {
-      brdtst_EncoderTest |= 0x02;
-    }
-    else
-    {
-      brdtst_EncoderTest &= 0xFD;
-    }
-    if(digitalRead(BRDTST_ENCODER_LEFT_SPD))
-    {
-      brdtst_EncoderTest |= 0x04;
-    }
-    else
-    {
-      brdtst_EncoderTest &= 0xFB;
-    }
-    if((brdtst_EncoderTest & 0x01) != (brdtst_EncoderTest2 & 0x01))
-    {
-       if(brdtst_EncoderTest & 0x01)
-       {
-         Serial.print(F("A High, "));
-       }
-       else
-       {
-         Serial.print(F("A Low, "));
-       }
-    }
-    if((brdtst_EncoderTest & 0x02) != (brdtst_EncoderTest2 & 0x02))
-    {
-       if(brdtst_EncoderTest & 0x02)
-       {
-         Serial.print(F("B High, "));
-       }
-       else
-       {
-         Serial.print(F("B Low, "));
-       }
-    }
-    if((brdtst_EncoderTest & 0x04) != (brdtst_EncoderTest2 & 0x04))
-    {
-      if(digitalRead(BRDTST_ENCODER_LEFT_DIR))
-      {
-        Serial.print(F("Direction Forward  "));
-        brdtst_iCounter = brdtst_iCounter + 1;
-      }
-      else
-       {
-        Serial.print(F("Direction Backwards  "));
-        brdtst_iCounter = brdtst_iCounter - 1;
-      }
-      Serial.printf("Speed count  = %i",brdtst_iCounter);
-      
-    }
-    if(brdtst_EncoderTest != brdtst_EncoderTest2)
-    {
-      brdtst_EncoderTest2 = brdtst_EncoderTest;
-      Serial.println(F(" "));
-    }
-    
-   
-   
-    // waiting for user input
-    break;
-   }
-   case 283:
-   {
-    if(digitalRead(BRDTST_ENCODER_LEFT_A))
-    {
-      brdtst_EncoderTest |= 1;
-    }
-    else
-    {
-      brdtst_EncoderTest &= 0xFE;
-    }
-    if(digitalRead(BRDTST_ENCODER_LEFT_B))
-    {
-      brdtst_EncoderTest |= 0x02;
-    }
-    else
-    {
-      brdtst_EncoderTest &= 0xFD;
-    }
-    if(digitalRead(BRDTST_ENCODER_LEFT_SPD))
-    {
-      brdtst_EncoderTest |= 0x04;
-    }
-    else
-    {
-      brdtst_EncoderTest &= 0xFB;
-    }
-    if((brdtst_EncoderTest & 0x01) != (brdtst_EncoderTest2 & 0x01))
-    {
-       if(brdtst_EncoderTest & 0x01)
-       {
-         Serial.print(F("A High, "));
-       }
-       else
-       {
-         Serial.print(F("A Low, "));
-       }
-    }
-    if((brdtst_EncoderTest & 0x02) != (brdtst_EncoderTest2 & 0x02))
-    {
-       if(brdtst_EncoderTest & 0x02)
-       {
-         Serial.print(F("B High, "));
-       }
-       else
-       {
-         Serial.print(F("B Low, "));
-       }
-    }
-    if((brdtst_EncoderTest & 0x04) != (brdtst_EncoderTest2 & 0x04))
-    {
-      if(digitalRead(BRDTST_ENCODER_LEFT_DIR))
-      {
-        Serial.print(F("Direction Forward  "));
-        brdtst_iCounter = brdtst_iCounter + 1;
-      }
-      else
-       {
-        Serial.print(F("Direction Backwards  "));
-        brdtst_iCounter = brdtst_iCounter - 1;
-      }
-      Serial.printf("Speed count  = %i",brdtst_iCounter);
-      
-    }
-    if(brdtst_EncoderTest != brdtst_EncoderTest2)
-    {
-      brdtst_EncoderTest2 = brdtst_EncoderTest;
-      Serial.println(F(" "));
-    }
-    
-   
-    break;
-   }
-   case 284:
-   {
-    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    Serial.printf("%s",BoardTesting_Instructions[56]);
-    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    brdtst_ucIncrementTestStep = 5;
-    brdtst_TempLoopVariable = 0;
-    break;
-   }
-   
- // ***********************************************************************************************************************************************************************************************************************
- //Right encoder test
-
- case 290:
-   {
-    brstst_ucMaxNumberofTestSteps = 5;
-    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));Serial.println(F(""));
-    Serial.printf("%s",BoardTesting_Instructions[57]);
-    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    pinMode(BRDTST_ENCODER_RIGHT_A, INPUT_PULLUP);
-    pinMode(BRDTST_ENCODER_RIGHT_B, INPUT_PULLUP);
-    pinMode(BRDTST_ENCODER_RIGHT_DIR, INPUT_PULLUP);
-    pinMode(BRDTST_ENCODER_RIGHT_SPD, INPUT_PULLUP);
-    brdtst_ucIncrementTestStep = 1;
-    brdtst_TempLoopVariable2 = 0;
-    brdtst_iCounter = 0;
-    break;
-   }
    case 291:
    {
     // waiting for user input
     break;
    }
-    case 292:
+   case 292:
    {
     brdtst_ucIncrementTestStep = 3;
-    if(digitalRead(BRDTST_ENCODER_RIGHT_A))
+    if(digitalRead(BRDTST_ENCODER_LEFT_A))
     {
       brdtst_EncoderTest |= 1;
     }
@@ -1859,7 +1795,7 @@ void BRD_Testing()
     {
       brdtst_EncoderTest &= 0xFE;
     }
-    if(digitalRead(BRDTST_ENCODER_RIGHT_B))
+    if(digitalRead(BRDTST_ENCODER_LEFT_B))
     {
       brdtst_EncoderTest |= 0x02;
     }
@@ -1867,7 +1803,7 @@ void BRD_Testing()
     {
       brdtst_EncoderTest &= 0xFD;
     }
-    if(digitalRead(BRDTST_ENCODER_RIGHT_SPD))
+    if(digitalRead(BRDTST_ENCODER_LEFT_SPD))
     {
       brdtst_EncoderTest |= 0x04;
     }
@@ -1899,7 +1835,7 @@ void BRD_Testing()
     }
     if((brdtst_EncoderTest & 0x04) != (brdtst_EncoderTest2 & 0x04))
     {
-      if(digitalRead(BRDTST_ENCODER_RIGHT_DIR))
+      if(digitalRead(BRDTST_ENCODER_LEFT_DIR))
       {
         Serial.print(F("Direction Forward  "));
         brdtst_iCounter = brdtst_iCounter + 1;
@@ -1925,6 +1861,186 @@ void BRD_Testing()
    }
    case 293:
    {
+    if(digitalRead(BRDTST_ENCODER_LEFT_A))
+    {
+      brdtst_EncoderTest |= 1;
+    }
+    else
+    {
+      brdtst_EncoderTest &= 0xFE;
+    }
+    if(digitalRead(BRDTST_ENCODER_LEFT_B))
+    {
+      brdtst_EncoderTest |= 0x02;
+    }
+    else
+    {
+      brdtst_EncoderTest &= 0xFD;
+    }
+    if(digitalRead(BRDTST_ENCODER_LEFT_SPD))
+    {
+      brdtst_EncoderTest |= 0x04;
+    }
+    else
+    {
+      brdtst_EncoderTest &= 0xFB;
+    }
+    if((brdtst_EncoderTest & 0x01) != (brdtst_EncoderTest2 & 0x01))
+    {
+       if(brdtst_EncoderTest & 0x01)
+       {
+         Serial.print(F("A High, "));
+       }
+       else
+       {
+         Serial.print(F("A Low, "));
+       }
+    }
+    if((brdtst_EncoderTest & 0x02) != (brdtst_EncoderTest2 & 0x02))
+    {
+       if(brdtst_EncoderTest & 0x02)
+       {
+         Serial.print(F("B High, "));
+       }
+       else
+       {
+         Serial.print(F("B Low, "));
+       }
+    }
+    if((brdtst_EncoderTest & 0x04) != (brdtst_EncoderTest2 & 0x04))
+    {
+      if(digitalRead(BRDTST_ENCODER_LEFT_DIR))
+      {
+        Serial.print(F("Direction Forward  "));
+        brdtst_iCounter = brdtst_iCounter + 1;
+      }
+      else
+       {
+        Serial.print(F("Direction Backwards  "));
+        brdtst_iCounter = brdtst_iCounter - 1;
+      }
+      Serial.printf("Speed count  = %i",brdtst_iCounter);
+      
+    }
+    if(brdtst_EncoderTest != brdtst_EncoderTest2)
+    {
+      brdtst_EncoderTest2 = brdtst_EncoderTest;
+      Serial.println(F(" "));
+    }
+    
+   
+    break;
+   }
+   case 294:
+   {
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+    Serial.printf("%s",BoardTesting_Instructions[58]);
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+    brdtst_ucIncrementTestStep = 5;
+    brdtst_TempLoopVariable = 0;
+    break;
+   }
+   
+ // ***********************************************************************************************************************************************************************************************************************
+ //Right encoder test
+
+ case 300:
+   {
+    brstst_ucMaxNumberofTestSteps = 5;
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));Serial.println(F(""));
+    Serial.printf("%s",BoardTesting_Instructions[59]);
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+    pinMode(BRDTST_ENCODER_RIGHT_A, INPUT_PULLUP);
+    pinMode(BRDTST_ENCODER_RIGHT_B, INPUT_PULLUP);
+    pinMode(BRDTST_ENCODER_RIGHT_DIR, INPUT_PULLUP);
+    pinMode(BRDTST_ENCODER_RIGHT_SPD, INPUT_PULLUP);
+    brdtst_ucIncrementTestStep = 1;
+    brdtst_TempLoopVariable2 = 0;
+    brdtst_iCounter = 0;
+    break;
+   }
+   case 301:
+   {
+    // waiting for user input
+    break;
+   }
+    case 302:
+   {
+    brdtst_ucIncrementTestStep = 3;
+    if(digitalRead(BRDTST_ENCODER_RIGHT_A))
+    {
+      brdtst_EncoderTest |= 1;
+    }
+    else
+    {
+      brdtst_EncoderTest &= 0xFE;
+    }
+    if(digitalRead(BRDTST_ENCODER_RIGHT_B))
+    {
+      brdtst_EncoderTest |= 0x02;
+    }
+    else
+    {
+      brdtst_EncoderTest &= 0xFD;
+    }
+    if(digitalRead(BRDTST_ENCODER_RIGHT_SPD))
+    {
+      brdtst_EncoderTest |= 0x04;
+    }
+    else
+    {
+      brdtst_EncoderTest &= 0xFB;
+    }
+    if((brdtst_EncoderTest & 0x01) != (brdtst_EncoderTest2 & 0x01))
+    {
+       if(brdtst_EncoderTest & 0x01)
+       {
+         Serial.print(F("A High, "));
+       }
+       else
+       {
+         Serial.print(F("A Low, "));
+       }
+    }
+    if((brdtst_EncoderTest & 0x02) != (brdtst_EncoderTest2 & 0x02))
+    {
+       if(brdtst_EncoderTest & 0x02)
+       {
+         Serial.print(F("B High, "));
+       }
+       else
+       {
+         Serial.print(F("B Low, "));
+       }
+    }
+    if((brdtst_EncoderTest & 0x04) != (brdtst_EncoderTest2 & 0x04))
+    {
+      if(digitalRead(BRDTST_ENCODER_RIGHT_DIR))
+      {
+        Serial.print(F("Direction Forward  "));
+        brdtst_iCounter = brdtst_iCounter + 1;
+      }
+      else
+       {
+        Serial.print(F("Direction Backwards  "));
+        brdtst_iCounter = brdtst_iCounter - 1;
+      }
+      Serial.printf("Speed count  = %i",brdtst_iCounter);
+      
+    }
+    if(brdtst_EncoderTest != brdtst_EncoderTest2)
+    {
+      brdtst_EncoderTest2 = brdtst_EncoderTest;
+      Serial.println(F(" "));
+    }
+    
+   
+   
+    // waiting for user input
+    break;
+   }
+   case 303:
+   {
     if(digitalRead(BRDTST_ENCODER_RIGHT_A))
     {
       brdtst_EncoderTest |= 1;
@@ -1996,10 +2112,10 @@ void BRD_Testing()
     break;
    }
   
-   case 294:
+   case 304:
    {
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    Serial.printf("%s",BoardTesting_Instructions[58]);
+    Serial.printf("%s",BoardTesting_Instructions[60]);
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
     brdtst_ucIncrementTestStep = 5;
     brdtst_TempLoopVariable = 0;
@@ -2008,11 +2124,11 @@ void BRD_Testing()
    
 // ***********************************************************************************************************************************************************************************************************************
    //Done Testst 
-   case 300:
+   case 310:
    {
     brstst_ucMaxNumberofTestSteps = 4;
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));Serial.println(F(""));
-    Serial.printf("%s",BoardTesting_Instructions[59]);
+    Serial.printf("%s",BoardTesting_Instructions[61]);
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
     brdtst_BoardTestingActive = false;
     brdtst_ucIncrementTestStep = 0;

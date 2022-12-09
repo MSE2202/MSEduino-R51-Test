@@ -57,7 +57,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Test 2 [3]
 "\n"  
-"Test 2 out of 29\n"
+"Test 2 out of 30\n"
 " Push Button 1 Test         Next Test: DIP Switch S1-5 Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -67,7 +67,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Test 2 continued  [4]
 "\n"  
-"Test 2 out of 29\n"
+"Test 2 out of 30\n"
 " Push Button 1 Test         Next Test: DIP Switch S1-5 Test Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -79,7 +79,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Test 3 [5]
 "\n"  
-"Test 3 out of 29\n"
+"Test 3 out of 30\n"
 " DIP Switch S1-5 Test         Next Test: DIP Switch S1-6 Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -88,7 +88,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //
 //Test 3 continued [6]
 "\n"  
-"Test 5 out of 29\n"
+"Test 5 out of 30\n"
 " DIP Switch S1-5 Test         Next Test: DIP Switch S1-6 Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
@@ -100,7 +100,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Test 4 [7]
 "\n"  
-"Test 4 out of 29\n"
+"Test 4 out of 30\n"
 " DIP Switch S1-6 Test         Next Test: Potentiometer R1 Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -109,7 +109,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //
 //Test 4 continued [8]
 "\n"  
-"Test 4 out of 29\n"
+"Test 4 out of 30\n"
 " DIP Switch S1-6 Test         Next Test: Potentiometer R1 Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
@@ -121,7 +121,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Test 5 [9]
 "\n"  
-"Test 5 out of 29\n"
+"Test 5 out of 30\n"
 " Potentiometer R1 Test        Next Test: Potentiometer R2 Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -132,7 +132,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //
 //Test 5 continued [10]
 "\n"  
-"Test 5 out of 29\n"
+"Test 5 out of 30\n"
 " Potentiometer R1 Test        Next Test: Potentiometer R2 Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
@@ -145,20 +145,20 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Test 6 [11]
 "\n"  
-"Test 6 out of 29\n"
+"Test 6 out of 30\n"
 " Analog Input AD1-3 Test        Next Test: Analog Input AD1-4 Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
 " Instructions:\n"
 "   - Leave DIP SWITCH S1-12 is on\n"
-"   - Take one of your supplied receptacles to receptacles wires and put one end on three pin header J1 pin closest to inside of board\n"
+"   - Take one of your supplied receptacle to receptacle wire and put one end on three pin header J1 pin closest to inside of board\n"
 "   - Connect the other end to three pin header J4 pin closet to inside of board, then enter \"C\" \n"
 "       NOTE: Once you are finished with this test you will need to enter \"C\" to stop the scolling data.\n"
 "             The Serial Monitor will display Potentiometer R1 values as you adjust the potentiometer.\n",
 //
 //Test 6 continued [12]
 "\n"  
-"Test 6 out of 29\n"
+"Test 6 out of 30\n"
 " Analog Input AD1-3 Test        Next Test: Analog Input AD1-4 Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
@@ -172,7 +172,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Test 7 [13]
 "\n"  
-"Test 7 out of 29\n"
+"Test 7 out of 30\n"
 " Analog Input AD1-4 Test        Next Test: Analog Input AD1-5 Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -184,7 +184,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //
 //Test 7 continued [14]
 "\n"  
-"Test 7 out of 29\n"
+"Test 7 out of 30\n"
 " Analog Input AD1-4 Test        Next Test: Analog Input AD1-5 Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
@@ -198,7 +198,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Test 8 [15]
 "\n"  
-"Test 8 out of 29\n"
+"Test 8 out of 30\n"
 " Analog Input AD1-5 Test        Next Test: Analog Input AD1-6 Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -210,7 +210,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //
 //Test 8 continued [16]
 "\n"  
-"Test 8 out of 29\n"
+"Test 8 out of 30\n"
 " Analog Input AD1-5 Test        Next Test: Analog Input AD1-6 Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
@@ -224,7 +224,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Test 9 [17]
 "\n"  
-"Test 9 out of 29\n"
+"Test 9 out of 30\n"
 " Analog Input AD1-6 Test        Next Test: Analog Input AD1-7 Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -236,7 +236,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //
 //Test 9 continued [18]
 "\n"  
-"Test 9 out of 29\n"
+"Test 9 out of 30\n"
 " Analog Input AD1-6 Test        Next Test: Analog Input AD1-7 Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
@@ -250,7 +250,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Test 10 [19]
 "\n"  
-"Test 10 out of 29\n"
+"Test 10 out of 30\n"
 " Analog Input AD1-7 Test        Next Test: Analog Input AD1-8 Tes\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -262,7 +262,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //
 //Test 10 continued [20]
 "\n"  
-"Test 10 out of 29\n"
+"Test 10 out of 30\n"
 " Analog Input AD1-7 Test        Next Test: Analog Input AD1-8 Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
@@ -276,7 +276,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Test 11 [21]
 "\n"  
-"Test 11 out of 29\n"
+"Test 11 out of 30\n"
 " Analog Input AD1-8 Test        Next Test: Analog Input AD1-9 Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -288,7 +288,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //
 //Test 11 continued [22]
 "\n"  
-"Test 11 out of 29\n"
+"Test 11 out of 30\n"
 " Analog Input AD1-8 Test        Next Test: Analog Input AD1-9 Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
@@ -302,7 +302,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Test 12 [23]
 "\n"  
-"Test 12 out of 29\n"
+"Test 12 out of 30\n"
 " Analog Input AD1-9 Test        Next Test: Analog Input AD1-1 Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -314,7 +314,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //
 //Test 12 continued [24]
 "\n"  
-"Test 12 out of 29\n"
+"Test 12 out of 30\n"
 " Analog Input AD1-9 Test        Next Test: Analog Input AD1-1 Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
@@ -328,7 +328,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Test 13 [25]
 "\n"  
-"Test 13 out of 29\n"
+"Test 13 out of 30\n"
 " Analog Input AD1-1 Test        Next Test: Digital Input GPIO45 Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -340,7 +340,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //
 //Test 13 continued [26]
 "\n"  
-"Test 13 out of 29\n"
+"Test 13 out of 30\n"
 " Analog Input AD1-1 Test        Next Test: Digital Input GPIO45 Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
@@ -354,19 +354,19 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Test 14 [27]
 "\n"  
-"Test 14 out of 29\n"
-" Digital Input GPIO45 Test        Next Test: I2C 3V Port Pin Test\n"
+"Test 14 out of 30\n"
+" Digital Input GPIO45 Test        Next Test: Digital Input GPIO43\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
 " Instructions:\n"
 "   - Slide DIP SWITCH S1-12 is off and remove jumper wire\n"
-"   - Take the receptacles to receptacles wires and put one end on three pin header J4 pin closest to inside of board\n"
+"   - Take the receptacle to receptacle wire and put one end on three pin header J4 pin closest to inside of board\n"
 "   - Connect the other end to three pin header J45 pin closest to inside of board, then enter \"C\" \n",
 //
 //Test 14 continued [28]
 "\n"  
-"Test 14 out of 29\n"
-" Digital Input GPIO45 Test        Next Test: I2C 3V Port Pin Test\n"
+"Test 14 out of 30\n"
+" Digital Input GPIO45 Test        Next Test: Digital Input GPIO43\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
 " Instructions:\n"
@@ -378,13 +378,63 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "   --- Use multimeter to check continuity (beep test), to ground, to 3V3, to points along the circuit path (use the schematic and board artwork as reference)\n",
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Test 15 [29]
+"\n"  
+"Test 15 out of 30\n"
+" Digital Input GPIO43 Test        Next Test: Digital Input GPIO44\n"
+" Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
+"\n"
+" Instructions:\n"
+"   - leave the receptacle to receptacle wire on three pin header J4 pin closest to inside of board\n"
+"   - Connect the other end to three pin header Jp2 pin closest to inside of board, then enter \"C\" \n",
+//
+//Test 15 continued [30]
+"\n"  
+"Test 15 out of 30\n"
+" Digital Input GPIO43 Test        Next Test: Digital Input GPIO44\n"
+" Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
+"\n"
+" Instructions:\n"
+"   - The Serial Monitor will update on Push Button PB1  change of state, if working enter \"C\" \n"
+"   - If not working: unplug ESP32 from power sources. \n"
+"   --- check wire jumper is connected correctly to three pin header J4 pin closest inside of board\n"
+"   --- check the other end is connected to three pin header JP2 pin closet to inside of board\n"
+"   --- check solder joints on three pin header JP2, GPIO43 (physical pin 37)\n"
+"   --- Use multimeter to check continuity (beep test), to ground, to 3V3, to points along the circuit path (use the schematic and board artwork as reference)\n",
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//Test 16 [31]
+"\n"  
+"Test 16 out of 30\n"
+" Digital Input GPIO44 Test        Next Test: I2C 3V Port Pin Test\n"
+" Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
+"\n"
+" Instructions:\n"
+"   - Slide DIP SWITCH S1-12 is off and remove jumper wire\n"
+"   - Leave the receptacle to receptacle wire on three pin header J4 pin closest to inside of board\n"
+"   - Connect the other end to three pin header JP2 pin in the middle of the header, then enter \"C\" \n",
+//
+//Test 16 continued [32]
+"\n"  
+"Test 16 out of 30\n"
+" Digital Input GPIO44 Test        Next Test: I2C 3V Port Pin Test\n"
+" Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
+"\n"
+" Instructions:\n"
+"   - The Serial Monitor will update on Push Button PB1  change of state, if working enter \"C\" \n"
+"   - If not working: unplug ESP32 from power sources. \n"
+"   --- check wire jumper is connected correctly to three pin header J4 pin closest inside of board\n"
+"   --- check the other end is connected to three pin header JP2 pin in the middle of the header\n"
+"   --- check solder joints on three pin header JP2, GPIO44 (physical pin 36)\n"
+"   --- Use multimeter to check continuity (beep test), to ground, to 3V3, to points along the circuit path (use the schematic and board artwork as reference)\n",
+
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//Test 17 [33]
 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n"
 "!!                                                                                                                                                                                     !!\n"
 "!!  NOTE: Care must be taken when testing and using the ESP32 as IT IS NOT 5V tolerant. You will Damage the ESP32 if you connect 5V to any of its pins (only exception is the Vin pin) !!\n"
 "!!                                                                                                                                                                                     !!\n"
 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n"
 "\n"  
-"Test 15 out of 29\n"
+"Test 17 out of 30\n"
 " I2C 3V Port Pin SDA Test        Next Test: I2C 3V Port Pin CLK\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -393,9 +443,9 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "   - Leave wire jumper on three pin header J4 pin closest to inside of board connected\n"
 "   - Move the other end to three pin header J47 pin closet to inside of board, then enter \"C\" \n",
 //
-//Test 15 continued [30]
+//Test 17 continued [34]
 "\n"  
-"Test 15 out of 29\n"
+"Test 17 out of 30\n"
 " I2C 3V Port Pin SDA Test        Next Test:I2C 3V Port Pin CLK\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
@@ -408,9 +458,9 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "   --- check solder joints on three pin header J45, Transistor Q1, Resistor R11, and I2C SDA (physical pin 24)\n"
 "   --- Use multimeter to check continuity (beep test), to ground, to 3V3, to points along the circuit path (use the schematic and board artwork as reference)\n",
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//Test 16 [31]
+//Test 18 [35]
 "\n"  
-"Test 16 out of 29\n"
+"Test 18 out of 30\n"
 " I2C 3V Port Pin CLK Test        Next Test: I2C 5V Port Pin Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -418,9 +468,9 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "   - leave wire jumper on the one end of the three pin header J4, pin closest to inside of board\n"   
 "   - Move the other end to three pin header J48 pin closet to inside of board, then enter \"C\" \n",
 //
-//Test 16 continued [32]
+//Test 18 continued [36]
 "\n"  
-"Test 16 out of 29\n"
+"Test 18 out of 30\n"
 " I2C 3V Port Pin CLK Test        Next Test: I2C 5V Port Pin Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
@@ -432,14 +482,14 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "   --- check solder joints on three pin header J48, Transistor Q2, Resistor R13, and I2C CLK (physical pin 25)\n"
 "   --- Use multimeter to check continuity (beep test), to ground, to 3V3, to points along the circuit path (use the schematic and board artwork as reference)\n",
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//Test 17 [33]
+//Test 19 [37]
 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n"
 "!!                                                                                                                                                                                     !!\n"
 "!!  NOTE: Care must be taken when testing and using the ESP32 as IT IS NOT 5V tolerant. You will Damage the ESP32 if you connect 5V to any of its pins (only exception is the Vin pin) !!\n"
 "!!                                                                                                                                                                                     !!\n"
 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n"
 "\n"  
-"Test 17 out of 29\n"
+"Test 19 out of 30\n"
 " I2C DA 5V Port Pin Test        Next Test: I2C CLK 5V Port Pin Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -449,9 +499,9 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "   - Move the wire jumper from three pin header J48 to the four pin header JP1 connect to pin closest to inside to board , Labeled DA\n"
 "   - then enter \"C\" \n",
 //
-//Test 17 continued [34]
+//Test 19 continued [38]
 "\n"  
-"Test 17 out of 29\n"
+"Test 19 out of 30\n"
 " I2C DA 5V Port Pin Test        Next Test: I2C CLK 5V Port Pin Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
@@ -464,9 +514,9 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "   --- check solder joints on four pin header JP1, Transistor Q1, and Resistor R14\n"
 "   --- Use multimeter to check continuity (beep test), to ground, to 3V3, to points along the circuit path (use the schematic and board artwork as reference)\n",
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//Test 18 [35]
+//Test 20 [39]
 "\n"  
-"Test 18 out of 29\n"
+"Test 20 out of 30\n"
 " I2C CLK 5V Port Pin Test        Next Test: Motor Pin test GPIO35\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -476,9 +526,9 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "   - Move the wire jumper from four pin header JP1 connect to pin closest to inside to board to the same four pin header JP1 pin down one from the pin closest to inside of board , Labeled CLK\n"
 "   - then enter \"C\" \n",
 //
-//Test 18 continued [36]
+//Test 20 continued [40]
 "\n"  
-"Test 18 out of 29\n"
+"Test 20 out of 30\n"
 " I2C CLK 5V Port Pin Test        Next Test: Motor Pin test GPIO35\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
@@ -491,21 +541,21 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "   --- check solder joints on four pin header JP1, Transistor Q2, and Resistor R12\n"
 "   --- Use multimeter to check continuity (beep test), to ground, to 3V3, to points along the circuit path (use the schematic and board artwork as reference)\n",
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//Test 19 [37]
+//Test 21 [41]
 "\n"  
-"Test 19 out of 29\n"
+"Test 21 out of 30\n"
 " Motor 1 A test GPIO35        Next Test: Motor 1 B test GPIO36\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
 " Instructions:\n"
-"   - Remove the receptacles to receptacles wires \n"
+"   - Remove the receptacle to receptacle wire \n"
 "   - Plug one of your small blue Servos into three pin header J35, with brown wire connected to pin at edge of board and orange wire on pin closest to inside of board\n"
 "   - then enter \"C\" \n"
 "       NOTE: Once you are finished with this test you will need to enter \"C\" to stop the scolling data.\n",
 //
-//Test 19 continued [38]
+//Test 21 continued [42]
 "\n"  
-"Test 19 out of 29\n"
+"Test 21 out of 30\n"
 " Motor 1 A test GPIO35        Next Test: Motor 1 B test GPIO36\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
@@ -516,21 +566,21 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "   --- check solder joints on three pin header J35, and GPIO35 (physical pin 28)\n"
 "   --- Use multimeter to check continuity (beep test), to ground, to 3V3, to points along the circuit path (use the schematic and board artwork as reference)\n",
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//Test 20 [39]
+//Test 22 [43]
 "\n"  
-"Test 20 out of 29\n"
+"Test 22 out of 30\n"
 " Motor 1 B test GPIO36        Next Test: Motor 2 A test GPIO37\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
 " Instructions:\n"
-"   - Remove the receptacles to receptacles wires \n"
+"   - Remove the receptacle to receptacle wire \n"
 "   - Plug one of your small blue Servos into three pin header J36, with brown wire connected to pin at edge of board and orange wire on pin closest to inside of board\n"
 "   - then enter \"C\" \n"
 "       NOTE: Once you are finished with this test you will need to enter \"C\" to stop the scolling data.\n",
 //
-//Test 20 continued [40]
+//Test 22 continued [44]
 "\n"  
-"Test 20 out of 29\n"
+"Test 22 out of 30\n"
 " Motor 1 B test GPIO36        Next Test: Motor 2 A test GPIO37\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
@@ -541,21 +591,21 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "   --- check solder joints on three pin header J36, and GPIO36 (physical pin 29)\n"
 "   --- Use multimeter to check continuity (beep test), to ground, to 3V3, to points along the circuit path (use the schematic and board artwork as reference)\n",
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//Test 21 [41]
+//Test 23 [45]
 "\n"  
-"Test 21 out of 29\n"
+"Test 23 out of 30\n"
 " Motor 2 A test GPIO37        Next Test: Motor 2 B test GPIO38\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
 " Instructions:\n"
-"   - Remove the receptacles to receptacles wires \n"
+"   - Remove the receptacle to receptacle wire \n"
 "   - Plug one of your small blue Servos into three pin header J37, with brown wire connected to pin at edge of board and orange wire on pin closest to inside of board\n"
 "   - then enter \"C\" \n"
 "       NOTE: Once you are finished with this test you will need to enter \"C\" to stop the scolling data.\n",
 //
-//Test 21 continued [42]
+//Test 23 continued [46]
 "\n"  
-"Test 21 out of 29\n"
+"Test 23 out of 30\n"
 " Motor 2 A test GPIO37        Next Test: Motor 2 B test GPIO38\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
@@ -566,21 +616,21 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "   --- check solder joints on three pin header J37, and GPIO37 (physical pin 30)\n"
 "   --- Use multimeter to check continuity (beep test), to ground, to 3V3, to points along the circuit path (use the schematic and board artwork as reference)\n",
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//Test 22 [43]
+//Test 24 [47]
 "\n"  
-"Test 22 out of 29\n"
+"Test 24 out of 30\n"
 " Motor 2 B test GPIO38        Next Test: Stepper DIR Pin test GPIO39\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
 " Instructions:\n"
-"   - Remove the receptacles to receptacles wires \n"
+"   - Remove the receptacle to receptacle wire \n"
 "   - Plug one of your small blue Servos into three pin header J38, with brown wire connected to pin at edge of board and orange wire on pin closest to inside of board\n"
 "   - then enter \"C\" \n"
 "       NOTE: Once you are finished with this test you will need to enter \"C\" to stop the scolling data.\n",
 //
-//Test 22 continued [44]
+//Test 24 continued [48]
 "\n"  
-"Test 22 out of 29\n"
+"Test 24 out of 30\n"
 " Motor 2 B test GPIO38        Next Test: Stepper DIR Pin test GPIO39\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
@@ -591,21 +641,21 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "   --- check solder joints on three pin header J38, and GPIO38 (physical pin 31)\n"
 "   --- Use multimeter to check continuity (beep test), to ground, to 3V3, to points along the circuit path (use the schematic and board artwork as reference)\n",
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//Test 23 [45]
+//Test 25 [49]
 "\n"  
-"Test 23 out of 29\n"
+"Test 25 out of 30\n"
 " Stepper DIR Pin test GPIO39        Next Test: Stepper CLK Pin test GPIO40\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
 " Instructions:\n"
-"   - Remove the receptacles to receptacles wires \n"
+"   - Remove the receptacle to receptacle wire \n"
 "   - Plug one of your small blue Servos into three pin header J39, with brown wire connected to pin at edge of board and orange wire on pin closest to inside of board\n"
 "   - then enter \"C\" \n"
 "       NOTE: Once you are finished with this test you will need to enter \"C\" to stop the scolling data.\n",
 //
-//Test 23 continued [46]
+//Test 25 continued [50]
 "\n"  
-"Test 23 out of 29\n"
+"Test 25 out of 30\n"
 " Stepper DIR Pin test GPIO39        Next Test: Stepper CLK Pin test GPIO40\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
@@ -616,21 +666,21 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "   --- check solder joints on three pin header J39, and GPIO39 (physical pin 32)\n"
 "   --- Use multimeter to check continuity (beep test), to ground, to 3V3, to points along the circuit path (use the schematic and board artwork as reference)\n",
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//Test 24 [47]
+//Test 26 [51]
 "\n"  
-"Test 24 out of 29\n"
+"Test 26 out of 30\n"
 " Stepper CLK Pin test GPIO40        Next Test: Servo 1 test GPIO41\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
 " Instructions:\n"
-"   - Remove the receptacles to receptacles wires \n"
+"   - Remove the receptacle to receptacle wire \n"
 "   - Plug one of your small blue Servos into three pin header J40, with brown wire connected to pin at edge of board and orange wire on pin closest to inside of board\n"
 "   - then enter \"C\" \n"
 "       NOTE: Once you are finished with this test you will need to enter \"C\" to stop the scolling data.\n",
 //
-//Test 24 continued [48]
+//Test 26 continued [52]
 "\n"  
-"Test 24 out of 29\n"
+"Test 26 out of 30\n"
 " Stepper CLK Pin test GPIO40        Next Test: Servo 1 test GPIO41\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
@@ -641,21 +691,21 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "   --- check solder joints on three pin header J40, and GPIO40 (physical pin 33)\n"
 "   --- Use multimeter to check continuity (beep test), to ground, to 3V3, to points along the circuit path (use the schematic and board artwork as reference)\n",
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//Test 25 [49]
+//Test 27 [53]
 "\n"  
-"Test 25 out of 29\n"
+"Test 27 out of 30\n"
 " Servo 1 test GPIO41       Next Test: Servo 2 test GPIO42\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
 " Instructions:\n"
-"   - Remove the receptacles to receptacles wires \n"
+"   - Remove the receptacle to receptacle wire \n"
 "   - Plug one of your small blue Servos into three pin header J41, with brown wire connected to pin at edge of board and orange wire on pin closest to inside of board\n"
 "   - then enter \"C\" \n"
 "       NOTE: Once you are finished with this test you will need to enter \"C\" to stop the scolling data.\n",
 //
-//Test 25 continued [50]
+//Test 27 continued [54]
 "\n"  
-"Test 25 out of 29\n"
+"Test 27 out of 30\n"
 " Servo 1 test GPIO41       Next Test: Servo 2 test GPIO42\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
@@ -666,10 +716,10 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "   --- check solder joints on three pin header J41, and GPIO41 (physical pin 34)\n"
 "   --- Use multimeter to check continuity (beep test), to ground, to 3V3, to points along the circuit path (use the schematic and board artwork as reference)\n",
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//Test 26 [51]
+//Test 28 [55]
 "\n"  
-"Test 26 out of 29\n"
-" Servo 2 test GPIO42       Next Test: UART0 3V Port Pin Test\n"
+"Test 28 out of 30\n"
+" Servo 2 test GPIO42       Next Test: Left Encoder Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
 " Instructions:\n"
@@ -678,10 +728,10 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "   - then enter \"C\" \n"
 "       NOTE: Once you are finished with this test you will need to enter \"C\" to stop the scolling data.\n",
 //
-//Test 26 continued [52]
+//Test 28 continued [56]
 "\n"  
-"Test 26 out of 29\n"
-" Servo 2 test GPIO42       Next Test: UART0 3V Port Pin Test\n"
+"Test 28 out of 30\n"
+" Servo 2 test GPIO42       Next Test: Left Encoder Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
 " Instructions:\n"
@@ -691,41 +741,41 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "   --- check solder joints on three pin header J42, and GPIO42 (physical pin 35)\n"
 "   --- Use multimeter to check continuity (beep test), to ground, to 3V3, to points along the circuit path (use the schematic and board artwork as reference)\n",
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//Test 27 [53]
-"\n"  
-"Test 27 out of 29\n"
-" UART0 3V Port Pin Test        Next Test: Left Encoder Test\n"
-" Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
-"\n"
-" Instructions:\n"
-"  !!! This is where you might blow you're ESP32 if your not careful connecting to the correct pins  !!!! \n" 
-"   - Disconnect the Servo\n"
-"   - Connect one end to of a receptacle to receptacle wires to the three pin header JP2 on pin closest to inside of board labeled Tx.\n"   
-"   - Using a 470 resistor put in the open end of the wire jumper, take a second jumer wire and connect to the other end of the 4k7 resistor.\n" 
-"   - This test automatically counts from 1 to 10 then print an X.\n"
-"   - During the 1 to 10 count (not before 1 or after 10), connect the free end of the second jumper wire to the three pin header JP2 on middle pin labeled Rx.\n"
-"   - Enter \"C\" to start test.\n",
-"\n"
+//Test 29 [57]
+//"\n"  
+//"Test 29 out of 30\n"
+//" UART0 3V Port Pin Test        Next Test: Left Encoder Test\n"
+//" Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
+//"\n"
+//" Instructions:\n"
+//"  !!! This is where you might blow you're ESP32 if your not careful connecting to the correct pins  !!!! \n" 
+//"   - Disconnect the Servo\n"
+//"   - Connect one end to of a receptacle to receptacle wire to the three pin header JP2 on pin closest to inside of board labeled Tx.\n"   
+//"   - Using a 470 resistor put in the open end of the wire jumper, take a second jumer wire and connect to the other end of the 4k7 resistor.\n" 
+//"   - This test automatically counts from 1 to 10 then print an X.\n"
+//"   - During the 1 to 10 count (not before 1 or after 10), connect the free end of the second jumper wire to the three pin header JP2 on middle pin labeled Rx.\n"
+//"   - Enter \"C\" to start test.\n",
+//"\n"
 //
-//Test 27 continued [54]
-
+//Test 29 continued [58]
+//
+//"\n"  
+//"Test 29 out of 30\n"
+//" UART0 3V Port Pin Test        Next Test: Left Encoder Test\n"
+//" Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
+//"\n"
+//" Instructions:\n"
+//"   - The Serial Monitor will display either error or worked, if worked disconnect the wire jumper ( both ends) and push \"C\" \n"
+//"\n"
+//"   - If error it's not working: unplug ESP32 from power sources. \n"
+//"   --- check the two wire jumpers is connected correctly to the three pin header JP2 to pin labeled Rx and Tx\n"   
+//"   --- check the other ends are connected to a 4K7 resistor\n"
+//"   --- check solder joints on three pin header JP2, Resistor R2,and R6, pins RX0 (physical pin – 36) and TX0 (physical pin – 37)\n"
+//"   --- Use multimeter to check continuity (beep test), to ground, to 3V3, to points along the circuit path (use the schematic and board artwork as reference)\n",
+////------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//Test 29 [57]
 "\n"  
-"Test 27 out of 29\n"
-" UART0 3V Port Pin Test        Next Test: Left Encoder Test\n"
-" Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
-"\n"
-" Instructions:\n"
-"   - The Serial Monitor will display either error or worked, if worked disconnect the wire jumper ( both ends) and push \"C\" \n"
-"\n"
-"   - If error it's not working: unplug ESP32 from power sources. \n"
-"   --- check the two wire jumpers is connected correctly to the three pin header JP2 to pin labeled Rx and Tx\n"   
-"   --- check the other ends are connected to a 4K7 resistor\n"
-"   --- check solder joints on three pin header JP2, Resistor R2,and R6, pins RX0 (physical pin – 36) and TX0 (physical pin – 37)\n"
-"   --- Use multimeter to check continuity (beep test), to ground, to 3V3, to points along the circuit path (use the schematic and board artwork as reference)\n",
-//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//Test 28 [55]
-"\n"  
-"Test 28 out of 29       \n"
+"Test 29 out of 30       \n"
 " Left Encoder Test               Next Test: Right Encoder Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -737,9 +787,9 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "      , The direction to drag the strip is from one short end towards the other short end of the circuit board, if working enter \"C\" \n"
 "       NOTE: Once you are finished with this test you will need to enter \"C\" to stop the scrolling data.\n",
 //
-//Test 28 continued [56]
+//Test 29 continued [58]
 "\n"  
-"Test 28 out of 29\n"
+"Test 29 out of 30\n"
 " Encoder Board Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
@@ -751,9 +801,9 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "   --- check solder joints of U1, DIP Switches S1-1, S1-2, S1-3, S1-4, and pins 8, 9, 10, and 11 of the ESP32.\n"
 "   --- Use multimeter to check continuity (beep test), to ground, to 3V3, to points along the circuit path (use the schematic and board artwork as reference)\n",
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//Test 29 [57]
+//Test 30 [59]
 "\n"  
-"Test 29 out of 29       \n"
+"Test 30 out of 30       \n"
 " Right Encoder Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -766,9 +816,9 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "       NOTE: Once you are finished with this test you will need to enter \"C\" to stop the scrolling data.\n"
 "\n",
 //
-//Test 29 continued [58]
+//Test 30 continued [60]
 "\n"  
-"Test 29 out of 29\n"
+"Test 30 out of 30\n"
 " Right Encoder Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
@@ -781,7 +831,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "   --- Use multimeter to check continuity (beep test), to ground, to 3V3, to points along the circuit path (use the schematic and board artwork as reference)\n",
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//End [59]
+//End [61]
 
 "\n"
 " Congratulations! You have finished the testing.\n"
