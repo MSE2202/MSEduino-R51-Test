@@ -26,7 +26,7 @@ PSRAM: 'Disabled"
 Arduino Runs On: "Core 1"
 Events Run On: "Core 1"
 
-
+To Program press and hold the reset button then press and hold program button, release the reset button then release the program button 
 */
 
 
@@ -53,7 +53,7 @@ Events Run On: "Core 1"
 #include <esp_task_wdt.h>
 
 #include <Math.h>
-//#include "MyWEBserver.h"
+#include "MyWEBserver.h"
 #include "WDT.h"
 
 #ifdef BROADTESTING
