@@ -32,7 +32,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Test 1 [1]
 "\n"  
-"Test 1 out of 27\n"
+"Test 1 out of 30\n"
 " SMART LEDs Test         Next Test: Push Button 1 Test\n"
 "Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -42,7 +42,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Test 1 continued  [2]
 "\n"  
-"Test 1 out of 27\n"
+"Test 1 out of 30\n"
 " SMART LEDs Test         Next Test: Push Button 1 Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -122,7 +122,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //Test 5 [9]
 "\n"  
 "Test 5 out of 30\n"
-" Potentiometer R1 Test        Next Test: Potentiometer R2 Test\n"
+" Potentiometer R1 Test        Next Test: Analog Input AD1-3 Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
 " Instructions:\n"
@@ -133,14 +133,14 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //Test 5 continued [10]
 "\n"  
 "Test 5 out of 30\n"
-" Potentiometer R1 Test        Next Test: Potentiometer R2 Test\n"
+" Potentiometer R1 Test        Next Test: Analog Input AD1-3 Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
 " Instructions:\n"
 "   - The Serial Monitor should have displayed Potentiometer R1 values as you adjust the potentiometer, if working enter \"C\" \n"
 "   - If not working: unplug ESP32 from power sources. \n"
 "   --- check DIP SWITCH S1-12 is on\n"
-"   --- check solder joints on three pin header J39, AD0 (physical pin 39), Resistor 9 and Potentiometer R1\n"
+"   --- check solder joints on three pin header J39, AD1-0 (physical pin 39), Resistor 9 and Potentiometer R1\n"
 "   --- Use multimeter to check continuity (beep test), to ground, to 3V3, to points along the circuit path (use the schematic and board artwork as reference)\n",
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Test 6 [11]

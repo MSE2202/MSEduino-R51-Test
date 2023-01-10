@@ -11,7 +11,7 @@
 Additional Boards Manager URLs: https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json
 
 Tools->:
-Board:"ESP32S3 Dev Module"
+Board:"Adafruit Feather ESP32-S3 No PSRAM"
 Upload Speed: "921600"
 USB CDC On Boot: "Enabled"
 USB Firmware MSC on Boot: "Disabled"
@@ -53,7 +53,6 @@ To Program press and hold the reset button then press and hold program button, r
 #include <esp_task_wdt.h>
 
 #include <Math.h>
-#include "MyWEBserver.h"
 #include "WDT.h"
 
 #ifdef BROADTESTING
@@ -93,6 +92,9 @@ void setup()
   Serial.println(F("MSE-diuno V4.2 Test Program"));
   delay(1000);
   
+  //set the resolution to 12 bits (0-4096)
+  analogReadResolution(12);
+
   Core_ZEROInit();
 
   WDT_EnableFastWatchDogCore1();

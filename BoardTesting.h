@@ -72,7 +72,7 @@ Usage either through serial Monitor or WEB PAGE 192.168.128.1
 
 #define BRDTST_GPIO2 2    //GPIO2 pin 38 not connected to other devices (J2); also is analog AD1-1
 
-#define BRDTST_POT_R1  A0  //when DIP Switch S1-12 is ON, Analog AD0 (pin 39, GPIO1 is connected to Poteniometer R1
+#define BRDTST_POT_R1  1  //when DIP Switch S1-12 is ON, Analog AD0 (pin 39, GPIO1 is connected to Poteniometer R1
 
 
 
@@ -114,6 +114,8 @@ unsigned int brdtst_uiTimeCount;
 unsigned int brdtst_uiTestIndex;
 
 signed int brdtst_iCounter;
+
+
 byte bit4 = 1;
 
 void BRD_Testing()
@@ -218,13 +220,14 @@ void BRD_Testing()
     
     digitalWrite(BRDTST_GPIO4,bit4);
      
-     brdtst_ucIncrementTestStep = 1;
+    brdtst_ucIncrementTestStep = 1;
+        
     break;
   }
  case 1:
   {
     //waiting for user input
-    
+   
     break;
   }
   // ***********************************************************************************************************************************************************************************************************************
@@ -243,11 +246,13 @@ void BRD_Testing()
      SmartLEDs.setPixelColor(1,0,0,0); // Set pixel colors to 'off'
      SmartLEDs.show();   // Send the updated pixel colors to the hardware.
      brdtst_ucIncrementTestStep = 1;
+     
     break;
   }
   case 11:
   {
     // waiting for user input
+    
     break;
   }
   case 12:

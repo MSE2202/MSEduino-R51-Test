@@ -11,8 +11,6 @@ Western Engineering base code
 #define CORE_ZERO_H 1
 
 
-#include "MyWEBserver.h"
-
 #include "WDT.h"
 
 TaskHandle_t Core_Zero;
@@ -59,8 +57,7 @@ void Core_ZeroCode( void * pvParameters )
   //-------------------------------------------------------------------------------------------
   
 
-   WSVR_setupWEbServer();
-  
+     
    delay(1000);
 
    
@@ -97,13 +94,7 @@ void Core_ZeroCode( void * pvParameters )
         WDT_ucCaseIndexCore0 = CR0_ucMainTimerCaseCore0;
         vTaskDelay(1);
 
-       // WDT_CheckOperationTime();
-        
-       // WSVR_ButtonResponce();
-//        asm volatile("esync; rsr %0,ccount":"=a" (CR0_u32Last)); // @ 240mHz clock each tick is ~4nS  
-        webSocket.loop();
-//         asm volatile("esync; rsr %0,ccount":"=a" (CR0_u32Now));    
-//        
+       
         switch(CR0_ucMainTimerCaseCore0)  //full switch run through is 1mS
         {
           //###############################################################################
@@ -128,9 +119,7 @@ void Core_ZeroCode( void * pvParameters )
           //###############################################################################
           case 2: //web page control
           {
-            asm volatile("esync; rsr %0,ccount":"=a" (CR0_u32Last)); // @ 240mHz clock each tick is ~4nS  
-            webSocket.loop();
-            asm volatile("esync; rsr %0,ccount":"=a" (CR0_u32Now));    
+           
            
             CR0_ucMainTimerCaseCore0 = 3;
             break;
