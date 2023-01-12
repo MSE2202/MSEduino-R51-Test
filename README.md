@@ -1,6 +1,6 @@
-## MSE-Duino V4.2 Test
+## MSE-Duino R4.2 Test
 
-Main test code is found in MSE-Duino-V4.2-Test folder  
+Main test code is found in MSE-Duino-R4.2-Test folder  
 Original code written by Eugen Porter
 
 Code has been tested with Legacy Arduino IDE (1.8.19) and new Arduino IDE (2.0.3)
