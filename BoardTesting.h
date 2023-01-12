@@ -1,12 +1,7 @@
-/*
-//Western Engineering base code 
-Oct 10,2020
-  
-\Board Testing code
-
-Usage either through serial Monitor or WEB PAGE 192.168.128.1
-
-*/
+//
+//  MSE-Duino V4.2 Board Testing Code
+//  Update: Jan 2023
+//
 
 
 #ifndef BOARDTESTING_H
@@ -16,12 +11,11 @@ Usage either through serial Monitor or WEB PAGE 192.168.128.1
 #include "BoardTestingInstructions.h"
 
 
-
 //pins
 #define BRDTST_GPIO4  4            //pin 4 not connected to other devices (J4); also is analog AD1-3
-#define BRDTST_GPIO5  5            //pin 5 not connected to other devices (J5); also is analog   AD1-4
-#define BRDTST_GPIO6  6            //pin 6 not connected to other devices (J6); also is analog   AD1-5
-#define BRDTST_GPIO7  7            //pin 7 not connected to other devices (J7); also is analog   AD1-6
+#define BRDTST_GPIO5  5            //pin 5 not connected to other devices (J5); also is analog AD1-4
+#define BRDTST_GPIO6  6            //pin 6 not connected to other devices (J6); also is analog AD1-5
+#define BRDTST_GPIO7  7            //pin 7 not connected to other devices (J7); also is analog AD1-6
 
 #define BRDTST_ENCODER_LEFT_A 15    //when DIP Switch S1-1 is ON, Left encoder A signal is connected to pin 8 GPIO15 (J15); When DIP Switch S1-1 is off can be used as analog AD2-4
 #define BRDTST_ENCODER_LEFT_B 16    //when DIP Switch S1-2 is ON, Left encoder B signal is connected to pin 9 GPIO16 (J16); When DIP Switch S1-2 is off can be used as analog AD2-5
@@ -82,7 +76,7 @@ Usage either through serial Monitor or WEB PAGE 192.168.128.1
 
 
 // Declare our SK6812 SMART LED object:
-Adafruit_NeoPixel SmartLEDs(BRDTST_LED_COUNT, BRDTST_SMART_LED, NEO_GRB + NEO_KHZ400);
+Adafruit_NeoPixel SmartLEDs(BRDTST_LED_COUNT, BRDTST_SMART_LED, NEO_RGB + NEO_KHZ800);
 // Argument 1 = Number of LEDs (pixels) in use
 // Argument 2 = ESP32 pin number 
 // Argument 3 = Pixel type flags, add together as needed:
@@ -95,7 +89,7 @@ Adafruit_NeoPixel SmartLEDs(BRDTST_LED_COUNT, BRDTST_SMART_LED, NEO_GRB + NEO_KH
 
 
 //Variables
-boolean   brdtst_BoardTestingActive = true;
+boolean brdtst_BoardTestingActive = true;
 unsigned char brdtst_LEDBrightness = 25;
 unsigned char brstst_ucMaxNumberofTestSteps = 10;
 unsigned char brstst_ucMaxNumberofTests = 31;
@@ -114,9 +108,6 @@ unsigned int brdtst_uiTimeCount;
 unsigned int brdtst_uiTestIndex;
 
 signed int brdtst_iCounter;
-
-
-byte bit4 = 1;
 
 void BRD_Testing()
 {
@@ -180,7 +171,7 @@ void BRD_Testing()
         brdtst_BoardTestingActive = false;
         brdtst_ucIncrementTestStep = 0;
         brdtst_ucTestID = 0;
-        Serial.println(F("Quiting - Board Testing ( to restart reset esp32"));
+        Serial.println(F("Quitting - Board Testing (to restart reset ESP32)"));
         
         break;
       }
@@ -204,21 +195,15 @@ void BRD_Testing()
   case 0: //setup for board testing
   {
   
-      
-      SmartLEDs.begin(); // INITIALIZE SMART LEDs object (REQUIRED)
-     SmartLEDs.setPixelColor(0,0,0,0);// Set pixel colors to 'off'
-     SmartLEDs.show();   // Send the updated pixel colors to the hardware.
-     SmartLEDs.setPixelColor(1,0,0,0);// Set pixel colors to 'off'
+     SmartLEDs.begin(); // INITIALIZE SMART LEDs object (REQUIRED)
+     SmartLEDs.clear();
+     SmartLEDs.setPixelColor(0,SmartLEDs.Color(0,0,0));// Set pixel colors to 'off'
      SmartLEDs.show();   // Send the updated pixel colors to the hardware.
      brstst_ucMaxNumberofTestSteps = 1;
      
      Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
      Serial.printf("%s",BoardTesting_Instructions[0]);
      Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-     //ESP32 Blink Test
-    pinMode(BRDTST_GPIO4, OUTPUT);
-    
-    digitalWrite(BRDTST_GPIO4,bit4);
      
     brdtst_ucIncrementTestStep = 1;
         
@@ -241,9 +226,8 @@ void BRD_Testing()
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
     //SMART LED Testing
      //SmartLEDs.begin(); // INITIALIZE SMART LEDs object (REQUIRED)
-     SmartLEDs.setPixelColor(0,0,0,0);// Set pixel colors to 'off'
-     SmartLEDs.show();   // Send the updated pixel colors to the hardware.
-     SmartLEDs.setPixelColor(1,0,0,0); // Set pixel colors to 'off'
+     SmartLEDs.clear();
+     SmartLEDs.setPixelColor(0,SmartLEDs.Color(0,0,0));// Set pixel colors to 'off'
      SmartLEDs.show();   // Send the updated pixel colors to the hardware.
      brdtst_ucIncrementTestStep = 1;
      
@@ -278,48 +262,44 @@ void BRD_Testing()
           case 0:
           {
             
-            // SmartLEDs.Color() takes RGB values, from 0,0,0 up to 255,255,255
-            SmartLEDs.setPixelColor(brdtst_TempLoopVariable2,5,0,0);
+            // SmartLEDs.setPixelColor() takes RGB values, from 0,0,0 up to 255,255,255
+            SmartLEDs.setPixelColor(0,SmartLEDs.Color(5,0,0));  // Red
             brdtst_TempLoopVariable = 1;
             break;
           }
           case 1:
           {
             
-            // SmartLEDs.Color() takes RGB values, from 0,0,0 up to 255,255,255
-            SmartLEDs.setPixelColor(brdtst_TempLoopVariable2,0,5,0);
+            // SmartLEDs.setPixelColor() takes RGB values, from 0,0,0 up to 255,255,255
+            SmartLEDs.setPixelColor(0,SmartLEDs.Color(0,5,0));  // Green
             brdtst_TempLoopVariable = 2;
             break;
           }
           case 2:
           {
             
-            // SmartLEDs.Color() takes RGB values, from 0,0,0 up to 255,255,255
-            SmartLEDs.setPixelColor(brdtst_TempLoopVariable2,0,0,5);
+            // SmartLEDs.setPixelColor() takes RGB values, from 0,0,0 up to 255,255,255
+            SmartLEDs.setPixelColor(0,SmartLEDs.Color(0,0,5));  // Blue
             brdtst_TempLoopVariable = 3;
             break;
           }
           case 3:
           {
-            
-            // SmartLEDs.Color() takes RGB values, from 0,0,0 up to 255,255,255
-            SmartLEDs.setPixelColor(brdtst_TempLoopVariable2,0,0,0);
-            if(brdtst_TempLoopVariable2)
-            {
-              brdtst_TempLoopVariable2 = 0;
-            }
-            else
-            {
-              brdtst_TempLoopVariable2 = 1;
-            }
+            // SmartLEDs.setPixelColor() takes RGB values, from 0,0,0 up to 255,255,255
+            SmartLEDs.setPixelColor(0,SmartLEDs.Color(10,10,10));  // White
+            brdtst_TempLoopVariable = 4;
+            break;
+          }
+          case 4:
+          {
+            // SmartLEDs.set PixelColor() takes RGB values, from 0,0,0 up to 255,255,255
+            SmartLEDs.setPixelColor(0,SmartLEDs.Color(0,0,0));
             brdtst_TempLoopVariable = 0;
             break;
           }
         }
        
         SmartLEDs.show();   // Send the updated pixel colors to the hardware.
-        bit4 ^= 1;
-        digitalWrite(BRDTST_GPIO4,bit4);
      } 
     break;
    }
@@ -330,10 +310,9 @@ void BRD_Testing()
    {
     brstst_ucMaxNumberofTestSteps = 3;
     SmartLEDs.begin(); // INITIALIZE SMART LEDs object (REQUIRED)
-    SmartLEDs.setPixelColor(0,0,0,0);// Set pixel colors to 'off'
-     SmartLEDs.show();   // Send the updated pixel colors to the hardware.
-     SmartLEDs.setPixelColor(1,0,0,0); // Set pixel colors to 'off'
-     SmartLEDs.show();   // Send the updated pixel colors to the hardware.
+    SmartLEDs.clear();    
+    SmartLEDs.setPixelColor(0,SmartLEDs.Color(0,0,0));// Set pixel colors to 'off'
+    SmartLEDs.show();   // Send the updated pixel colors to the hardware.
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));Serial.println(F(""));
     Serial.printf("%s",BoardTesting_Instructions[3]);
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
