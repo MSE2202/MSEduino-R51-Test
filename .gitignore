@@ -1,0 +1,4 @@
+.DS_Store
+*.svd
+debug.*
+debug_custom.*
