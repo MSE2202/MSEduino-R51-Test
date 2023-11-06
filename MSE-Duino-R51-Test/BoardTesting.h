@@ -27,8 +27,8 @@
 #define ESP32s3_USB_DM   19         //pin 13 use only for USB connection (GPIO19)
 #define ESP32s3_USB_DP   20         //pin 14 use only for USB connection (GPIO20)
 
-#define BRDTST_DIP_SW_S1_5 3     //DIP Switch S1-5 pulls Digital pin D3 to ground when ON; pin 15 GPIO3 (J3); When DIP Switch S1-5 is off can be used as analog AD1-2
-#define BRDTST_DIP_SW_S1_6 46    //DIP Switch S1-6 pulls Digital pin D46 to ground when ON; pin 16 GPIO46 (J46)
+#define BRDTST_DIP_SW_S1_1 3     //DIP Switch S1-5 pulls Digital pin D3 to ground when ON; pin 15 GPIO3 (J3); When DIP Switch S1-5 is off can be used as analog AD1-2
+#define BRDTST_DIP_SW_S1_2 46    //DIP Switch S1-6 pulls Digital pin D46 to ground when ON; pin 16 GPIO46 (J46)
 
 #define BRDTST_GPIO9     9         //pin 17 not connected to other devices (J9); also is analog AD1-8
 #define BRDTST_GPIO10    10        //pin 18 not connected to other devices (J10); also is analog AD1-9
@@ -264,6 +264,8 @@ void BRD_Testing()
             
             // SmartLEDs.setPixelColor() takes RGB values, from 0,0,0 up to 255,255,255
             SmartLEDs.setPixelColor(0,SmartLEDs.Color(5,0,0));  // Red
+            Serial.printf("red");
+            Serial.println(F(" "));
             brdtst_TempLoopVariable = 1;
             break;
           }
@@ -272,6 +274,8 @@ void BRD_Testing()
             
             // SmartLEDs.setPixelColor() takes RGB values, from 0,0,0 up to 255,255,255
             SmartLEDs.setPixelColor(0,SmartLEDs.Color(0,5,0));  // Green
+            Serial.printf("grn");
+            Serial.println(F(" "));
             brdtst_TempLoopVariable = 2;
             break;
           }
@@ -280,6 +284,8 @@ void BRD_Testing()
             
             // SmartLEDs.setPixelColor() takes RGB values, from 0,0,0 up to 255,255,255
             SmartLEDs.setPixelColor(0,SmartLEDs.Color(0,0,5));  // Blue
+            Serial.printf("blu");
+            Serial.println(F(" "));
             brdtst_TempLoopVariable = 3;
             break;
           }
@@ -287,6 +293,8 @@ void BRD_Testing()
           {
             // SmartLEDs.setPixelColor() takes RGB values, from 0,0,0 up to 255,255,255
             SmartLEDs.setPixelColor(0,SmartLEDs.Color(10,10,10));  // White
+            Serial.printf("wht");
+            Serial.println(F(" "));
             brdtst_TempLoopVariable = 4;
             break;
           }
@@ -294,6 +302,8 @@ void BRD_Testing()
           {
             // SmartLEDs.set PixelColor() takes RGB values, from 0,0,0 up to 255,255,255
             SmartLEDs.setPixelColor(0,SmartLEDs.Color(0,0,0));
+            Serial.printf("off");
+            Serial.println(F(" "));
             brdtst_TempLoopVariable = 0;
             break;
           }
@@ -353,14 +363,14 @@ void BRD_Testing()
    
    
    // ***********************************************************************************************************************************************************************************************************************
-   //DIP Switch S1-5 test
+   //DIP Switch S1-1 test
    case 30:
    {
     brstst_ucMaxNumberofTestSteps = 3;
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));Serial.println(F(""));
     Serial.printf("%s",BoardTesting_Instructions[5]);
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    pinMode(BRDTST_DIP_SW_S1_5, INPUT_PULLUP); // set D3 as input
+    pinMode(BRDTST_DIP_SW_S1_1, INPUT_PULLUP); // set D3 as input
     brdtst_ucIncrementTestStep = 1;
     break;
    }
@@ -376,30 +386,30 @@ void BRD_Testing()
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
     brdtst_ucIncrementTestStep = 3;
     brdtst_TempLoopVariable = 0;
-    brdtst_TempLoopVariable = digitalRead(BRDTST_DIP_SW_S1_5);
+    brdtst_TempLoopVariable = digitalRead(BRDTST_DIP_SW_S1_1);
     if(brdtst_TempLoopVariable)
     {
       Serial.println(F("DIP Switch S1-5 Off (Input High), switch to test"));
     }
     else
     {
-      Serial.println(F("DIP Switch S1-5 ON (Input Low), switch to test"));
+      Serial.println(F("DIP Switch S1-1 ON (Input Low), switch to test"));
     }
     break;
    }
    case 33:
    {
    
-    if(digitalRead(BRDTST_DIP_SW_S1_5) != brdtst_TempLoopVariable)
+    if(digitalRead(BRDTST_DIP_SW_S1_1) != brdtst_TempLoopVariable)
     {
-      brdtst_TempLoopVariable = digitalRead(BRDTST_DIP_SW_S1_5);
+      brdtst_TempLoopVariable = digitalRead(BRDTST_DIP_SW_S1_1);
       if(brdtst_TempLoopVariable)
       {
-        Serial.println(F("DIP Switch S1-5 Off (Input High)"));
+        Serial.println(F("DIP Switch S1-1 Off (Input High)"));
       }
       else
       {
-        Serial.println(F("DIP Switch S1-5 ON (Input Low)"));
+        Serial.println(F("DIP Switch S1-1 ON (Input Low)"));
       }
     }
     break;
@@ -413,7 +423,7 @@ void BRD_Testing()
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));Serial.println(F(""));
     Serial.printf("%s",BoardTesting_Instructions[7]);
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    pinMode(BRDTST_DIP_SW_S1_6, INPUT_PULLUP); // set D16 as input
+    pinMode(BRDTST_DIP_SW_S1_2, INPUT_PULLUP); // set D16 as input
     brdtst_ucIncrementTestStep = 1;
     break;
    }
@@ -429,30 +439,30 @@ void BRD_Testing()
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
     brdtst_ucIncrementTestStep = 3;
     brdtst_TempLoopVariable = 0;
-    brdtst_TempLoopVariable = digitalRead(BRDTST_DIP_SW_S1_6);
+    brdtst_TempLoopVariable = digitalRead(BRDTST_DIP_SW_S1_2);
     if(brdtst_TempLoopVariable)
     {
-      Serial.println(F("DIP Switch S1-6 Off (Input High), switch to test"));
+      Serial.println(F("DIP Switch S1-2 Off (Input High), switch to test"));
     }
     else
     {
-      Serial.println(F("DIP Switch S1-6 On (Input Low), switch to test"));
+      Serial.println(F("DIP Switch S1-2 On (Input Low), switch to test"));
     }
     break;
    }
    case 43:
    {
    
-    if(digitalRead(BRDTST_DIP_SW_S1_6) != brdtst_TempLoopVariable)
+    if(digitalRead(BRDTST_DIP_SW_S1_2) != brdtst_TempLoopVariable)
     {
-      brdtst_TempLoopVariable = digitalRead(BRDTST_DIP_SW_S1_6);
+      brdtst_TempLoopVariable = digitalRead(BRDTST_DIP_SW_S1_2);
       if(brdtst_TempLoopVariable)
       {
-        Serial.println(F("DIP Switch S1-6 Off (Input High)"));
+        Serial.println(F("DIP Switch S1-2 Off (Input High)"));
       }
       else
       {
-        Serial.println(F("DIP Switch S1-6 On (Input Low)"));
+        Serial.println(F("DIP Switch S1-2 On (Input Low)"));
       }
     }
     break;

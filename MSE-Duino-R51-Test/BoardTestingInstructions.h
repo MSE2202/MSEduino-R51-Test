@@ -29,8 +29,9 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
 " Instructions:\n"
-"   - Slide DIP Switch S1-11 to ON, then enter \"C\" \n",
+"   - Slide DIP Switch S1-4 to ON, then enter \"C\" \n",
 //
+
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Test 1 continued  [2]
 "\n"  
@@ -41,26 +42,26 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Instructions:\n"
 "   - SMART LED1 (look for label on board) should change colours, if working enter \"C\" \n"
 "   - If not working, unplug the MSE-Duino from power sources (USB) and \n"
-"   --- Check that DIP Switch S1-11 is toggled correctly to ON \n"
+"   --- Check that DIP Switch S1-4 is toggled correctly to ON \n"
 "   --- Check the LED power/ground pins and Din/Dout on LED for soldering or shorts\n"
-"   --- Check the solder joints on S1-11, GPIO21 (physical pin 23), and SMART LED1\n"
+"   --- Check the solder joints on S1-4, GPIO21 (physical pin 23), and SMART LED1\n"
 "   --- Use a multimeter to check continuity (beep test), to ground, to 3V3, and to points along the circuit path (use the schematic and board artwork as reference)\n"
 "   --- Use an oscilloscope to check signal coming from pin 23; look at SK2812 data sheet for signal specs\n",
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Test 2 [3]
 "\n"  
 "Test 2 out of 30\n"
-" Push Button 1 Test         Next Test: DIP Switch S1-5 Test\n"
+" Push Button 1 Test         Next Test: DIP Switch S1-1 Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
 " Instructions: \n"
-"   - Slide DIP Switch S1-11 to off then enter \"C\" \n",
+"   - Slide DIP Switch S1-4 to off then enter \"C\" \n",
 //
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Test 2 continued  [4]
 "\n"  
 "Test 2 out of 30\n"
-" Push Button 1 Test         Next Test: DIP Switch S1-5 Test Test\n"
+" Push Button 1 Test         Next Test: DIP Switch S1-1 Test Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
 " Instructions:\n"
@@ -72,20 +73,20 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //Test 3 [5]
 "\n"  
 "Test 3 out of 30\n"
-" DIP Switch S1-5 Test         Next Test: DIP Switch S1-6 Test\n"
+" DIP Switch S1-1 Test         Next Test: DIP Switch S1-2 Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
 " Instructions:\n"
-"   - Slide DIP Switch S1-5 to off then enter \"C\" \n",
+"   - Slide DIP Switch S1-1 to off then enter \"C\" \n",
 //
 //Test 3 continued [6]
 "\n"  
 "Test 5 out of 30\n"
-" DIP Switch S1-5 Test         Next Test: DIP Switch S1-6 Test\n"
+" DIP Switch S1-1 Test         Next Test: DIP Switch S1-2 Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
 " Instructions:\n"
-"   - The Serial Monitor will update on DIP Switch S1-5 change of state, if working enter \"C\" \n"
+"   - The Serial Monitor will update on DIP Switch S1-1 change of state, if working enter \"C\" \n"
 "   - If not working, unplug the MSE-Duino from power sources (USB) and \n"
 "   --- Check the solder joints on the three pin header J3, (physical pin 15), Resistor 3 and DIP Switch S1-5\n"
 "   --- Use a multimeter to check continuity (beep test), to ground, to 3V3, and to points along the circuit path (use the schematic and board artwork as reference)\n",
@@ -93,20 +94,20 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //Test 4 [7]
 "\n"  
 "Test 4 out of 30\n"
-" DIP Switch S1-6 Test         Next Test: Potentiometer R1 Test\n"
+" DIP Switch S1-2 Test         Next Test: Potentiometer R1 Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
 " Instructions:\n"
-"   - Slide DIP Switch S1-5 and S1-6 to off then enter \"C\" \n",
+"   - Slide DIP Switch S1-1 and S1-2 to off then enter \"C\" \n",
 //
 //Test 4 continued [8]
 "\n"  
 "Test 4 out of 30\n"
-" DIP Switch S1-6 Test         Next Test: Potentiometer R1 Test\n"
+" DIP Switch S1-2 Test         Next Test: Potentiometer R1 Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
 " Instructions:\n"
-"   - The Serial Monitor will update on DIP Switch S1-6 change of state, if working enter \"C\" \n"
+"   - The Serial Monitor will update on DIP Switch S1-2 change of state, if working enter \"C\" \n"
 "   - If not working, unplug the MSE-Duino from power sources (USB) and \n"
 "   --- Check the solder joints on the three pin header J46, (physical pin 16), Resistor 10 and DIP Switch S1-6\n"
 "   --- Use a multimeter to check continuity (beep test), to ground, to 3V3, and to points along the circuit path (use the schematic and board artwork as reference)\n",
@@ -118,7 +119,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
 " Instructions:\n"
-"   - Slide DIP Switch S1-6 to off and DIP Switch S1-12 to on, then enter \"C\" \n"
+"   - Slide DIP Switch S1-2 to off and DIP Switch S1-3 to on, then enter \"C\" \n"
 "       NOTE: Once you are finished with this test you will need to enter \"C\" to stop the scrolling data.\n"
 "             The Serial Monitor will display Potentiometer R1 values as you adjust the potentiometer.\n",
 //
@@ -131,7 +132,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Instructions:\n"
 "   - The Serial Monitor should have displayed Potentiometer R1 values as you adjust the potentiometer, if working enter \"C\" \n"
 "   - If not working, unplug the MSE-Duino from power sources (USB) and \n"
-"   --- Check that DIP Switch S1-12 is on\n"
+"   --- Check that DIP Switch S1-3 is on\n"
 "   --- Check the solder joints on the three pin header J39, AD1-0 (physical pin 39), Resistor 9 and Potentiometer R1\n"
 "   --- Use a multimeter to check continuity (beep test), to ground, to 3V3, and to points along the circuit path (use the schematic and board artwork as reference)\n",
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -142,7 +143,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
 " Instructions:\n"
-"   - Leave DIP Switch S1-12 on\n"
+"   - Leave DIP Switch S1-3 on\n"
 "   - Take one of your supplied receptacle to receptacle wires and put one end on the three pin header J1 pin closest to the inside of board\n"
 "   - Connect the other end to the three pin header J4 pin closest to the inside of board, then enter \"C\" \n"
 "       NOTE: Once you are finished with this test you will need to enter \"C\" to stop the scrolling data.\n"
@@ -351,7 +352,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
 " Instructions:\n"
-"   - Slide DIP Switch S1-12 to off and remove jumper wire\n"
+"   - Slide DIP Switch S1-3 to off and remove jumper wire\n"
 "   - Take the receptacle to receptacle wire and put one end on the three pin header J4 pin closest to the inside of board\n"
 "   - Connect the other end to the three pin header J45 pin closest to the inside of board, then enter \"C\" \n",
 //
@@ -377,7 +378,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "\n"
 " Instructions:\n"
 "   - Leave the receptacle to receptacle wire on the three pin header J4 pin closest to the inside of board\n"
-"   - Connect the other end to the three pin header Jp2 pin closest to the inside of board, then enter \"C\" \n",
+"   - Connect the other end to the three pin header J43 pin closest to the inside of board, then enter \"C\" \n",
 //
 //Test 15 continued [30]
 "\n"  
@@ -389,8 +390,8 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "   - The Serial Monitor will update on Push Button PB1 change of state, if working enter \"C\" \n"
 "   - If not working, unplug the MSE-Duino from power sources (USB) and \n"
 "   --- Check that the wire jumper is connected correctly to three the pin header J4 pin closest inside of board\n"
-"   --- Check that the other end is connected to the three pin header JP2 pin closest to the inside of board\n"
-"   --- Check the solder joints on the three pin header JP2, GPIO43 (physical pin 37)\n"
+"   --- Check that the other end is connected to the three pin header J43 pin closest to the inside of board\n"
+"   --- Check the solder joints on the three pin header J43, GPIO43 (physical pin 37)\n"
 "   --- Use a multimeter to check continuity (beep test), to ground, to 3V3, and to points along the circuit path (use the schematic and board artwork as reference)\n",
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Test 16 [31]
@@ -400,9 +401,8 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
 " Instructions:\n"
-"   - Slide DIP Switch S1-12 to off and remove jumper wire\n"
 "   - Leave the receptacle to receptacle wire on three pin header J4 pin closest to the inside of board\n"
-"   - Connect the other end to the three pin header JP2 pin in the middle of the header, then enter \"C\" \n",
+"   - Connect the other end to the three pin header J44 pin closest to the inside of board, then enter \"C\" \n",
 //
 //Test 16 continued [32]
 "\n"  
@@ -414,8 +414,8 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "   - The Serial Monitor will update on Push Button PB1 change of state, if working enter \"C\" \n"
 "   - If not working, unplug the MSE-Duino from power sources (USB) and \n"
 "   --- Check that the wire jumper is connected correctly to three the pin header J4 pin closest inside of board\n"
-"   --- Check that the other end is connected to the three pin header JP2 pin in the middle of the header\n"
-"   --- Check the solder joints on the three pin header JP2, GPIO44 (physical pin 36)\n"
+"   --- Check that the other end is connected to the three pin header J44 pin closest to the inside of board\n"
+"   --- Check the solder joints on the three pin header J44, GPIO44 (physical pin 36)\n"
 "   --- Use a multimeter to check continuity (beep test), to ground, to 3V3, and to points along the circuit path (use the schematic and board artwork as reference)\n",
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -489,8 +489,8 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "\n"
 " Instructions:\n"
 "  !!! This is where you might blow you're ESP32 if your not careful connecting to the correct pins  !!!! \n" 
-"   - Leave the wire jumper on the one end of the three pin header J4 pin closest to the inside of board\n"  
-"   - Move the wire jumper from three pin header J48 to the four pin header JP1. Connect to pin closest to inside to board, Labeled DA\n"
+"   - Move the wire jumper from the one end of the three pin header J4 pin closest to the inside of board to the three pin jumper J47-5 output pin\n"  
+"   - Move the wire jumper from three pin header J48 to the three pin header J47-5, connect to pin closest to inside to board.\n"
 "   - then enter \"C\" \n",
 //
 //Test 19 continued [38]
@@ -500,12 +500,12 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
 " Instructions:\n"
-"   - The Serial Monitor will update when Push Button 1 (PB1) is pressed, if working enter \"C\" \n"
+"   - The Serial Monitor will update when wire jumper is removed from ground pin and replaced on ground pin (pin 47-5 outside), if working enter \"C\" \n"
 "   - If not working, unplug the MSE-Duino from power sources (USB) and \n"
-"   --- Check that the wire jumper is connected correctly to one end of the three pin header J4 pin closest to the inside of board\n"
-"   --- Check that the other end is connected to four pin header JP1. Connect to pin closest to inside to board, Labeled DA\n"
+"   --- Check that the wire jumper is connected correctly to outside pin of the three pin header J47-5.\n"
+"   --- Check that the other end is connected to fhree pin header J47-5, connect to pin closest to inside to board.\n"
 "   --- Make sure that Transistor Q1 is soldered in the correct orientation\n"
-"   --- Check the solder joints on the four pin header JP1, Transistor Q1, and Resistor R14\n"
+"   --- Check the solder joints on the three pin header J47-5, Transistor Q1, and Resistor R14\n"
 "   --- Use a multimeter to check continuity (beep test), to ground, to 3V3, and to points along the circuit path (use the schematic and board artwork as reference)\n",
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Test 20 [39]
@@ -516,9 +516,8 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "\n"
 " Instructions:\n"
 "  !!! This is where you might blow you're ESP32 if your not careful connecting to the correct pins  !!!! \n" 
-"   - Leave the wire jumper on the one end of the three pin header J4 pin closest to the inside of board\n"  
-"   - Move the wire jumper from four pin header JP1 connect to pin closest to inside to board to the same\n"
-"     four pin header JP1 pin down one from the pin closest to the inside of board, Labeled CLK\n"
+"   - Move the wire jumper from the one end of the three pin header J47-5 pin closest to the outside of board to the three pin jumper J48-5 output pin\n"  
+"   - Move the wire jumper from three pin header J47-5 ( inside) to the three pin header J48-5, connect to pin closest to inside to board.\n"
 "   - then enter \"C\" \n",
 //
 //Test 20 continued [40]
@@ -528,12 +527,12 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
 " Instructions:\n"
-"   - The Serial Monitor will update when wire jumper is removed from ground pin and replaced on ground pin, if working enter \"C\" \n"
+"   - The Serial Monitor will update when wire jumper is removed from ground pin and replaced on ground pin (pin 48-5 outside), if working enter \"C\" \n"
 "   - If not working, unplug the MSE-Duino from power sources (USB) and \n"
-"   --- Check that the wire jumper is connected correctly to one end of the three pin header J4 pin closest to the inside of board\n"
-"   --- Check that the other end is connected to four pin header JP1, one pin down from the pin closest to the inside of board, Labeled CLK\n"
+"   --- Check that the wire jumper is connected correctly to outside pin of the three pin header J48-5.\n"
+"   --- Check that the other end is connected to fhree pin header J48-5, connect to pin closest to inside to board.\n"
 "   --- Make sure that Transistor Q2 is soldered in the correct orientation\n"
-"   --- Check the solder joints on the four pin header JP1, Transistor Q2, and Resistor R12\n"
+"   --- Check the solder joints on the three pin header J48-5, Transistor Q2, and Resistor R12\n"
 "   --- Use a multimeter to check continuity (beep test), to ground, to 3V3, and to points along the circuit path (use the schematic and board artwork as reference)\n",
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Test 21 [41]

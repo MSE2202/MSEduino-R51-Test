@@ -1,9 +1,9 @@
 //
 //  MSE 2202 
-//  MSE-Duino V4.2 Board Testing
+//  MSE-Duino V5.1 Board Testing
 //
 //  2022 12 05 E J Porter
-//  Update: Jan 2023
+//  Update: Oct 24
 //
 
 //  To program and use ESP32-S3
