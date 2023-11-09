@@ -9,7 +9,7 @@
 
 #include <Adafruit_NeoPixel.h>
 #include "BoardTestingInstructions.h"
-
+#include <MSE2202_Lib.h>
 
 //pins
 #define BRDTST_GPIO4  4            //pin 4 not connected to other devices (J4); also is analog AD1-3
@@ -92,7 +92,7 @@ Adafruit_NeoPixel SmartLEDs(BRDTST_LED_COUNT, BRDTST_SMART_LED, NEO_RGB + NEO_KH
 boolean brdtst_BoardTestingActive = true;
 unsigned char brdtst_LEDBrightness = 25;
 unsigned char brstst_ucMaxNumberofTestSteps = 10;
-unsigned char brstst_ucMaxNumberofTests = 37;
+unsigned char brstst_ucMaxNumberofTests = 40;
 unsigned char brdtst_ucIncrementTestStep = 0;
 unsigned char brdtst_ucTestID = 0;
 
@@ -108,6 +108,9 @@ unsigned int brdtst_uiTimeCount;
 unsigned int brdtst_uiTestIndex;
 
 signed int brdtst_iCounter;
+
+Motion Bot = Motion(); 
+
 
 void BRD_Testing()
 {
@@ -2134,11 +2137,150 @@ void BRD_Testing()
     }
     break;
    } 
-  
+// ***********************************************************************************************************************************************************************************************************************
+   // Motor  Test     
+   case 370:
+   {
+    
+    brstst_ucMaxNumberofTestSteps = 3;
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));Serial.println(F(""));
+    Serial.printf("%s",BoardTesting_Instructions[73]);
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+    brdtst_ucIncrementTestStep = 1;
+    break;
+   }
+   case 371:
+   {
+    // waiting for user input
+    break;
+   }
+   case 372:
+   {
+    brdtst_ucIncrementTestStep = 3;
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+    Serial.printf("%s",BoardTesting_Instructions[74]);
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+    
+    break;
+   }
+   case 373:
+   {
+    
    
+    break;
+   } 
+
+
+// ***********************************************************************************************************************************************************************************************************************
+   //Right Motor  Test     
+   case 380:
+   {
+    
+    brstst_ucMaxNumberofTestSteps = 3;
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));Serial.println(F(""));
+    Serial.printf("%s",BoardTesting_Instructions[75]);
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+    Bot.driveBegin("D1", BRDTST_MOTOR_1_A, BRDTST_MOTOR_1_B, BRDTST_MOTOR_2_A, BRDTST_MOTOR_2_B); // Set up motors as Drive 1
+    Bot.Stop("D1");
+    brdtst_ucIncrementTestStep = 1;
+    break;
+   }
+   case 381:
+   {
+    // waiting for user input
+    break;
+   }
+   case 382:
+   {
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+    Serial.printf("%s",BoardTesting_Instructions[76]);
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+    brdtst_ucIncrementTestStep = 3;
+    Bot.Forward("D1", 150); // Drive ID, Left speed, Right speed
+    brdtst_uiTimeCount = 0;
+    Serial.println(F("Right Motor forward."));
+    
+    break;
+   }
+   case 383:
+   {
+    brdtst_uiTimeCount = brdtst_uiTimeCount + 1;
+     if(brdtst_uiTimeCount > 1500)
+    {
+      brdtst_uiTimeCount = 0;
+      if(brdtst_uiPCMTest > 500)
+      {
+        brdtst_uiPCMTest = 425;  //zero degree
+        Bot.Reverse("D1", 150); // Drive ID, Left speed, Right speed
+        Serial.println(F("Right Motor Reverse."));
+      }
+      else
+      {
+         Bot.Forward("D1", 150); // Drive ID, Left speed, Right speed
+         brdtst_uiPCMTest = 1638;  //180 degree
+         Serial.println(F("Right Motor Forward."));
+      }
+      ledcWrite(1,brdtst_uiPCMTest);
+    }
+    break;
+   } 
+
+// ***********************************************************************************************************************************************************************************************************************
+   //Left Motor  Test     
+   case 390:
+   {
+    brstst_ucMaxNumberofTestSteps = 3;
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));Serial.println(F(""));
+    Serial.printf("%s",BoardTesting_Instructions[75]);
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+    Bot.driveBegin("D1", BRDTST_MOTOR_1_A, BRDTST_MOTOR_1_B, BRDTST_MOTOR_2_A, BRDTST_MOTOR_2_B); // Set up motors as Drive 1
+    Bot.Stop("D1");
+    brdtst_ucIncrementTestStep = 1;
+    break;
+   }
+   case 391:
+   {
+    // waiting for user input
+    break;
+   }
+   case 392:
+   {
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+    Serial.printf("%s",BoardTesting_Instructions[76]);
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+    brdtst_ucIncrementTestStep = 3;
+    Bot.Forward("D1", 150); // Drive ID, Left speed, Right speed
+    brdtst_uiTimeCount = 0;
+    Serial.println(F("Left Motor forward."));
+    
+    break;
+   }
+   case 393:
+   {
+    brdtst_uiTimeCount = brdtst_uiTimeCount + 1;
+     if(brdtst_uiTimeCount > 1500)
+    {
+      brdtst_uiTimeCount = 0;
+      if(brdtst_uiPCMTest > 500)
+      {
+        brdtst_uiPCMTest = 425;  //zero degree
+        Bot.Reverse("D1", 150); // Drive ID, Left speed, Right speed
+        Serial.println(F("Left Motor Reverse."));
+      }
+      else
+      {
+         Bot.Forward("D1", 150); // Drive ID, Left speed, Right speed
+         brdtst_uiPCMTest = 1638;  //180 degree
+         Serial.println(F("Lefet Motor Forward."));
+      }
+      ledcWrite(1,brdtst_uiPCMTest);
+    }
+    break;
+   } 
+
 // ***********************************************************************************************************************************************************************************************************************
    //Done Testst 
-   case 370:
+   case 400:
    {
     brstst_ucMaxNumberofTestSteps = 4;
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));Serial.println(F(""));
