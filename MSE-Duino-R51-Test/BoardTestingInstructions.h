@@ -914,7 +914,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //Test 36 [71]
 "\n"  
 "Test 36 out of 36\n"
-" Servo test GPIO42       \n"
+" Servo test GPIO42       Next Test: Encoder/Motor Controller A Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
 " Instructions:\n"
@@ -925,7 +925,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //Test 36 continued [72]
 "\n"  
 "Test 36 out of 36\n"
-" Servo test GPIO42       \n"
+" Servo test GPIO42       Next Test: Encoder/Motor Controller A Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
 " Instructions:\n"
@@ -939,12 +939,16 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //Test 37 [73]
 "\n"  
 "Test 37 out of 36\n"
-" Motor Test       \n"
+"Test: Encoder/Motor Controller A Test    Next Test: Encoder/Motor Controller B Test\n"  \n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
 " Instructions:\n"
 "   - Remove servo.\n"
-"   - Using one of the metal gear motors, plug the motor wire M1 into the three pin hearder J48-5 outer pin and motor wire M2 into J48-5 middle pin\n"
+"   - Plug Motor Controller Board into the two pin and 4 pins receptacle on the board (around the mounter hole)\n".
+"   - Using one of the metal gear motors, plug the motor wires M1 and M2 into MOTOR_A header on Motor Control Board.\n"
+"   - Plug the motor encoder wires into MSE-Duino board as per the following. Plug encoder wire C1 into header Jumper 11 top pin (closest to inside of board).\n"
+"   - Plug the encoder VCC wire into the middle pin of Jumper 11 and encoder ground wire into the bottom (outside) pin Jumper 11.\n"
+"   - Plug encoder C2 wire into top pin in Jumper 12 (closest to inside of board).\n"
 "   - then enter \"C\" \n"
 "       NOTE: Once you are finished with this test you will need to enter \"C\" to stop the scrolling data.\n",
 //
@@ -952,14 +956,15 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //Test 37 continued [74]
 "\n"  
 "Test 37 out of 36\n"
-" Motor Test           \n"
+"Test: Encoder/Motor Controller A Test     Next Test: Encoder/Motor Controller B Test\n"  \n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
 " Instructions:\n"
-"   - The Serial Monitor should display the Motor Test and the motor should be spinning, if working unplug motor and enter \"C\" \n"
+"   - The Serial Monitor should display the Encode count and the motor should be spinning, if working enter \"C\" \n"
 "   - If not working, unplug the MSE-Duino from power sources (USB) and \n"
-"   --- Check that the Motor M1, M2 were connected to the outer and middle pins of J48-5. \n"
-"   --- Check the solder joints on the motor wires.\n"
+"   --- Check that the Motor M1, M2 were connected to the MOTOR_A header on Motor Control Board.\n"
+"   --- Check the solder joints on the motor  and encoder wires.\n"
+"   --- Doulbe check the encoder was connedted correctly and to Jumper 11 and 12.\n"
 "   --- Use a multimeter to check continuity (beep test), to ground, to 3V3, to 5V.(use the schematic and board artwork as reference)\n"
 "   --- ",
 
@@ -967,65 +972,37 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Test 38 [75]
 "\n"  
-"Test 38 out of 36\n"
+"Test: Encoder/Motor Controller B Test\n"
 " Right Motor Test       \n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
 " Instructions:\n"
-"   - Remove servo and unplug the USB.\n"
-"   - Plug in the dual motor diver board.\n"
-"   - Using one of the metal gear motors, plug the motor wire M1 into the two pin header MOTOR_A pin closest to can capacitors. Plug motor wire M2 into other pin of two pin header MOTOR_A.\n"
+"   - Move the motor wires M1 and M2 to the MOTOR_B header on Motor Control Board.\n"
+"   - Move encoder wire C1 on to header Jumper 15 top pin (closest to inside of board).\n"
+"   - Move the encoder VCC wire to the middle pin of Jumper 15 and encoder ground wire into the bottom (outside) pin Jumper 15.\n"
+"   - Move encoder C2 wire to top pin on Jumper 16 (closest to inside of board).\n"
 "   - then enter \"C\" \n"
 "       NOTE: Once you are finished with this test you will need to enter \"C\" to stop the scrolling data.\n",
 //
 //Test 38 continued [76]
 "\n"  
 "Test 38 out of 36\n"
-" Right Motor Test           \n"
+""Test: Encoder/Motor Controller B Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
 " Instructions:\n"
-"   - The Serial Monitor should display the Right Motor forward then Right Motor reverse and the motor should turn one direction then the other, if working enter \"C\" \n"
+"   - The Serial Monitor should display the Encode count and the motor should be spinning, if working enter \"C\" \n"
 "   - If not working, unplug the MSE-Duino from power sources (USB) and \n"
-"   --- Check that the Motor M1, M2 are connected to the dual motor driver two pin header MOTOR_A.\n"
-"   --- Check the solder joints on the dual motor driver board. Check solder joints on the two three pin header J35, J36, four pin receptacle header (above three pin header J37)\n"
-"   --- two pin receptacle header (to the upper right of mounting hole) and GPIO35, GPIO36 (physical pins 28 , 29)\n"
-"   --- Use a multimeter to check continuity (beep test), to ground, to 3V3, to 5V and to points along the circuit path (use the schematic and board artwork as reference)\n"
+"   --- Check that the Motor M1, M2 were connected to the MOTOR_B header on Motor Control Board.\n"
+"   --- Check the solder joints on the motor  and encoder wires.\n"
+"   --- Doulbe check the encoder was connedted correctly and to Jumper 15 and 16.\n"
+"   --- Use a multimeter to check continuity (beep test), to ground, to 3V3, to 5V.(use the schematic and board artwork as reference)\n"
 "   --- ",
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//Test 39 [77]
-"\n"  
-"Test 39 out of 36\n"
-" Left Motor Test       \n"
-" Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
-"\n"
-" Instructions:\n"
-"   - Remove servo and unplug the USB.\n"
-"   - Plug in the dual motor diver board.\n"
-"   - Using one of the metal gear motors, plug the motor wire M1 into the two pin header MOTOR_B pin closest to can capacitors. Plug motor wire M2 into other pin of two pin header MOTOR_B.\n"
-"   - then enter \"C\" \n"
-"       NOTE: Once you are finished with this test you will need to enter \"C\" to stop the scrolling data.\n",
-//
-//Test 39 continued [78]
-"\n"  
-"Test 39 out of 36\n"
-" Left Motor Test           \n"
-" Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
-"\n"
-" Instructions:\n"
-"   - The Serial Monitor should display the Right Motor forward then Right Motor reverse and the motor should turn one direction then the other, if working enter \"C\" \n"
-"   - If not working, unplug the MSE-Duino from power sources (USB) and \n"
-"   --- Check that the Motor M1, M2 are connected to the dual motor driver two pin header MOTOR_A.\n"
-"   --- Check the solder joints on the dual motor driver board. Check solder joints on the two three pin header J37, J38, four pin receptacle header (above three pin header J37)\n"
-"   --- two pin receptacle header (to the upper right of mounting hole) and GPIO37, GPIO38 (physical pins 30 , 31)\n"
-"   --- Use a multimeter to check continuity (beep test), to ground, to 3V3, to 5V and to points along the circuit path (use the schematic and board artwork as reference)\n"
-"   --- ",
-//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//End [79]
+//End [77]
 "\n"
 " Congratulations! You have finished the testing of your MSE-Duino.\n"
 " If any of the tests failed and you didn't stop to repair along the way, hopefully you wrote down where the faults were so you that can repair and test again.\n"

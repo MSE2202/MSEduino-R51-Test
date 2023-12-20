@@ -47,10 +47,10 @@
 
 #define BRDTST_PB1    0        //GPIO0 pin 27 Push Button 1
 
-#define BRDTST_MOTOR_1_A 35    //GPIO35 pin 28 (J35) Motor 1 A
-#define BRDTST_MOTOR_1_B 36    //GPIO36 pin 29 (J36) Motor 1 B
-#define BRDTST_MOTOR_2_A 37    //GPIO37 pin 30 (J37) Motor 2 A
-#define BRDTST_MOTOR_2_B 38    //GPIO38 pin 31 (J38) Motor 2 B
+#define BRDTST_MOTOR_2_A 35    //GPIO35 pin 28 (J35) Motor 2 A
+#define BRDTST_MOTOR_2_B 36    //GPIO36 pin 29 (J36) Motor 2 B
+#define BRDTST_MOTOR_1_A 37    //GPIO37 pin 30 (J37) Motor 1 A
+#define BRDTST_MOTOR_1_B 38    //GPIO38 pin 31 (J38) Motor 1 B
 
 #define BRDTST_STEPPER_DIR 39    //GPIO39 pin 32 (J39) STEPPER Motor direction pin
 #define BRDTST_STEPPER_CLK 40    //GPIO40 pin 33 (J40) stepper motor clock pin
@@ -1508,11 +1508,11 @@ void BRD_Testing()
     brdtst_TempLoopVariable = digitalRead(BRDTST_I2C_DA);
     if(brdtst_TempLoopVariable)
     {
-      Serial.println(F("I2C 3V Port Pin DA - High, pull ground end wire to test"));
+      Serial.println(F("I2C 3V Port Pin DA - High,  Press PB1 to test"));
     }
     else
     {
-      Serial.println(F("I2C 3V Port Pin DA - Low, pull ground end wire to test"));
+      Serial.println(F("I2C 3V Port Pin DA - Low,  Press PB1 to test"));
     }
     break;
    }
@@ -1563,11 +1563,11 @@ void BRD_Testing()
     brdtst_TempLoopVariable = digitalRead(BRDTST_I2C_CLK);
     if(brdtst_TempLoopVariable)
     {
-      Serial.println(F("I2C 3V Port Pin CLK - High, pull ground end wire to test"));
+      Serial.println(F("I2C 3V Port Pin CLK - High,  Press PB1 to test"));
     }
     else
     {
-      Serial.println(F("I2C 3V Port Pin CLK - Low, pull ground end wire to test"));
+      Serial.println(F("I2C 3V Port Pin CLK - Low,  Press PB1 to test"));
     }
     break;
    }
@@ -1706,11 +1706,11 @@ void BRD_Testing()
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));Serial.println(F(""));
     Serial.printf("%s",BoardTesting_Instructions[57]);
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    pinMode(BRDTST_MOTOR_1_A, OUTPUT); // set I2C_CLK  as input
+    pinMode(BRDTST_MOTOR_2_A, OUTPUT); // set I2C_CLK  as input
      //setup PWM for motors
     
     ledcSetup(1, 50,14);// channel 1, 50 Hz, 14-bit width
-    ledcAttachPin(BRDTST_MOTOR_1_A, 1); // assign Motors pins to channels
+    ledcAttachPin(BRDTST_MOTOR_2_A, 1); // assign Motors pins to channels
     brdtst_ucIncrementTestStep = 1;
     break;
    }
@@ -1761,11 +1761,11 @@ void BRD_Testing()
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));Serial.println(F(""));
     Serial.printf("%s",BoardTesting_Instructions[59]);
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    pinMode(BRDTST_MOTOR_1_B, OUTPUT); // set I2C_CLK  as input
+    pinMode(BRDTST_MOTOR_2_B, OUTPUT); // set I2C_CLK  as input
      //setup PWM for motors
-     ledcDetachPin(BRDTST_MOTOR_1_A);
+     ledcDetachPin(BRDTST_MOTOR_2_A);
      //ledcSetup(1, 50,16);// channel 1, 50 Hz, 16-bit width
-    ledcAttachPin(BRDTST_MOTOR_1_B, 1); // assign Motors pins to channels
+    ledcAttachPin(BRDTST_MOTOR_2_B, 1); // assign Motors pins to channels
     brdtst_ucIncrementTestStep = 1;
     break;
    }
@@ -1816,11 +1816,11 @@ void BRD_Testing()
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));Serial.println(F(""));
     Serial.printf("%s",BoardTesting_Instructions[61]);
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    pinMode(BRDTST_MOTOR_2_A, OUTPUT); // set I2C_CLK  as input
+    pinMode(BRDTST_MOTOR_1_A, OUTPUT); // set I2C_CLK  as input
      //setup PWM for motors
-     ledcDetachPin(BRDTST_MOTOR_1_B);
+     ledcDetachPin(BRDTST_MOTOR_2_B);
      //ledcSetup(1, 50,16);// channel 1, 50 Hz, 16-bit width
-    ledcAttachPin(BRDTST_MOTOR_2_A, 1); // assign Motors pins to channels
+    ledcAttachPin(BRDTST_MOTOR_1_A, 1); // assign Motors pins to channels
     brdtst_ucIncrementTestStep = 1;
     break;
    }
@@ -1871,11 +1871,11 @@ void BRD_Testing()
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));Serial.println(F(""));
     Serial.printf("%s",BoardTesting_Instructions[63]);
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    pinMode(BRDTST_MOTOR_2_B, OUTPUT); // set I2C_CLK  as input
+    pinMode(BRDTST_MOTOR_1_B, OUTPUT); // set I2C_CLK  as input
      //setup PWM for motors
-     ledcDetachPin(BRDTST_MOTOR_2_A);
+     ledcDetachPin(BRDTST_MOTOR_1_A);
      //ledcSetup(1, 50,16);// channel 1, 50 Hz, 16-bit width
-    ledcAttachPin(BRDTST_MOTOR_2_B, 1); // assign Motors pins to channels
+    ledcAttachPin(BRDTST_MOTOR_1_B, 1); // assign Motors pins to channels
     brdtst_ucIncrementTestStep = 1;
     break;
    }
@@ -1928,7 +1928,7 @@ void BRD_Testing()
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
     pinMode(BRDTST_STEPPER_DIR, OUTPUT); // set I2C_CLK  as input
      //setup PWM for motors
-     ledcDetachPin(BRDTST_MOTOR_2_B);
+     ledcDetachPin(BRDTST_MOTOR_1_B);
      //ledcSetup(1, 50,16);// channel 1, 50 Hz, 16-bit width
     ledcAttachPin(BRDTST_STEPPER_DIR, 1); // assign Motors pins to channels
      brdtst_ucIncrementTestStep = 1;
@@ -2141,11 +2141,13 @@ void BRD_Testing()
    // Motor  Test     
    case 370:
    {
-    
+     ledcDetachPin(BRDTST_SERVO_2);
     brstst_ucMaxNumberofTestSteps = 3;
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));Serial.println(F(""));
     Serial.printf("%s",BoardTesting_Instructions[73]);
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+    Bot.driveBegin("D1", BRDTST_MOTOR_1_A, BRDTST_MOTOR_1_B, BRDTST_MOTOR_2_A, BRDTST_MOTOR_2_B); // Set up motors as Drive 1
+    Bot.Stop("D1");
     brdtst_ucIncrementTestStep = 1;
     break;
    }
@@ -2160,19 +2162,38 @@ void BRD_Testing()
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
     Serial.printf("%s",BoardTesting_Instructions[74]);
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    
+    brdtst_uiTimeCount = 0;
+    Bot.Forward("D1",0,240);
+    brdtst_uiPCMTest = 425;  
     break;
    }
    case 373:
    {
-    
+    brdtst_uiTimeCount = brdtst_uiTimeCount + 1;
+     if(brdtst_uiTimeCount > 1500)
+    {
+      brdtst_uiTimeCount = 0;
+      if(brdtst_uiPCMTest > 500)
+      {
+        brdtst_uiPCMTest = 425;  //
+        Bot.Forward("D1",0,240);
+        Serial.println(F("Motor Forward."));
+      }
+      else
+      {
+         Serial.println(F("Motor Reverse."));
+         brdtst_uiPCMTest = 1638;  //180 degree
+         Bot.Reverse("D1",0,240);
+      }
+      
+    }
    
     break;
    } 
 
 
 // ***********************************************************************************************************************************************************************************************************************
-   //Right Motor  Test     
+   // Motor  Test  A    
    case 380:
    {
     
@@ -2196,7 +2217,7 @@ void BRD_Testing()
     Serial.printf("%s",BoardTesting_Instructions[76]);
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
     brdtst_ucIncrementTestStep = 3;
-    Bot.Forward("D1", 150); // Drive ID, Left speed, Right speed
+    Bot.Forward("D1",0, 250); // Drive ID, Left speed, Right speed
     brdtst_uiTimeCount = 0;
     Serial.println(F("Right Motor forward."));
     
@@ -2211,16 +2232,16 @@ void BRD_Testing()
       if(brdtst_uiPCMTest > 500)
       {
         brdtst_uiPCMTest = 425;  //zero degree
-        Bot.Reverse("D1", 150); // Drive ID, Left speed, Right speed
+        Bot.Reverse("D1", 0,250); // Drive ID, Left speed, Right speed
         Serial.println(F("Right Motor Reverse."));
       }
       else
       {
-         Bot.Forward("D1", 150); // Drive ID, Left speed, Right speed
+         Bot.Forward("D1",0, 250); // Drive ID, Left speed, Right speed
          brdtst_uiPCMTest = 1638;  //180 degree
          Serial.println(F("Right Motor Forward."));
       }
-      ledcWrite(1,brdtst_uiPCMTest);
+     
     }
     break;
    } 
@@ -2249,7 +2270,7 @@ void BRD_Testing()
     Serial.printf("%s",BoardTesting_Instructions[76]);
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
     brdtst_ucIncrementTestStep = 3;
-    Bot.Forward("D1", 150); // Drive ID, Left speed, Right speed
+    Bot.Forward("D1", 250,0); // Drive ID, Left speed, Right speed
     brdtst_uiTimeCount = 0;
     Serial.println(F("Left Motor forward."));
     
@@ -2264,16 +2285,16 @@ void BRD_Testing()
       if(brdtst_uiPCMTest > 500)
       {
         brdtst_uiPCMTest = 425;  //zero degree
-        Bot.Reverse("D1", 150); // Drive ID, Left speed, Right speed
+        Bot.Reverse("D1", 250,0); // Drive ID, Left speed, Right speed
         Serial.println(F("Left Motor Reverse."));
       }
       else
       {
-         Bot.Forward("D1", 150); // Drive ID, Left speed, Right speed
+         Bot.Forward("D1", 250,0); // Drive ID, Left speed, Right speed
          brdtst_uiPCMTest = 1638;  //180 degree
-         Serial.println(F("Lefet Motor Forward."));
+         Serial.println(F("Left Motor Forward."));
       }
-      ledcWrite(1,brdtst_uiPCMTest);
+      
     }
     break;
    } 
@@ -2284,7 +2305,7 @@ void BRD_Testing()
    {
     brstst_ucMaxNumberofTestSteps = 4;
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));Serial.println(F(""));
-    Serial.printf("%s",BoardTesting_Instructions[73]);
+    Serial.printf("%s",BoardTesting_Instructions[77]);
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
     brdtst_BoardTestingActive = false;
     brdtst_ucIncrementTestStep = 0;
