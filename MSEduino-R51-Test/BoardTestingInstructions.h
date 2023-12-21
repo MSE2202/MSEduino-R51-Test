@@ -1,6 +1,6 @@
 //
-//  MSE-Duino V4.2 Board Testing Instructions
-//  Update: Jan 2023
+//  MSEduino V5.1 Board Testing Instructions
+//  Update: Dec 2023
 //
 
 
@@ -939,12 +939,12 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //Test 37 [73]
 "\n"  
 "Test 37 out of 36\n"
-"Test: Encoder/Motor Controller A Test    Next Test: Encoder/Motor Controller B Test\n"  \n"
+"Test: Encoder/Motor Controller A Test    Next Test: Encoder/Motor Controller B Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
 " Instructions:\n"
 "   - Remove servo.\n"
-"   - Plug Motor Controller Board into the two pin and 4 pins receptacle on the board (around the mounter hole)\n".
+"   - Plug Motor Controller Board into the two pin and 4 pins receptacle on the board (around the mounter hole).\n"
 "   - Using one of the metal gear motors, plug the motor wires M1 and M2 into MOTOR_A header on Motor Control Board.\n"
 "   - Plug the motor encoder wires into MSE-Duino board as per the following. Plug encoder wire C1 into header Jumper 11 top pin (closest to inside of board).\n"
 "   - Plug the encoder VCC wire into the middle pin of Jumper 11 and encoder ground wire into the bottom (outside) pin Jumper 11.\n"
@@ -956,7 +956,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //Test 37 continued [74]
 "\n"  
 "Test 37 out of 36\n"
-"Test: Encoder/Motor Controller A Test     Next Test: Encoder/Motor Controller B Test\n"  \n"
+"Test: Encoder/Motor Controller A Test     Next Test: Encoder/Motor Controller B Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
 " Instructions:\n"
@@ -987,7 +987,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //Test 38 continued [76]
 "\n"  
 "Test 38 out of 36\n"
-""Test: Encoder/Motor Controller B Test\n"
+"Test: Encoder/Motor Controller B Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
 " Instructions:\n"

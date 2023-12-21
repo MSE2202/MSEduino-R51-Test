@@ -2,3 +2,5 @@
 *.svd
 debug.*
 debug_custom.*
+.pio
+.vscode

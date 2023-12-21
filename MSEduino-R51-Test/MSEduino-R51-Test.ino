@@ -1,11 +1,10 @@
 //
 //  MSE 2202 
-//  MSE-Duino V5.1 Board Testing
+//  MSEduino V5.1 Board Testing
 //
-//  2022 12 05 E J Porter
-//  Update: Oct 24
+//  Author: E J Porter
+//  Date: Dec 2023
 //
-
 //  To program and use ESP32-S3
 //   
 //  File->Preferences:
@@ -56,7 +55,7 @@ void setup()
 {
    Serial.begin(115200);
    
-   Serial.println("MSE-Duino V4.2 Test Program");
+   Serial.println("MSEduino V5.1 Test Program");
    delay(1000);
     
    //set the resolution to 12 bits (0-4096)

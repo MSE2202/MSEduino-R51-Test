@@ -1,6 +1,6 @@
 //
-//  MSE-Duino V4.2 Board Testing Code
-//  Update: Jan 2023
+//  MSEduino V5.1 Board Testing Code
+//  Update: Dec 2023
 //
 
 
