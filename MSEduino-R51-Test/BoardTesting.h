@@ -1741,11 +1741,11 @@ void BRD_Testing()
       if(brdtst_uiPCMTest > 500)
       {
         brdtst_uiPCMTest = 425;
-        Serial.println(F("Servo moves to 180 degrees.t"));
+        Serial.println(F("Servo moves to zero degrees.t"));
       }
       else
       {
-         Serial.println(F("Servo moves to zero degrees."));
+         Serial.println(F("Servo moves to 180 degrees."));
          brdtst_uiPCMTest = 1638;
       }
       ledcWrite(1,brdtst_uiPCMTest);
@@ -1796,11 +1796,11 @@ void BRD_Testing()
       if(brdtst_uiPCMTest > 500)
       {
         brdtst_uiPCMTest = 425;  //zero degree
-        Serial.println(F("Servo moves to 180 degrees."));
+        Serial.println(F("Servo moves to zero degrees."));
       }
       else
       {
-         Serial.println(F("Servo moves to zero degrees."));
+         Serial.println(F("Servo moves to 180 degrees."));
          brdtst_uiPCMTest = 1638;  //180 degree
       }
       ledcWrite(1,brdtst_uiPCMTest);
@@ -1851,11 +1851,11 @@ void BRD_Testing()
       if(brdtst_uiPCMTest > 500)
       {
         brdtst_uiPCMTest = 425;  //zero degree
-        Serial.println(F("Servo moves to 180 degrees."));
+        Serial.println(F("Servo moves to zero degrees."));
       }
       else
       {
-         Serial.println(F("Servo moves to zero degrees."));
+         Serial.println(F("Servo moves to 180 degrees."));
          brdtst_uiPCMTest = 1638;  //180 degree
       }
       ledcWrite(1,brdtst_uiPCMTest);
@@ -1906,11 +1906,11 @@ void BRD_Testing()
       if(brdtst_uiPCMTest > 500)
       {
         brdtst_uiPCMTest = 425;  //zero degree
-        Serial.println(F("Servo moves to 180 degrees."));
+        Serial.println(F("Servo moves to zero degrees."));
       }
       else
       {
-         Serial.println(F("Servo moves to zero degrees."));
+         Serial.println(F("Servo moves to 180 degrees."));
          brdtst_uiPCMTest = 1638;  //180 degree
       }
       ledcWrite(1,brdtst_uiPCMTest);
@@ -1961,11 +1961,11 @@ void BRD_Testing()
       if(brdtst_uiPCMTest > 500)
       {
         brdtst_uiPCMTest = 425;  //zero degree
-        Serial.println(F("Servo moves to 180 degrees."));
+        Serial.println(F("Servo moves to zero degrees."));
       }
       else
       {
-         Serial.println(F("Servo moves to zero degrees."));
+         Serial.println(F("Servo moves to 180 degrees."));
          brdtst_uiPCMTest = 1638;  //180 degree
       }
       ledcWrite(1,brdtst_uiPCMTest);
@@ -2016,11 +2016,11 @@ void BRD_Testing()
       if(brdtst_uiPCMTest > 500)
       {
         brdtst_uiPCMTest = 425;  //zero degree
-        Serial.println(F("Servo moves to 180 degrees."));
+        Serial.println(F("Servo moves to zero degrees."));
       }
       else
       {
-         Serial.println(F("Servo moves to zero degrees."));
+         Serial.println(F("Servo moves to 180 degrees."));
          brdtst_uiPCMTest = 1638;  //180 degree
       }
       ledcWrite(1,brdtst_uiPCMTest);
@@ -2071,11 +2071,11 @@ void BRD_Testing()
       if(brdtst_uiPCMTest > 500)
       {
         brdtst_uiPCMTest = 425;  //zero degree
-        Serial.println(F("Servo moves to 180 degrees."));
+        Serial.println(F("Servo moves to zero degrees."));
       }
       else
       {
-         Serial.println(F("Servo moves to zero degrees."));
+         Serial.println(F("Servo moves to 180 degrees."));
          brdtst_uiPCMTest = 1638;  //180 degree
       }
       ledcWrite(1,brdtst_uiPCMTest);
@@ -2126,11 +2126,11 @@ void BRD_Testing()
       if(brdtst_uiPCMTest > 500)
       {
         brdtst_uiPCMTest = 425;  //zero degree
-        Serial.println(F("Servo moves to 180 degrees."));
+        Serial.println(F("Servo moves to zero degrees."));
       }
       else
       {
-         Serial.println(F("Servo moves to zero degrees."));
+         Serial.println(F("Servo moves to 180 degrees."));
          brdtst_uiPCMTest = 1638;  //180 degree
       }
       ledcWrite(1,brdtst_uiPCMTest);
