@@ -22,9 +22,9 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " To start, slide all DIP Switches (S1) off (slide towards resistors)\n" 
 " Enter \"C\"ontinue to next instruction\n",  
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//Test 1 [1]
+//Test 1 [1] case 0:
 "\n"  
-"Test 1 out of 36\n"
+"Test 1 out of 38\n"
 " SMART LEDs Test         Next Test: Push Button 1 Test\n"
 "Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -32,10 +32,10 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "   - Slide DIP Switch S1-4 to ON, then enter \"C\" \n",
 //
 
-//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//
 //Test 1 continued  [2]
 "\n"  
-"Test 1 out of 36\n"
+"Test 1 out of 38\n"
 " SMART LEDs Test         Next Test: Push Button 1 Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -48,19 +48,19 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "   --- Use a multimeter to check continuity (beep test), to ground, to 3V3, and to points along the circuit path (use the schematic and board artwork as reference)\n"
 "   --- Use an oscilloscope to check signal coming from pin 23; look at SK2812 data sheet for signal specs\n",
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//Test 2 [3]
+//Test 2 [3] case 20:
 "\n"  
-"Test 2 out of 36\n"
+"Test 2 out of 38\n"
 " Push Button 1 Test         Next Test: DIP Switch S1-1 Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
 " Instructions: \n"
 "   - Slide DIP Switch S1-4 to off then enter \"C\" \n",
 //
-//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//Test 2 continued  [4]
+//
+//Test 2 continued  [4] 
 "\n"  
-"Test 2 out of 36\n"
+"Test 2 out of 38\n"
 " Push Button 1 Test         Next Test: DIP Switch S1-1 Test Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -70,9 +70,9 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "   --- Check the solder joints on GPIO0 (physical pin 27) and Push Button 1\n"
 "   --- Use a multimeter to check continuity (beep test), to ground, to 3V3, and to points along the circuit path (use the schematic and board artwork as reference)\n",
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//Test 3 [5]
+//Test 3 [5] case 30:
 "\n"  
-"Test 3 out of 36\n"
+"Test 3 out of 38\n"
 " DIP Switch S1-1 Test         Next Test: DIP Switch S1-2 Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -81,7 +81,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //
 //Test 3 continued [6]
 "\n"  
-"Test 5 out of 36\n"
+"Test 5 out of 38\n"
 " DIP Switch S1-1 Test         Next Test: DIP Switch S1-2 Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
@@ -91,9 +91,9 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "   --- Check the solder joints on the three pin header J3, (physical pin 15), Resistor 3 and DIP Switch S1-5\n"
 "   --- Use a multimeter to check continuity (beep test), to ground, to 3V3, and to points along the circuit path (use the schematic and board artwork as reference)\n",
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//Test 4 [7]
+//Test 4 [7] case 40:
 "\n"  
-"Test 4 out of 36\n"
+"Test 4 out of 38\n"
 " DIP Switch S1-2 Test         Next Test: Potentiometer R1 Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -102,7 +102,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //
 //Test 4 continued [8]
 "\n"  
-"Test 4 out of 36\n"
+"Test 4 out of 38\n"
 " DIP Switch S1-2 Test         Next Test: Potentiometer R1 Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
@@ -112,9 +112,9 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "   --- Check the solder joints on the three pin header J46, (physical pin 16), Resistor 10 and DIP Switch S1-6\n"
 "   --- Use a multimeter to check continuity (beep test), to ground, to 3V3, and to points along the circuit path (use the schematic and board artwork as reference)\n",
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//Test 5 [9]
+//Test 5 [9] case 50:
 "\n"  
-"Test 5 out of 36\n"
+"Test 5 out of 38\n"
 " Potentiometer R1 Test        Next Test: Analog Input AD1-3 Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -125,7 +125,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //
 //Test 5 continued [10]
 "\n"  
-"Test 5 out of 36\n"
+"Test 5 out of 38\n"
 " Potentiometer R1 Test        Next Test: Analog Input AD1-3 Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
@@ -136,9 +136,9 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "   --- Check the solder joints on the three pin header J39, AD1-0 (physical pin 39), Resistor 9 and Potentiometer R1\n"
 "   --- Use a multimeter to check continuity (beep test), to ground, to 3V3, and to points along the circuit path (use the schematic and board artwork as reference)\n",
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//Test 6 [11]
+//Test 6 [11] case 60:
 "\n"  
-"Test 6 out of 36\n"
+"Test 6 out of 38\n"
 " Analog Input AD1-3 Test        Next Test: Analog Input AD1-4 Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -151,7 +151,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //
 //Test 6 continued [12]
 "\n"  
-"Test 6 out of 36\n"
+"Test 6 out of 38\n"
 " Analog Input AD1-3 Test        Next Test: Analog Input AD1-4 Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
@@ -163,9 +163,9 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "   --- Check the solder joints on the three pin header J4, and AD1-3 (physical pin 4)\n"
 "   --- Use a multimeter to check continuity (beep test), to ground, to 3V3, and to points along the circuit path (use the schematic and board artwork as reference)\n",
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//Test 7 [13]
+//Test 7 [13] case 70:
 "\n"  
-"Test 7 out of 36\n"
+"Test 7 out of 38\n"
 " Analog Input AD1-4 Test        Next Test: Analog Input AD1-5 Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -177,7 +177,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //
 //Test 7 continued [14]
 "\n"  
-"Test 7 out of 36\n"
+"Test 7 out of 38\n"
 " Analog Input AD1-4 Test        Next Test: Analog Input AD1-5 Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
@@ -189,9 +189,9 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "   --- Check the solder joints on the three pin header J5, and AD1-4 (physical pin 5)\n"
 "   --- Use a multimeter to check continuity (beep test), to ground, to 3V3, and to points along the circuit path (use the schematic and board artwork as reference)\n",
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//Test 8 [15]
+//Test 8 [15] case 80:
 "\n"  
-"Test 8 out of 36\n"
+"Test 8 out of 38\n"
 " Analog Input AD1-5 Test        Next Test: Analog Input AD1-6 Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -203,7 +203,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //
 //Test 8 continued [16]
 "\n"  
-"Test 8 out of 36\n"
+"Test 8 out of 38\n"
 " Analog Input AD1-5 Test        Next Test: Analog Input AD1-6 Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
@@ -215,9 +215,9 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "   --- Check the solder joints on the three pin header J6, and AD1-5 (physical pin 6)\n"
 "   --- Use a multimeter to check continuity (beep test), to ground, to 3V3, and to points along the circuit path (use the schematic and board artwork as reference)\n",
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//Test 9 [17]
+//Test 9 [17] case 90:
 "\n"  
-"Test 9 out of 36\n"
+"Test 9 out of 38\n"
 " Analog Input AD1-6 Test        Next Test: Analog Input AD1-7 Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -229,7 +229,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //
 //Test 9 continued [18]
 "\n"  
-"Test 9 out of 36\n"
+"Test 9 out of 38\n"
 " Analog Input AD1-6 Test        Next Test: Analog Input AD1-7 Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
@@ -241,9 +241,9 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "   --- Check the solder joints on the three pin header J7, and AD1-6 (physical pin 7)\n"
 "   --- Use a multimeter to check continuity (beep test), to ground, to 3V3, and to points along the circuit path (use the schematic and board artwork as reference)\n",
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//Test 10 [19]
+//Test 10 [19]  case 100:
 "\n"  
-"Test 10 out of 36\n"
+"Test 10 out of 38\n"
 " Analog Input AD1-7 Test        Next Test: Analog Input AD1-8 Tes\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -255,7 +255,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //
 //Test 10 continued [20]
 "\n"  
-"Test 10 out of 36\n"
+"Test 10 out of 38\n"
 " Analog Input AD1-7 Test        Next Test: Analog Input AD1-8 Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
@@ -267,9 +267,9 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "   --- Check the solder joints on the three pin header J8, and AD1-7 (physical pin 12)\n"
 "   --- Use a multimeter to check continuity (beep test), to ground, to 3V3, and to points along the circuit path (use the schematic and board artwork as reference)\n",
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//Test 11 [21]
+//Test 11 [21]  case 110:
 "\n"  
-"Test 11 out of 36\n"
+"Test 11 out of 38\n"
 " Analog Input AD1-8 Test        Next Test: Analog Input AD1-9 Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -281,7 +281,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //
 //Test 11 continued [22]
 "\n"  
-"Test 11 out of 36\n"
+"Test 11 out of 38\n"
 " Analog Input AD1-8 Test        Next Test: Analog Input AD1-9 Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
@@ -293,9 +293,9 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "   --- Check the solder joints on the three pin header J9, and AD1-8 (physical pin 17)\n"
 "   --- Use a multimeter to check continuity (beep test), to ground, to 3V3, and to points along the circuit path (use the schematic and board artwork as reference)\n",
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//Test 12 [23]
+//Test 12 [23]  case 120:
 "\n"  
-"Test 12 out of 36\n"
+"Test 12 out of 38\n"
 " Analog Input AD1-9 Test        Next Test: Analog Input AD1-1 Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -307,7 +307,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //
 //Test 12 continued [24]
 "\n"  
-"Test 12 out of 36\n"
+"Test 12 out of 38\n"
 " Analog Input AD1-9 Test        Next Test: Analog Input AD1-1 Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
@@ -319,9 +319,9 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "   --- Check the solder joints on the three pin header J10, and AD1-9 (physical pin 18)\n"
 "   --- Use a multimeter to check continuity (beep test), to ground, to 3V3, and to points along the circuit path (use the schematic and board artwork as reference)\n",
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//Test 13 [25]
+//Test 13 [25]  case 130:
 "\n"  
-"Test 13 out of 36\n"
+"Test 13 out of 38\n"
 " Analog Input AD1-1 Test        Next Test: Digital Input GPIO45 Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -333,7 +333,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //
 //Test 13 continued [26]
 "\n"  
-"Test 13 out of 36\n"
+"Test 13 out of 38\n"
 " Analog Input AD1-1 Test        Next Test: Digital Input GPIO45 Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
@@ -345,9 +345,9 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "   --- Check the solder joints on the three pin header J2, and AD1-1 (physical pin 38)\n"
 "   --- Use a multimeter to check continuity (beep test), to ground, to 3V3, and to points along the circuit path (use the schematic and board artwork as reference)\n",
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//Test 14 [27]
+//Test 14 [27] case 140:
 "\n"  
-"Test 14 out of 36\n"
+"Test 14 out of 38\n"
 " Digital Input GPIO45 Test        Next Test: Digital Input GPIO43\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -358,7 +358,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //
 //Test 14 continued [28]
 "\n"  
-"Test 14 out of 36\n"
+"Test 14 out of 38\n"
 " Digital Input GPIO45 Test        Next Test: Digital Input GPIO43\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
@@ -370,9 +370,9 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "   --- Check the solder joints on the three pin header J45, GPIO45 (physical pin 26)\n"
 "   --- Use a multimeter to check continuity (beep test), to ground, to 3V3, and to points along the circuit path (use the schematic and board artwork as reference)\n",
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//Test 15 [29]
+//Test 15 [29] case 150:
 "\n"  
-"Test 15 out of 36\n"
+"Test 15 out of 38\n"
 " Digital Input GPIO43 Test        Next Test: Digital Input GPIO44\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -382,7 +382,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //
 //Test 15 continued [30]
 "\n"  
-"Test 15 out of 36\n"
+"Test 15 out of 38\n"
 " Digital Input GPIO43 Test        Next Test: Digital Input GPIO44\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
@@ -394,9 +394,9 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "   --- Check the solder joints on the three pin header J43, GPIO43 (physical pin 37)\n"
 "   --- Use a multimeter to check continuity (beep test), to ground, to 3V3, and to points along the circuit path (use the schematic and board artwork as reference)\n",
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//Test 16 [31]
+//Test 16 [31] case 160:
 "\n"  
-"Test 16 out of 36\n"
+"Test 16 out of 38\n"
 " Digital Input GPIO44 Test        Next Test: Digital Input GPIO11\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -406,7 +406,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //
 //Test 16 continued [32]
 "\n"  
-"Test 16 out of 36\n"
+"Test 16 out of 38\n"
 " Digital Input GPIO44 Test        Next Test: Digital Input GPIO11\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
@@ -418,9 +418,9 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "   --- Check the solder joints on the three pin header J44, GPIO44 (physical pin 36)\n"
 "   --- Use a multimeter to check continuity (beep test), to ground, to 3V3, and to points along the circuit path (use the schematic and board artwork as reference)\n",
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//Test 17 [33]
+//Test 17 [33] case 170:
 "\n"  
-"Test 17 out of 36\n"
+"Test 17 out of 38\n"
 " Digital Input GPIO11 Test        Next Test: Digital Input GPIO12\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -430,7 +430,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //
 //Test 16 continued [34]
 "\n"  
-"Test 17 out of 36\n"
+"Test 17 out of 38\n"
 " Digital Input GPIO11 Test        Next Test: Digital Input GPIO12\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
@@ -443,9 +443,9 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "   --- Use a multimeter to check continuity (beep test), to ground, to 3V3, and to points along the circuit path (use the schematic and board artwork as reference)\n",
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//Test 18 [35]
+//Test 18 [35] case 180:
 "\n"  
-"Test 18 out of 36\n"
+"Test 18 out of 38\n"
 " Digital Input GPIO12 Test        Next Test: Digital Input GPIO13\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -455,7 +455,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //
 //Test 18 continued [36]
 "\n"  
-"Test 18 out of 36\n"
+"Test 18 out of 38\n"
 " Digital Input GPIO12 Test        Next Test: Digital Input GPIO13\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
@@ -468,9 +468,9 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "   --- Use a multimeter to check continuity (beep test), to ground, to 3V3, and to points along the circuit path (use the schematic and board artwork as reference)\n",
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//Test 19 [37]
+//Test 19 [37]  case 190:
 "\n"  
-"Test 19 out of 36\n"
+"Test 19 out of 38\n"
 " Digital Input GPIO13 Test        Next Test: Digital Input GPIO14\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -480,7 +480,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //
 //Test 19 continued [38]
 "\n"  
-"Test 19 out of 36\n"
+"Test 19 out of 38\n"
 " Digital Input GPIO13 Test        Next Test: Digital Input GPIO14\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
@@ -493,9 +493,9 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "   --- Use a multimeter to check continuity (beep test), to ground, to 3V3, and to points along the circuit path (use the schematic and board artwork as reference)\n",
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//Test 20 [39]
+//Test 20 [39] case 200:
 "\n"  
-"Test 20 out of 36\n"
+"Test 20 out of 38\n"
 " Digital Input GPIO14 Test        Next Test: Digital Input GPIO15\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -505,7 +505,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //
 //Test 20 continued [40]
 "\n"  
-"Test 20 out of 36\n"
+"Test 20 out of 38\n"
 " Digital Input GPIO14 Test        Next Test: Digital Input GPIO15\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
@@ -518,9 +518,9 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "   --- Use a multimeter to check continuity (beep test), to ground, to 3V3, and to points along the circuit path (use the schematic and board artwork as reference)\n",
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//Test 21 [41]
+//Test 21 [41] case 210:
 "\n"  
-"Test 21 out of 36\n"
+"Test 21 out of 38\n"
 " Digital Input GPIO15 Test        Next Test: Digital Input GPIO16\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -530,7 +530,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //
 //Test 21 continued [42]
 "\n"  
-"Test 21 out of 36\n"
+"Test 21 out of 38\n"
 " Digital Input GPIO15 Test        Next Test: Digital Input GPIO16\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
@@ -543,9 +543,9 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "   --- Use a multimeter to check continuity (beep test), to ground, to 3V3, and to points along the circuit path (use the schematic and board artwork as reference)\n",
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//Test 22 [43]
+//Test 22 [43] case 220:
 "\n"  
-"Test 22 out of 36\n"
+"Test 22 out of 38\n"
 " Digital Input GPIO16 Test        Next Test: Digital Input GPIO17\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -555,7 +555,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //
 //Test 22 continued [44]
 "\n"  
-"Test 22 out of 36\n"
+"Test 22 out of 38\n"
 " Digital Input GPIO16 Test        Next Test: Digital Input GPIO17\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
@@ -568,9 +568,9 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "   --- Use a multimeter to check continuity (beep test), to ground, to 3V3, and to points along the circuit path (use the schematic and board artwork as reference)\n",
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//Test 23 [45]
+//Test 23 [45] case 230:
 "\n"  
-"Test 23 out of 36\n"
+"Test 23 out of 38\n"
 " Digital Input GPIO17 Test        Next Test: Digital Input GPIO18\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -580,7 +580,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //
 //Test 23 continued [46]
 "\n"  
-"Test 23 out of 36\n"
+"Test 23 out of 38\n"
 " Digital Input GPIO17 Test        Next Test: Digital Input GPIO18\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
@@ -593,9 +593,9 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "   --- Use a multimeter to check continuity (beep test), to ground, to 3V3, and to points along the circuit path (use the schematic and board artwork as reference)\n",
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//Test 24 [47]
+//Test 24 [47] case 240:
 "\n"  
-"Test 24 out of 36\n"
+"Test 24 out of 38\n"
 " Digital Input GPIO18 Test        Next Test: I2C 3V Port Pin Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -605,7 +605,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //
 //Test 24 continued [48]
 "\n"  
-"Test 24 out of 36\n"
+"Test 24 out of 38\n"
 " Digital Input GPIO18 Test        Next Test: I2C 3V Port Pin Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
@@ -618,7 +618,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "   --- Use a multimeter to check continuity (beep test), to ground, to 3V3, and to points along the circuit path (use the schematic and board artwork as reference)\n",
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//Test 25 [49]
+//Test 25 [49] case 250:
 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n"
 "!!                                                                                                                                                                          !!\n"
 "!!     NOTE: Care must be taken when testing and using the ESP32 as IT IS NOT 5 V tolerant.                                                                                 !!\n"
@@ -626,7 +626,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "!!                                                                                                                                                                          !!\n"
 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n"
 "\n"  
-"Test 25 out of 36\n"
+"Test 25 out of 38\n"
 " I2C 3V Port Pin SDA Test        Next Test: I2C 3V Port Pin CLK\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -637,7 +637,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //
 //Test 25 continued [50]
 "\n"  
-"Test 25 out of 36\n"
+"Test 25 out of 38\n"
 " I2C 3V Port Pin SDA Test        Next Test:I2C 3V Port Pin CLK\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
@@ -650,9 +650,9 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "   --- Check the solder joints on the three pin header J47, Transistor Q1, Resistor R11, and I2C SDA (physical pin 24)\n"
 "   --- Use a multimeter to check continuity (beep test), to ground, to 3V3, and to points along the circuit path (use the schematic and board artwork as reference)\n",
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//Test 26 [51]
+//Test 26 [51] case 260:
 "\n"  
-"Test 26 out of 36\n"
+"Test 26 out of 38\n"
 " I2C 3V Port Pin CLK Test        Next Test: I2C 5V Port Pin Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -662,7 +662,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //
 //Test 26 continued [52]
 "\n"  
-"Test 26 out of 36\n"
+"Test 26 out of 38\n"
 " I2C 3V Port Pin CLK Test        Next Test: I2C 5V Port Pin Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
@@ -674,7 +674,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "   --- Check the solder joints on the three pin header J48, Transistor Q2, Resistor R13, and I2C CLK (physical pin 25)\n"
 "   --- Use a multimeter to check continuity (beep test), to ground, to 3V3, and to points along the circuit path (use the schematic and board artwork as reference)\n",
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//Test 27 [53]
+//Test 27 [53] case 270:
 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n"
 "!!                                                                                                                                                                          !!\n"
 "!!     NOTE: Care must be taken when testing and using the ESP32 as IT IS NOT 5 V tolerant.                                                                                 !!\n"
@@ -682,7 +682,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "!!                                                                                                                                                                          !!\n"
 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n"
 "\n"  
-"Test 27 out of 36\n"
+"Test 27 out of 38\n"
 " I2C DA 5V Port Pin Test        Next Test: I2C CLK 5V Port Pin Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -694,7 +694,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //
 //Test 27 continued [54]
 "\n"  
-"Test 27 out of 36\n"
+"Test 27 out of 38\n"
 " I2C DA 5V Port Pin Test        Next Test: I2C CLK 5V Port Pin Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
@@ -707,9 +707,9 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "   --- Check the solder joints on the three pin header J47-5, Transistor Q1, and Resistor R14\n"
 "   --- Use a multimeter to check continuity (beep test), to ground, to 3V3, and to points along the circuit path (use the schematic and board artwork as reference)\n",
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//Test 28 [55]
+//Test 28 [55] case 280:
 "\n"  
-"Test 28 out of 36\n"
+"Test 28 out of 38\n"
 " I2C CLK 5V Port Pin Test        Next Test:Servo test GPIO35\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -721,7 +721,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //
 //Test 28 continued [56]
 "\n"  
-"Test 28 out of 36\n"
+"Test 28 out of 38\n"
 " I2C CLK 5V Port Pin Test        Next Test: Servo test GPIO35\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
@@ -734,9 +734,9 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "   --- Check the solder joints on the three pin header J48-5, Transistor Q2, and Resistor R12\n"
 "   --- Use a multimeter to check continuity (beep test), to ground, to 3V3, and to points along the circuit path (use the schematic and board artwork as reference)\n",
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//Test 29 [57]
+//Test 29 [57] case 290:
 "\n"  
-"Test 29 out of 36\n"
+"Test 29 out of 38\n"
 " Servo test GPIO35        Next Test: Servo test GPIO36\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -749,7 +749,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //
 //Test 29 continued [58]
 "\n"  
-"Test 29 out of 36\n"
+"Test 29 out of 38\n"
 " Servo test GPIO35        Next Test: Servo test GPIO36\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
@@ -761,9 +761,9 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "   --- Check the solder joints on the three pin header J35, and GPIO35 (physical pin 28)\n"
 "   --- Use a multimeter to check continuity (beep test), to ground, to 3V3, and to points along the circuit path (use the schematic and board artwork as reference)\n",
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//Test 30 [59]
+//Test 30 [59] case 300:
 "\n"  
-"Test 30 out of 36\n"
+"Test 30 out of 38\n"
 " Servo test GPIO36        Next Test: Servo test GPIO37\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -774,7 +774,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //
 //Test 30 continued [60]
 "\n"  
-"Test 30 out of 36\n"
+"Test 30 out of 38\n"
 " Servo test GPIO36        Next Test: Servo test GPIO37\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
@@ -786,9 +786,9 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "   --- Check the solder joints on the three pin header J36, and GPIO36 (physical pin 29)\n"
 "   --- Use a multimeter to check continuity (beep test), to ground, to 3V3, and to points along the circuit path (use the schematic and board artwork as reference)\n",
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//Test 31 [61]
+//Test 31 [61] case 310:
 "\n"  
-"Test 31 out of 36\n"
+"Test 31 out of 38\n"
 " Servo test GPIO37        Next Test: Servo test GPIO38\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -799,7 +799,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //
 //Test 31 continued [62]
 "\n"  
-"Test 31 out of 36\n"
+"Test 31 out of 38\n"
 " Servo test GPIO37        Next Test: Servo test GPIO38\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
@@ -811,9 +811,9 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "   --- Check the solder joints on the three pin header J37, and GPIO37 (physical pin 30)\n"
 "   --- Use a multimeter to check continuity (beep test), to ground, to 3V3, and to points along the circuit path (use the schematic and board artwork as reference)\n",
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//Test 32 [63]
+//Test 32 [63] case 320:
 "\n"  
-"Test 32 out of 36\n"
+"Test 32 out of 38\n"
 " Servo test GPIO38        Next Test: Servo test GPIO39\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -824,7 +824,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //
 //Test 32 continued [64]
 "\n"  
-"Test 32 out of 36\n"
+"Test 32 out of 38\n"
 " Servo test GPIO38        Next Test: Servo test GPIO39\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
@@ -836,9 +836,9 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "   --- Check the solder joints on the three pin header J38, and GPIO38 (physical pin 31)\n"
 "   --- Use a multimeter to check continuity (beep test), to ground, to 3V3, and to points along the circuit path (use the schematic and board artwork as reference)\n",
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//Test 33 [65]
+//Test 33 [65] case 330:
 "\n"  
-"Test 33 out of 36\n"
+"Test 33 out of 38\n"
 " Servo test GPIO39        Next Test: Servo test GPIO40\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -849,7 +849,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //
 //Test 33 continued [66]
 "\n"  
-"Test 33 out of 36\n"
+"Test 33 out of 38\n"
 " Servo test GPIO39        Next Test: Servo test GPIO40\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
@@ -861,9 +861,9 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "   --- Check the solder joints on the three pin header J39, and GPIO39 (physical pin 32)\n"
 "   --- Use a multimeter to check continuity (beep test), to ground, to 3V3, and to points along the circuit path (use the schematic and board artwork as reference)\n",
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//Test 34 [67]
+//Test 34 [67] case 340:
 "\n"  
-"Test 34 out of 36\n"
+"Test 34 out of 38\n"
 " Servo test GPIO40        Next Test: Servo test GPIO41\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -874,7 +874,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //
 //Test 34 continued [68]
 "\n"  
-"Test 34 out of 36\n"
+"Test 34 out of 38\n"
 " Servo test GPIO40        Next Test: Servo test GPIO41\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
@@ -886,9 +886,9 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "   --- Check the solder joints on the three pin header J40, and GPIO40 (physical pin 33)\n"
 "   --- Use a multimeter to check continuity (beep test), to ground, to 3V3, and to points along the circuit path (use the schematic and board artwork as reference)\n",
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//Test 35 [69]
+//Test 35 [69] case 350
 "\n"  
-"Test 35 out of 36\n"
+"Test 35 out of 38\n"
 " Servo test GPIO41       Next Test: Servo test GPIO42\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -899,7 +899,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //
 //Test 35 continued [70]
 "\n"  
-"Test 35 out of 36\n"
+"Test 35 out of 38\n"
 " Servo test GPIO41       Next Test: Servo test GPIO42\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
@@ -911,9 +911,9 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "   --- Check the solder joints on the three pin header J41, and GPIO41 (physical pin 34)\n"
 "   --- Use a multimeter to check continuity (beep test), to ground, to 3V3, and to points along the circuit path (use the schematic and board artwork as reference)\n",
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//Test 36 [71]
+//Test 36 [71] case 360:
 "\n"  
-"Test 36 out of 36\n"
+"Test 36 out of 38\n"
 " Servo test GPIO42       Next Test: Encoder/Motor Controller A Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -924,7 +924,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //
 //Test 36 continued [72]
 "\n"  
-"Test 36 out of 36\n"
+"Test 36 out of 38\n"
 " Servo test GPIO42       Next Test: Encoder/Motor Controller A Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
@@ -936,9 +936,9 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "   --- Check the solder joints on the three pin header J42, and GPIO42 (physical pin 35)\n"
 "   --- Use a multimeter to check continuity (beep test), to ground, to 3V3, and to points along the circuit path (use the schematic and board artwork as reference)\n",
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//Test 37 [73]
+//Test 37 [73] case 370:
 "\n"  
-"Test 37 out of 36\n"
+"Test 37 out of 38\n"
 "Test: Encoder/Motor Controller A Test    Next Test: Encoder/Motor Controller B Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
@@ -955,7 +955,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //
 //Test 37 continued [74]
 "\n"  
-"Test 37 out of 36\n"
+"Test 37 out of 38\n"
 "Test: Encoder/Motor Controller A Test     Next Test: Encoder/Motor Controller B Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
@@ -970,8 +970,9 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//Test 38 [75]
+//Test 38 [75] case 380:
 "\n"  
+"Test 38 out of 38\n"
 "Test: Encoder/Motor Controller B Test\n"
 " Right Motor Test       \n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
@@ -986,7 +987,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 //
 //Test 38 continued [76]
 "\n"  
-"Test 38 out of 36\n"
+"Test 38 out of 38\n"
 "Test: Encoder/Motor Controller B Test\n"
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"

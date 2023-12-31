@@ -46,10 +46,46 @@
 #include "BoardTesting.h"
 #endif
 
+void ARDUINO_ISR_ATTR encoderISR(void* arg);
+
 const int CR1_ciMainTimer =  1000;
 unsigned long CR1_ulMainTimerPrevious;
 unsigned long CR1_ulMainTimerNow;
 unsigned char CR1_ucMainTimerCaseCore1;
+
+const int CR1_ciCountsRev = 1096;                          // encoder pulses per motor revolution
+const int CR1_ciMaxSpeedInCounts = 1600;                   // maximum encoder counts/sec
+
+// Encoder structure
+struct Encoder {
+  const int chanA;                                    // GPIO pin for encoder channel A
+  const int chanB;                                    // GPIO pin for encoder channel B
+  long pos;                                           // current encoder position
+};
+
+Encoder encoder[] = {{11, 12, 0},                    // encoder 0 on GPIO 11 and 12, 0 position 
+                     {15, 16, 0}};                    // encoder 1 on GPIO 15 and 16, 0 position 
+
+
+// encoder interrupt service routine
+// argument is pointer to an encoder structure, which is statically cast to a Encoder structure, allowing multiple
+// instances of the encoderISR to be created (1 per encoder)
+void ARDUINO_ISR_ATTR encoderISR(void* arg) {
+  Encoder* s = static_cast<Encoder*>(arg);            // cast pointer to static structure
+  
+  int b = digitalRead(s->chanB);                      // read state of channel B
+  if (b > 0) {                                        // high, leading channel A
+    s->pos++;                                         // increase position
+  }
+  else {                                              // low, lagging channel A
+    s->pos--;                                         // decrease position
+  }
+}
+
+long GetPosition(int Which_Encoder)
+{
+  return encoder[Which_Encoder].pos;
+}
 
 void setup() 
 {
@@ -80,6 +116,16 @@ void setup()
    WDT_ResetCore1(); 
    
    CR1_ucMainTimerCaseCore1 = 0;
+
+    pinMode(encoder[0].chanA, INPUT);                 // configure GPIO for encoder 0 channel A input
+    pinMode(encoder[0].chanB, INPUT);                 // configure GPIO for encoder 0 channel B input
+    // configure encoder to trigger interrupt with each rising edge on channel A
+    attachInterruptArg(encoder[0].chanA, encoderISR, &encoder[0], RISING);
+    
+    pinMode(encoder[1].chanA, INPUT);                 // configure GPIO for encoder 1 channel A input
+    pinMode(encoder[1].chanB, INPUT);                 // configure GPIO for encoder 1 channel B input
+    // configure encoder to trigger interrupt with each rising edge on channel A
+    attachInterruptArg(encoder[1].chanA, encoderISR, &encoder[1], RISING);
 }
  
 void loop()
