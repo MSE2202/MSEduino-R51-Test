@@ -223,7 +223,7 @@ void BRD_Testing()
   case 10:
   {
    //digitalWrite(BRDTST_INDICATORLED,false);
-    brstst_ucMaxNumberofTestSteps = 3;
+    brstst_ucMaxNumberofTestSteps = 4;
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
     Serial.printf("%s",BoardTesting_Instructions[1]);
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
@@ -239,21 +239,12 @@ void BRD_Testing()
   case 11:
   {
     // waiting for user input
-    
-    break;
-  }
-  case 12:
-  {
-    
-    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    Serial.printf("%s",BoardTesting_Instructions[2]);
-    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    brdtst_ucIncrementTestStep = 3;
     brdtst_uiTimeCount = 0;
     brdtst_TempLoopVariable = 0;
     break;
-   }
-   case 13:
+  }
+ 
+   case 12:
    {
      
      brdtst_uiTimeCount = brdtst_uiTimeCount + 1;
@@ -314,9 +305,28 @@ void BRD_Testing()
        
         SmartLEDs.show();   // Send the updated pixel colors to the hardware.
      } 
+    
     break;
    }
-
+ case 13:
+  {
+    SmartLEDs.begin(); // INITIALIZE SMART LEDs object (REQUIRED)
+    SmartLEDs.clear();    
+    SmartLEDs.setPixelColor(0,SmartLEDs.Color(0,0,0));// Set pixel colors to 'off'
+    SmartLEDs.show();   // Send the updated pixel colors to the hardware.
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+    Serial.printf("%s",BoardTesting_Instructions[2]);
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+    brdtst_ucIncrementTestStep = 4;
+   
+    break;
+   }
+   case 14:
+  {
+    // waiting for user input
+    
+    break;
+  }
    // ***********************************************************************************************************************************************************************************************************************
    //push button 1 test
    case 20:
@@ -336,18 +346,11 @@ void BRD_Testing()
    case 21:
    {
     // waiting for user input
-    break;
-   }
-   case 22:
-   {
-    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    Serial.printf("%s",BoardTesting_Instructions[4]);
-    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    brdtst_ucIncrementTestStep = 3;
     brdtst_TempLoopVariable = 0;
     break;
    }
-   case 23:
+   
+   case 22:
    {
     if(digitalRead(BRDTST_PB1) != brdtst_TempLoopVariable)
     {
@@ -363,7 +366,20 @@ void BRD_Testing()
     }
     break;
    }
-   
+   case 23:
+   {
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+    Serial.printf("%s",BoardTesting_Instructions[4]);
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+    brdtst_ucIncrementTestStep = 4;
+    
+    break;
+   }
+    case 24:
+   {
+    // waiting for user input
+    break;
+   }
    
    // ***********************************************************************************************************************************************************************************************************************
    //DIP Switch S1-1 test
@@ -380,27 +396,10 @@ void BRD_Testing()
    case 31:
    {
     // waiting for user input
+    brdtst_TempLoopVariable = 0;
     break;
    }
    case 32:
-   {
-    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    Serial.printf("%s",BoardTesting_Instructions[6]);
-    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    brdtst_ucIncrementTestStep = 3;
-    brdtst_TempLoopVariable = 0;
-    brdtst_TempLoopVariable = digitalRead(BRDTST_DIP_SW_S1_1);
-    if(brdtst_TempLoopVariable)
-    {
-      Serial.println(F("DIP Switch S1-5 Off (Input High), switch to test"));
-    }
-    else
-    {
-      Serial.println(F("DIP Switch S1-1 ON (Input Low), switch to test"));
-    }
-    break;
-   }
-   case 33:
    {
    
     if(digitalRead(BRDTST_DIP_SW_S1_1) != brdtst_TempLoopVariable)
@@ -415,6 +414,21 @@ void BRD_Testing()
         Serial.println(F("DIP Switch S1-1 ON (Input Low)"));
       }
     }
+    break;
+   }
+   case 33:
+   {
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+    Serial.printf("%s",BoardTesting_Instructions[6]);
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+    brdtst_ucIncrementTestStep = 4;
+    
+    break;
+   }
+   case 34:
+   {
+    // waiting for user input
+   
     break;
    }
    
@@ -433,27 +447,11 @@ void BRD_Testing()
    case 41:
    {
     // waiting for user input
+     brdtst_TempLoopVariable = 0;
     break;
    }
+   
    case 42:
-   {
-    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    Serial.printf("%s",BoardTesting_Instructions[8]);
-    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    brdtst_ucIncrementTestStep = 3;
-    brdtst_TempLoopVariable = 0;
-    brdtst_TempLoopVariable = digitalRead(BRDTST_DIP_SW_S1_2);
-    if(brdtst_TempLoopVariable)
-    {
-      Serial.println(F("DIP Switch S1-2 Off (Input High), switch to test"));
-    }
-    else
-    {
-      Serial.println(F("DIP Switch S1-2 On (Input Low), switch to test"));
-    }
-    break;
-   }
-   case 43:
    {
    
     if(digitalRead(BRDTST_DIP_SW_S1_2) != brdtst_TempLoopVariable)
@@ -468,6 +466,20 @@ void BRD_Testing()
         Serial.println(F("DIP Switch S1-2 On (Input Low)"));
       }
     }
+    break;
+   }
+case 43:
+   {
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+    Serial.printf("%s",BoardTesting_Instructions[8]);
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+    brdtst_ucIncrementTestStep = 4;
+   
+    break;
+   }
+   case 44:
+   {
+    // waiting for user input
     break;
    }
  // ***********************************************************************************************************************************************************************************************************************
@@ -2213,19 +2225,7 @@ void BRD_Testing()
     // waiting for user input
     break;
    }
-   case 382:
-   {
-    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    Serial.printf("%s",BoardTesting_Instructions[76]);
-    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    brdtst_ucIncrementTestStep = 3;
-    Bot.Forward("D1",0, 250); // Drive ID, Left speed, Right speed
-    brdtst_uiTimeCount = 0;
-    Serial.println(F("Right Motor forward."));
-    
-    break;
-   }
-   case 383:
+  case 382:
    {
     brdtst_uiTimeCount = brdtst_uiTimeCount + 1;
     Serial.print(F("Encoder Count = "));
@@ -2249,6 +2249,19 @@ void BRD_Testing()
     }
     break;
    } 
+
+   case 383:
+   {
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+    Serial.printf("%s",BoardTesting_Instructions[76]);
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+    brdtst_ucIncrementTestStep = 3;
+    Bot.Forward("D1",0, 250); // Drive ID, Left speed, Right speed
+    brdtst_uiTimeCount = 0;
+    Serial.println(F("Right Motor forward."));
+    
+    break;
+   }
 
   
 // ***********************************************************************************************************************************************************************************************************************

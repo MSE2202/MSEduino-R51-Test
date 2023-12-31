@@ -9,7 +9,7 @@
 
 const static char *BoardTesting_Instructions[] PROGMEM = 
 {
-//Test 1  [0]
+//Test 1  [0] case 0:
 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n"
 "!!                                                                                                                                                                          !!\n"
 "!!     NOTE: Care must be taken when testing and using the ESP32 as IT IS NOT 5 V tolerant.                                                                                 !!\n"
@@ -22,14 +22,16 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " To start, slide all DIP Switches (S1) off (slide towards resistors)\n" 
 " Enter \"C\"ontinue to next instruction\n",  
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//Test 1 [1] case 0:
+//Test 1 [1] case 10:
 "\n"  
 "Test 1 out of 38\n"
 " SMART LEDs Test         Next Test: Push Button 1 Test\n"
 "Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
 " Instructions:\n"
-"   - Slide DIP Switch S1-4 to ON, then enter \"C\" \n",
+"   - Slide DIP Switch S1-4 to ON, then enter \"C\" \n"
+"   - SMART LED1 (look for label on board) should change colours\n"
+" Enter \"C\"ontinue to end this test.\n", 
 //
 
 //
@@ -40,8 +42,8 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
 " Instructions:\n"
-"   - SMART LED1 (look for label on board) should change colours, if working enter \"C\" \n"
-"   - If not working, unplug the MSE-Duino from power sources (USB) and \n"
+"   - If test worked enter \"C\" \n"
+"   - If did not work, unplug the MSE-Duino from power sources (USB) and \n"
 "   --- Check that DIP Switch S1-4 is toggled correctly to ON \n"
 "   --- Check the LED power/ground pins and Din/Dout on LED for soldering or shorts\n"
 "   --- Check the solder joints on S1-4, GPIO21 (physical pin 23), and SMART LED1\n"
@@ -55,7 +57,9 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
 " Instructions: \n"
-"   - Slide DIP Switch S1-4 to off then enter \"C\" \n",
+"   - The Serial Monitor will update on Push Button 1 change of state. \n"
+"   - Slide DIP Switch S1-4 to off then enter \"C\" \n"
+" Enter \"C\"ontinue to end this test.\n", 
 //
 //
 //Test 2 continued  [4] 
@@ -65,8 +69,8 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
 " Instructions:\n"
-"   - The Serial Monitor will update on Push Button 1 change of state, if working enter \"C\" \n"
-"   - If not working, unplug the MSE-Duino from power sources (USB) and \n"
+"   - If test worked enter \"C\" \n"
+"   - If did not work, unplug the MSE-Duino from power sources (USB) and \n"
 "   --- Check the solder joints on GPIO0 (physical pin 27) and Push Button 1\n"
 "   --- Use a multimeter to check continuity (beep test), to ground, to 3V3, and to points along the circuit path (use the schematic and board artwork as reference)\n",
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -77,7 +81,9 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
 " Instructions:\n"
-"   - Slide DIP Switch S1-1 to off then enter \"C\" \n",
+"   - The Serial Monitor will update on DIP Switch S1-1 change of state. \n"
+"   - Slide DIP Switch S1-1 to off \n"
+" Enter \"C\"ontinue to end this test.\n", 
 //
 //Test 3 continued [6]
 "\n"  
@@ -86,8 +92,8 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
 " Instructions:\n"
-"   - The Serial Monitor will update on DIP Switch S1-1 change of state, if working enter \"C\" \n"
-"   - If not working, unplug the MSE-Duino from power sources (USB) and \n"
+"   - If test worked enter \"C\" \n"
+"   - If did not work, unplug the MSE-Duino from power sources (USB) and \n"
 "   --- Check the solder joints on the three pin header J3, (physical pin 15), Resistor 3 and DIP Switch S1-5\n"
 "   --- Use a multimeter to check continuity (beep test), to ground, to 3V3, and to points along the circuit path (use the schematic and board artwork as reference)\n",
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -98,7 +104,9 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of last Test, \"S\"kip to the next Test or \"Q\"uit\n" 
 "\n"
 " Instructions:\n"
-"   - Slide DIP Switch S1-1 and S1-2 to off then enter \"C\" \n",
+"   - The Serial Monitor will update on DIP Switch S1-2 change of state. \n"
+"   - Slide DIP Switch S1-1 and S1-2 to off \n"
+" Enter \"C\"ontinue to end this test.\n", 
 //
 //Test 4 continued [8]
 "\n"  
@@ -107,8 +115,8 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
 " Instructions:\n"
-"   - The Serial Monitor will update on DIP Switch S1-2 change of state, if working enter \"C\" \n"
-"   - If not working, unplug the MSE-Duino from power sources (USB) and \n"
+"   - If test worked enter \"C\" \n"
+"   - If did not work, unplug the MSE-Duino from power sources (USB) and \n"
 "   --- Check the solder joints on the three pin header J46, (physical pin 16), Resistor 10 and DIP Switch S1-6\n"
 "   --- Use a multimeter to check continuity (beep test), to ground, to 3V3, and to points along the circuit path (use the schematic and board artwork as reference)\n",
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
