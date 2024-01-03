@@ -888,46 +888,41 @@ case 43:
    case 141:
    {
     // waiting for user input
+     brdtst_TempLoopVariable = 0;
     break;
    }
+   
    case 142:
    {
-    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    Serial.printf("%s",BoardTesting_Instructions[28]);
-    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    brdtst_ucIncrementTestStep = 3;
-    brdtst_TempLoopVariable = 0;
-    digitalWrite(BRDTST_GPIO4, digitalRead(BRDTST_PB1)); // push PB1 to gpio4
-    
-    brdtst_TempLoopVariable = digitalRead(BRDTST_GPIO45);
-    if(brdtst_TempLoopVariable)
-    {
-      Serial.println(F("Digital Input GPIO45 at J45 - High, Press PB1 to test"));
-    }
-    else
-    {
-      Serial.println(F("Digital Input GPIO45 at J45 - Low, Press PB1 to test"));
-    }
-    break;
-   }
-   case 143:
-   {
-     
-     digitalWrite(BRDTST_GPIO4,digitalRead(BRDTST_PB1)); // push PB1 to gpio4
+    digitalWrite(BRDTST_GPIO4,digitalRead(BRDTST_PB1)); // push PB1 to gpio4
     if(digitalRead(BRDTST_GPIO45) != brdtst_TempLoopVariable)
     {
       brdtst_TempLoopVariable = digitalRead(BRDTST_GPIO45);
       if(brdtst_TempLoopVariable)
       {
-        Serial.println(F("Digital GPIO45 at J45 - High"));
+        Serial.println(F("Digital GPIO45 at J45 - High. Press PB1 to test"));
       }
       else
       {
-        Serial.println(F("Digital GPIO45 at J45 - Low"));
+        Serial.println(F("Digital GPIO45 at J45 - Low. Press PB1 to test"));
       }
     }
     break;
    }    
+   case 143:
+   {
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+    Serial.printf("%s",BoardTesting_Instructions[28]);
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+    brdtst_ucIncrementTestStep = 4;
+    
+    break;
+   }
+   case 144:
+   {
+    // waiting for user input
+    break;
+   }
 // ***********************************************************************************************************************************************************************************************************************
    //Digital Input GPIO43 Test
    case 150:
@@ -944,29 +939,11 @@ case 43:
    case 151:
    {
     // waiting for user input
-    break;
-   }
-   case 152:
-   {
-    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    Serial.printf("%s",BoardTesting_Instructions[30]);
-    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    brdtst_ucIncrementTestStep = 3;
     brdtst_TempLoopVariable = 0;
-    digitalWrite(BRDTST_GPIO4, digitalRead(BRDTST_PB1)); // push PB1 to gpio4
-    
-    brdtst_TempLoopVariable = digitalRead(BRDTST_GPIO43);
-    if(brdtst_TempLoopVariable)
-    {
-      Serial.println(F("Digital Input GPIO43 at J43 - High, Press PB1 to test"));
-    }
-    else
-    {
-      Serial.println(F("Digital Input GPIO43 at J43 - Low, Press PB1 to test"));
-    }
     break;
    }
-   case 153:
+   
+   case 152:
    {
      
      digitalWrite(BRDTST_GPIO4,digitalRead(BRDTST_PB1)); // push PB1 to gpio4
@@ -975,15 +952,29 @@ case 43:
       brdtst_TempLoopVariable = digitalRead(BRDTST_GPIO43);
       if(brdtst_TempLoopVariable)
       {
-        Serial.println(F("Digital GPIO43 - High"));
+        Serial.println(F("Digital GPIO43 - High. Press PB1 to test"));
       }
       else
       {
-        Serial.println(F("Digital GPIO43 - Low"));
+        Serial.println(F("Digital GPIO43 - Low. Press PB1 to test"));
       }
     }
     break;
-   }    
+   }  
+   case 153:
+   {
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+    Serial.printf("%s",BoardTesting_Instructions[30]);
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+    brdtst_ucIncrementTestStep = 4;
+    
+    break;
+   }
+   case 154:
+   {
+    // waiting for user input
+    break;
+   }  
 // ***********************************************************************************************************************************************************************************************************************
    //Digital Input GPIO44 Test
    case 160:
@@ -997,32 +988,14 @@ case 43:
     brdtst_ucIncrementTestStep = 1;
     break;
    }
-   case 161:
+   
+    case 161:
    {
     // waiting for user input
-    break;
-   }
-   case 162:
-   {
-    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    Serial.printf("%s",BoardTesting_Instructions[32]);
-    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    brdtst_ucIncrementTestStep = 3;
     brdtst_TempLoopVariable = 0;
-    digitalWrite(BRDTST_GPIO4, digitalRead(BRDTST_PB1)); // push PB1 to gpio4
-    
-    brdtst_TempLoopVariable = digitalRead(BRDTST_GPIO44);
-    if(brdtst_TempLoopVariable)
-    {
-      Serial.println(F("Digital Input GPIO44 - High, Press PB1 to test"));
-    }
-    else
-    {
-      Serial.println(F("Digital Input GPIO44 - Low, Press PB1 to test"));
-    }
     break;
-   }
-   case 163:
+   }  
+   case 162:
    {
      
      digitalWrite(BRDTST_GPIO4,digitalRead(BRDTST_PB1)); // push PB1 to gpio4
@@ -1031,15 +1004,28 @@ case 43:
       brdtst_TempLoopVariable = digitalRead(BRDTST_GPIO44);
       if(brdtst_TempLoopVariable)
       {
-        Serial.println(F("Digital GPIO44 - High"));
+        Serial.println(F("Digital GPIO44 - High. Press PB1 to test"));
       }
       else
       {
-        Serial.println(F("Digital GPIO44 - Low"));
+        Serial.println(F("Digital GPIO44 - Low. Press PB1 to test"));
       }
     }
     break;
-   }    
+   } 
+   case 163:
+   {
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+    Serial.printf("%s",BoardTesting_Instructions[32]);
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+    brdtst_ucIncrementTestStep = 4;
+    break;
+   } 
+   case 164:
+   {
+    // waiting for user input
+    break;
+   }  
 // ***********************************************************************************************************************************************************************************************************************
    //Digital Input GPIO11 Test
    case 170:
@@ -1056,29 +1042,11 @@ case 43:
    case 171:
    {
     // waiting for user input
-    break;
-   }
-   case 172:
-   {
-    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    Serial.printf("%s",BoardTesting_Instructions[34]);
-    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    brdtst_ucIncrementTestStep = 3;
     brdtst_TempLoopVariable = 0;
-    digitalWrite(BRDTST_GPIO4, digitalRead(BRDTST_PB1)); // push PB1 to gpio4
-    
-    brdtst_TempLoopVariable = digitalRead(BRDTST_GPIO11);
-    if(brdtst_TempLoopVariable)
-    {
-      Serial.println(F("Digital Input GPIO11 - High, Press PB1 to test"));
-    }
-    else
-    {
-      Serial.println(F("Digital Input GPIO11 - Low, Press PB1 to test"));
-    }
     break;
    }
-   case 173:
+   
+   case 172:
    {
      
      digitalWrite(BRDTST_GPIO4,digitalRead(BRDTST_PB1)); // push PB1 to gpio4
@@ -1087,15 +1055,29 @@ case 43:
       brdtst_TempLoopVariable = digitalRead(BRDTST_GPIO11);
       if(brdtst_TempLoopVariable)
       {
-        Serial.println(F("Digital GPIO11 - High"));
+        Serial.println(F("Digital GPIO11 - High. Press PB1 to test"));
       }
       else
       {
-        Serial.println(F("Digital GPIO11 - Low"));
+        Serial.println(F("Digital GPIO11 - Low. Press PB1 to test"));
       }
     }
     break;
-   }    
+   }   
+   case 173:
+   {
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+    Serial.printf("%s",BoardTesting_Instructions[34]);
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+    brdtst_ucIncrementTestStep = 4;
+    
+    break;
+   }
+   case 174:
+   {
+    // waiting for user input
+    break;
+   } 
 // ***********************************************************************************************************************************************************************************************************************
    //Digital Input GPIO12 Test
    case 180:
@@ -1112,29 +1094,11 @@ case 43:
    case 181:
    {
     // waiting for user input
-    break;
-   }
-   case 182:
-   {
-    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    Serial.printf("%s",BoardTesting_Instructions[36]);
-    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    brdtst_ucIncrementTestStep = 3;
     brdtst_TempLoopVariable = 0;
-    digitalWrite(BRDTST_GPIO4, digitalRead(BRDTST_PB1)); // push PB1 to gpio4
-    
-    brdtst_TempLoopVariable = digitalRead(BRDTST_GPIO12);
-    if(brdtst_TempLoopVariable)
-    {
-      Serial.println(F("Digital Input GPIO12 - High, Press PB1 to test"));
-    }
-    else
-    {
-      Serial.println(F("Digital Input GPIO12 - Low, Press PB1 to test"));
-    }
     break;
    }
-   case 183:
+   
+   case 182:
    {
      
      digitalWrite(BRDTST_GPIO4,digitalRead(BRDTST_PB1)); // push PB1 to gpio4
@@ -1143,15 +1107,30 @@ case 43:
       brdtst_TempLoopVariable = digitalRead(BRDTST_GPIO12);
       if(brdtst_TempLoopVariable)
       {
-        Serial.println(F("Digital GPIO12 - High"));
+        Serial.println(F("Digital GPIO12 - High. Press PB1 to test"));
       }
       else
       {
-        Serial.println(F("Digital GPIO12 - Low"));
+        Serial.println(F("Digital GPIO12 - Low. Press PB1 to test"));
       }
     }
     break;
-   }    
+   }  
+   case 183:
+   {
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+    Serial.printf("%s",BoardTesting_Instructions[36]);
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+    brdtst_ucIncrementTestStep = 4;
+    
+    
+    break;
+   }
+   case 184:
+   {
+    // waiting for user input
+    break;
+   }  
 // ***********************************************************************************************************************************************************************************************************************
    //Digital Input GPIO13 Test
    case 190:
@@ -1168,29 +1147,11 @@ case 43:
    case 191:
    {
     // waiting for user input
-    break;
-   }
-   case 192:
-   {
-    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    Serial.printf("%s",BoardTesting_Instructions[38]);
-    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    brdtst_ucIncrementTestStep = 3;
     brdtst_TempLoopVariable = 0;
-    digitalWrite(BRDTST_GPIO4, digitalRead(BRDTST_PB1)); // push PB1 to gpio4
-    
-    brdtst_TempLoopVariable = digitalRead(BRDTST_GPIO13);
-    if(brdtst_TempLoopVariable)
-    {
-      Serial.println(F("Digital Input GPIO13 - High, Press PB1 to test"));
-    }
-    else
-    {
-      Serial.println(F("Digital Input GPIO13 - Low, Press PB1 to test"));
-    }
     break;
    }
-   case 193:
+   
+   case 192:
    {
      
      digitalWrite(BRDTST_GPIO4,digitalRead(BRDTST_PB1)); // push PB1 to gpio4
@@ -1199,15 +1160,30 @@ case 43:
       brdtst_TempLoopVariable = digitalRead(BRDTST_GPIO13);
       if(brdtst_TempLoopVariable)
       {
-        Serial.println(F("Digital GPIO13 - High"));
+        Serial.println(F("Digital GPIO13 - High. Press PB1 to test"));
       }
       else
       {
-        Serial.println(F("Digital GPIO13 - Low"));
+        Serial.println(F("Digital GPIO13 - Low. Press PB1 to test"));
       }
     }
     break;
-   }    
+   } 
+   case 193:
+   {
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+    Serial.printf("%s",BoardTesting_Instructions[38]);
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+    brdtst_ucIncrementTestStep = 4;
+    
+    
+    break;
+   }
+   case 194:
+   {
+    // waiting for user input
+    break;
+   }   
 // ***********************************************************************************************************************************************************************************************************************
    //Digital Input GPIO14 Test
    case 200:
@@ -1224,29 +1200,11 @@ case 43:
    case 201:
    {
     // waiting for user input
-    break;
-   }
-   case 202:
-   {
-    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    Serial.printf("%s",BoardTesting_Instructions[40]);
-    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    brdtst_ucIncrementTestStep = 3;
     brdtst_TempLoopVariable = 0;
-    digitalWrite(BRDTST_GPIO4, digitalRead(BRDTST_PB1)); // push PB1 to gpio4
-    
-    brdtst_TempLoopVariable = digitalRead(BRDTST_GPIO14);
-    if(brdtst_TempLoopVariable)
-    {
-      Serial.println(F("Digital Input GPIO14 - High, Press PB1 to test"));
-    }
-    else
-    {
-      Serial.println(F("Digital Input GPIO14 - Low, Press PB1 to test"));
-    }
     break;
    }
-   case 203:
+   
+   case 202:
    {
      
      digitalWrite(BRDTST_GPIO4,digitalRead(BRDTST_PB1)); // push PB1 to gpio4
@@ -1255,17 +1213,30 @@ case 43:
       brdtst_TempLoopVariable = digitalRead(BRDTST_GPIO14);
       if(brdtst_TempLoopVariable)
       {
-        Serial.println(F("Digital GPIO14 - High"));
+        Serial.println(F("Digital GPIO14 - High. Press PB1 to test"));
       }
       else
       {
-        Serial.println(F("Digital GPIO14 - Low"));
+        Serial.println(F("Digital GPIO14 - Low. Press PB1 to test"));
       }
     }
     break;
    }  
-
-     
+  case 203:
+   {
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+    Serial.printf("%s",BoardTesting_Instructions[40]);
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+    brdtst_ucIncrementTestStep = 4;
+    
+    
+    break;
+   }
+  case 204:
+   {
+    // waiting for user input
+    break;
+   } 
 // ***********************************************************************************************************************************************************************************************************************
    //Digital Input GPIO15 Test
    case 210:
@@ -1282,29 +1253,12 @@ case 43:
    case 211:
    {
     // waiting for user input
-    break;
-   }
-   case 212:
-   {
-    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    Serial.printf("%s",BoardTesting_Instructions[22]);
-    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    brdtst_ucIncrementTestStep = 3;
-    brdtst_TempLoopVariable = 0;
-    digitalWrite(BRDTST_GPIO4, digitalRead(BRDTST_PB1)); // push PB1 to gpio4
     
-    brdtst_TempLoopVariable = digitalRead(BRDTST_GPIO15);
-    if(brdtst_TempLoopVariable)
-    {
-      Serial.println(F("Digital Input GPIO15 - High, Press PB1 to test"));
-    }
-    else
-    {
-      Serial.println(F("Digital Input GPIO15 - Low, Press PB1 to test"));
-    }
+    brdtst_TempLoopVariable = 0;
     break;
    }
-   case 213:
+   
+   case 212:
    {
      
      digitalWrite(BRDTST_GPIO4,digitalRead(BRDTST_PB1)); // push PB1 to gpio4
@@ -1313,15 +1267,29 @@ case 43:
       brdtst_TempLoopVariable = digitalRead(BRDTST_GPIO15);
       if(brdtst_TempLoopVariable)
       {
-        Serial.println(F("Digital GPIO15 - High"));
+        Serial.println(F("Digital GPIO15 - High. Press PB1 to test"));
       }
       else
       {
-        Serial.println(F("Digital GPIO15 - Low"));
+        Serial.println(F("Digital GPIO15 - Low. Press PB1 to test"));
       }
     }
     break;
-   }    
+   }   
+   case 213:
+   {
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+    Serial.printf("%s",BoardTesting_Instructions[22]);
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+    brdtst_ucIncrementTestStep = 4;
+   
+    break;
+   }
+   case 214:
+   {
+    // waiting for user input
+    break;
+   } 
 // ***********************************************************************************************************************************************************************************************************************
    //Digital Input GPIO16 Test
    case 220:
@@ -1338,29 +1306,11 @@ case 43:
    case 221:
    {
     // waiting for user input
-    break;
-   }
-   case 222:
-   {
-    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    Serial.printf("%s",BoardTesting_Instructions[44]);
-    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    brdtst_ucIncrementTestStep = 3;
     brdtst_TempLoopVariable = 0;
-    digitalWrite(BRDTST_GPIO4, digitalRead(BRDTST_PB1)); // push PB1 to gpio4
-    
-    brdtst_TempLoopVariable = digitalRead(BRDTST_GPIO16);
-    if(brdtst_TempLoopVariable)
-    {
-      Serial.println(F("Digital Input GPIO16 - High, Press PB1 to test"));
-    }
-    else
-    {
-      Serial.println(F("Digital Input GPIO16 - Low, Press PB1 to test"));
-    }
     break;
    }
-   case 223:
+   
+   case 222:
    {
      
      digitalWrite(BRDTST_GPIO4,digitalRead(BRDTST_PB1)); // push PB1 to gpio4
@@ -1369,15 +1319,30 @@ case 43:
       brdtst_TempLoopVariable = digitalRead(BRDTST_GPIO16);
       if(brdtst_TempLoopVariable)
       {
-        Serial.println(F("Digital GPIO16 - High"));
+        Serial.println(F("Digital GPIO16 - High, Press PB1 to test"));
       }
       else
       {
-        Serial.println(F("Digital GPIO16 - Low"));
+        Serial.println(F("Digital GPIO16 - Low, Press PB1 to test"));
       }
     }
     break;
    }    
+   case 223:
+   {
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+    Serial.printf("%s",BoardTesting_Instructions[44]);
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+    brdtst_ucIncrementTestStep = 4;
+    
+   
+    break;
+   }
+   case 224:
+   {
+    // waiting for user input
+    break;
+   }
 // ***********************************************************************************************************************************************************************************************************************
    //Digital Input GPIO17 Test
    case 230:
@@ -1394,29 +1359,12 @@ case 43:
    case 231:
    {
     // waiting for user input
-    break;
-   }
-   case 232:
-   {
-    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    Serial.printf("%s",BoardTesting_Instructions[46]);
-    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    brdtst_ucIncrementTestStep = 3;
     brdtst_TempLoopVariable = 0;
-    digitalWrite(BRDTST_GPIO4, digitalRead(BRDTST_PB1)); // push PB1 to gpio4
-    
-    brdtst_TempLoopVariable = digitalRead(BRDTST_GPIO17);
-    if(brdtst_TempLoopVariable)
-    {
-      Serial.println(F("Digital Input GPIO17 - High, Press PB1 to test"));
-    }
-    else
-    {
-      Serial.println(F("Digital Input GPIO17 - Low, Press PB1 to test"));
-    }
     break;
    }
-   case 233:
+   
+   
+   case 232:
    {
      
      digitalWrite(BRDTST_GPIO4,digitalRead(BRDTST_PB1)); // push PB1 to gpio4
@@ -1425,15 +1373,30 @@ case 43:
       brdtst_TempLoopVariable = digitalRead(BRDTST_GPIO17);
       if(brdtst_TempLoopVariable)
       {
-        Serial.println(F("Digital GPIO17 - High"));
+        Serial.println(F("Digital GPIO17 - High, Press PB1 to test"));
       }
       else
       {
-        Serial.println(F("Digital GPIO17 - Low"));
+        Serial.println(F("Digital GPIO17 - Low, Press PB1 to test"));
       }
     }
     break;
-   }    
+   }  
+   case 233:
+   {
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+    Serial.printf("%s",BoardTesting_Instructions[46]);
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+    brdtst_ucIncrementTestStep = 4;
+    
+    
+    break;
+   }
+   case 234:
+   {
+    // waiting for user input
+    break;
+   }  
 // ***********************************************************************************************************************************************************************************************************************
    //Digital Input GPIO18 Test
    case 240:
@@ -1450,29 +1413,11 @@ case 43:
    case 241:
    {
     // waiting for user input
-    break;
-   }
-   case 242:
-   {
-    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    Serial.printf("%s",BoardTesting_Instructions[48]);
-    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    brdtst_ucIncrementTestStep = 3;
     brdtst_TempLoopVariable = 0;
-    digitalWrite(BRDTST_GPIO4, digitalRead(BRDTST_PB1)); // push PB1 to gpio4
-    
-    brdtst_TempLoopVariable = digitalRead(BRDTST_GPIO18);
-    if(brdtst_TempLoopVariable)
-    {
-      Serial.println(F("Digital Input GPIO18 - High, Press PB1 to test"));
-    }
-    else
-    {
-      Serial.println(F("Digital Input GPIO18 - Low, Press PB1 to test"));
-    }
     break;
    }
-   case 243:
+  
+   case 242:
    {
      
      digitalWrite(BRDTST_GPIO4,digitalRead(BRDTST_PB1)); // push PB1 to gpio4
@@ -1481,16 +1426,29 @@ case 43:
       brdtst_TempLoopVariable = digitalRead(BRDTST_GPIO18);
       if(brdtst_TempLoopVariable)
       {
-        Serial.println(F("Digital GPIO18 - High"));
+        Serial.println(F("Digital GPIO18 - High, Press PB1 to test"));
       }
       else
       {
-        Serial.println(F("Digital GPIO18 - Low"));
+        Serial.println(F("Digital GPIO18 - Low, Press PB1 to test"));
       }
     }
     break;
-   }    
-
+   }  
+    case 243:
+   {
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+    Serial.printf("%s",BoardTesting_Instructions[48]);
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+    brdtst_ucIncrementTestStep = 4;
+   
+    break;
+   }
+   case 244:
+   {
+    // waiting for user input
+    break;
+   }
 
  // ***********************************************************************************************************************************************************************************************************************
  //I2C 3V Port DA Pin Test 
@@ -1507,28 +1465,11 @@ case 43:
    case 251:
    {
     // waiting for user input
-    break;
-   }
-   case 252:
-   {
-    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    Serial.printf("%s",BoardTesting_Instructions[50]);
-    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    brdtst_ucIncrementTestStep = 3;
     brdtst_TempLoopVariable = 0;
-    digitalWrite(BRDTST_GPIO4, digitalRead(BRDTST_PB1)); // push PB1 to gpio4
-    brdtst_TempLoopVariable = digitalRead(BRDTST_I2C_DA);
-    if(brdtst_TempLoopVariable)
-    {
-      Serial.println(F("I2C 3V Port Pin DA - High,  Press PB1 to test"));
-    }
-    else
-    {
-      Serial.println(F("I2C 3V Port Pin DA - Low,  Press PB1 to test"));
-    }
     break;
    }
-   case 253:
+   
+   case 252:
    {
     digitalWrite(BRDTST_GPIO4, digitalRead(BRDTST_PB1)); // push PB1 to gpio4
     if(digitalRead(BRDTST_I2C_DA) != brdtst_TempLoopVariable)
@@ -1537,16 +1478,28 @@ case 43:
       brdtst_TempLoopVariable = digitalRead(BRDTST_I2C_DA);
       if(brdtst_TempLoopVariable)
       {
-        Serial.println(F("I2C 3V Port Pin DA - High"));
+        Serial.println(F("I2C 3V Port Pin DA - High,  Press PB1 to test"));
       }
       else
       {
-        Serial.println(F("I2C 3V Port Pin DA - Low"));
+        Serial.println(F("I2C 3V Port Pin DA - Low,  Press PB1 to test"));
       }
     }
     break;
    }
-  
+   case 253:
+   {
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+    Serial.printf("%s",BoardTesting_Instructions[50]);
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+    brdtst_ucIncrementTestStep = 4;
+    
+   }
+    case 254:
+   {
+    // waiting for user input
+    break;
+   }
 // ***********************************************************************************************************************************************************************************************************************
  //I2C 3V Port CLK Pin Test        
    case 260:
@@ -1562,28 +1515,11 @@ case 43:
    case 261:
    {
     // waiting for user input
-    break;
-   }
-   case 262:
-   {
-    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    Serial.printf("%s",BoardTesting_Instructions[52]);
-    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    brdtst_ucIncrementTestStep = 3;
     brdtst_TempLoopVariable = 0;
-    digitalWrite(BRDTST_GPIO4, digitalRead(BRDTST_PB1)); // push PB1 to gpio4
-    brdtst_TempLoopVariable = digitalRead(BRDTST_I2C_CLK);
-    if(brdtst_TempLoopVariable)
-    {
-      Serial.println(F("I2C 3V Port Pin CLK - High,  Press PB1 to test"));
-    }
-    else
-    {
-      Serial.println(F("I2C 3V Port Pin CLK - Low,  Press PB1 to test"));
-    }
     break;
    }
-   case 263:
+   
+   case 262:
    {
     digitalWrite(BRDTST_GPIO4, digitalRead(BRDTST_PB1)); // push PB1 to gpio4
     if(digitalRead(BRDTST_I2C_CLK) != brdtst_TempLoopVariable)
@@ -1592,16 +1528,30 @@ case 43:
       brdtst_TempLoopVariable = digitalRead(BRDTST_I2C_CLK);
       if(brdtst_TempLoopVariable)
       {
-        Serial.println(F("I2C 3V Port Pin CLK - High"));
+        Serial.println(F("I2C 3V Port Pin CLK - High,  Press PB1 to test"));
       }
       else
       {
-        Serial.println(F("I2C 3V Port Pin CLK - Low"));
+        Serial.println(F("I2C 3V Port Pin CLK - Low,  Press PB1 to test"));
       }
     }
     break;
    } 
- 
+   case 263:
+   {
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+    Serial.printf("%s",BoardTesting_Instructions[52]);
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+    brdtst_ucIncrementTestStep = 4;
+    
+    
+    break;
+   }
+  case 264:
+   {
+    // waiting for user input
+    break;
+   }
 // ***********************************************************************************************************************************************************************************************************************
    //I2C 5V Port DA Pin Test 
    case 270:
@@ -1617,45 +1567,41 @@ case 43:
    case 271:
    {
     // waiting for user input
+    brdtst_TempLoopVariable = 4;
+    
     break;
    }
+   
    case 272:
    {
-    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    Serial.printf("%s",BoardTesting_Instructions[54]);
-    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    brdtst_ucIncrementTestStep = 3;
-    brdtst_TempLoopVariable = 0;
-    digitalWrite(BRDTST_GPIO4, digitalRead(BRDTST_PB1)); // push PB1 to gpio4
-    brdtst_TempLoopVariable = digitalRead(BRDTST_I2C_DA);
-    if(brdtst_TempLoopVariable)
-    {
-      Serial.println(F("I2C 5V Port Pin DA - High, pull ground end wire to test"));
-    }
-    else
-    {
-      Serial.println(F("I2C 5V Port Pin DA - Low, pull ground end wire to test"));
-    }
-    break;
-   }
-   case 273:
-   {
-    digitalWrite(BRDTST_GPIO4, digitalRead(BRDTST_PB1)); // push PB1 to gpio4
+      
     if(digitalRead(BRDTST_I2C_DA) != brdtst_TempLoopVariable)
     {
       brdtst_TempLoopVariable = digitalRead(BRDTST_I2C_DA);
       if(brdtst_TempLoopVariable)
       {
-        Serial.println(F("I2C 5V Port Pin DA - High"));
+        Serial.println(F("I2C 5V Port Pin DA, replace ground end wire to test"));
       }
       else
       {
-        Serial.println(F("I2C 5V Port Pin DA - Low"));
+        Serial.println(F("I2C 5V Port Pin DA, pull ground end wire to test"));
       }
     }
     break;
-   }  
-  
+   } 
+   case 273:
+   {
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+    Serial.printf("%s",BoardTesting_Instructions[54]);
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+    brdtst_ucIncrementTestStep = 4;
+    
+   }
+   case 274:
+   {
+    // waiting for user input
+    break;
+   }
  // ***********************************************************************************************************************************************************************************************************************
    //I2C 5V Port CLK Pin Test     
    case 280:
@@ -1671,45 +1617,42 @@ case 43:
    case 281:
    {
     // waiting for user input
+     brdtst_TempLoopVariable = 4;
+
     break;
    }
+   
    case 282:
    {
-    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    Serial.printf("%s",BoardTesting_Instructions[56]);
-    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    brdtst_ucIncrementTestStep = 3;
-    brdtst_TempLoopVariable = 0;
-    digitalWrite(BRDTST_GPIO4, digitalRead(BRDTST_PB1)); // push PB1 to gpio4
-    brdtst_TempLoopVariable = digitalRead(BRDTST_I2C_CLK);
-    if(brdtst_TempLoopVariable)
-    {
-      Serial.println(F("I2C 5V Port Pin CLK - High, pull ground end wire to test"));
-    }
-    else
-    {
-      Serial.println(F("I2C 5V Port Pin CLK - Low, pull ground end wire to test"));
-    }
-    break;
-   }
-   case 283:
-   {
-    digitalWrite(BRDTST_GPIO4, digitalRead(BRDTST_PB1)); // push PB1 to gpio4
     if(digitalRead(BRDTST_I2C_CLK) != brdtst_TempLoopVariable)
     {
       brdtst_TempLoopVariable = digitalRead(BRDTST_I2C_CLK);
       if(brdtst_TempLoopVariable)
       {
-        Serial.println(F("I2C 5V Port Pin SCLK - High"));
+        Serial.println(F("I2C 5V Port Pin SCLK, replace ground end wire to test"));
       }
       else
       {
-        Serial.println(F("I2C 5V Port Pin SCLK - Low"));
+        Serial.println(F("I2C 5V Port Pin SCLK - , pull ground end wire to test"));
       }
     }
     break;
    } 
-   
+   case 283:
+   {
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+    Serial.printf("%s",BoardTesting_Instructions[56]);
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+    brdtst_ucIncrementTestStep = 4;
+    
+    
+    break;
+   }
+   case 284:
+   {
+    // waiting for user input
+    break;
+   }
 // ***********************************************************************************************************************************************************************************************************************
    //Servo test GPIO35    
    case 290:
@@ -1729,22 +1672,14 @@ case 43:
    case 291:
    {
     // waiting for user input
+    brdtst_uiPCMTest = 1638;  //180 degree
+ 
+    brdtst_uiTimeCount = 1600;
+ 
     break;
    }
+   
    case 292:
-   {
-    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    Serial.printf("%s",BoardTesting_Instructions[58]);
-    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    brdtst_ucIncrementTestStep = 3;
-    brdtst_uiPCMTest = 425;  //zero degree
-    ledcWrite(1,brdtst_uiPCMTest);
-    brdtst_uiTimeCount = 0;
-    Serial.println(F("Servo moves to zero degrees."));
-    
-    break;
-   }
-   case 293:
    {
     brdtst_uiTimeCount = brdtst_uiTimeCount + 1;
     if(brdtst_uiTimeCount > 1500)
@@ -1753,7 +1688,7 @@ case 43:
       if(brdtst_uiPCMTest > 500)
       {
         brdtst_uiPCMTest = 425;
-        Serial.println(F("Servo moves to zero degrees.t"));
+        Serial.println(F("Servo moves to zero degrees."));
       }
       else
       {
@@ -1764,7 +1699,21 @@ case 43:
     }
     break;
    } 
-   
+   case 293:
+   {
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+    Serial.printf("%s",BoardTesting_Instructions[58]);
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+    brdtst_ucIncrementTestStep = 4;
+    
+    
+    break;
+   }
+   case 294:
+   {
+    // waiting for user input
+    break;
+   }
  // ***********************************************************************************************************************************************************************************************************************
    //Servo test GPIO36     
    case 300:
@@ -1776,7 +1725,7 @@ case 43:
     pinMode(BRDTST_MOTOR_2_B, OUTPUT); // set I2C_CLK  as input
      //setup PWM for motors
      ledcDetachPin(BRDTST_MOTOR_2_A);
-     //ledcSetup(1, 50,16);// channel 1, 50 Hz, 16-bit width
+    ledcSetup(1, 50,14);// channel 1, 50 Hz, 14-bit width
     ledcAttachPin(BRDTST_MOTOR_2_B, 1); // assign Motors pins to channels
     brdtst_ucIncrementTestStep = 1;
     break;
@@ -1784,22 +1733,14 @@ case 43:
    case 301:
    {
     // waiting for user input
-    break;
-   }
-   case 302:
-   {
-    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    Serial.printf("%s",BoardTesting_Instructions[60]);
-    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    brdtst_ucIncrementTestStep = 3;
-    brdtst_uiPCMTest = 425;  //zero degree
-    ledcWrite(1,brdtst_uiPCMTest);
-    brdtst_uiTimeCount = 0;
-    Serial.println(F("Servo moves to zero degrees."));
+     brdtst_uiPCMTest = 1638;  //180 degree
+   
+    brdtst_uiTimeCount = 1600;
     
     break;
    }
-   case 303:
+   
+   case 302:
    {
     brdtst_uiTimeCount = brdtst_uiTimeCount + 1;
      if(brdtst_uiTimeCount > 1500)
@@ -1819,7 +1760,21 @@ case 43:
     }
     break;
    } 
+   case 303:
+   {
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+    Serial.printf("%s",BoardTesting_Instructions[60]);
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+    brdtst_ucIncrementTestStep = 4;
    
+    
+    break;
+   }
+   case 304:
+   {
+    // waiting for user input
+    break;
+   }
    // ***********************************************************************************************************************************************************************************************************************
    //Servo test GPIO37    
    case 310:
@@ -1831,7 +1786,7 @@ case 43:
     pinMode(BRDTST_MOTOR_1_A, OUTPUT); // set I2C_CLK  as input
      //setup PWM for motors
      ledcDetachPin(BRDTST_MOTOR_2_B);
-     //ledcSetup(1, 50,16);// channel 1, 50 Hz, 16-bit width
+    ledcSetup(1, 50,14);// channel 1, 50 Hz, 14-bit width
     ledcAttachPin(BRDTST_MOTOR_1_A, 1); // assign Motors pins to channels
     brdtst_ucIncrementTestStep = 1;
     break;
@@ -1839,22 +1794,12 @@ case 43:
    case 311:
    {
     // waiting for user input
+     brdtst_uiPCMTest = 1638;  //180 degree
+    brdtst_uiTimeCount = 1638;
     break;
    }
+   
    case 312:
-   {
-    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    Serial.printf("%s",BoardTesting_Instructions[62]);
-    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    brdtst_ucIncrementTestStep = 3;
-    brdtst_uiPCMTest = 425;  //zero degree
-    ledcWrite(1,brdtst_uiPCMTest);
-    brdtst_uiTimeCount = 0;
-    Serial.println(F("Servo moves to zero degrees."));
-    
-    break;
-   }
-   case 313:
    {
     brdtst_uiTimeCount = brdtst_uiTimeCount + 1;
     if(brdtst_uiTimeCount >= 1500)
@@ -1874,6 +1819,21 @@ case 43:
     }
     break;
    } 
+   case 313:
+   {
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+    Serial.printf("%s",BoardTesting_Instructions[62]);
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+    brdtst_ucIncrementTestStep = 4;
+   
+    
+    break;
+   }
+   case 314:
+   {
+    // waiting for user input
+    break;
+   }
   
  // ***********************************************************************************************************************************************************************************************************************
    //Servo test GPIO38      
@@ -1886,7 +1846,7 @@ case 43:
     pinMode(BRDTST_MOTOR_1_B, OUTPUT); // set I2C_CLK  as input
      //setup PWM for motors
      ledcDetachPin(BRDTST_MOTOR_1_A);
-     //ledcSetup(1, 50,16);// channel 1, 50 Hz, 16-bit width
+    ledcSetup(1, 50,14);// channel 1, 50 Hz, 14-bit width
     ledcAttachPin(BRDTST_MOTOR_1_B, 1); // assign Motors pins to channels
     brdtst_ucIncrementTestStep = 1;
     break;
@@ -1894,22 +1854,12 @@ case 43:
    case 321:
    {
     // waiting for user input
+     brdtst_uiPCMTest = 1638;  //180 degree
+    brdtst_uiTimeCount = 1638;
     break;
    }
+   
    case 322:
-   {
-    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    Serial.printf("%s",BoardTesting_Instructions[64]);
-    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    brdtst_ucIncrementTestStep = 3;
-    brdtst_uiPCMTest = 425;  //zero degree
-    ledcWrite(1,brdtst_uiPCMTest);
-    brdtst_uiTimeCount = 0;
-    Serial.println(F("Servo moves to zero degrees."));
-    
-    break;
-   }
-   case 323:
    {
     brdtst_uiTimeCount = brdtst_uiTimeCount + 1;
      if(brdtst_uiTimeCount > 1500)
@@ -1929,7 +1879,21 @@ case 43:
     }
     break;
    } 
+   case 323:
+   {
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+    Serial.printf("%s",BoardTesting_Instructions[64]);
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+    brdtst_ucIncrementTestStep = 4;
    
+    
+    break;
+   }
+   case 324:
+   {
+    // waiting for user input
+    break;
+   }
  // ***********************************************************************************************************************************************************************************************************************
    //Servo test GPIO39     
    case 330:
@@ -1941,7 +1905,7 @@ case 43:
     pinMode(BRDTST_STEPPER_DIR, OUTPUT); // set I2C_CLK  as input
      //setup PWM for motors
      ledcDetachPin(BRDTST_MOTOR_1_B);
-     //ledcSetup(1, 50,16);// channel 1, 50 Hz, 16-bit width
+    ledcSetup(1, 50,14);// channel 1, 50 Hz, 14-bit width
     ledcAttachPin(BRDTST_STEPPER_DIR, 1); // assign Motors pins to channels
      brdtst_ucIncrementTestStep = 1;
     break;
@@ -1949,22 +1913,12 @@ case 43:
    case 331:
    {
     // waiting for user input
+    brdtst_uiPCMTest = 1638;  //180 degree
+    brdtst_uiTimeCount = 1638;
     break;
    }
+   
    case 332:
-   {
-    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    Serial.printf("%s",BoardTesting_Instructions[66]);
-    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    brdtst_ucIncrementTestStep = 3;
-    brdtst_uiPCMTest = 425;  //zero degree
-    ledcWrite(1,brdtst_uiPCMTest);
-    brdtst_uiTimeCount = 0;
-    Serial.println(F("Servo moves to zero degrees."));
-    
-    break;
-   }
-   case 333:
    {
     brdtst_uiTimeCount = brdtst_uiTimeCount + 1;
      if(brdtst_uiTimeCount > 1500)
@@ -1984,7 +1938,21 @@ case 43:
     }
     break;
    } 
-  
+   case 333:
+   {
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+    Serial.printf("%s",BoardTesting_Instructions[66]);
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+    brdtst_ucIncrementTestStep = 4;
+    
+    
+    break;
+   }
+   case 334:
+   {
+    // waiting for user input
+    break;
+   }
  // ***********************************************************************************************************************************************************************************************************************
    //Servo test GPIO40    
    case 340:
@@ -1996,7 +1964,7 @@ case 43:
     pinMode(BRDTST_STEPPER_CLK, OUTPUT); // set I2C_CLK  as input
      //setup PWM for motors
      ledcDetachPin(BRDTST_STEPPER_DIR);
-    //ledcSetup(1, 50,16);// channel 1, 50 Hz, 16-bit width 
+    ledcSetup(1, 50,14);// channel 1, 50 Hz, 14-bit width
     ledcAttachPin(BRDTST_STEPPER_CLK, 1); // assign Motors pins to channels
     brdtst_ucIncrementTestStep = 1;
     break;
@@ -2004,22 +1972,12 @@ case 43:
    case 341:
    {
     // waiting for user input
+    brdtst_uiPCMTest = 1638;  //180 degree
+    brdtst_uiTimeCount = 1638;
     break;
    }
+   
    case 342:
-   {
-    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    Serial.printf("%s",BoardTesting_Instructions[68]);
-    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    brdtst_ucIncrementTestStep = 3;
-    brdtst_uiPCMTest = 425;  //zero degree
-    ledcWrite(1,brdtst_uiPCMTest);
-    brdtst_uiTimeCount = 0;
-    Serial.println(F("Servo moves to zero degrees."));
-    
-    break;
-   }
-   case 343:
    {
     brdtst_uiTimeCount = brdtst_uiTimeCount + 1;
      if(brdtst_uiTimeCount > 1500)
@@ -2039,6 +1997,21 @@ case 43:
     }
     break;
    } 
+   case 343:
+   {
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+    Serial.printf("%s",BoardTesting_Instructions[68]);
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+    brdtst_ucIncrementTestStep = 4;
+   
+    
+    break;
+   }
+   case 344:
+   {
+    // waiting for user input
+    break;
+   }
     
  // ***********************************************************************************************************************************************************************************************************************
    //Servo test GPIO41      
@@ -2051,7 +2024,7 @@ case 43:
     pinMode(BRDTST_SERVO_1, OUTPUT); // set I2C_CLK  as input
      //setup PWM for motors
      ledcDetachPin(BRDTST_STEPPER_CLK);
-    //ledcSetup(1, 50,16);// channel 1, 50 Hz, 16-bit width
+    ledcSetup(1, 50,14);// channel 1, 50 Hz, 14-bit width
     ledcAttachPin(BRDTST_SERVO_1,1); // assign Motors pins to channels
      brdtst_ucIncrementTestStep = 1;
     break;
@@ -2059,22 +2032,12 @@ case 43:
    case 351:
    {
     // waiting for user input
+    brdtst_uiPCMTest = 1638;  //180 degree
+    brdtst_uiTimeCount = 1638;
     break;
    }
+   
    case 352:
-   {
-    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    Serial.printf("%s",BoardTesting_Instructions[70]);
-    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    brdtst_ucIncrementTestStep = 3;
-    brdtst_uiPCMTest = 425;  //zero degree
-    ledcWrite(1,brdtst_uiPCMTest);
-    brdtst_uiTimeCount = 0;
-    Serial.println(F("Servo moves to zero degrees."));
-    
-    break;
-   }
-   case 353:
    {
     brdtst_uiTimeCount = brdtst_uiTimeCount + 1;
      if(brdtst_uiTimeCount > 1500)
@@ -2094,6 +2057,21 @@ case 43:
     }
     break;
    } 
+   case 353:
+   {
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+    Serial.printf("%s",BoardTesting_Instructions[70]);
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+    brdtst_ucIncrementTestStep = 4;
+   
+    
+    break;
+   }
+   case 354:
+   {
+    // waiting for user input
+    break;
+   }
     
  // ***********************************************************************************************************************************************************************************************************************
    //Servo test GPIO42    
@@ -2106,7 +2084,7 @@ case 43:
     pinMode(BRDTST_SERVO_2, OUTPUT); // set I2C_CLK  as input
      //setup PWM for motors
      ledcDetachPin(BRDTST_SERVO_1);
-    //ledcSetup(1, 50,16);// channel 1, 50 Hz, 16-bit width
+    ledcSetup(1, 50,14);// channel 1, 50 Hz, 14-bit width
     ledcAttachPin(BRDTST_SERVO_2, 1); // assign Motors pins to channels
     brdtst_ucIncrementTestStep = 1;
     break;
@@ -2114,22 +2092,12 @@ case 43:
    case 361:
    {
     // waiting for user input
+    brdtst_uiPCMTest = 1638;  //180 degree
+    brdtst_uiTimeCount = 1638;
     break;
    }
+   
    case 362:
-   {
-    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    Serial.printf("%s",BoardTesting_Instructions[72]);
-    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    brdtst_ucIncrementTestStep = 3;
-    brdtst_uiPCMTest = 425;  //zero degree
-    ledcWrite(1,brdtst_uiPCMTest);
-    brdtst_uiTimeCount = 0;
-    Serial.println(F("Servo moves to zero degrees."));
-    
-    break;
-   }
-   case 363:
    {
     brdtst_uiTimeCount = brdtst_uiTimeCount + 1;
      if(brdtst_uiTimeCount > 1500)
@@ -2148,38 +2116,46 @@ case 43:
       ledcWrite(1,brdtst_uiPCMTest);
     }
     break;
-   } 
+   }
+   case 363:
+   {
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+    Serial.printf("%s",BoardTesting_Instructions[72]);
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+    brdtst_ucIncrementTestStep = 4;
+   
+    
+    break;
+   }
+   case 364:
+   {
+    // waiting for user input
+    break;
+   }
 // ***********************************************************************************************************************************************************************************************************************
    // Encoder/Motor Controller A Test    
    case 370:
    {
-     ledcDetachPin(BRDTST_SERVO_2);
+    ledcDetachPin(BRDTST_SERVO_2);
     brstst_ucMaxNumberofTestSteps = 3;
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));Serial.println(F(""));
     Serial.printf("%s",BoardTesting_Instructions[73]);
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
     Bot.driveBegin("D1", BRDTST_MOTOR_1_A, BRDTST_MOTOR_1_B, BRDTST_MOTOR_2_A, BRDTST_MOTOR_2_B); // Set up motors as Drive 1
-    Bot.Stop("D1");
+    //Bot.Stop("D1");
+    Bot.Forward("D1",0,0);
     brdtst_ucIncrementTestStep = 1;
     break;
    }
    case 371:
    {
     // waiting for user input
+    brdtst_uiTimeCount = 1638;
+    brdtst_uiPCMTest = 1638;  
     break;
    }
+   
    case 372:
-   {
-    brdtst_ucIncrementTestStep = 3;
-    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    Serial.printf("%s",BoardTesting_Instructions[74]);
-    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    brdtst_uiTimeCount = 0;
-    Bot.Forward("D1",0,240);
-    brdtst_uiPCMTest = 425;  
-    break;
-   }
-   case 373:
    {
     brdtst_uiTimeCount = brdtst_uiTimeCount + 1;
     Serial.print(F("Encoder Count = "));
@@ -2191,11 +2167,11 @@ case 43:
       {
         brdtst_uiPCMTest = 425;  //
         Bot.Forward("D1",0,240);
-        Serial.println(F("Motor Forward."));
+        Serial.println(F("Motor A Forward."));
       }
       else
       {
-         Serial.println(F("Motor Reverse."));
+         Serial.println(F("Motor A Reverse."));
          brdtst_uiPCMTest = 1638;  //180 degree
          Bot.Reverse("D1",0,240);
       }
@@ -2204,25 +2180,41 @@ case 43:
    
     break;
    } 
-
+   case 373:
+   {
+    brdtst_ucIncrementTestStep = 4;
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+    Serial.printf("%s",BoardTesting_Instructions[74]);
+    Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+    Bot.Forward("D1",0,0);
+    break;
+   }
+   case 374:
+   {
+    // waiting for user input
+    Bot.Forward("D1",0,0);
+    break;
+   }
 
 // ***********************************************************************************************************************************************************************************************************************
    // Encoder/Motor Controller B Test   
    case 380:
    {
-    
+    Bot.Forward("D1",0,0);
     brstst_ucMaxNumberofTestSteps = 3;
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));Serial.println(F(""));
     Serial.printf("%s",BoardTesting_Instructions[75]);
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
     Bot.driveBegin("D1", BRDTST_MOTOR_1_A, BRDTST_MOTOR_1_B, BRDTST_MOTOR_2_A, BRDTST_MOTOR_2_B); // Set up motors as Drive 1
-    Bot.Stop("D1");
+    
     brdtst_ucIncrementTestStep = 1;
     break;
    }
    case 381:
    {
     // waiting for user input
+    brdtst_uiTimeCount = 1638;
+    brdtst_uiPCMTest = 1638; 
     break;
    }
   case 382:
@@ -2236,14 +2228,14 @@ case 43:
       if(brdtst_uiPCMTest > 500)
       {
         brdtst_uiPCMTest = 425;  //zero degree
-        Bot.Reverse("D1", 0,250); // Drive ID, Left speed, Right speed
-        Serial.println(F("Right Motor Reverse."));
+        Bot.Reverse("D1", 240,0); // Drive ID, B speed, A speed
+        Serial.println(F("Motor B Reverse."));
       }
       else
       {
-         Bot.Forward("D1",0, 250); // Drive ID, Left speed, Right speed
+         Bot.Forward("D1",240, 0); // Drive ID, B speed, A speed
          brdtst_uiPCMTest = 1638;  //180 degree
-         Serial.println(F("Right Motor Forward."));
+         Serial.println(F("Motor B Forward."));
       }
      
     }
@@ -2255,11 +2247,15 @@ case 43:
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
     Serial.printf("%s",BoardTesting_Instructions[76]);
     Serial.println(F("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
-    brdtst_ucIncrementTestStep = 3;
-    Bot.Forward("D1",0, 250); // Drive ID, Left speed, Right speed
-    brdtst_uiTimeCount = 0;
-    Serial.println(F("Right Motor forward."));
+    brdtst_ucIncrementTestStep = 4;
+    Bot.Forward("D1",0,0);
     
+    break;
+   }
+   case 384:
+   {
+    // waiting for user input
+    Bot.Forward("D1",0,0);
     break;
    }
 

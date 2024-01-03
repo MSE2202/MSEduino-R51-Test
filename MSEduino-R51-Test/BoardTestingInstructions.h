@@ -362,7 +362,9 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Instructions:\n"
 "   - Slide DIP Switch S1-3 to off and remove jumper wire\n"
 "   - Take the receptacle to receptacle wire and put one end on the three pin header J4 pin closest to the inside of board\n"
-"   - Connect the other end to the three pin header J45 pin closest to the inside of board, then enter \"C\" \n",
+"   - Connect the other end to the three pin header J45 pin closest to the inside of board, then enter \"C\" \n"
+"   - The Serial Monitor will update on Push Button PB1 change of state. \n"
+" Enter \"C\"ontinue to end this test.\n", 
 //
 //Test 14 continued [28]
 "\n"  
@@ -371,8 +373,8 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
 " Instructions:\n"
-"   - The Serial Monitor will update on Push Button PB1 change of state, if working enter \"C\" \n"
-"   - If not working, unplug the MSE-Duino from power sources (USB) and \n"
+"   - If test worked enter \"C\" \n"
+"   - If did not work, unplug the MSE-Duino from power sources (USB) and \n"
 "   --- Check that the wire jumper is connected correctly to three the pin header J4 pin closest inside of board\n"
 "   --- Check that the other end is connected to the three pin header J45 pin closest to the inside of board\n"
 "   --- Check the solder joints on the three pin header J45, GPIO45 (physical pin 26)\n"
@@ -386,7 +388,9 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "\n"
 " Instructions:\n"
 "   - Leave the receptacle to receptacle wire on the three pin header J4 pin closest to the inside of board\n"
-"   - Connect the other end to the three pin header J43 pin closest to the inside of board, then enter \"C\" \n",
+"   - Connect the other end to the three pin header J43 pin closest to the inside of board, then enter \"C\" \n"
+"   - The Serial Monitor will update on Push Button PB1 change of state. \n"
+" Enter \"C\"ontinue to end this test.\n", 
 //
 //Test 15 continued [30]
 "\n"  
@@ -395,8 +399,8 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
 " Instructions:\n"
-"   - The Serial Monitor will update on Push Button PB1 change of state, if working enter \"C\" \n"
-"   - If not working, unplug the MSE-Duino from power sources (USB) and \n"
+"   - If test worked enter \"C\" \n"
+"   - If did not work, unplug the MSE-Duino from power sources (USB) and \n"
 "   --- Check that the wire jumper is connected correctly to three the pin header J4 pin closest inside of board\n"
 "   --- Check that the other end is connected to the three pin header J43 pin closest to the inside of board\n"
 "   --- Check the solder joints on the three pin header J43, GPIO43 (physical pin 37)\n"
@@ -410,7 +414,9 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "\n"
 " Instructions:\n"
 "   - Leave the receptacle to receptacle wire on three pin header J4 pin closest to the inside of board\n"
-"   - Connect the other end to the three pin header J44 pin closest to the inside of board, then enter \"C\" \n",
+"   - Connect the other end to the three pin header J44 pin closest to the inside of board, then enter \"C\" \n"
+"   - The Serial Monitor will update on Push Button PB1 change of state. \n"
+" Enter \"C\"ontinue to end this test.\n", 
 //
 //Test 16 continued [32]
 "\n"  
@@ -419,8 +425,8 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
 " Instructions:\n"
-"   - The Serial Monitor will update on Push Button PB1 change of state, if working enter \"C\" \n"
-"   - If not working, unplug the MSE-Duino from power sources (USB) and \n"
+"   - If test worked enter \"C\" \n"
+"   - If did not work, unplug the MSE-Duino from power sources (USB) and \n"
 "   --- Check that the wire jumper is connected correctly to three the pin header J4 pin closest inside of board\n"
 "   --- Check that the other end is connected to the three pin header J44 pin closest to the inside of board\n"
 "   --- Check the solder joints on the three pin header J44, GPIO44 (physical pin 36)\n"
@@ -434,7 +440,9 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "\n"
 " Instructions:\n"
 "   - Leave the receptacle to receptacle wire on three pin header J4 pin closest to the inside of board\n"
-"   - Connect the other end to the three pin header J11 pin closest to the inside of board, then enter \"C\" \n",
+"   - Connect the other end to the three pin header J11 pin closest to the inside of board, then enter \"C\" \n"
+"   - The Serial Monitor will update on Push Button PB1 change of state. \n"
+" Enter \"C\"ontinue to end this test.\n", 
 //
 //Test 16 continued [34]
 "\n"  
@@ -443,8 +451,8 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
 " Instructions:\n"
-"   - The Serial Monitor will update on Push Button PB1 change of state, if working enter \"C\" \n"
-"   - If not working, unplug the MSE-Duino from power sources (USB) and \n"
+"   - If test worked enter \"C\" \n"
+"   - If did not work, unplug the MSE-Duino from power sources (USB) and \n"
 "   --- Check that the wire jumper is connected correctly to three the pin header J4 pin closest inside of board\n"
 "   --- Check that the other end is connected to the three pin header J11 pin closest to the inside of board\n"
 "   --- Check the solder joints on the three pin header J11, GPIO11 (physical pin 19)\n"
@@ -459,7 +467,9 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "\n"
 " Instructions:\n"
 "   - Leave the receptacle to receptacle wire on three pin header J4 pin closest to the inside of board\n"
-"   - Connect the other end to the three pin header J12 pin closest to the inside of board, then enter \"C\" \n",
+"   - Connect the other end to the three pin header J12 pin closest to the inside of board, then enter \"C\" \n"
+"   - The Serial Monitor will update on Push Button PB1 change of state. \n"
+" Enter \"C\"ontinue to end this test.\n", 
 //
 //Test 18 continued [36]
 "\n"  
@@ -468,8 +478,8 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
 " Instructions:\n"
-"   - The Serial Monitor will update on Push Button PB1 change of state, if working enter \"C\" \n"
-"   - If not working, unplug the MSE-Duino from power sources (USB) and \n"
+"   - If test worked enter \"C\" \n"
+"   - If did not work, unplug the MSE-Duino from power sources (USB) and \n"
 "   --- Check that the wire jumper is connected correctly to three the pin header J4 pin closest inside of board\n"
 "   --- Check that the other end is connected to the three pin header J12 pin closest to the inside of board\n"
 "   --- Check the solder joints on the three pin header J12, GPIO12 (physical pin 20)\n"
@@ -484,7 +494,9 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "\n"
 " Instructions:\n"
 "   - Leave the receptacle to receptacle wire on three pin header J4 pin closest to the inside of board\n"
-"   - Connect the other end to the three pin header J13 pin closest to the inside of board, then enter \"C\" \n",
+"   - Connect the other end to the three pin header J13 pin closest to the inside of board, then enter \"C\" \n"
+"   - The Serial Monitor will update on Push Button PB1 change of state. \n"
+" Enter \"C\"ontinue to end this test.\n", 
 //
 //Test 19 continued [38]
 "\n"  
@@ -493,8 +505,8 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
 " Instructions:\n"
-"   - The Serial Monitor will update on Push Button PB1 change of state, if working enter \"C\" \n"
-"   - If not working, unplug the MSE-Duino from power sources (USB) and \n"
+"   - If test worked enter \"C\" \n"
+"   - If did not work, unplug the MSE-Duino from power sources (USB) and \n"
 "   --- Check that the wire jumper is connected correctly to three the pin header J4 pin closest inside of board\n"
 "   --- Check that the other end is connected to the three pin header J13 pin closest to the inside of board\n"
 "   --- Check the solder joints on the three pin header J13, GPIO13 (physical pin 21)\n"
@@ -509,7 +521,9 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "\n"
 " Instructions:\n"
 "   - Leave the receptacle to receptacle wire on three pin header J4 pin closest to the inside of board\n"
-"   - Connect the other end to the three pin header J14 pin closest to the inside of board, then enter \"C\" \n",
+"   - Connect the other end to the three pin header J14 pin closest to the inside of board, then enter \"C\" \n"
+"   - The Serial Monitor will update on Push Button PB1 change of state. \n"
+" Enter \"C\"ontinue to end this test.\n", 
 //
 //Test 20 continued [40]
 "\n"  
@@ -518,8 +532,8 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
 " Instructions:\n"
-"   - The Serial Monitor will update on Push Button PB1 change of state, if working enter \"C\" \n"
-"   - If not working, unplug the MSE-Duino from power sources (USB) and \n"
+"   - If test worked enter \"C\" \n"
+"   - If did not work, unplug the MSE-Duino from power sources (USB) and \n"
 "   --- Check that the wire jumper is connected correctly to three the pin header J4 pin closest inside of board\n"
 "   --- Check that the other end is connected to the three pin header J14 pin closest to the inside of board\n"
 "   --- Check the solder joints on the three pin header J14, GPIO14 (physical pin 22)\n"
@@ -534,7 +548,9 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "\n"
 " Instructions:\n"
 "   - Leave the receptacle to receptacle wire on three pin header J4 pin closest to the inside of board\n"
-"   - Connect the other end to the three pin header J15 pin closest to the inside of board, then enter \"C\" \n",
+"   - Connect the other end to the three pin header J15 pin closest to the inside of board, then enter \"C\" \n"
+"   - The Serial Monitor will update on Push Button PB1 change of state. \n"
+" Enter \"C\"ontinue to end this test.\n", 
 //
 //Test 21 continued [42]
 "\n"  
@@ -543,8 +559,8 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
 " Instructions:\n"
-"   - The Serial Monitor will update on Push Button PB1 change of state, if working enter \"C\" \n"
-"   - If not working, unplug the MSE-Duino from power sources (USB) and \n"
+"   - If test worked enter \"C\" \n"
+"   - If did not work, unplug the MSE-Duino from power sources (USB) and \n"
 "   --- Check that the wire jumper is connected correctly to three the pin header J4 pin closest inside of board\n"
 "   --- Check that the other end is connected to the three pin header J15 pin closest to the inside of board\n"
 "   --- Check the solder joints on the three pin header J15, GPIO15 (physical pin 8)\n"
@@ -559,7 +575,9 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "\n"
 " Instructions:\n"
 "   - Leave the receptacle to receptacle wire on three pin header J4 pin closest to the inside of board\n"
-"   - Connect the other end to the three pin header J16 pin closest to the inside of board, then enter \"C\" \n",
+"   - Connect the other end to the three pin header J16 pin closest to the inside of board, then enter \"C\" \n"
+"   - The Serial Monitor will update on Push Button PB1 change of state. \n"
+" Enter \"C\"ontinue to end this test.\n", 
 //
 //Test 22 continued [44]
 "\n"  
@@ -568,8 +586,8 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
 " Instructions:\n"
-"   - The Serial Monitor will update on Push Button PB1 change of state, if working enter \"C\" \n"
-"   - If not working, unplug the MSE-Duino from power sources (USB) and \n"
+"   - If test worked enter \"C\" \n"
+"   - If did not work, unplug the MSE-Duino from power sources (USB) and \n"
 "   --- Check that the wire jumper is connected correctly to three the pin header J4 pin closest inside of board\n"
 "   --- Check that the other end is connected to the three pin header J16 pin closest to the inside of board\n"
 "   --- Check the solder joints on the three pin header J16, GPIO16 (physical pin 9)\n"
@@ -584,7 +602,9 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "\n"
 " Instructions:\n"
 "   - Leave the receptacle to receptacle wire on three pin header J4 pin closest to the inside of board\n"
-"   - Connect the other end to the three pin header J17 pin closest to the inside of board, then enter \"C\" \n",
+"   - Connect the other end to the three pin header J17 pin closest to the inside of board, then enter \"C\" \n"
+"   - The Serial Monitor will update on Push Button PB1 change of state. \n"
+" Enter \"C\"ontinue to end this test.\n", 
 //
 //Test 23 continued [46]
 "\n"  
@@ -593,8 +613,8 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
 " Instructions:\n"
-"   - The Serial Monitor will update on Push Button PB1 change of state, if working enter \"C\" \n"
-"   - If not working, unplug the MSE-Duino from power sources (USB) and \n"
+"   - If test worked enter \"C\" \n"
+"   - If did not work, unplug the MSE-Duino from power sources (USB) and \n"
 "   --- Check that the wire jumper is connected correctly to three the pin header J4 pin closest inside of board\n"
 "   --- Check that the other end is connected to the three pin header J17 pin closest to the inside of board\n"
 "   --- Check the solder joints on the three pin header J17, GPIO17 (physical pin 10)\n"
@@ -609,7 +629,9 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "\n"
 " Instructions:\n"
 "   - Leave the receptacle to receptacle wire on three pin header J4 pin closest to the inside of board\n"
-"   - Connect the other end to the three pin header J18 pin closest to the inside of board, then enter \"C\" \n",
+"   - Connect the other end to the three pin header J18 pin closest to the inside of board, then enter \"C\" \n"
+"   - The Serial Monitor will update on Push Button PB1 change of state. \n"
+" Enter \"C\"ontinue to end this test.\n", 
 //
 //Test 24 continued [48]
 "\n"  
@@ -618,8 +640,8 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
 " Instructions:\n"
-"   - The Serial Monitor will update on Push Button PB1 change of state, if working enter \"C\" \n"
-"   - If not working, unplug the MSE-Duino from power sources (USB) and \n"
+"   - If test worked enter \"C\" \n"
+"   - If did not work, unplug the MSE-Duino from power sources (USB) and \n"
 "   --- Check that the wire jumper is connected correctly to three the pin header J4 pin closest inside of board\n"
 "   --- Check that the other end is connected to the three pin header J18 pin closest to the inside of board\n"
 "   --- Check the solder joints on the three pin header J18, GPIO18 (physical pin 11)\n"
@@ -641,7 +663,9 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Instructions:\n"
 "  !!! This is where you might blow your ESP32 if you are not careful connecting to the correct pins!!!! \n" 
 "   - Leave the wire jumper on the three pin header J4 pin closest to the inside of board connected\n"
-"   - Move the other end to three pin header J47 pin closest to the inside of board, then enter \"C\" \n",
+"   - Move the other end to three pin header J47 pin closest to the inside of board, then enter \"C\" \n"
+"   - The Serial Monitor will update on Push Button PB1 change of state. \n"
+" Enter \"C\"ontinue to end this test.\n", 
 //
 //Test 25 continued [50]
 "\n"  
@@ -650,8 +674,8 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
 " Instructions:\n"
-"   - The Serial Monitor will update when Push Button 1 (PB1) is pressed, if working enter \"C\" \n"
-"   - If not working, unplug the MSE-Duino from power sources (USB) and \n"
+"   - If test worked enter \"C\" \n"
+"   - If did not work,  unplug the MSE-Duino from power sources (USB) and \n"
 "   --- Check that the wire jumper is connected correctly to one end of the three pin header J4 pin closest to the inside of board\n"
 "   --- Check that the other end is connected to the three pin header J47 pin closest to the inside of board,\n"
 "   --- Make sure that Transistor Q1 is soldered in the correct orientation\n"
@@ -666,7 +690,9 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "\n"
 " Instructions:\n"
 "   - Leave the wire jumper on the one end of the three pin header J4 pin closest to the inside of board\n"   
-"   - Move the other end to three pin header J48 pin closest to the inside of board, then enter \"C\" \n",
+"   - Move the other end to three pin header J48 pin closest to the inside of board, then enter \"C\" \n"
+"   - The Serial Monitor will update on Push Button PB1 change of state. \n"
+" Enter \"C\"ontinue to end this test.\n",
 //
 //Test 26 continued [52]
 "\n"  
@@ -675,8 +701,8 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
 " Instructions:\n"
-"   - The Serial Monitor will update when Push Button 1 (PB1) is pressed, if working enter \"C\" \n"
-"   --- Check that the wire jumper is connected correctly to one end of the three pin header J4 pin closest to the inside of board\n"
+"   - If test worked enter \"C\" \n"
+"   - If did not work,  Check that the wire jumper is connected correctly to one end of the three pin header J4 pin closest to the inside of board\n"
 "   --- Check that the other end is connected to the three pin header J48 pin closest to the inside of board,\n"
 "   --- Make sure that Transistor Q2 is soldered in the correct orientation\n"
 "   --- Check the solder joints on the three pin header J48, Transistor Q2, Resistor R13, and I2C CLK (physical pin 25)\n"
@@ -698,7 +724,8 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "  !!! This is where you might blow you're ESP32 if your not careful connecting to the correct pins  !!!! \n" 
 "   - Move the wire jumper from the one end of the three pin header J4 pin closest to the inside of board to the three pin jumper J47-5 pin closest to the inside of board\n"  
 "   - Move the wire jumper from three pin header J48 to the three pin header J47-5, connect to pin on outside of board.\n"
-"   - then enter \"C\" \n",
+"   - The Serial Monitor will update when wire jumper is removed from ground pin and replaced on ground pin (pin 47-5 outside)\n"
+" Enter \"C\"ontinue to end this test.\n",
 //
 //Test 27 continued [54]
 "\n"  
@@ -707,8 +734,8 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
 " Instructions:\n"
-"   - The Serial Monitor will update when wire jumper is removed from ground pin and replaced on ground pin (pin 47-5 outside), if working enter \"C\" \n"
-"   - If not working, unplug the MSE-Duino from power sources (USB) and \n"
+"   - If test worked enter \"C\" \n"
+"   - If did not work, unplug the MSE-Duino from power sources (USB) and \n"
 "   --- Check that the wire jumper is connected correctly to outside pin of the three pin header J47-5.\n"
 "   --- Check that the other end is connected to fhree pin header J47-5, connect to pin closest to inside to board.\n"
 "   --- Make sure that Transistor Q1 is soldered in the correct orientation\n"
@@ -725,7 +752,8 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "  !!! This is where you might blow you're ESP32 if your not careful connecting to the correct pins  !!!! \n" 
 "   - Move the wire jumper from the one end of the three pin header J47-5 pin closest to the inside of board to the three pin jumper J48-5 pin closest to the inside of board\n"  
 "   - Leave the wire jumper on three pin header J47-5 pin on outside of board.\n"
-"   - then enter \"C\" \n",
+"   - The Serial Monitor will update when wire jumper is removed from ground pin and replaced on ground pin (pin 47-5 outside)\n"
+" Enter \"C\"ontinue to end this test.\n",
 //
 //Test 28 continued [56]
 "\n"  
@@ -734,8 +762,8 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
 " Instructions:\n"
-"   - The Serial Monitor will update when wire jumper is removed from ground pin and replaced on ground pin (pin 48-5 outside), if working enter \"C\" \n"
-"   - If not working, unplug the MSE-Duino from power sources (USB) and \n"
+"   - If test worked enter \"C\" \n"
+"   - If did not work, unplug the MSE-Duino from power sources (USB) and \n"
 "   --- Check that the wire jumper is connected correctly to outside pin of the three pin header J48-5.\n"
 "   --- Check that the other end is connected to fhree pin header J48-5, connect to pin closest to inside to board.\n"
 "   --- Make sure that Transistor Q2 is soldered in the correct orientation\n"
@@ -753,7 +781,10 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "   - Plug one of your small blue RC servos into the three pin header J35, with the brown wire connected to the pin at edge of board and the orange wire to the pin closest\n"
 "     to the inside of board\n"
 "   - then enter \"C\" \n"
+"   - The Serial Monitor should display the servo angle and the servo should swing forward then backwards.\n"
 "       NOTE: Once you are finished with this test you will need to enter \"C\" to stop the scrolling data.\n",
+
+
 //
 //Test 29 continued [58]
 "\n"  
@@ -762,8 +793,8 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
 " Instructions:\n"
-"   - The Serial Monitor should display the servo angle and the servo should swing forward then backwards, if working enter \"C\" \n"
-"   - If not working, unplug the MSE-Duino from power sources (USB) and \n"
+"   - If test worked enter \"C\" \n"
+"   - If did not work, unplug the MSE-Duino from power sources (USB) and \n"
 "   --- Check that the servo is properly connected to the three pin header J35, with the brown wire connected to the pin at edge of board and the orange wire to the pin\n"
 "       closest to the inside of board\n"
 "   --- Check the solder joints on the three pin header J35, and GPIO35 (physical pin 28)\n"
@@ -778,6 +809,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Instructions:\n"
 "   - Move the RC servo to the three pin header J36, with the brown wire connected to the pin at edge of board and the orange wire to the pin closest to the inside of board\n"
 "   - then enter \"C\" \n"
+"   - The Serial Monitor should display the servo angle and the servo should swing forward then backwards.\n"
 "       NOTE: Once you are finished with this test you will need to enter \"C\" to stop the scrolling data.\n",
 //
 //Test 30 continued [60]
@@ -787,8 +819,8 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
 " Instructions:\n"
-"   - The Serial Monitor should display the servo angle and the servo should swing forward then backwards, if working enter \"C\" \n"
-"   - If not working, unplug the MSE-Duino from power sources (USB) and \n"
+"   - If test worked enter \"C\" \n"
+"   - If did not work, unplug the MSE-Duino from power sources (USB) and \n"
 "   --- Check that the servo is properly connected to the three pin header J36, with the brown wire connected to the pin at edge of board and the orange wire to the pin closest\n"
 "       to the inside of board\n"
 "   --- Check the solder joints on the three pin header J36, and GPIO36 (physical pin 29)\n"
@@ -803,6 +835,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Instructions:\n"
 "   - Move the RC servo to the three pin header J37, with the brown wire connected to the pin at edge of board and the orange wire to the pin closest to the inside of board\n"
 "   - then enter \"C\" \n"
+"   - The Serial Monitor should display the servo angle and the servo should swing forward then backwards.\n"
 "       NOTE: Once you are finished with this test you will need to enter \"C\" to stop the scrolling data.\n",
 //
 //Test 31 continued [62]
@@ -812,8 +845,8 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
 " Instructions:\n"
-"   - The Serial Monitor should display the servo angle and the servo should swing forward then backwards, if working enter \"C\" \n"
-"   - If not working, unplug the MSE-Duino from power sources (USB) and \n"
+"   - If test worked enter \"C\" \n"
+"   - If did not work, unplug the MSE-Duino from power sources (USB) and \n"
 "   --- Check that the servo is properly connected to the three pin header J37, with the brown wire connected to the pin at edge of board and the orange wire to the pin closest\n"
 "       to the inside of board\n"
 "   --- Check the solder joints on the three pin header J37, and GPIO37 (physical pin 30)\n"
@@ -828,6 +861,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Instructions:\n"
 "   - Move the RC servo to the three pin header J38, with the brown wire connected to the pin at edge of board and the orange wire to the pin closest to the inside of board\n"
 "   - then enter \"C\" \n"
+"   - The Serial Monitor should display the servo angle and the servo should swing forward then backwards.\n"
 "       NOTE: Once you are finished with this test you will need to enter \"C\" to stop the scrolling data.\n",
 //
 //Test 32 continued [64]
@@ -837,8 +871,8 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
 " Instructions:\n"
-"   - The Serial Monitor should display the servo angle and the servo should swing forward then backwards, if working enter \"C\" \n"
-"   - If not working, unplug the MSE-Duino from power sources (USB) and \n"
+"   - If test worked enter \"C\" \n"
+"   - If did not work, unplug the MSE-Duino from power sources (USB) and \n"
 "   --- Check that the servo is properly connected to the three pin header J38, with the brown wire connected to the pin at edge of board and the orange wire to the pin closest\n"
 "       to the inside of board\n"
 "   --- Check the solder joints on the three pin header J38, and GPIO38 (physical pin 31)\n"
@@ -853,6 +887,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Instructions:\n"
 "   - Move the RC servo to the three pin header J39, with the brown wire connected to the pin at edge of board and the orange wire to the pin closest to the inside of board\n"
 "   - then enter \"C\" \n"
+"   - The Serial Monitor should display the servo angle and the servo should swing forward then backwards.\n"
 "       NOTE: Once you are finished with this test you will need to enter \"C\" to stop the scrolling data.\n",
 //
 //Test 33 continued [66]
@@ -862,8 +897,8 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
 " Instructions:\n"
-"   - The Serial Monitor should display the servo angle and the servo should swing forward then backwards, if working enter \"C\" \n"
-"   - If not working, unplug the MSE-Duino from power sources (USB) and \n"
+"   - If test worked enter \"C\" \n"
+"   - If did not work, unplug the MSE-Duino from power sources (USB) and \n"
 "   --- Check that the servo is properly connected to the three pin header J39, with the brown wire connected to the pin at edge of board and the orange wire to the pin closest\n"
 "       to the inside of board\n"
 "   --- Check the solder joints on the three pin header J39, and GPIO39 (physical pin 32)\n"
@@ -878,6 +913,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Instructions:\n"
 "   - Move the RC servo to the three pin header J40, with the brown wire connected to the pin at edge of board and the orange wire to the pin closest to the inside of board\n"
 "   - then enter \"C\" \n"
+"   - The Serial Monitor should display the servo angle and the servo should swing forward then backwards.\n"
 "       NOTE: Once you are finished with this test you will need to enter \"C\" to stop the scrolling data.\n",
 //
 //Test 34 continued [68]
@@ -887,8 +923,8 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
 " Instructions:\n"
-"   - The Serial Monitor should display the servo angle and the servo should swing forward then backwards, if working enter \"C\" \n"
-"   - If not working, unplug the MSE-Duino from power sources (USB) and \n"
+"   - If test worked enter \"C\" \n"
+"   - If did not work, unplug the MSE-Duino from power sources (USB) and \n"
 "   --- Check that the servo is properly connected to the three pin header J40, with the brown wire connected to the pin at edge of board and the orange wire to the pin closest\n"
 "       to the inside of board\n"
 "   --- Check the solder joints on the three pin header J40, and GPIO40 (physical pin 33)\n"
@@ -903,6 +939,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Instructions:\n"
 "   - Move the RC servo to the three pin header J41, with the brown wire connected to the pin at edge of board and the orange wire to the pin closest to the inside of board\n"
 "   - then enter \"C\" \n"
+"   - The Serial Monitor should display the servo angle and the servo should swing forward then backwards.\n"
 "       NOTE: Once you are finished with this test you will need to enter \"C\" to stop the scrolling data.\n",
 //
 //Test 35 continued [70]
@@ -912,8 +949,8 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
 " Instructions:\n"
-"   - The Serial Monitor should display the servo angle and the servo should swing forward then backwards, if working enter \"C\" \n"
-"   - If not working, unplug the MSE-Duino from power sources (USB) and \n"
+"   - If test worked enter \"C\" \n"
+"   - If did not work, unplug the MSE-Duino from power sources (USB) and \n"
 "   --- Check that the servo is properly connected to the three pin header J41, with the brown wire connected to the pin at edge of board and the orange wire to the pin closest\n"
 "       to the inside of board\n"
 "   --- Check the solder joints on the three pin header J41, and GPIO41 (physical pin 34)\n"
@@ -937,8 +974,8 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
 " Instructions:\n"
-"   - The Serial Monitor should display the servo angle and the servo should swing forward then backwards, if working enter \"C\" \n"
-"   - If not working, unplug the MSE-Duino from power sources (USB) and \n"
+"   - If test worked enter \"C\" \n"
+"   - If did not work, unplug the MSE-Duino from power sources (USB) and \n"
 "   --- Check that the servo is properly connected to the three pin header J42, with the brown wire connected to the pin at edge of board and the orange wire to the pin closest\n"
 "       to the inside of board\n"
 "   --- Check the solder joints on the three pin header J42, and GPIO42 (physical pin 35)\n"
@@ -958,6 +995,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "   - Plug the encoder VCC wire into the middle pin of Jumper 11 and encoder ground wire into the bottom (outside) pin Jumper 11.\n"
 "   - Plug encoder C2 wire into top pin in Jumper 12 (closest to inside of board).\n"
 "   - then enter \"C\" \n"
+"   - The Serial Monitor should display the Encode count and the motor should be spinning.\n"
 "       NOTE: Once you are finished with this test you will need to enter \"C\" to stop the scrolling data.\n",
 //
 //
@@ -968,8 +1006,8 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
 " Instructions:\n"
-"   - The Serial Monitor should display the Encode count and the motor should be spinning, if working enter \"C\" \n"
-"   - If not working, unplug the MSE-Duino from power sources (USB) and \n"
+"   - If test worked enter \"C\" \n"
+"   - If did not work, unplug the MSE-Duino from power sources (USB) and \n"
 "   --- Check that the Motor M1, M2 were connected to the MOTOR_A header on Motor Control Board.\n"
 "   --- Check the solder joints on the motor  and encoder wires.\n"
 "   --- Doulbe check the encoder was connedted correctly and to Jumper 11 and 12.\n"
@@ -991,6 +1029,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "   - Move the encoder VCC wire to the middle pin of Jumper 15 and encoder ground wire into the bottom (outside) pin Jumper 15.\n"
 "   - Move encoder C2 wire to top pin on Jumper 16 (closest to inside of board).\n"
 "   - then enter \"C\" \n"
+"   - The Serial Monitor should display the Encode count and the motor should be spinning."
 "       NOTE: Once you are finished with this test you will need to enter \"C\" to stop the scrolling data.\n",
 //
 //Test 38 continued [76]
@@ -1000,8 +1039,8 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Enter \"C\"ontinue to next instruction,\"B\"ack to go beginning of this Test, \"S\"kip Next Test or \"Q\"uit\n"
 "\n"
 " Instructions:\n"
-"   - The Serial Monitor should display the Encode count and the motor should be spinning, if working enter \"C\" \n"
-"   - If not working, unplug the MSE-Duino from power sources (USB) and \n"
+"   - If test worked enter \"C\" \n"
+"   - If did not work,, unplug the MSE-Duino from power sources (USB) and \n"
 "   --- Check that the Motor M1, M2 were connected to the MOTOR_B header on Motor Control Board.\n"
 "   --- Check the solder joints on the motor  and encoder wires.\n"
 "   --- Doulbe check the encoder was connedted correctly and to Jumper 15 and 16.\n"

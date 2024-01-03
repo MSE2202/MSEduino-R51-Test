@@ -57,7 +57,8 @@ const int CR1_ciCountsRev = 1096;                          // encoder pulses per
 const int CR1_ciMaxSpeedInCounts = 1600;                   // maximum encoder counts/sec
 
 // Encoder structure
-struct Encoder {
+struct Encoder 
+{
   const int chanA;                                    // GPIO pin for encoder channel A
   const int chanB;                                    // GPIO pin for encoder channel B
   long pos;                                           // current encoder position
@@ -70,7 +71,8 @@ Encoder encoder[] = {{11, 12, 0},                    // encoder 0 on GPIO 11 and
 // encoder interrupt service routine
 // argument is pointer to an encoder structure, which is statically cast to a Encoder structure, allowing multiple
 // instances of the encoderISR to be created (1 per encoder)
-void ARDUINO_ISR_ATTR encoderISR(void* arg) {
+void ARDUINO_ISR_ATTR encoderISR(void* arg)
+{
   Encoder* s = static_cast<Encoder*>(arg);            // cast pointer to static structure
   
   int b = digitalRead(s->chanB);                      // read state of channel B
