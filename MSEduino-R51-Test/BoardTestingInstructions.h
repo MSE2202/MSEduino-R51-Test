@@ -663,7 +663,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 " Instructions:\n"
 "  !!! This is where you might blow your ESP32 if you are not careful connecting to the correct pins!!!! \n" 
 "   - Leave the wire jumper on the three pin header J4 pin closest to the inside of board connected\n"
-"   - Move the other end to three pin header J47 pin closest to the inside of board, then enter \"C\" \n"
+"   - Move the other end to three pin header J47 (not J47-5) pin closest to the inside of board, then enter \"C\" \n"
 "   - The Serial Monitor will update on Push Button PB1 change of state. \n"
 " Enter \"C\"ontinue to end this test.\n", 
 //
@@ -690,7 +690,7 @@ const static char *BoardTesting_Instructions[] PROGMEM =
 "\n"
 " Instructions:\n"
 "   - Leave the wire jumper on the one end of the three pin header J4 pin closest to the inside of board\n"   
-"   - Move the other end to three pin header J48 pin closest to the inside of board, then enter \"C\" \n"
+"   - Move the other end to three pin header J48 (not J48-5) pin closest to the inside of board, then enter \"C\" \n"
 "   - The Serial Monitor will update on Push Button PB1 change of state. \n"
 " Enter \"C\"ontinue to end this test.\n",
 //
